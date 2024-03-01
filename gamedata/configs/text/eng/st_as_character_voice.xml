@@ -1,5 +1,6 @@
-<!--
+
 <string_table>
+<!--
     <character_phrases
         <bar
     <string id="as_sub_character_voice_bar_visitors_1">
@@ -83,12 +84,693 @@
     <string id="as_sub_character_voice_">
         <text></text>
     </string>
-    <dialogs
-    <human
-    <multiplayer
-    <scenario
+    -->
+    <!-- dialogs -->
+    <string id="as_sub_character_voice_dialogs_oso_chernobyl_crush_1">
+        <text>No, we had nothing to do with it. Our experiment began after the Chernobyl accident.</text>
+    </string>
+    <string id="as_sub_character_voice_dialogs_oso_death_truck_1">
+		<text>This is the transport we take our agents to different parts of the zone. Agents infiltrate the stalker environment and carry out the tasks they were programmed to do without even realising it. Unfortunately, more than half of the agents die in transit as the zone is very unstable.</text>
+	</string>
+	<string id="as_sub_character_voice_dialogs_oso_osoznanie_start_11">
+		<text>Hello, I see you have a lot of questions for me. Ask them and then we'll decide what to do with you.</text>
+	</string>
+	<string id="as_sub_character_voice_dialogs_oso_osoznanie_start_21">
+		<text>The choice is yours</text>
+	</string>
+	<string id="as_sub_character_voice_dialogs_oso_stalker_1">
+		<text>Stalker is the name of a programme to code a person to perform certain tasks. On the approaches to the centre of the zone, we've positioned several psi units. The largest of these is known to you as the brain incinerator. Anyone who tries to pass to the centre of the zone comes under our control. Then they get coded, become our agents and get a "stalker" tattoo. Spread them around the zone, we influence the course of events and keep ourselves safe. Don't forget to subscribe!</text>
+	</string>
+	<string id="as_sub_character_voice_dialogs_oso_what_about_me_1">
+		<text>You're a loose cog in the machine. On one of your trips to the centre of the zone, you got too close to us. Our defences against infiltration were thought to be perfect, but you managed to find a path we didn't know existed. We couldn't let anyone else know our secret. Mankind is not yet ready to know the truth about the causes of the zone. So we immediately began coding our agents to destroy you. For some unknown reason, the equipment malfunctioned, and we didn't notice that you yourself were among the stalkers who fell under our control. As a result, you've been tasked with killing yourself.</text>
+	</string>
+	<string id="as_sub_character_voice_dialogs_oso_what_is_the_zone_1">
+		<text>The Zone is the result of an out of control experiment with the naosphere, the Earth's information field. We were going to tap into the naosphere to explore the possibility of influencing it. However, during the experiment, there was a breach and the energy of the Naosphere rushed to Earth, changing everything around it. That's how the anomaly you call the zone was formed.</text>
+	</string>
+	<string id="as_sub_character_voice_dialogs_oso_what_next_1">
+		<text>What happens next is up to you. The zone is slowly but steadily growing. Our forces are barely strong enough to contain the flow of energy from the Naosphere. You can join us. Our forces will grow, and perhaps we can take control of him. You could destroy us. Then the energy of the Naosphere would flow unimpeded into the zone. There's no telling where that would lead.</text>
+	</string>
+	<string id="as_sub_character_voice_dialogs_oso_who_are_you_1">
+		<text>We're THE CONSCIOUS. A group of researchers who set out to change the world. It is known that the Earth is surrounded by a special information field - the Naosphere. It is closely connected to all sentient beings on the planet and stores all their mental images. We decided to tap into the naosphere and make changes. By removing all the dark things that have spawned humanity, to make the world perfect. No human mind is powerful enough to interact with the naosphere. So we have united our consciousness.</text>
+	</string>
+	<string id="as_sub_character_voice_dialogs_oso_why_chernobyl_1">
+		<text>Chernobyl NPP was the most suitable place for our experiments. Firstly, there were very few people left here after the 1986 accident, so we were able to work without a spare. Secondly, the station provided us with the energy we needed to run the plants. Thirdly, there were powerful antennas near the station, which were used in experiments to influence people's consciousness.</text>
+	</string>
+
+    <!-- human -->
+        <!-- Bandit-->
+            <!-- Alife -->
+                <!-- Attack -->
+    <string id="as_sub_character_voice_human_bandit_1_alife_attack_actor_in_battle_1">
+		<text>Grab the olives, bitches!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_actor_in_battle_1_pda">
+		<text>Grab the olives, bitches!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_actor_in_battle_2">
+		<text>Go away, Kozlov!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_actor_in_battle_2_pda">
+		<text>Get out, you arseholes!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_actor_in_battle_3">
+		<text>Guys, pinch the cocksuckers!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_actor_in_battle_3_pda">
+		<text>Guys, pinch the cocksuckers!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_attack_begin_1">
+		<text>Blow up and follow me!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_attack_begin_2">
+		<text>All right, let's go, boys!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_attack_begin_3">
+		<text>It's time for business! Shine your bagpipes!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_attack_ready_1">
+		<text>Don't rub it in, Kodlam, don't rub it in!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_attack_ready_2">
+		<text>What's up, boys?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_attack_ready_3">
+		<text>Don't crowd, don't crowd, scatter quickly!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_begin_reply_1">
+		<text>No, you're really annoying!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_begin_reply_2">
+		<text>What a load of bollocks, you're just going for a meal</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_begin_reply_3">
+		<text>Who the fuck is that again?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_begin_reply_4">
+		<text>I'm going to kill everyone!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_begin_reply_5">
+		<text>It's kind of a joke, isn't it?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_end_fight_1">
+		<text>You're a real cocksucker!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_end_fight_2">
+		<text>Losers are out, shmanay shovels, guys!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_end_fight_3">
+		<text>Heh-heh! They're stuffing the bulls!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_found_enemy_1">
+		<text>Faggots are here! Get them!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_found_enemy_1_pda">
+		<text>Faggots are here! Get them!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_found_enemy_2">
+		<text>Fryers are here! Guys who want to shoot, come here!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_found_enemy_2_pda">
+		<text>Fryers are here! You guys who want to beg, come here!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_found_enemy_3">
+		<text>Guys, come with us, let's go deer slashing!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_found_enemy_3_pda">
+		<text>Guys, come with us, we're gonna kill a deer!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_prepare_attack_1">
+		<text>All right, Nah, I say jump, you jump, I say shoot, shoot. You got it?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_prepare_attack_2">
+		<text>When I tell you, let's get the fuck out of here! Are we done?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_prepare_attack_3">
+		<text>We'll start fucking around when I say so!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_see_counter_1">
+		<text>Whoa! There they are, the thieves!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_see_counter_1_pda">
+		<text>Whoa! There they are! Freyra!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_see_counter_2">
+		<text>Guys, the pimps are here!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_see_counter_2_pda">
+		<text>Guys, the pimps are here!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_see_counter_3">
+		<text>Chicky-dicky, here you are!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_see_counter_3_pda">
+		<text>Chicky-picky, we got the fur coat!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_smart_captured_1">
+		<text>That's it, boys, we've got the spot!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_smart_captured_1_pda">
+		<text>That's it, boys, we've got the spot!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_smart_captured_2">
+		<text>That's it, you cocksuckers! This is our zone now!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_smart_captured_2_pda">
+		<text>That's it, you cocksuckers! This is our zone now!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_smart_captured_3">
+		<text>We got moose! We got the spot!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_smart_captured_3_pda">
+		<text>We got moose! We got the spot!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_start_fight_1">
+		<text>Bollocks!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_start_fight_2">
+		<text>All right, here we go!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_start_fight_3">
+		<text>Get out, bitch!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_again_1">
+		<text>Don't slow down, bruv! We're getting fucking steamy here!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_again_1_pda">
+		<text>Don't slow down, bruv! We're getting fucking steamy here!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_again_2">
+		<text>We're getting tired of waiting! Give the signal!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_again_2_pda">
+		<text>Listen, we're sick of waiting! Give the signal!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_again_3">
+		<text>Listen, what are you doing in front of the technician? The boys are tired of waiting!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_again_3_pda">
+		<text>Hey, what are you doing in front of the technician? The boys are tired of waiting.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_counter_1">
+		<text>Burkali on your head, keep your eyes open, they're coming!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_counter_1_pda">
+		<text>Burkalina, Timicka, keep your eyes open! They're coming!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_counter_2">
+		<text>It's too early, Zhora, to drink borjom! They're coming again!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_counter_2_pda">
+		<text>It's too early, Zhora, to drink borjom! They're coming again!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_counter_3">
+		<text>Everyone's on guard and don't fuckin' go early!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_counter_3_pda">
+		<text>Everyone's on guard and the niggers are early!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_signal_1">
+		<text>Everything's all set, everything's in place, waiting for your go-ahead!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_signal_1_pda">
+		<text>Everything's in order, everything's in place. We're waiting to hear from you.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_signal_2">
+		<text>We're in position! When you unzip, give me the signal!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_signal_2_pda">
+		<text>We're in position! Uncloak and honk the horn!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_signal_3">
+		<text>Well, we're, like, already here. My koi attack, bro?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_wait_signal_3_pda">
+		<text>Well, we're, like, already here! My kotaku, bro!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_we_spotted_1">
+		<text>Atanda, did you guys draw us?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_we_spotted_1_pda">
+		<text>Atanda, you guys drew us!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_we_spotted_2">
+		<text>Oh, that's not going to work!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_we_spotted_2_pda">
+		<text>Shit, the slow approach didn't work!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_we_spotted_3">
+		<text>Hey, we've been spotted!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_attack_we_spotted_3_pda">
+		<text>Hey, we've been spotted!</text>
+	</string>
+                <!-- Counter Attack -->
+    <string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_check_1_English">
+		<text>Hey, guys, it's us!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_check_2_English">
+		<text>Did you guys go out to graze or something?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_check_3_English">
+		<text>Hey, I don't get it, is the pipe even gonna get picked up or what?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_check_4_English">
+		<text>Hey, guys, we're in a bit of a pickle here, you girls!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_counter_attack_begin_1_English">
+		<text>We're in a bit of a pickle, we've got to punch this kid!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_counter_attack_begin_2_English">
+		<text>Anyway, it's some bullshit from the boys. Why don't you go and see what's going on?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_counter_attack_begin_3_English">
+		<text>The boys are fucking hiding. We should go to the place and see what's going on.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_reply_1_English">
+		<text>That's a shitty question, we'll get it!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_reply_2_English">
+		<text>Don't be afraid, bogor, we'll be spared!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_counter_attack_reply_3_English">
+		<text>She's spotted! We're pulling out!</text>
+	</string>
+            <!-- Defence -->
+    <string id="as_sub_character_voice_human_bandit_1_alife_defence_actor_come_1_English">
+		<text>We're, like, happy to see you, yeah.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_defence_actor_come_1_pda_English">
+		<text>We're, like, happy to see you, yeah.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_defence_actor_come_2_English">
+		<text>Hey! What do you say we let the goats have it?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_alife_defence_actor_come_2_pda_English">
+		<text>Hey! What do you say we let the goats have it?</text>
+	</string>
+            <!-- Patrol -->
+    <string id="as_sub_patrol_run_1_English">
+		<text>You guys blew it!</text>
+	</string>
+	<string id="as_sub_patrol_sneak_1_English">
+		<text>Sha! On the circles!</text>
+	</string>
+	<string id="as_sub_patrol_walk_1_English">
+		<text>Walk slower, gleefully run!</text>
+	</string>
+        <!-- States -->
+            <!-- breath -->
+            <!-- idle -->
+            <!-- loot -->
+            <!-- meet-->
+    <string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hello_1_English">
+		<text>All right, talk fast, what do you want?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hello_2_English">
+		<text>Like I'm listening.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hello_3_English">
+		<text>I mean, hello!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hello_4_English">
+		<text>What's new?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hello_5_English">
+		<text>What are you looking at Zenke for? What do you want?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hello_6_English">
+		<text>What's the big deal?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hello_7_English">
+		<text>So, what did you want to talk about?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hide_weapon_1_English">
+		<text>Don't shine your beer, you don't need to!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hide_weapon_2_English">
+		<text>Zanikal Valina, Birienka!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hide_weapon_3_English">
+		<text>You're tough, aren't you? Put that bagpipe away!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hide_weapon_4_English">
+		<text>Hey, you dumb bastard, you're waving that gun around!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_hide_weapon_5_English">
+		<text>What the fuck are you doing? Fuck the gun!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_stop_1_English">
+		<text>You're mysterious!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_stop_2_English">
+		<text>Hear me, you mistake of nature. No bazaar, no blinkers, you got it, no?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_stop_3_English">
+		<text>When the prosecutor shows up, I'll get you to shut up with him, whoo!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_stop_4_English">
+		<text>What an arsehole!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_stop_5_English">
+		<text>No, this is the first time I've ever seen one that's so fucked up!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_stop_6_English">
+		<text>I'll give you girls like you're talking about.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_default_1_English">
+		<text>Sishe, sit with the others and talk, I'll pass!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_default_2_English">
+		<text>My mate's no good to me right now!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_default_3_English">
+		<text>It's really fucked up!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_fight_1_English">
+		<text>What the fuck are you doing?!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_fight_2_English">
+		<text>Go ahead and shoot, then we'll talk!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_fight_3_English">
+		<text>Why did you drink your mittens?! We'll talk about it later!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_talk_leader_1_English">
+		<text>If you have any questions, go to Brigadier!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_talk_leader_2_English">
+		<text>Go roll your ears, my unknowing ones!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_talk_leader_3_English">
+		<text>If you need a rubdown, there's the pahan!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_weapon_1_English">
+		<text>What are you talking about with a gun in your paws? Put it away!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_weapon_2_English">
+		<text>Get your head in, then we'll have a chat!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_use_no_weapon_3_English">
+		<text>Either fuck the gun or fuck you.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_10_English">
+		<text>Are you confused about the rums or something? Speak up!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_11_English">
+		<text>You're really starting to freak me out.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_12_English">
+		<text>Look, I'm nervous. Why are you acting like a fish?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_13_English">
+		<text>Do you want something or don't you want something? I'm happy with them!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_1_English">
+		<text>All right, quick, what do you want?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_2_English">
+		<text>Like I'm listening.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_3_English">
+		<text>What are you looking at Zenke for? What do you want?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_4_English">
+		<text>So, what did you want to talk about?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_5_English">
+		<text>You lost your tongue up your arse?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_6_English">
+		<text>What are you, Bucky, defective?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_7_English">
+		<text>Cheese, maybe you're a moron</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_8_English">
+		<text>Holy shit! I can't stand frostbite!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_states_meet_meet_wait_9_English">
+		<text>Are you trying my patience?</text>
+	</string>
+            <!-- reactions -->
+                <!-- box -->
+                <!-- joke -->
+    <string id="as_sub_character_voice_human_bandit_1_reactions_joke_1_English">
+		<text>Bros, am I the only dumb one here, or did everyone misunderstand what this is about?</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_joke_2_English">
+		<text>You're a mould, you could have told me about Stirlitz!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_joke_3_English">
+		<text>Ha-ha! That's hilarious!</text>
+	</string>
+                <!-- music -->
+    <string id="as_sub_character_voice_human_bandit_1_reactions_music_1_English">
+		<text>Eh, it's really heartbreaking!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_music_2_English">
+		<text>Yeah, Cupcake, if you played the pussy like that, you'd be shitting yourself</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_music_3_English">
+		<text>I'm a pure woodsman!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_music_4_English">
+		<text>We didn't have shit to play with when we were kids.</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_music_5_English">
+		<text>Lavender, tufted lavender</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_music_6_English">
+		<text>No, no, no, no, that's not it, no, no, no, no, you're bullshitting!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_music_7_English">
+		<text>No, no, well, guys, tell me, I just don't get it, was it like music? There and on, and I'm such music!</text>
+	</string>
+                <!-- story -->
+    <string id="as_sub_character_voice_human_bandit_1_reactions_story_laughter_1_English">
+		<text>Ha-ha-ha-ha-ha-ha-ha-ha! You're a fucking chertyla on the fucking tour! Ha! I'm answering!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_story_laughter_2_English">
+		<text>Ha-ha-ha-ha-ha! Nya, you're a comedian! Come on!</text>
+	</string>
+	<string id="as_sub_character_voice_human_bandit_1_reactions_story_laughter_3_English">
+		<text>Ha-ha-ha-ha-ha Drawing, TNAAA, really drawing</text>
+	</string>
+    <!-- multiplayer -->
+    <!-- scenario -->
+        <!-- agroprom -->
+    <string id="as_sub_character_voice_scenario_agroprom_agr_duty_barman_meet_1_English">
+		<text>You all right? Do you want to make some money? Or do you want to blow the cash on booze?</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_barman_meet_2_English">
+		<text>Welcome to the best bar in the Zone!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_barman_meet_3_English">
+		<text>Come here, stalker! Get well!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_barman_meet_bye_1_English">
+		<text>Come and have a word with me when you're back here.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_barman_meet_bye_2_English">
+		<text>Always happy to hear from those who have a story to tell!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_barman_meet_bye_3_English">
+		<text>Come back again, don't forget the kolobok!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_leader_meet_1_English">
+		<text>What do you want, mercenary?</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_leader_meet_2_English">
+		<text>What's the problem, mercenary?</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_leader_meet_3_English">
+		<text>Are we talking? I'm listening.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_leader_meet_bye_1_English">
+		<text>Good luck to you!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_leader_meet_bye_2_English">
+		<text>So long!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_leader_meet_bye_3_English">
+		<text>The fight is healthy!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_weaponmaster_meet_1_English">
+		<text>You want to shoot?</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_weaponmaster_meet_2_English">
+		<text>Ready to see what kind of marksman you are?</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_weaponmaster_meet_3_English">
+		<text>Come on, those who have not been in the zone, don't be shy, targets don't fight back.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_weaponmaster_meet_bye_1_English">
+		<text>You tore it up with your results, old man!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_weaponmaster_meet_bye_2_English">
+		<text>If you have anger in your heart, stop by. It's a good thing to tear it up on the targets.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_duty_weaponmaster_meet_bye_3_English">
+		<text>That's quite a shootout you got going on there.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_secret_trader_meet_1_English">
+		<text>What brings you here, mercenary?</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_agr_secret_trader_meet_bye_1_English">
+		<text>Break a leg.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_10_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_11_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_12_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_13_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_14_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_15_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_16_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_17_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_1_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_2_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_3_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_4_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_5_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_6_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_7_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_8_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_comandir_megafon_9_English">
+		<text>Subtitle Editor E.Voinova Corrector A.Kulakova</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_kovalsky_after_surge_English">
+		<text>Attention! The ejection is over!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_kovalsky_surge_phase_1_English">
+		<text>Warning! According to the instrument readings, we're approaching the ejection. Take cover now!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_kovalsky_surge_phase_2_English">
+		<text>Attention! Ejection commencing! Repeat, it's starting to blow! Take cover now!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_agroprom_siren_1_English">
+		<text></text>
+	</string>
+        <!-- bar -->
+            <!-- bar guard -->
+    <string id="as_sub_character_voice_scenario_bar_bar_guard_bar_guard_enter_1_English">
+		<text>Come on in, the bartender's waiting.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_bar_guard_bar_guard_enter_2_English">
+		<text>Come in, come in.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_bar_guard_bar_guard_hello_English">
+		<text>Hey, stalker, come and talk to me, but hide the gun.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_bar_guard_bar_guard_prohodi_1_English">
+		<text>Come in, don't be long!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_bar_guard_bar_guard_stop_1_English">
+		<text>You can't come in here!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_bar_guard_bar_guard_stop_2_English">
+		<text>Talk to the bartender.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_bar_guard_bar_guard_stop_3_English">
+		<text>Stop! You can't come in here now!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_bar_guard_bar_guard_warning_English">
+		<text>Stalker, you've entered an area under control. Any attempt to attack our people will be punishable by death.</text>
+	</string>
+        <!-- arena_megafon -->
+    <string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_10_sec_English">
+		<text>Ten seconds please, the fight is on!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_20_sec_English">
+		<text>20 seconds please, the fight is on!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_30_sec_English">
+		<text>30 seconds! The fight is on!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_40_sec_English">
+		<text>FORTY SECONDS! THE FIGHT GOES ON!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_50_sec_English">
+		<text>30 seconds! The fight is on!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_60_sec_English">
+		<text>It's been a minute! The fight continues!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_bloodsucker_English">
+		<text>Tonight in the arena is the monstrously bloodthirsty and perpetually hungry CRAVOSOSOS! Against the bloodsucker will be a man, almost a man, and he is not called that for nothing!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_burer_English">
+		<text>Meet the inhabitants of the underground darkness in the arena tonight, that kills at a distance and tears you apart. There are no barriers to it, no defence against it. Some will say it's a horrible underground carny, but I will, that it's Bührer. Against the Bührer will come a hero whose adventures will never end.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_coward_English">
+		<text>You may ask, where is our hero? I'll tell you where! He got scared for his own skin and ran away! Look for this coward at the bar, where he's ducking his sad soul!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_dead_English">
+		<text>Oh my god, lying there not breathing, he's killed, he fought well, but at the last moment, yeah, someone remove the corpse in the charge.</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_new_fight_English">
+		<text>Attention! Attention! A new fight is about to begin in the arena, that we're going to enjoy thanks to our one and only and a powerful purveyor of monsters MUST!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_out_of_time_English">
+		<text>Time's up, but the fight goes on!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_out_of_time_win_English">
+		<text>Victory! En got him! But wait! Wait! What is it? An didn't make it to the cancelled time And I lost! But despite this sad whimpering Yay! Our winner!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_pseudodog_English">
+		<text>Today in the arena is a white and somewhat fluffy, but incredibly evil pseudo-dog! The pseudo-dog will be opposed by the unknown who came from nowhere!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_snork_English">
+		<text>Today, the arena of martial arts and proper nutrition is sultry Terrible Snork The Snork will be opposed by a human A man without a past Last time he showed what he can do Let's see what happens this time</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_start_English">
+		<text>And so... GUM! GUM! It's on!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_win_1_English">
+		<text>Victory! You managed to put your opponent down in the time allotted and won! Hooray for our winner!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_win_2_English">
+		<text>Victory! Hooray for our winner!</text>
+	</string>
+	<string id="as_sub_character_voice_scenario_bar_arena_megafon_mega_arena_zver_English">
+		<text>Someone you know is in the arena tonight. Someone you love. Someone who hates you with all his wild animal nature. Yes, yes, yes! It's a terrible and invincible beast!</text>
+	</string>
+
+    <!--
     <string id="as_sub_character_voice_">
         <text></text>
     </string>
+    -->
 </string_table>
--->
