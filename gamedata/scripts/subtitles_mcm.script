@@ -1,0 +1,24 @@
+-- If you don't use MCM, change your defaults from here.
+
+--Subtitles MCM setting
+--VodoXleb
+
+local defaults = {
+	["companion_setting"] = 60,
+	["companion_chance"] = 60,
+}
+
+function get_config(key)
+    if ui_mcm then return ui_mcm.get("subtitles/"..key) else return defaults[key] end
+end
+
+function on_mcm_load()
+    op = { id= "subtitles",sh=true ,gr={
+			{id = "title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_subtitles_title",size= {512,50},spacing= 20 },
+			{id = "enable_subs", type = "check", val = 1, def = false},
+			{id = "hear_dist", type = "track", val = 2, min=1,max=100,step=1, def = 25},
+			{id = "hear_chance", type = "track", val = 2, min=0,max=100,step=1, def = 100},
+			{id = "hear_cooldown", type = "track", val = 2, min=0,max=10,step=1, def = 1},	}
+    }
+    return op
+end

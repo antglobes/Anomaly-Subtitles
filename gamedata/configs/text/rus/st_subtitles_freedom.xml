@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_1">
+        <text>Вперед за Че!</text>
+    </string> 
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_2">
+        <text>Эх, гробы подорожают!</text>
+    </string> 
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_3">
+        <text>Свободу всем даром!</text>
+    </string> 
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_4">
+        <text>Свободу не остановить!</text>
+    </string> 
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_5">
+        <text>Свобода!</text>
+    </string> 
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_6">
+        <text>Свобода вперед!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_7">
+        <text>Эх, оттянемся!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_many_1">
+        <text>Кончай сволочей!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_many_2">
+        <text>Бей гадов!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_many_3">
+        <text>Трындец вам, олухи!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_many_4">
+        <text>Кранты вам всем!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_one_1">
+        <text>Делаем его!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_one_2">
+        <text>Кончай гада!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_one_3">
+        <text>Уроем его!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_one_4">
+        <text>Вали скотину!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_attack_one_5">
+        <text>Вали его!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_1">
+        <text>Эх, гробы подорожают!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_2">
+        <text>Свободу всем даром!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_3">
+        <text>Свободу не остановить!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_4">
+        <text>Свобода!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_5">
+        <text>Эх, оттянемся!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_6">
+        <text>Кончай сволочей!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_7">
+        <text>Бей гадов!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_8">
+        <text>Трындец вам, олухи!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_9">
+        <text>Видал, а? Как я его!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_10">
+        <text>Нарвался, чувак!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_11">
+        <text>Влепил гаду!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_12">
+        <text>Получай!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_13">
+        <text>Лови, чувак!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_14">
+        <text>На, кушай!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_attack_script_attack_15">
+        <text>На тебе!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_backup_backup_1">
+        <text>На тебе, на!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_backup_backup_2">
+        <text>Получай!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_backup_backup_3">
+        <text>Лови, чувак!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_backup_backup_4">
+        <text>На, кушай!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_backup_backup_5">
+        <text>На тебе!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_cover_fire_cover_fire_1">
+        <text>Давай, Мэн, я тебя берегу!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_cover_fire_cover_fire_2">
+        <text>Я прикрываю, обходи его!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_cover_fire_cover_fire_3">
+        <text>Чувак, ты сможешь, я его держу!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_cover_fire_cover_fire_4">
+        <text>Прикрываю!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_cover_fire_cover_fire_5">
+        <text>Прижму гада, вперед!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_cover_fire_cover_fire_6">
+        <text>Не боись, прикрываю!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_cover_fire_cover_fire_7">
+        <text>Дуй давай! Пусть только высунется..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_cover_fire_cover_fire_8">
+        <text>Молодца, чувак! Я прикрою!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_death_death_1">
+        <text>Мама...ах..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_death_death_2">
+        <text>Ай..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_death_death_3">
+        <text>Ты!..Ах..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_death_death_4">
+        <text>Ах! Гаад..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_death_death_5">
+        <text>Говн!..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_death_death_6">
+        <text>Ах!..ах..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_death_death_7">
+        <text>Ыах..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_death_death_8">
+        <text>Ааах...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_detour_detour_1">
+        <text>Чувак, я в обход! Постереги его!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_detour_detour_2">
+        <text>Эй, прикрой меня!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_detour_detour_3">
+        <text>Прикрой меня!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_detour_detour_4">
+        <text>Прикрой, я пошел!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_detour_detour_5">
+        <text>Начинаем веселиться! Прикрывай!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_detour_detour_6">
+        <text>Держи его! Я ближе подберусь!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_enemy_1">
+        <text>Обана!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_enemy_2">
+        <text>Чуваки!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_enemy_3">
+        <text>Чуваки, противник!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_enemy_4">
+        <text>Берегись!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_enemy_5">
+        <text>Чужой!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_down_enemy_down_1">
+        <text>Видал, а? Как я его!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_down_enemy_down_2">
+        <text>Один готов!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_down_enemy_down_3">
+        <text>Красиво завалился!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_down_enemy_down_4">
+        <text>Всё! Лёг.</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_hit_enemy_hit_1">
+        <text>Зацепил его!? Точно зацепил!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_hit_enemy_hit_2">
+        <text>Как я его на пулю надел!..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_hit_enemy_hit_3">
+        <text>Вот так ему!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_hit_enemy_hit_4">
+        <text>Нарвался, чувак!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_hit_enemy_hit_5">
+        <text>Влепил гаду!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_enemy_hit_enemy_hit_6">
+        <text>А! Попал!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_fire_fire_1">
+        <text>На тебе! На!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_fire_fire_2">
+        <text>Получай!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_fire_fire_3">
+        <text>Лови, чувак!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_fire_fire_4">
+        <text>На, кушай!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_fight_fire_fire_5">
+        <text>На тебе!</text>
+    </string>
+
+
+</string_table>

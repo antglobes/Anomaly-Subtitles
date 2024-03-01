@@ -1,0 +1,156 @@
+local subs_enabled = true
+local hearing_distance = 25
+local hear_chance = 100
+local hear_cooldown = 0
+local hear_on_cd = false
+function subtitle_him(soundname, npc)
+	if (not subs_enabled) then
+		return
+	end
+	printf(hear_on_cd)
+	if  (hear_on_cd) then
+		return
+	end
+	rnd = math.random(0,100)
+	if (not (hear_chance > rnd)) then
+		return
+	end
+	soundnum = tonumber(string.match(soundname, "(%d+)$"))
+	soundname = soundname:gsub('\\\\', ''):gsub('\\', '/',1):gsub('\\','/')
+	--some operations due to strange stalker phrases system
+	fp = soundname:find("fight/fire/fire_,")
+	if (fp  ~= nil) then
+		if tonumber(soundnum) > 5 then
+			pat = "fight/fire/fire_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - 5
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/attack/attack_,")
+	if (fp ~= nil) then
+		if tonumber(soundnum) > 2 then
+			pat = "fight/attack/attack_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - 2
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/attack/attack_many_,")
+	if (fp ~= nil) then
+		if tonumber(soundnum) > 6 then
+			pat = "fight/attack/attack_many_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - 6
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/attack/attack_one_,")
+	if (fp ~= nil) then
+		if tonumber(soundnum) > 5 then
+			pat = "fight/attack/attack_one_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - 5
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/backup/backup_,")
+	if (fp ~= nil) then
+		if tonumber(soundnum) > 5 then
+			pat = "fight/backup/backup_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - 5
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/detour/detour_,")
+	if (fp ~= nil) then
+		if tonumber(soundnum) > 6 then
+			pat = "fight/detour/detour_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - 6
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	
+	--removing 1s in some phrases
+	fp = soundname:find("fight/grenade/grenade_1")
+	if (fp ~= nil) then
+		if tonumber(soundnum) > 6 then
+			pat = "fight/grenade/grenade_1"
+			soundname = soundname:gsub(pat, "fight/grenade/grenade_")
+		end
+	end
+	
+	fp = soundname:find("fight/grenade/grenade_ready_1")
+	if (fp ~= nil) then
+		if tonumber(soundnum) > 6 then
+			pat = "fight/grenade/grenade_ready_1"
+			soundname = soundname:gsub(pat, "fight/grenade/grenade_ready_")
+		end
+	end
+	
+	--converting subtitle to string id
+	soundname = soundname:gsub("/", "_")
+	--playing message according to distance and phrase
+	npcpos = npc:position()
+	if (npcpos:distance_to(db.actor:position()) < hearing_distance) then
+		if npc:is_stalker() then
+			icon = npc:character_icon()
+			name = npc:character_name()
+		else
+			icon = nil
+			name = "st_noise"
+		end
+		dynamic_news_helper.send_tip(game.translate_string(soundname), game.translate_string(name), 0, 10, icon, "news", "npc")
+	end
+	hear_on_cd = true
+	CreateTimeEvent("hear_cooldown", "hear_cooldown", hear_cooldown, function()
+		hear_on_cd = false
+		RemoveTimeEvent("hear_cooldown", "hear_cooldown")
+		return false
+	end)
+end
+
+function on_option_change()
+		subs_enabled = subtitles_mcm.get_config("enable_subs")
+		hearing_distance = subtitles_mcm.get_config("hear_dist")
+		hear_chance = subtitles_mcm.get_config("hear_chance")
+		hear_cooldown = subtitles_mcm.get_config("hear_cooldown")
+end
+
+function iterate_through_files()
+	for path in io.popen("cd && dir *.script /b/s"):lines() do
+		print(path)
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("npc_on_phrase", subtitle_him)
+	RegisterScriptCallback("on_option_change", on_option_change)
+	on_option_change()
+end
