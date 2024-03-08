@@ -3,11 +3,16 @@ local hearing_distance = 25
 local hear_chance = 100
 local hear_cooldown = 0
 local hear_on_cd = false
+
+AddScriptCallback("npc_on_phrase")
+_G.CAI_Stalker_OnPhraseCallback = function(soundname, obj)
+	SendScriptCallback("npc_on_phrase", soundname, obj)
+end
+
 function subtitle_him(soundname, npc)
 	if (not subs_enabled) then
 		return
 	end
-	printf(hear_on_cd)
 	if  (hear_on_cd) then
 		return
 	end
@@ -20,11 +25,15 @@ function subtitle_him(soundname, npc)
 	--some operations due to strange stalker phrases system
 	fp = soundname:find("fight/fire/fire_,")
 	if (fp  ~= nil) then
-		if tonumber(soundnum) > 5 then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
 			pat = "fight/fire/fire_,"
 			soundname = soundname:gsub(pat, "")
 			numpos = soundname:find(soundnum)
-			soundnum = soundnum - 5
+			soundnum = soundnum - soundsnum
 			soundname = soundname:sub(1, numpos - 1) .. soundnum
 		else
 			pat = soundname:find(",")
@@ -33,11 +42,15 @@ function subtitle_him(soundname, npc)
 	end
 	fp = soundname:find("fight/attack/attack_,")
 	if (fp ~= nil) then
-		if tonumber(soundnum) > 2 then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
 			pat = "fight/attack/attack_,"
 			soundname = soundname:gsub(pat, "")
 			numpos = soundname:find(soundnum)
-			soundnum = soundnum - 2
+			soundnum = soundnum - soundsnum
 			soundname = soundname:sub(1, numpos - 1) .. soundnum
 		else
 			pat = soundname:find(",")
@@ -46,11 +59,15 @@ function subtitle_him(soundname, npc)
 	end
 	fp = soundname:find("fight/attack/attack_many_,")
 	if (fp ~= nil) then
-		if tonumber(soundnum) > 6 then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
 			pat = "fight/attack/attack_many_,"
 			soundname = soundname:gsub(pat, "")
 			numpos = soundname:find(soundnum)
-			soundnum = soundnum - 6
+			soundnum = soundnum - soundsnum
 			soundname = soundname:sub(1, numpos - 1) .. soundnum
 		else
 			pat = soundname:find(",")
@@ -59,11 +76,15 @@ function subtitle_him(soundname, npc)
 	end
 	fp = soundname:find("fight/attack/attack_one_,")
 	if (fp ~= nil) then
-		if tonumber(soundnum) > 5 then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
 			pat = "fight/attack/attack_one_,"
 			soundname = soundname:gsub(pat, "")
 			numpos = soundname:find(soundnum)
-			soundnum = soundnum - 5
+			soundnum = soundnum - soundsnum
 			soundname = soundname:sub(1, numpos - 1) .. soundnum
 		else
 			pat = soundname:find(",")
@@ -72,11 +93,15 @@ function subtitle_him(soundname, npc)
 	end
 	fp = soundname:find("fight/backup/backup_,")
 	if (fp ~= nil) then
-		if tonumber(soundnum) > 5 then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
 			pat = "fight/backup/backup_,"
 			soundname = soundname:gsub(pat, "")
 			numpos = soundname:find(soundnum)
-			soundnum = soundnum - 5
+			soundnum = soundnum - soundsnum
 			soundname = soundname:sub(1, numpos - 1) .. soundnum
 		else
 			pat = soundname:find(",")
@@ -85,11 +110,15 @@ function subtitle_him(soundname, npc)
 	end
 	fp = soundname:find("fight/detour/detour_,")
 	if (fp ~= nil) then
-		if tonumber(soundnum) > 6 then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
 			pat = "fight/detour/detour_,"
 			soundname = soundname:gsub(pat, "")
 			numpos = soundname:find(soundnum)
-			soundnum = soundnum - 6
+			soundnum = soundnum - soundsnum
 			soundname = soundname:sub(1, numpos - 1) .. soundnum
 		else
 			pat = soundname:find(",")
@@ -100,18 +129,14 @@ function subtitle_him(soundname, npc)
 	--removing 1s in some phrases
 	fp = soundname:find("fight/grenade/grenade_1")
 	if (fp ~= nil) then
-		if tonumber(soundnum) > 6 then
-			pat = "fight/grenade/grenade_1"
-			soundname = soundname:gsub(pat, "fight/grenade/grenade_")
-		end
+		pat = "fight/grenade/grenade_1"
+		soundname = soundname:gsub(pat, "fight/grenade/grenade_")
 	end
 	
 	fp = soundname:find("fight/grenade/grenade_ready_1")
 	if (fp ~= nil) then
-		if tonumber(soundnum) > 6 then
-			pat = "fight/grenade/grenade_ready_1"
-			soundname = soundname:gsub(pat, "fight/grenade/grenade_ready_")
-		end
+		pat = "fight/grenade/grenade_ready_1"
+		soundname = soundname:gsub(pat, "fight/grenade/grenade_ready_")
 	end
 	
 	--converting subtitle to string id
@@ -143,9 +168,18 @@ function on_option_change()
 		hear_cooldown = subtitles_mcm.get_config("hear_cooldown")
 end
 
-function iterate_through_files()
-	for path in io.popen("cd && dir *.script /b/s"):lines() do
-		print(path)
+function count_sounds_of_this(path)
+	path = path:gsub('/','\\')
+	local flag = true
+	for count=1,100 do
+		local snd 
+		pcall(function()
+			snd = sound_object(path..count)
+		end)
+		if not snd then return end
+		if snd:length() == 576 then
+			return (count-1)
+		end
 	end
 end
 
