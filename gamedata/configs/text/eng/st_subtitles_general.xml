@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+	<string id="st_noise">
+        <text>Noise</text>
+    </string>
+	<string id="ui_mcm_menu_subtitles">
+        <text>Subtitles</text>
+    </string>
+	<string id="ui_mcm_subtitles_title">
+        <text>Subtitles</text>
+    </string>
+	<string id="ui_mcm_subtitles_enable_subs">
+        <text>Turn on Subtitles</text>
+    </string>
+	<string id="ui_mcm_subtitles_hear_dist">
+        <text>Hearing Distance (Meters)</text>
+    </string>
+	<string id="ui_mcm_subtitles_hear_chance">
+        <text>Subtitle Chance</text>
+    </string>
+	<string id="ui_mcm_subtitles_hear_cooldown">
+        <text>Subtitle Cooldown)</text>
+    </string>
+</string_table>

@@ -7,7 +7,7 @@ function subtitle_him(soundname, npc)
 	if (not subs_enabled) then
 		return
 	end
-	printf(hear_on_cd)
+	-- printf(hear_on_cd)
 	if  (hear_on_cd) then
 		return
 	end
@@ -15,6 +15,11 @@ function subtitle_him(soundname, npc)
 	if (not (hear_chance > rnd)) then
 		return
 	end
+
+	printf("xml path: %s", string.gsub(soundname, '\\', '_'))
+	--local xml_path = strformat("as_sub_%s", )
+	--printf("Soundname: %s", xml_path)
+
 	soundnum = tonumber(string.match(soundname, "(%d+)$"))
 	soundname = soundname:gsub('\\\\', ''):gsub('\\', '/',1):gsub('\\','/')
 	--some operations due to strange stalker phrases system
