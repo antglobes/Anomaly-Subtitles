@@ -4,11 +4,6 @@ local hear_chance = 100
 local hear_cooldown = 0
 local hear_on_cd = false
 
-AddScriptCallback("npc_on_phrase")
-_G.CAI_Stalker_OnPhraseCallback = function(soundname, obj)
-	SendScriptCallback("npc_on_phrase", soundname, obj)
-end
-
 function subtitle_him(soundname, npc)
 	if (not subs_enabled) then
 		return
@@ -184,7 +179,7 @@ function count_sounds_of_this(path)
 end
 
 function on_game_start()
-	RegisterScriptCallback("npc_on_phrase", subtitle_him)
+	RegisterScriptCallback("on_phrase_callback", subtitle_him)
 	RegisterScriptCallback("on_option_change", on_option_change)
 	on_option_change()
 end
