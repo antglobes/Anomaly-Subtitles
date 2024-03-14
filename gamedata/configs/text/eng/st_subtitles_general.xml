@@ -19,6 +19,132 @@
         <text>Subtitle Chance</text>
     </string>
 	<string id="ui_mcm_subtitles_hear_cooldown">
-        <text>Subtitle Cooldown)</text>
+        <text>Subtitle Cooldown</text>
+    </string>
+    <string id="ui_mcm_subtitles_enable_debug">
+        <text>Enable Debugging</text>
+    </string>
+    
+    <!-- Acessibility Options-->
+    <!-- Headings -->
+    <string id="ui_mcm_subtitles_title_accessibility">
+        <text>Accessibility Options</text>
+    </string>
+    <string id="ui_mcm_subtitles_background_colour">
+        <text>Background Colour</text>
+    </string>
+    <string id="ui_mcm_subtitles_background_opacity">
+        <text>Background Opacity</text>
+    </string>
+    <string id="ui_mcm_subtitles_font_colour">
+        <text>Font Colour</text>
+    </string>
+    <string id="ui_mcm_subtitles_font_opacity">
+        <text>Font Opacity</text>
+    </string>
+    <string id="ui_mcm_subtitles_font_kind">
+        <text>Font Kind</text>
+    </string>
+    <string id="ui_mcm_subtitles_font_alignment">
+        <text>Font Aligment</text>
+    </string>
+    <!-- List Options -->
+    <string id="ui_mcm_lst_bc_white">
+        <text>White</text>
+    </string>
+    <string id="ui_mcm_lst_bc_black">
+        <text>Black</text>
+    </string>
+    <string id="ui_mcm_lst_bc_red">
+        <text>Red</text>
+    </string>
+    <string id="ui_mcm_lst_bc_blue">
+        <text>Blue</text>
+    </string>
+    <string id="ui_mcm_lst_bc_yellow">
+        <text>Yellow</text>
+    </string>
+    <string id="ui_mcm_lst_bc_green">
+        <text>Green</text>
+    </string>
+    <string id="ui_mcm_lst_bc_magenta">
+        <text>Magenta</text>
+    </string>
+    <string id="ui_mcm_lst_fc_white">
+        <text>White</text>
+    </string>
+    <string id="ui_mcm_lst_fc_black">
+        <text>Black</text>
+    </string>
+    <string id="ui_mcm_lst_fc_red">
+        <text>Red</text>
+    </string>
+    <string id="ui_mcm_lst_fc_blue">
+        <text>Blue</text>
+    </string>
+    <string id="ui_mcm_lst_fc_yellow">
+        <text>Yellow</text>
+    </string>
+    <string id="ui_mcm_lst_fc_green">
+        <text>Green</text>
+    </string>
+    <string id="ui_mcm_lst_fc_magenta">
+        <text>Magenta</text>
+    </string>
+    <string id="ui_mcm_lst_fk_med">
+        <text>Medium</text>
+    </string>
+     <string id="ui_mcm_lst_fk_di">
+        <text>DI</text>
+    </string>
+     <string id="ui_mcm_lst_fk_let16">
+        <text>Letterical 16</text>
+    </string>
+     <string id="ui_mcm_lst_fk_small">
+        <text>Small</text>
+    </string>
+     <string id="ui_mcm_lst_fk_let18">
+        <text>Lettrical 18</text>
+    </string>
+     <string id="ui_mcm_lst_fk_let25">
+        <text>Lettrical 25</text>
+    </string>
+     <string id="ui_mcm_lst_fk_graff19">
+        <text>Graffiti 19</text>
+    </string>
+     <string id="ui_mcm_lst_fk_graff22">
+        <text>Graffiti 22</text>
+    </string>
+     <string id="ui_mcm_lst_fk_graff32">
+        <text>Graffiti 32</text>
+    </string>
+     <string id="ui_mcm_lst_fk_graff50">
+        <text>Graffiti 50</text>
+    </string>
+    <string id="ui_mcm_lst_fa_l">
+        <text>Left</text>
+    </string>
+    <string id="ui_mcm_lst_fa_c">
+        <text>Centre</text>
+    </string>
+    <string id="ui_mcm_lst_fa_r">
+        <text>Right</text>
+    </string>
+
+    <!-- Subtitle Reading Speed -->
+    <string id="ui_mcm_subtitles_sub_duration">
+        <text>Subtitle Screen Duration</text>
+    </string>
+    <string id="ui_mcm_lst_true_duration">
+        <text>True Subtitle Duration</text>
+    </string>
+    <string id="ui_mcm_lst_slow_reader">
+        <text>I'm a slow reader</text>
+    </string>
+    <string id="ui_mcm_lst_ok_reader">
+        <text>I can read alright</text>
+    </string>
+    <string id="ui_mcm_lst_fast_reader">
+        <text>I'm a fast reader</text>
     </string>
 </string_table>
