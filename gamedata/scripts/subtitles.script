@@ -1,0 +1,279 @@
+-- Imports
+gts = game.translate_string
+sound_duration = subtitles_utils.sound_duration
+get_config = subtitles_mcm.get_config
+factions = subtitles_utils.factions
+slashes_to_underscores = subtitles_utils.slashes_to_underscores
+
+-- Constants
+SUBTITLE_PREFIX = "as_sub_%s"
+
+-- MCM Default Options
+local subs_enabled = true
+local hearing_distance = 25
+local hear_chance = 100
+local hear_cooldown = 0
+local hear_on_cd = false
+
+function pr(str, ...)
+	subtitles_utils.dbg_pr("Subtitles|Main: %s", str, ...)
+end
+
+function subtitle_him(soundname, npc)
+	if (not subs_enabled) then
+		return
+	end
+	if  (hear_on_cd) then
+		return
+	end
+	rnd = math.random(0,100)
+	if (not (hear_chance > rnd)) then
+		return
+	end
+
+	--local xml_path = strformat("as_sub_%s", )
+	--printf("Soundname: %s", xml_path)
+
+	soundnum = tonumber(string.match(soundname, "(%d+)$"))
+	soundname = soundname:gsub('\\\\', ''):gsub('\\', '/',1):gsub('\\','/')
+	--some operations due to strange stalker phrases system
+	fp = soundname:find("fight/fire/fire_,")
+	if (fp  ~= nil) then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
+			pat = "fight/fire/fire_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - soundsnum
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/attack/attack_,")
+	if (fp ~= nil) then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
+			pat = "fight/attack/attack_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - soundsnum
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/attack/attack_many_,")
+	if (fp ~= nil) then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
+			pat = "fight/attack/attack_many_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - soundsnum
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/attack/attack_one_,")
+	if (fp ~= nil) then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
+			pat = "fight/attack/attack_one_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - soundsnum
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/backup/backup_,")
+	if (fp ~= nil) then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
+			pat = "fight/backup/backup_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - soundsnum
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	fp = soundname:find("fight/detour/detour_,")
+	if (fp ~= nil) then
+		spat = soundname:find(",")
+		if not spat then return end
+		ssoundname = soundname:sub(1, spat - 1)
+		local soundsnum = count_sounds_of_this(ssoundname)
+		if tonumber(soundnum) > soundsnum then
+			pat = "fight/detour/detour_,"
+			soundname = soundname:gsub(pat, "")
+			numpos = soundname:find(soundnum)
+			soundnum = soundnum - soundsnum
+			soundname = soundname:sub(1, numpos - 1) .. soundnum
+		else
+			pat = soundname:find(",")
+			soundname = soundname:sub(1, pat - 1) .. soundnum
+		end
+	end
+	
+	--removing 1s in some phrases
+	fp = soundname:find("fight/grenade/grenade_1")
+	if (fp ~= nil) then
+		pat = "fight/grenade/grenade_1"
+		soundname = soundname:gsub(pat, "fight/grenade/grenade_")
+	end
+	
+	fp = soundname:find("fight/grenade/grenade_ready_1")
+	if (fp ~= nil) then
+		pat = "fight/grenade/grenade_ready_1"
+		soundname = soundname:gsub(pat, "fight/grenade/grenade_ready_")
+	end
+	
+	--converting subtitle to string id
+	
+	-- AG: Grab Translation String (string id) using soundname
+	subtitle = soundname_to_subtitle(soundname)
+
+	--playing message according to distance and phrase
+	npcpos = npc:position()
+	if (npcpos:distance_to(db.actor:position()) < hearing_distance) then
+		if npc:is_stalker() then
+			icon = npc:character_icon()
+			name = npc:character_name()
+		else
+			icon = news_manager.tips_icons["default"]
+			name = "st_noise"
+		end
+		
+		local info = {
+			["speaker_name"] = gts(name),
+			["speaker_icon"] = icon,
+			["speaker_faction"] = npc:character_community(),
+			["subtitle"] = subtitle,
+			["locale"] = "eng",
+			["duration"] = get_sound_duration(soundname) or 3
+		}
+		
+		if not verify_subtitle(info) then return end
+		pr("Activating Subtitles") 
+		subtitles_ui.activate_subtitles(info) 
+	end
+	hear_on_cd = true
+	CreateTimeEvent("hear_cooldown", "hear_cooldown", hear_cooldown, function()
+		hear_on_cd = false
+		RemoveTimeEvent("hear_cooldown", "hear_cooldown")
+		return false
+	end)
+end
+
+function verify_subtitle(info)
+	local verified = true
+
+	-- Validate contents of info table
+	for k, v in pairs(info) do
+		if k == "speaker_name" then
+			if type(v) ~= "string" then
+				pr("Invalid Speaker name: %s", v)
+				verified = false
+			end
+		elseif k == "speaker_icon" then
+			if v == nil then
+				pr("Invalid Speaker Icon: %s", v)
+				verified = false
+			end
+		elseif k == "speaker_faction" then
+			if v == nil then
+				pr("Invalid Speaker Faction: %s", v)
+				verified = false
+			end
+		elseif k == "subtitle" then
+			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 1 then
+				pr("Invalid Subtitle: %s", v)
+				verified = false
+			end
+		--elseif k == "locale" then
+			
+		elseif k == "duration" then
+			if type(v) ~= "number" or v < 0 then
+				pr("Invalid Duration: %s", v)
+				verified = false
+			end
+		end
+	end
+	
+	return verified 
+end
+
+function soundname_to_path(soundname)
+	return soundname:gsub('/','\\')
+end
+
+function soundname_to_subtitle(soundname)
+	-- Replace separators with underscores
+	soundname = slashes_to_underscores(soundname)
+	return gts(strformat(SUBTITLE_PREFIX, gts(soundname)))
+end
+
+function get_sound_duration(soundname)
+	local mcm_option = get_config("sub_duration")
+	if mcm_option  == "true_duration" then
+		return sound_duration[slashes_to_underscores(soundname)]
+	end
+	local reading_speed = {
+		["slow_reader"] = 7.0,
+		["ok_reader"] = 5.0,
+		["fast_reader"] = 3.0,}
+	return reading_speed[mcm_option]	
+end
+
+function on_option_change()
+		subs_enabled = get_config("enable_subs")
+		hearing_distance = get_config("hear_dist")
+		hear_chance = get_config("hear_chance")
+		hear_cooldown = get_config("hear_cooldown")
+end
+
+function count_sounds_of_this(path)
+	path = soundname_to_path(path)
+	local flag = true
+	for count=1,100 do
+		local snd 
+		pcall(function()
+			snd = sound_object(path..count)
+		end)
+		if not snd then return end
+		if snd:length() == 576 then
+			return (count-1)
+		end
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("on_phrase_callback", subtitle_him)
+	RegisterScriptCallback("on_option_change", on_option_change)
+	on_option_change()
+end
