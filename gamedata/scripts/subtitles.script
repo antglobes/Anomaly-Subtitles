@@ -4,9 +4,11 @@ sound_duration = subtitles_utils.sound_duration
 get_config = subtitles_mcm.get_config
 factions = subtitles_utils.factions
 slashes_to_underscores = subtitles_utils.slashes_to_underscores
+locale = subtitles_utils.locale
 
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
+ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- C:\Stalker Dev\Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
 
 -- MCM Default Options
 local subs_enabled = true
@@ -174,13 +176,17 @@ function subtitle_him(soundname, npc)
 			["speaker_icon"] = icon,
 			["speaker_faction"] = npc:character_community(),
 			["subtitle"] = subtitle,
-			["locale"] = "eng",
+			["locale"] = get_locale(),
 			["duration"] = get_sound_duration(soundname) or 3
 		}
 		
 		if not verify_subtitle(info) then return end
-		pr("Activating Subtitles") 
-		subtitles_ui.activate_subtitles(info) 
+		pr("Activating Subtitles")
+		if get_config("enable_news_manager") then
+			display_subs_news_manager(info)
+		else
+			subtitles_ui.activate_subtitles(info) 
+		end
 	end
 	hear_on_cd = true
 	CreateTimeEvent("hear_cooldown", "hear_cooldown", hear_cooldown, function()
@@ -188,6 +194,20 @@ function subtitle_him(soundname, npc)
 		RemoveTimeEvent("hear_cooldown", "hear_cooldown")
 		return false
 	end)
+end
+
+function get_speaker_icon(info)
+	speaker_icon = info["speaker_icon"]
+	if get_config("use_localization") then
+		manual_loc = string.find(info["locale"], "eng") and "eng_uk" or info["locale"]
+		speaker_icon = ini_news_tips:r_value("news_tips_icons", info["locale"]) or "ui_icon_news_tip_subtitle_".. manual_loc
+		pr("Speaker Icon:%s", speaker_icon)
+	end
+	return speaker_icon
+end
+
+function display_subs_news_manager(info)
+	dynamic_news_helper.send_tip(info["subtitle"],info["speaker_name"], 0, info["duration"], get_speaker_icon(info), "news", "npc")
 end
 
 function verify_subtitle(info)
@@ -248,6 +268,10 @@ function get_sound_duration(soundname)
 		["ok_reader"] = 5.0,
 		["fast_reader"] = 3.0,}
 	return reading_speed[mcm_option]	
+end
+
+function get_locale()
+	return ui_options.get("other/localization")
 end
 
 function on_option_change()

@@ -9,9 +9,6 @@
 	<string id="ui_mcm_subtitles_title">
         <text>Subtitles</text>
     </string>
-	<string id="ui_mcm_subtitles_enable_subs">
-        <text>Turn on Subtitles</text>
-    </string>
 	<string id="ui_mcm_subtitles_hear_dist">
         <text>Hearing Distance (Meters)</text>
     </string>
@@ -21,20 +18,11 @@
 	<string id="ui_mcm_subtitles_hear_cooldown">
         <text>Subtitle Cooldown</text>
     </string>
-    <string id="ui_mcm_subtitles_enable_debug">
-        <text>Enable Debugging</text>
-    </string>
     
     <!-- Acessibility Options-->
     <!-- Headings -->
     <string id="ui_mcm_subtitles_title_accessibility">
         <text>Accessibility Options</text>
-    </string>
-    <string id="ui_mcm_subtitles_enable_faction_icon">
-        <text>Show Faction Icon</text>
-    </string>
-    <string id="ui_mcm_subtitles_enable_speaker_icon">
-        <text>Show Speaker Icon</text>
     </string>
     <string id="ui_mcm_subtitles_background_colour">
         <text>Background Colour</text>
@@ -138,9 +126,6 @@
     </string>
 
     <!-- Subtitle Reading Speed -->
-    <string id="ui_mcm_subtitles_title_additional">
-        <text>Additional Options</text>
-    </string>
     <string id="ui_mcm_subtitles_sub_duration">
         <text>Subtitle Screen Duration</text>
     </string>
@@ -155,5 +140,34 @@
     </string>
     <string id="ui_mcm_lst_fast_reader">
         <text>I'm a fast reader</text>
+    </string>
+
+    <!-- Additional Options-->
+    <string id="ui_mcm_subtitles_title_additional">
+        <text>Additional Options</text>
+    </string>
+    <string id="ui_mcm_subtitles_enable_subs">
+        <text>Turn on Subtitles</text>
+    </string>
+    <string id="ui_mcm_subtitles_enable_debug">
+        <text>Enable Debugging</text>
+    </string>
+    <string id="ui_mcm_subtitles_enable_faction_icon">
+        <text>Show Faction Icon</text>
+    </string>
+    <string id="ui_mcm_subtitles_enable_speaker_icon">
+        <text>Show Speaker Icon</text>
+    </string>
+    <string id="ui_mcm_subtitles_enable_news_manager">
+        <text>Display Subtitles via News Manager</text>
+    </string>
+    <string id="ui_mcm_subtitles_use_localization">
+        <text>Use Localization (Instead of Speaker Icon)</text>
+    </string>
+    <string id="ui_mcm_enable_news_manager">
+        <text>Enable News Manager (Disables Subtitle HUD)</text>
+    </string>
+    <string id="ui_mcm_enable_news_manager_desc">
+        <text>Toggles Acessibility Options, hit apply then re-enter</text>
     </string>
 </string_table>

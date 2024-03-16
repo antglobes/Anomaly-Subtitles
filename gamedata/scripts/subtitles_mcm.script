@@ -19,11 +19,17 @@ defaults = {
 	["font_alignment"] = "fa_l",
 	["sub_duration"] = "ok_reader",
 	["enable_faction_icon"] = true,
-	["enable_speaker_icon"] = true
+	["enable_speaker_icon"] = true,
+	["enable_news_manager"] = false,
+	["use_localization"] = false,
 }
 
 function get_config(key)
     if ui_mcm then return ui_mcm.get("subtitles/"..key) else return defaults[key] end
+end
+
+function using_news_manager()
+	return not get_config("enable_news_manager")
 end
 
 function on_mcm_load()
@@ -35,7 +41,7 @@ function on_mcm_load()
 
 			{id="divider", type="line"},
 			{id="title_accessibility", type="title", text="ui_mcm_subtitles_title_accessibility"},			
-			{id="background_colour", type="list", val=0, def="bc_white", 
+			{id="background_colour", type="list", val=0, def="bc_white", precondition={using_news_manager},
 				content={
 					{"bc_white", "bc_white"},
 					{"bc_black", "bc_black"},
@@ -46,8 +52,8 @@ function on_mcm_load()
 					{"bc_magenta", "bc_magenta"}
 				}
 			},
-			{id="background_opacity", type="track", val=2, min=0, max=255, step=1, def=0},
-			{id="font_colour", type="list", val=0, def="fc_white", 
+			{id="background_opacity", type="track", val=2, min=0, max=255, step=1, def=0, precondition={using_news_manager}},
+			{id="font_colour", type="list", val=0, def="fc_white", precondition={using_news_manager},
 				content={
 					{"fc_white", "fc_white"},
 					{"fc_black", "fc_black"},
@@ -58,8 +64,8 @@ function on_mcm_load()
 					{"fc_magenta", "fc_magenta"}
 				}
 			},
-			{id="font_opacity", type="track", val=2, min=0, max=255, step=1, def=255},
-			{id="font_kind", type="list", val=0, def="fk_graff22",
+			{id="font_opacity", type="track", val=2, min=0, max=255, step=1, def=255, precondition={using_news_manager}},
+			{id="font_kind", type="list", val=0, def="fk_graff22", precondition={using_news_manager},
 				content={
 					{"fk_small", "fk_small"},
 					{"fk_med", "fk_med"},
@@ -70,7 +76,7 @@ function on_mcm_load()
 					{"fk_graff22", "fk_graff22"},
 				}
 			},
-			{id="font_alignment", type="list", val=0, def="fa_l", 
+			{id="font_alignment", type="list", val=0, def="fa_l", precondition={using_news_manager},
 				content={
 					{"fa_l", "fa_l"},
 					{"fa_c", "fa_c"},
@@ -90,8 +96,10 @@ function on_mcm_load()
 			{id="title_additional", type="title", text="ui_mcm_subtitles_title_additional"},
 			{id ="enable_subs", type = "check", val = 1, def = true},
 			{id="enable_debug", type="check", val=1, def=false},
-			{id="enable_faction_icon", type="check", val=1, def=true},
-			{id="enable_speaker_icon", type="check", val=1, def=true},			
+			{id="enable_faction_icon", type="check", val=1, def=true, precondition={using_news_manager}},
+			{id="enable_speaker_icon", type="check", val=1, def=true, precondition={using_news_manager}},
+			{id="enable_news_manager", type="check", val=1, def=false},
+			{id="use_localization", type="check", val=1, def=false, precondition={function() return not using_news_manager() end}}	
 		}
     }
     return op

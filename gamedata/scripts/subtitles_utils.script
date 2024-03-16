@@ -118,6 +118,15 @@ function pr(str, ...)
     dbg_pr("Subtitles|Utils: %s", str, ...)
 end
 
+locale = {
+	["eng"] = "uk",
+	["rus"] = "rus",
+	["ukr"] = "ukr",
+	["pol"] = "pol",
+	["es"] = "spa",
+	["de"] = "dut"
+}
+
 factions = {"stalker", "csky", "bandit", "army", "killer",  "monolith", 
 			"ecolog", "dolg", "freedom", "greh", "renegade", "isg", "default"}  
 
