@@ -1,7 +1,36 @@
 get_config = subtitles_mcm.get_config
 
+--- Check if table contains a key
+---@param tbl table
+---@param key any
+---@param by_key boolean
+---@param return_value boolean
+function contains(tbl, key, by_key, return_value)
+    for k, v in pairs(tbl) do
+        if by_key then
+            if k == key then
+                if return_value then
+                    return true, k
+                else
+                    return true
+                end
+            end
+        else
+            if v == key then
+                if return_value then
+                    return true, v
+                else
+                    return true
+                end
+            end
+        end
+    end
+    return false
+end
+
 function get_keytable(tbl)
     local kt = {}
+	idx = 0
     for k, _ in pairs(tbl) do
         idx=idx+1
         kt[idx] = k

@@ -9,15 +9,17 @@ defaults = {
 	["enable_subs"] = true,
 	["hear_dist"] = 25,
 	["hear_chance"] = 100,
-	["hear_cooldown"] = 1,
+	["hear_cooldown"] = 0,
 	["enable_debug"] = false,
 	["background_colour"] = "bc_white",
-	["background_opacity"] = 0,
+	["background_opacity"] = 15,
 	["font_colour"] = "fc_white",
 	["font_opacity"] = 255,
-	["font_kind"] = "fk_graff19",
+	["font_kind"] = "fk_graff22",
 	["font_alignment"] = "fa_l",
-	["sub_duration"] = "ok_reader"
+	["sub_duration"] = "ok_reader",
+	["enable_faction_icon"] = true,
+	["enable_speaker_icon"] = true
 }
 
 function get_config(key)
@@ -27,15 +29,13 @@ end
 function on_mcm_load()
     op = { id= "subtitles",sh=true ,gr={
 			{id = "title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_subtitles_title",size= {512,50},spacing= 20 },
-			{id = "enable_subs", type = "check", val = 1, def = true},
 			{id = "hear_dist", type = "track", val = 2, min=1,max=100,step=1, def = 25},
 			{id = "hear_chance", type = "track", val = 2, min=0,max=100,step=1, def = 100},
-			{id = "hear_cooldown", type = "track", val = 2, min=0,max=10,step=1, def = 1},
-			{id="enable_debug", type="check", val=1, def=true},
+			{id = "hear_cooldown", type = "track", val = 2, min=0,max=10,step=1, def = 0},			
 
 			{id="divider", type="line"},
-			{id="title_accessibility", type="title", text="ui_mcm_subtitles_title_accessibility"},
-			{id="background_colour", type="list", val=0, def="bc_black", 
+			{id="title_accessibility", type="title", text="ui_mcm_subtitles_title_accessibility"},			
+			{id="background_colour", type="list", val=0, def="bc_white", 
 				content={
 					{"bc_white", "bc_white"},
 					{"bc_black", "bc_black"},
@@ -46,7 +46,7 @@ function on_mcm_load()
 					{"bc_magenta", "bc_magenta"}
 				}
 			},
-			{id="background_opacity", type="track", val=2, min=0, max=100, step=10, def=0},
+			{id="background_opacity", type="track", val=2, min=0, max=255, step=1, def=0},
 			{id="font_colour", type="list", val=0, def="fc_white", 
 				content={
 					{"fc_white", "fc_white"},
@@ -59,7 +59,7 @@ function on_mcm_load()
 				}
 			},
 			{id="font_opacity", type="track", val=2, min=0, max=255, step=1, def=255},
-			{id="font_kind", type="list", val=0, def="fk_graff19",
+			{id="font_kind", type="list", val=0, def="fk_graff22",
 				content={
 					{"fk_small", "fk_small"},
 					{"fk_med", "fk_med"},
@@ -77,7 +77,6 @@ function on_mcm_load()
 					{"fa_r", "fa_r"}
 				}
 			},
-			{id="divider", type="line"},
 			{id="sub_duration", type="radio_v", val=0, def="ok_reader", 
 				content={
 					{"true_duration", "true_duration"},
@@ -85,9 +84,14 @@ function on_mcm_load()
 					{"ok_reader", "ok_reader"},
 					{"fast_reader", "fast_reader"}
 				}
-			}
-			
-			
+			},
+
+			{id="divider", type="line"},
+			{id="title_additional", type="title", text="ui_mcm_subtitles_title_additional"},
+			{id ="enable_subs", type = "check", val = 1, def = true},
+			{id="enable_debug", type="check", val=1, def=false},
+			{id="enable_faction_icon", type="check", val=1, def=true},
+			{id="enable_speaker_icon", type="check", val=1, def=true},			
 		}
     }
     return op

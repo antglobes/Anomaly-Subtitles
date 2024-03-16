@@ -9,17 +9,12 @@ mcm_options = subtitles_mcm.defaults
 extract_str = subtitles_utils.extract_str
 isnumber = subtitles_utils.isnumber
 print_table = subtitles_utils.print_table
+contains = subtitles_utils.contains
 
 --Constants
 settings = {}
 HUD = nil
 mcm_prefix = {"bc_", "fc_", "fk_", "fa_"}
-BACKGROUND_COLOUR = "bc_white"
-BACKGROUND_OPACITY = 0
-FONT_COLOUR = "fc_white"
-FONT_OPACITY = 255
-FONT_KIND = "fk_graff19"
-FONT_ALIGNMENT = "fa_l"
 
 -- Tables
 fonts = {
@@ -34,49 +29,55 @@ fonts = {
 
 clr_table = {
     -- Additional Colours
-    ["black"]       = {FONT_OPACITY, 0, 0, 0},
-    ["blue"]        = {FONT_OPACITY, 34, 106, 226},
-    ["magenta"]     = {FONT_OPACITY, 209, 74, 169},
+    ["black"]       = function(opacity) return GetARGB(opacity, 0, 0, 0) end,
+    ["blue"]        = function(opacity) return GetARGB(opacity, 34, 106, 226) end,
+    ["magenta"]     = function(opacity) return GetARGB(opacity, 209, 74, 169) end,
 
     -- Base Game Colours
-	["white"]       = {FONT_OPACITY,255,255,255},
-	["green"]       = {FONT_OPACITY,0,255,0},
-	["yellow"]      = {FONT_OPACITY,255,255,0},
-	["red"]         = {FONT_OPACITY,255,0,0},
-	["orange"]      = {FONT_OPACITY,250,150,0},
-	["d_orange"]    = {FONT_OPACITY,238,153,26},
-	["d_red"]       = {FONT_OPACITY,204,0,51},
-	["d_cyan"]      = {FONT_OPACITY,153,255,255},
-	["d_purple"]    = {FONT_OPACITY,93,0,116},
-	["d_green"]     = {FONT_OPACITY,51,255,102},
-	["d_blue"]      = {FONT_OPACITY,100,100,255},	
-	["ui_gray_1"]   = {FONT_OPACITY,170,170,170},
-	["ui_gray_2"]   = {FONT_OPACITY,140,140,140},
-	["pda_green"]   = {FONT_OPACITY,56,209,115},
-	["pda_blue"]    = {FONT_OPACITY,56,166,209},
-	["pda_yellow"]  = {FONT_OPACITY,209,209,56},
-	["pda_white"]   = {FONT_OPACITY,250,250,250},
+	["white"]       = function(opacity) return GetARGB(opacity,255,255,255) end,
+	["green"]       = function(opacity) return GetARGB(opacity,0,255,0) end,
+	["yellow"]      = function(opacity) return GetARGB(opacity,255,255,0) end,
+	["red"]         = function(opacity) return GetARGB(opacity,255,0,0) end,
+	["orange"]      = function(opacity) return GetARGB(opacity,250,150,0) end,
+	["d_orange"]    = function(opacity) return GetARGB(opacity,238,153,26) end,
+	["d_red"]       = function(opacity) return GetARGB(opacity,204,0,51) end,
+	["d_cyan"]      = function(opacity) return GetARGB(opacity,153,255,255) end,
+	["d_purple"]    = function(opacity) return GetARGB(opacity,93,0,116) end,
+	["d_green"]     = function(opacity) return GetARGB(opacity,51,255,102) end,
+	["d_blue"]      = function(opacity) return GetARGB(opacity,100,100,255) end,	
+	["ui_gray_1"]   = function(opacity) return GetARGB(opacity,170,170,170) end,
+	["ui_gray_2"]   = function(opacity) return GetARGB(opacity,140,140,140) end,
+	["pda_green"]   = function(opacity) return GetARGB(opacity,56,209,115) end,
+	["pda_blue"]    = function(opacity) return GetARGB(opacity,56,166,209) end,
+	["pda_yellow"]  = function(opacity) return GetARGB(opacity,209,209,56) end,
+	["pda_white"]   = function(opacity) return GetARGB(opacity,250,250,250) end,
 }
 
 faction_to_colour = {
-    ["stalker"]     = GetARGB(FONT_OPACITY, 241, 196, 15),
-    ["csky"]        = GetARGB(FONT_OPACITY, 0, 191, 255),
-    ["bandit"]      = GetARGB(FONT_OPACITY, 194, 125, 14),
-    ["army"]        = GetARGB(FONT_OPACITY, 118, 139, 5),
-    ["killer"]      = GetARGB(FONT_OPACITY, 61, 104, 145),
-    ["monolith"]    = GetARGB(FONT_OPACITY, 33, 148, 150),
-    ["ecolog"]      = GetARGB(FONT_OPACITY, 122, 199, 184),
-    ["dolg"]        = GetARGB(FONT_OPACITY, 178, 34, 34),
-    ["freedom"]     = GetARGB(FONT_OPACITY, 34, 139, 34),
-    ["greh"]        = GetARGB(FONT_OPACITY, 14, 1, 1),
-    ["renegade"]    = GetARGB(FONT_OPACITY, 168, 67, 0),
-    ["isg"]         = GetARGB(FONT_OPACITY, 184, 102, 135),
-    ["default"]     = GetARGB(FONT_OPACITY, 0, 0, 0)
+    ["stalker"]     = function(opacity) return GetARGB(opacity, 241, 196, 15) end,
+    ["csky"]        = function(opacity) return GetARGB(opacity, 0, 191, 255) end,
+    ["bandit"]      = function(opacity) return GetARGB(opacity, 194, 125, 14) end,
+    ["army"]        = function(opacity) return GetARGB(opacity, 118, 139, 5) end,
+    ["killer"]      = function(opacity) return GetARGB(opacity, 61, 104, 145) end,
+    ["monolith"]    = function(opacity) return GetARGB(opacity, 33, 148, 150) end,
+    ["ecolog"]      = function(opacity) return GetARGB(opacity, 122, 199, 184)end,
+    ["dolg"]        = function(opacity) return GetARGB(opacity, 178, 34, 34) end,
+    ["freedom"]     = function(opacity) return GetARGB(opacity, 34, 139, 34) end,
+    ["greh"]        = function(opacity) return GetARGB(opacity, 14, 1, 1) end,
+    ["renegade"]    = function(opacity) return GetARGB(opacity, 168, 67, 0) end,
+    ["isg"]         = function(opacity) return GetARGB(opacity, 184, 102, 135) end,
+    ["default"]     = function(opacity) return GetARGB(opacity, 0, 0, 0) end
 }
 
-special_character_faction = {
+spendecial_character_faction = {
     ["Barkeep"] = "stalker",
     ["Snitch"] = "stalker"
+}
+
+align = {
+    ["l"] = "left",
+    ["r"] = "right",
+    ["c"] = "center"
 }
 
 -- Common Functions
@@ -84,31 +85,43 @@ function pr(str, ...)
 	subtitles_utils.dbg_pr("Subtitles| HUD: %s", str, ...)
 end
 
-function colours(key)
-    return GetARGB(unpack(clr_table[key]))
+function colours(key, opacity)
+    return clr_table[key](opacity)
 end
 
 function alignment(key, get_char)
     if get_char and #key == 1 then return key end
-    local align = {
-        ["l"] = "left",
-        ["r"] = "right",
-        ["c"] = "center"
-    }
     return align[key]
 end
 
-function parse_accessibility_option(key)
+function parse_accessibility_option(key, opacity)
     local mcm_option = get_config(key)
-    if isnumber(mcm_option) then return tostring(mcm_option) end
+    if isnumber(mcm_option) then pr("Getting %s option: %s", key, mcm_option) return tostring(mcm_option) end
+
+    pr("Parsing acessibility option %s", mcm_option)
     local option = false
     for _, prefix in pairs(mcm_prefix) do
         option = extract_str(mcm_option, prefix)
-        pr("Getting acessibility option: %s", option)
+        pr("Extracted String: %s", option)
+
         if option ~= false then
-            return alignment(option, true) or fonts[option] or colours(option)
+            pr("Getting %s option: %s", key, option)
+
+            if contains(align, option, true) then
+                pr("Getting alignment option")           
+                return alignment(option, true)
+
+            elseif contains(fonts, option, true) then
+                pr("Getting fonts option")           
+                return fonts[option]
+
+            elseif contains(clr_table, option, true) then
+                pr("Getting colour option")           
+                return colours(option, opacity)
+            end
         end
     end    
+    return option
 end
 
 -- HUD Control Functions
@@ -153,7 +166,7 @@ function SUBUI:__init(info) super()
     self.xml_portraits:ParseFile("ui_actor_portraits.xml")
 
     pr("Building Speaker UI")
-    self.subtitle_background = self.xml_subs:InitStatic(strformat("background_opacity_%s", BACKGROUND_OPACITY), self)
+    self.subtitle_background = self.xml_subs:InitStatic("background", self)
     self.subtitle_speaker_icon = self.xml_portraits:InitStatic(self.speaker_icon, self.subtitle_background)
     self.subtitle_speaker_name = self.xml_subs:InitTextWnd("sub_speaker_name", self.subtitle_background)
     self.subtitle_text = self.xml_subs:InitTextWnd("sub_text", self.subtitle_background)
@@ -256,9 +269,9 @@ function SUBUI:display_subtitles()
     
 
     self.subtitle_background:SetStretchTexture(true)
-    self.subtitle_background:SetTextureColor(BACKGROUND_COLOUR)
+    self.subtitle_background:SetTextureColor(BACKGROUND_COLOUR) 
 
-    self.subtitle_speaker_name:SetTextColor(faction_to_colour[self.speaker_faction])
+    self.subtitle_speaker_name:SetTextColor(faction_to_colour[self.speaker_faction](FONT_OPACITY))
     self.subtitle_speaker_name:SetText(self.speaker)
     self.subtitle_speaker_name:SetFont(FONT_KIND)
     self.subtitle_speaker_name:SetTextAlignment(FONT_ALIGNMENT)
@@ -268,9 +281,9 @@ function SUBUI:display_subtitles()
     self.subtitle_text:SetFont(FONT_KIND)
     self.subtitle_text:SetTextAlignment(FONT_ALIGNMENT)
 
-    self.subtitle_speaker_icon:Show(true)
-    self.subtitle_faction:Show(true)
-    self.subtitle_background:Show(true)
+    self.subtitle_speaker_icon:Show(true and ENABLE_SPEAKER_ICON or false)
+    self.subtitle_faction:Show(true and ENABLE_FACTION_ICON or false)
+    self.subtitle_background:Show(true and ENABLE_BACKGROUND or false)
     self.subtitle_speaker_name:Show(true)
     self.subtitle_text:Show(true)
 
@@ -288,10 +301,15 @@ end
 -- MCM Settings
 
 function on_option_change()
-    BACKGROUND_COLOUR = parse_accessibility_option("background_colour")
+    ENABLE_BACKGROUND = get_config("enable_background")
+    ENABLE_SPEAKER_ICON = get_config("enable_speaker_icon")
+    ENABLE_FACTION_ICON = get_config("enable_faction_icon")
+
     BACKGROUND_OPACITY = parse_accessibility_option("background_opacity")
-    FONT_COLOUR = parse_accessibility_option("font_colour")
+    BACKGROUND_COLOUR = parse_accessibility_option("background_colour", BACKGROUND_OPACITY) 
+    
     FONT_OPACITY = parse_accessibility_option("font_opacity")
+    FONT_COLOUR = parse_accessibility_option("font_colour", FONT_OPACITY)
     FONT_KIND = parse_accessibility_option("font_kind")
     FONT_ALIGNMENT = parse_accessibility_option("font_alignment")
 end

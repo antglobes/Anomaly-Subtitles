@@ -30,6 +30,12 @@
     <string id="ui_mcm_subtitles_title_accessibility">
         <text>Accessibility Options</text>
     </string>
+    <string id="ui_mcm_subtitles_enable_faction_icon">
+        <text>Show Faction Icon</text>
+    </string>
+    <string id="ui_mcm_subtitles_enable_speaker_icon">
+        <text>Show Speaker Icon</text>
+    </string>
     <string id="ui_mcm_subtitles_background_colour">
         <text>Background Colour</text>
     </string>
@@ -132,6 +138,9 @@
     </string>
 
     <!-- Subtitle Reading Speed -->
+    <string id="ui_mcm_subtitles_title_additional">
+        <text>Additional Options</text>
+    </string>
     <string id="ui_mcm_subtitles_sub_duration">
         <text>Subtitle Screen Duration</text>
     </string>
