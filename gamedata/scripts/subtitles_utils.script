@@ -1,4 +1,46 @@
+-- imports
 get_config = subtitles_mcm.get_config
+
+function has_translation(str)
+    return game.translate_string(str) ~= str
+end
+
+function list_pattern_occurances(str, pattern, limit)
+    s = {}
+    local function search(str, substr, callback, init)
+       init = init or 1
+       local first, last = str:find(substr, init)
+       if first then
+            if limit and first >= limit and init < limit then
+                for i=1, #str, last do
+                    s[#s + 1] = str:sub(i, i + first - 1)
+                end
+            end            
+           --callback(str, first, last)
+           return search(str, substr, callback, first + 1)
+       end
+    end
+    search(str, pattern, print)
+    return s
+end
+
+function split_by_chunk(text, chunkSize)
+    local s = {}
+    for i=1, #text, chunkSize do
+        s[#s+1] = text:sub(i,i+chunkSize - 1)
+    end
+    return s
+end
+
+function split_by_punc(subtitle, CHAR_LIMT)
+	tokens = list_pattern_occurances(subtitle, "[,!?.]", CHAR_LIMT)
+	return #tokens >= 1 and tokens or {subtitle}
+end
+
+function split_subtitle(subtitle, CHAR_LIMIT)
+	return split_by_chunk(subtitle, CHAR_LIMIT)
+end
+	
 
 --- Check if table contains a key
 ---@param tbl table
@@ -49,7 +91,7 @@ function slashes_to_underscores(string)
 	return replace(string, {"/", "\\"}, "_")
 end
 
-function extract_str(string, pattern)
+function exclude_str(string, pattern)
     if not string or not pattern then return end
 	--pr(strformat("Finding %s in %s", pattern, string))
     local start, _end = string.find(string, pattern)
@@ -80,6 +122,43 @@ function extract_str(string, pattern)
     end
     -- print(rlt_str)
     return rlt_str       
+end
+
+function remove_pattern(str, pattern, repl)
+	return str:gsub(pattern, repl)
+end
+
+function remove_digits(str, repl)
+	return remove_pattern(str, "[%d]", repl)
+end
+
+function extract_str(str, pattern, repl)
+	return remove_pattern(str, strformat("[^%s]", pattern), repl)
+end
+
+function all_matches(str, pattern)
+	local m = {}
+	for match in str:gmatch(pattern) do
+		m[#m + 1] = match
+	end
+	return m
+end
+
+function is_only_match(str, pattern)
+	return true and all_matches(str, pattern) == 1 or false
+end
+
+
+function find_digits(str, pattern)
+    local nums = {}
+    for m in string.gmatch(str, pattern or "(%d+)") do
+        nums[#nums + 1] = tonumber(m)
+    end
+    return nums
+end
+
+function find_suffix_num(str)
+	return find_digits(str, "(%d+)$")
 end
 
 function isnumber(var)
@@ -130,6 +209,18 @@ locale = {
 factions = {"stalker", "csky", "bandit", "army", "killer",  "monolith", 
 			"ecolog", "dolg", "freedom", "greh", "renegade", "isg", "default"}  
 
+mutants = {"bloodsucker", "mutant_boar", "burer", "cat", "chimera", "pseudodog_grey", "flesh_strong",
+			"kontroler", "dog", "dog_red", "dog_white", "flesh", "fracture", "gigant", "krovosos",
+			"poltergiest", "pseudodog", "psy_dog", "psy_dog_phantom", "mutant_boar_strong", "krovosos_strong",
+			"rat", "snork", "tushkano", "zombie", "lurker", "karlik", "kontroler", "kontroler_3", "kontroler_4",
+			"kontroler_5", "psevdogigant",
+		}
+
+subtitle_patterns = { "fight/fire/fire_,", "fight/attack/attack_,", "fight/attack/attack_many_,",
+					  "fight/detour/detour_,", "fight/attack/attack_one_,", "fight/backup/backup_,"
+}
+
+		
 sound_duration = {
 	["$no_sound"] = 0.5765759637188209, 
 	["$silent"] = 0.5765759637188209, 
