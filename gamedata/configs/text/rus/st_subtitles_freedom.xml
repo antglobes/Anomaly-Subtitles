@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <string_table>
+	<!-- FIGHT -->
 	<string id="characters_voice_human_freedom_1_fight_attack_attack_1">
         <text>Вперед за Че!</text>
     </string> 
@@ -450,5 +451,328 @@
 	<string id="characters_voice_human_freedom_1_fight_tolls_tolls_4">
         <text>Чувака скопытили!</text>
     </string>
-
+	<!-- HELP -->
+	<string id="characters_voice_human_freedom_1_help_combat_coming_1">
+        <text>Чувак, без паники! Два мига - и мы на месте!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_combat_coming_1_pda">
+        <text>Чувак, без паники! Два мига - и мы на месте!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_combat_coming_2">
+        <text>Мэн, не сдавайся - мы сейчас!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_combat_coming_2_pda">
+        <text>Мэн, не сдавайся - мы сейчас!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_combat_coming_3">
+        <text>Мэн, "Свобода" на проводе, идём на помощь - держись!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_combat_coming_3_pda">
+        <text>Мэн, "Свобода" на проводе, идём на помощь - держись!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_kill_wounded_1">
+        <text>Ну что, чувак, пора прощаться.</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_kill_wounded_2">
+        <text>Не, плохая у тебя карма - это точно.</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_kill_wounded_3">
+        <text>На, обломись.</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_medkit_1">
+        <text>Ща, ща чувак, ща полечим!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_medkit_2">
+        <text>Ничё, ща поправишься!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_medkit_3">
+        <text>Ну чё разорался-то, сейчас помогу!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_1">
+        <text>Эй! ... Чуваки! ... Помираю!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_2">
+        <text>Пиплы! ... Сюда!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_3">
+        <text>Помо-кха-кха-кха..!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_4">
+        <text>Помог-хии-те!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_5">
+        <text>Помог-хи-те!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_6">
+        <text>Выручайте, народ!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_7">
+        <text>Ыоо, кхаа...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_8">
+        <text>Ыа, а-ааа...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_9">
+        <text>Кхыа, кха-аха...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_10">
+        <text>Ыоо, кхаа...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_11">
+        <text>Ыа, а-ааа...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_12">
+        <text>Кхыа, кха-аха...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_heavy_help_13">
+        <text>Мм-мммммммм...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_thanx_thanx_1">
+        <text>Воот это спасибоо...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_thanx_thanx_2">
+        <text>Спасибо, чувак...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_thanx_thanx_3">
+        <text>Ты здорово меня выручил, дружище...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_thanx_thanx_4">
+        <text>Век не забуду, чувак...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_help_wounded_thanx_thanx_5">
+        <text>Ну ты реальный мэн, спасибо...</text>
+    </string>
+	<!-- REACTIONS -->
+	<string id="characters_voice_human_freedom_1_reactions_box_box_1">
+        <text>Чуваки, воруют!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_box_box_2">
+        <text>Эй, народ, тут ворюга!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_box_box_3">
+        <text>У нас кто-то в вещах роется!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_box_box_4">
+        <text>Все сюда: наши ящики чистят!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_joke_reaction_joke_1">
+        <text>Ну и что?</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_joke_reaction_joke_2">
+        <text>И где говорить "ха-ха"?</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_joke_reaction_joke_3">
+        <text>Тьфу, старьё</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_joke_reaction_joke_4">
+        <text>Ничё-ничё...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_music_reaction_music_1">
+        <text>Ничё-ничё...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_music_reaction_music_2">
+        <text>Ты где играть учился, чувак?</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_music_reaction_music_3">
+        <text>И отчего я играть, как следует, не выучился? А от того что облом</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_music_reaction_music_4">
+        <text>Ээээээх...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_music_reaction_music_5">
+        <text>Заканчивай уже, ладно?</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_music_reaction_music_6">
+        <text>Не - ну это ты прогнал.</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_story_laughter_1">
+        <text>Ха-ха-ха-ха-ха-ха, вот это знатно, чувак!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_story_laughter_2">
+        <text>Ахахахахахахаха!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_story_laughter_3">
+        <text>Хэхэхэхэхэхэ!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_story_laughter_4">
+        <text>Ахахахахахахахах!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_story_laughter_5">
+        <text>ХА-ХА-ХА-ХА-ХАХ, ой!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_story_laughter_6">
+        <text>ыХА-ХА-ХА-ХА-ХЕХ!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_reactions_story_laughter_7">
+        <text>Ыхыхыхыхыхыхы!</text>
+    </string>
+	<!-- STATES -->
+	<string id="characters_voice_human_freedom_1_states_idle_idle_1">
+        <text>А у меня вот ни косяка не осталось, фиг его знает где сейчас достать...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_2">
+        <text>Блин как всё хреново, кругом сплошная муть и кайфоломщики тупые...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_3">
+        <text>Ууух, сейчас бы толковый сэшен сбацать, да центров хорошо напустить, чтобы всех вставило...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_4">
+        <text>Эх, славно было бы сейчас ништяка какого-то толкового заточить...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_5">
+        <text>Ээх, пивасика бы что ли, да с омульком...с хорошим таким, мясистым омульком, кайф...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_6">
+        <text>Эти то, из "Долга", так запарили, что уже совсем: сами по-человечески не живёте ну и хрен с ним, дайте другим хоть, не мешайте...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_7">
+        <text>Блин, ну какой из него командир - фуфло. А из кожи лезет - всё б ему командовать. "Ну и какого хрена тут торчишь, а?" - спрашивается, дуй на ферму какую-нибудь менеджером, или в войско на контракт. О, точно, там ему самое место...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_8">
+        <text>Нее, кто как, а я хочу на море - там климат для здоровья полезный. А тут - мама не горюй: долговцы, бандюки, зверьё тупое...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_9">
+        <text>Ох и страшно на белом свете жить - и зачем я только из мамочкиного пуза вылез?...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_10">
+        <text>И кто бы знал, как мне домой охота, как меня прижало...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_11">
+        <text>Чё-то не прёт меня нынче погодка, подозрительная она какая-то, и вчера тоже подозрительная была, и завтра - 100 процентов ещё подозрительнее будет...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_12">
+        <text>А люди, а, идиоты блин! Всему верят, что им по ящику сливают, и всё что им скажут - сделают, сами думать нифига не хотят. А встряхнуть бы их нехило, чтоб гляделки открыли...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_13">
+        <text>Хоть бы товар стоящий подбрасывали, раз тут не растёт, так ведь засада - то бишь шиш, то кашлючий...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_14">
+        <text>Вот ведь люди, а. И что за создания, хуже зверей, ей богу, даже тут. Тут задницу друг другу каждую минуту прикрывать надо, а они... блин...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_15">
+        <text>Полигон - не, ну нормально, чё думать, уникальное ж какое место. Его бы изучать, открытия делать, людям рассказывать - нее, молчат, скоты, или сказки страшные рассказывают. А кто правду говорит или хочет сам по себе жить - сразу ногой на горло, козлы...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_16">
+        <text>Нее, нельзя с ними по-хорошему, ни с армией, ни с "Долгом"! Не хотят они по-хорошему! Они нас убивают - и мы их убивать будем, чтоб дошло!..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_17">
+        <text>Вчера на базе пшёнку точили, позавчера мы тоже точили пшёнку. А завтра что - опять эту дрянь точить будем?..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_18">
+        <text>Наша-а служба и опасна и трудна, и-и на первый взгляд как будто не видна, на второ-ой как будто тоже не видна, даже и на третий... агх...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_19">
+        <text>Что в городе по-людски жить не давали, что тут началось. "Долг" этот долбаный, вояки-скоты, нет чтобы оставить Зону в покое - всё им надо под себя подмять, всё им под контроль... уроды...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_20">
+        <text>Идейные, блин-а. Ну да, конечно, нет ума - считай калека ... или долговец. "Зону под контроль" - ну не идиоты? Для кого стараетесь? Ну, расчистите кусок Зоны, а они там полигон сделают. Детишкам вашим же и аукнется!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_21">
+        <text>Вот как оно всегда получается: вот только человек кусок власти получит - так сразу хрен знает, какая из него цаца становится - "все остальные - дерьмо, блин, и не работают"...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_22">
+        <text>ааа-аа...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_23">
+        <text>эээх...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_24">
+        <text>Ыаа...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_25">
+        <text>Ммм, ааах...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_26">
+        <text>Кха-кха-кха...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_27">
+        <text>Кхм...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_28">
+        <text>Кхе-кхе-х...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_29">
+        <text>ээээхх...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_30">
+        <text>Вот ведь ирония жизнь, а?..</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_31">
+        <text>Нее, не нравится мне тут, скорей бы назад...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_32">
+        <text>Главное - особо не расслабляться ни при каких условиях, а то быстро тебя на тот свет спровадят, не Зона - так те злобные чуваки, что по ней шарятся...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_idle_idle_33">
+        <text>Добраться бы до Припяти - столько всего про неё слышал, а видеть - толком и не видел...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_loot_loot_bad_1">
+        <text>Ндааа, бесперспективняк.</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_loot_loot_bad_2">
+        <text>У меня пусто, да и у тебя не густо.</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_loot_loot_bad_3">
+        <text>И что же ты сюда без снаряги-то, а?</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_loot_loot_begin_1">
+        <text>Так, сейчас поглядим...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_loot_loot_begin_2">
+        <text>Не расстраивайся, чувак, гляну вот только, что у тебя по карманам...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_loot_loot_begin_3">
+        <text>Не обессудь мэн, зона тебе пухом...</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_loot_loot_good_1">
+        <text>Гуд! А то что добру пропадать!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_loot_loot_good_2">
+        <text>Ты смотри! И откуда у людей столько добра набирается!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_states_loot_loot_good_3">
+        <text>Ого! Ну спасибо тебе, покойничек!</text>
+    </string>
+	<!-- more states -->
+	<!-- TALK -->
+	<!-- THREAT -->
+	<string id="characters_voice_human_freedom_1_threat_back_off_backoff_1">
+        <text>Отвянь!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_back_off_backoff_2">
+        <text>Отлезь от меня!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_back_off_backoff_3">
+        <text>Брысь отсюда!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_back_off_backoff_4">
+        <text>Вали отсюда!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_back_off_backoff_5">
+        <text>Чесал бы ты отсюда что-ли!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_back_off_backoff_6">
+        <text>Вали нахрен, животное!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_drop_weapon_dropweapon_1">
+        <text>Оружие-то отпусти, а?!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_drop_weapon_dropweapon_2">
+        <text>Сталкер! Ствол у тебя красивый, да только убрал бы ты его!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_drop_weapon_dropweapon_3">
+        <text>Эй ты, кончай ружьём махать!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_drop_weapon_dropweapon_4">
+        <text>Прячь волыну, сталкер!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_drop_weapon_dropweapon_5">
+        <text>Давай по-хорошему, дружище - прячь ствол!</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_drop_weapon_dropweapon_6">
+        <text>Ой, а чё ты такой воинственный - ствол спрячь, ага?</text>
+    </string>
+	<string id="characters_voice_human_freedom_1_threat_drop_weapon_dropweapon_7">
+        <text>Да убери ты свою пукалку!</text>
+    </string>
 </string_table>
