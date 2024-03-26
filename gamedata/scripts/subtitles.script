@@ -16,8 +16,7 @@ activate_subtitles = subtitles_ui.activate_subtitles
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
 ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
-CHAR_LIMIT = 0
---42
+CHAR_LIMIT = 42
 
 -- MCM Default Options
 local subs_enabled = true
@@ -152,24 +151,33 @@ end
 function display_long_sub(info, display_type)
 	pr("Subtitle Larger than Char Limit")
 	local subtitle = info["subtitle"]
-	local duration = info["duration"]
+	local total_duration = info["duration"]
 
-	local subtitles = split_subtitle(subtitle)
-	local idx = 1	
-	
-	CreateTimeEvent("subtitles_display"..math.random(1,10000), "subtitle_display_long"..math.random(1,10000), duration / #subtitles, 
-	function(subtitles, info, display_type)
-		local sub = subtitles[idx]
-		pr("%s long sub displaying %s", display_type, sub)
-		if display_type == "news_manager" then
-			dynamic_news_helper.send_tip(sub, info["speaker_name"], 0, subtitle_duration / #subtitles, get_speaker_icon(info), "news", "npc")
+	local subtitles = split_subtitle(subtitle, CHAR_LIMIT)
+	pr("Total sub duration %s", total_duration)
+	pr("Each Sub Duration %s", duration)
+	pr("Subtitles length %s", #subtitles)
+	-- duration = duration < 0.5 and 0.5 or duration
+
+	local duration = 0
+	for idx, sub in pairs(subtitles) do
+		if idx > 1 then duration = 	(total_duration / #subtitles) > 0.5 and total_duration / #subtitles or 0.5 end
+		if display_type == "news_manager" then			
+			CreateTimeEvent("subtitles_display_nm"..math.random(1,10000), "subtitle_display_nm_long"..math.random(1,10000), duration,
+			function(subtitles, info, display_type)
+				dynamic_news_helper.send_tip(sub, info["speaker_name"], 0, duration, get_speaker_icon(info), "news", "npc")
+				pr("%s long sub displaying %s", display_type, sub)
+				return true 
+			end, subtitles, info, display_type)
 		elseif display_type == "HUD" then
 			info["subtitle"] = sub
+			info["duration"] = duration
 			activate_subtitles(info)
+			CreateTimeEvent("subtitles_display_hud"..math.random(1,10000), "subtitle_display_hud_long"..math.random(1,10000), duration, function()
+				return true
+			end)
 		end
-		idx = idx + 1
-		return true
-	end, subtitles, info, display_type)
+	end
 end
 
 
@@ -237,9 +245,9 @@ function get_sound_duration(soundname)
 		return sound_duration[slashes_to_underscores(soundname)]
 	end
 	local reading_speed = {
-		["slow_reader"] = 7.0,
-		["ok_reader"] = 5.0,
-		["fast_reader"] = 3.0,}
+		["slow_reader"] = 5.0,
+		["ok_reader"] = 2.5,
+		["fast_reader"] = 1.0,}
 	return reading_speed[mcm_option]	
 end
 

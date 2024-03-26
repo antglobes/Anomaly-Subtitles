@@ -235,30 +235,6 @@ end
 
 function SUBUI:display_subtitles()
     pr("Building Subtitles")
-   
-
-    --[[
-    local sb_pos =  self.subtitle_background:GetWndPos()
-    local spi_pos = self.subtitle_speaker_icon:GetWndPos()
-    local sf_pos_x = spi_pos.x - (spi_pos.x * 0.25)
-    local sf_pos_y = spi_pos.y - (spi_pos.y * 0.25)
-    local spi_size = {["h"]=self.subtitle_speaker_icon:GetHeight(),["w"]=self.subtitle_speaker_icon:GetWidth()}
-    local spi_size_w = spi_size.w * 0.25
-    local spi_size_h = spi_size.h * 0.25
-    local sb_size = {["h"]=self.subtitle_background:GetHeight(),["w"]=self.subtitle_background:GetWidth()}
-
-
-    self.subtitle_text_frame:SetWndPos(vector2():set(sb_pos.x + 110, sb_pos.y))
-    self.subtitle_speaker_icon:SetWndPos(vector2():set(sb_pos.x, sb_pos.y))
-    self.subtitle_faction:SetWndPos(vector2():set(sf_pos_x, sf_pos_y))
-    self.subtitle_speaker_name:SetWndPos(vector2:set(spi_pos.x, spi_size.y - 10))
-    self.subtitle_text:SetWndPos(vector2:set(spi_pos.x + 10, spi_size.y))
-
-    self.subtitle_text_frame:SetWndSize(vector2():set(sb_size.w - 10, sb_size.h - 10))
-    self.subtitle_speaker_icon:SetWndSize(vector2():set(100, 100))
-    self.subtitle_faction:SetWndSize(vector2():set(25, 25))
-    self.subtitle_faction:SetWndSize(vector2():set(spi_size_w, spi_size_h))
-    ]]--
     
     if self.subtitle_duration % 1 ~= 0 then 
         self.subtitle_duration = round_idp(self.subtitle_duration, 2)
@@ -290,14 +266,6 @@ function SUBUI:display_subtitles()
         deactivate_subtitles()
         return true
     end)
-end
-
-local tmr = 0
-function SUBUI:Lock()
-    local tg = time_global()
-    if tmr > tg then return end
-    tmr = tg + self.subtitle_duration * 1000
-    if not self.extended_subtitle then return true end
 end
 
 -- MCM Settings
