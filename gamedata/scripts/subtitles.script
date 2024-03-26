@@ -1,8 +1,25 @@
+-- Imports
+gts = game.translate_string
+sound_duration = subtitles_utils.sound_duration
+get_config = subtitles_mcm.get_config
+factions = subtitles_utils.factions
+slashes_to_underscores = subtitles_utils.slashes_to_underscores
+locale = subtitles_utils.locale
+
+-- Constants
+SUBTITLE_PREFIX = "as_sub_%s"
+ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- C:\Stalker Dev\Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
+
+-- MCM Default Options
 local subs_enabled = true
 local hearing_distance = 25
 local hear_chance = 100
 local hear_cooldown = 0
 local hear_on_cd = false
+
+function pr(str, ...)
+	subtitles_utils.dbg_pr("Subtitles|Main: %s", str, ...)
+end
 
 function subtitle_him(soundname, npc)
 	if (not subs_enabled) then
@@ -15,6 +32,10 @@ function subtitle_him(soundname, npc)
 	if (not (hear_chance > rnd)) then
 		return
 	end
+
+	--local xml_path = strformat("as_sub_%s", )
+	--printf("Soundname: %s", xml_path)
+
 	soundnum = tonumber(string.match(soundname, "(%d+)$"))
 	soundname = soundname:gsub('\\\\', ''):gsub('\\', '/',1):gsub('\\','/')
 	--some operations due to strange stalker phrases system
@@ -135,7 +156,10 @@ function subtitle_him(soundname, npc)
 	end
 	
 	--converting subtitle to string id
-	soundname = soundname:gsub("/", "_")
+	
+	-- AG: Grab Translation String (string id) using soundname
+	subtitle = soundname_to_subtitle(soundname)
+
 	--playing message according to distance and phrase
 	npcpos = npc:position()
 	if (npcpos:distance_to(db.actor:position()) < hearing_distance) then
@@ -143,10 +167,26 @@ function subtitle_him(soundname, npc)
 			icon = npc:character_icon()
 			name = npc:character_name()
 		else
-			icon = nil
+			icon = news_manager.tips_icons["default"]
 			name = "st_noise"
 		end
-		dynamic_news_helper.send_tip(game.translate_string(soundname), game.translate_string(name), 0, 10, icon, "news", "npc")
+		
+		local info = {
+			["speaker_name"] = gts(name),
+			["speaker_icon"] = icon,
+			["speaker_faction"] = npc:character_community(),
+			["subtitle"] = subtitle,
+			["locale"] = get_locale(),
+			["duration"] = get_sound_duration(soundname) or 3
+		}
+		
+		if not verify_subtitle(info) then return end
+		pr("Activating Subtitles")
+		if get_config("enable_news_manager") then
+			display_subs_news_manager(info)
+		else
+			subtitles_ui.activate_subtitles(info) 
+		end
 	end
 	hear_on_cd = true
 	CreateTimeEvent("hear_cooldown", "hear_cooldown", hear_cooldown, function()
@@ -156,15 +196,93 @@ function subtitle_him(soundname, npc)
 	end)
 end
 
+function get_speaker_icon(info)
+	speaker_icon = info["speaker_icon"]
+	if get_config("use_localization") then
+		manual_loc = string.find(info["locale"], "eng") and "eng_uk" or info["locale"]
+		speaker_icon = ini_news_tips:r_value("news_tips_icons", info["locale"]) or "ui_icon_news_tip_subtitle_".. manual_loc
+		pr("Speaker Icon:%s", speaker_icon)
+	end
+	return speaker_icon
+end
+
+function display_subs_news_manager(info)
+	dynamic_news_helper.send_tip(info["subtitle"],info["speaker_name"], 0, info["duration"], get_speaker_icon(info), "news", "npc")
+end
+
+function verify_subtitle(info)
+	local verified = true
+
+	-- Validate contents of info table
+	for k, v in pairs(info) do
+		if k == "speaker_name" then
+			if type(v) ~= "string" then
+				pr("Invalid Speaker name: %s", v)
+				verified = false
+			end
+		elseif k == "speaker_icon" then
+			if v == nil then
+				pr("Invalid Speaker Icon: %s", v)
+				verified = false
+			end
+		elseif k == "speaker_faction" then
+			if v == nil then
+				pr("Invalid Speaker Faction: %s", v)
+				verified = false
+			end
+		elseif k == "subtitle" then
+			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 1 then
+				pr("Invalid Subtitle: %s", v)
+				verified = false
+			end
+		--elseif k == "locale" then
+			
+		elseif k == "duration" then
+			if type(v) ~= "number" or v < 0 then
+				pr("Invalid Duration: %s", v)
+				verified = false
+			end
+		end
+	end
+	
+	return verified 
+end
+
+function soundname_to_path(soundname)
+	return soundname:gsub('/','\\')
+end
+
+function soundname_to_subtitle(soundname)
+	-- Replace separators with underscores
+	soundname = slashes_to_underscores(soundname)
+	return gts(strformat(SUBTITLE_PREFIX, gts(soundname)))
+end
+
+function get_sound_duration(soundname)
+	local mcm_option = get_config("sub_duration")
+	if mcm_option  == "true_duration" then
+		return sound_duration[slashes_to_underscores(soundname)]
+	end
+	local reading_speed = {
+		["slow_reader"] = 7.0,
+		["ok_reader"] = 5.0,
+		["fast_reader"] = 3.0,}
+	return reading_speed[mcm_option]	
+end
+
+function get_locale()
+	return ui_options.get("other/localization")
+end
+
 function on_option_change()
-		subs_enabled = subtitles_mcm.get_config("enable_subs")
-		hearing_distance = subtitles_mcm.get_config("hear_dist")
-		hear_chance = subtitles_mcm.get_config("hear_chance")
-		hear_cooldown = subtitles_mcm.get_config("hear_cooldown")
+		subs_enabled = get_config("enable_subs")
+		hearing_distance = get_config("hear_dist")
+		hear_chance = get_config("hear_chance")
+		hear_cooldown = get_config("hear_cooldown")
 end
 
 function count_sounds_of_this(path)
-	path = path:gsub('/','\\')
+	path = soundname_to_path(path)
 	local flag = true
 	for count=1,100 do
 		local snd 

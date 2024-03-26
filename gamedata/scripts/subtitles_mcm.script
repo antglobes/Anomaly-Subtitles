@@ -3,22 +3,104 @@
 --Subtitles MCM setting
 --VodoXleb
 
-local defaults = {
+defaults = {
 	["companion_setting"] = 60,
 	["companion_chance"] = 60,
+	["enable_subs"] = true,
+	["hear_dist"] = 25,
+	["hear_chance"] = 100,
+	["hear_cooldown"] = 0,
+	["enable_debug"] = false,
+	["background_colour"] = "bc_white",
+	["background_opacity"] = 15,
+	["font_colour"] = "fc_white",
+	["font_opacity"] = 255,
+	["font_kind"] = "fk_graff22",
+	["font_alignment"] = "fa_l",
+	["sub_duration"] = "ok_reader",
+	["enable_faction_icon"] = true,
+	["enable_speaker_icon"] = true,
+	["enable_news_manager"] = false,
+	["use_localization"] = false,
 }
 
 function get_config(key)
     if ui_mcm then return ui_mcm.get("subtitles/"..key) else return defaults[key] end
 end
 
+function using_news_manager()
+	return not get_config("enable_news_manager")
+end
+
 function on_mcm_load()
     op = { id= "subtitles",sh=true ,gr={
 			{id = "title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_subtitles_title",size= {512,50},spacing= 20 },
-			{id = "enable_subs", type = "check", val = 1, def = false},
 			{id = "hear_dist", type = "track", val = 2, min=1,max=100,step=1, def = 25},
 			{id = "hear_chance", type = "track", val = 2, min=0,max=100,step=1, def = 100},
-			{id = "hear_cooldown", type = "track", val = 2, min=0,max=10,step=1, def = 1},	}
+			{id = "hear_cooldown", type = "track", val = 2, min=0,max=10,step=1, def = 0},			
+
+			{id="divider", type="line"},
+			{id="title_accessibility", type="title", text="ui_mcm_subtitles_title_accessibility"},			
+			{id="background_colour", type="list", val=0, def="bc_white", precondition={using_news_manager},
+				content={
+					{"bc_white", "bc_white"},
+					{"bc_black", "bc_black"},
+					{"bc_red", "bc_red"},
+					{"bc_blue", "bc_blue"},
+					{"bc_yellow", "bc_yellow"},
+					{"bc_green", "bc_green"},
+					{"bc_magenta", "bc_magenta"}
+				}
+			},
+			{id="background_opacity", type="track", val=2, min=0, max=255, step=1, def=0, precondition={using_news_manager}},
+			{id="font_colour", type="list", val=0, def="fc_white", precondition={using_news_manager},
+				content={
+					{"fc_white", "fc_white"},
+					{"fc_black", "fc_black"},
+					{"fc_red", "fc_red"},
+					{"fc_blue", "fc_blue"},
+					{"fc_yellow", "fc_yellow"},
+					{"fc_green", "fc_green"},
+					{"fc_magenta", "fc_magenta"}
+				}
+			},
+			{id="font_opacity", type="track", val=2, min=0, max=255, step=1, def=255, precondition={using_news_manager}},
+			{id="font_kind", type="list", val=0, def="fk_graff22", precondition={using_news_manager},
+				content={
+					{"fk_small", "fk_small"},
+					{"fk_med", "fk_med"},
+					{"fk_di", "fk_di"},
+					{"fk_let16", "fk_let16"},
+					{"fk_let18", "fk_let18"},
+					{"fk_graff19", "fk_graff19"},
+					{"fk_graff22", "fk_graff22"},
+				}
+			},
+			{id="font_alignment", type="list", val=0, def="fa_l", precondition={using_news_manager},
+				content={
+					{"fa_l", "fa_l"},
+					{"fa_c", "fa_c"},
+					{"fa_r", "fa_r"}
+				}
+			},
+			{id="sub_duration", type="radio_v", val=0, def="ok_reader", 
+				content={
+					{"true_duration", "true_duration"},
+					{"slow_reader", "slow_reader"},
+					{"ok_reader", "ok_reader"},
+					{"fast_reader", "fast_reader"}
+				}
+			},
+
+			{id="divider", type="line"},
+			{id="title_additional", type="title", text="ui_mcm_subtitles_title_additional"},
+			{id ="enable_subs", type = "check", val = 1, def = true},
+			{id="enable_debug", type="check", val=1, def=false},
+			{id="enable_faction_icon", type="check", val=1, def=true, precondition={using_news_manager}},
+			{id="enable_speaker_icon", type="check", val=1, def=true, precondition={using_news_manager}},
+			{id="enable_news_manager", type="check", val=1, def=false},
+			{id="use_localization", type="check", val=1, def=false, precondition={function() return not using_news_manager() end}}	
+		}
     }
     return op
 end
