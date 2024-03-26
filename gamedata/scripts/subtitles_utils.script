@@ -1,6 +1,10 @@
 -- imports
 get_config = subtitles_mcm.get_config
 
+function has_translation(str)
+    return game.translate_string(str) ~= str
+end
+
 function list_pattern_occurances(str, pattern, limit)
     s = {}
     local function search(str, substr, callback, init)

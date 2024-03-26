@@ -12,6 +12,7 @@ extract_str = subtitles_utils.extract_str
 subtitle_patterns = subtitles_utils.subtitle_patterns
 find_suffix_num = subtitles_utils.find_suffix_num
 activate_subtitles = subtitles_ui.activate_subtitles
+has_translation = subtitles_utils.has_translation
 
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
@@ -35,6 +36,24 @@ function is_subtitle_above_char_limit(subtitle)
 	return #subtitle > CHAR_LIMIT
 end
 
+local queue = {}
+local length = 0
+
+function dequeue()
+    return table.remove(queue, 1)
+end
+
+function enqueue(value)
+    table.insert(queue, value)
+end
+
+function queue_length()
+    return #queue
+end
+
+function queue_has_entries()
+	return queue_length() > 0
+end
 
 
 -- Main Subtitle Func
@@ -52,8 +71,7 @@ function subtitle_him(soundname, npc)
 
 	--converting subtitle to string id
 	
-	-- AG: Grab Translation String (string id) using soundname
-	subtitle = soundname_to_subtitle(soundname)
+	
 
 	--playing message according to distance and phrase
 	npcpos = npc:position()
@@ -73,19 +91,13 @@ function subtitle_him(soundname, npc)
 			["speaker_name"] = gts(name),
 			["speaker_icon"] = icon,
 			["speaker_faction"] = npc:character_community(),
-			["subtitle"] = subtitle,
+			["subtitle"] =  soundname_to_subtitle(soundname),
 			["locale"] = get_locale(),
 			["duration"] = get_sound_duration(soundname) or 3
 		}
 		
-		display_subtitles(info)
+		enqueue(info)
 	end
-	hear_on_cd = true
-	CreateTimeEvent("hear_cooldown", "hear_cooldown", hear_cooldown, function()
-		hear_on_cd = false
-		RemoveTimeEvent("hear_cooldown", "hear_cooldown")
-		return false
-	end)
 end
 
 -- Subtitle Controllers
@@ -111,7 +123,7 @@ function verify_subtitle(info)
 				verified = false
 			end
 		elseif k == "subtitle" then
-			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0 then
+			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0  then
 				pr("Invalid Subtitle: %s", v)
 				verified = false
 			end
@@ -128,69 +140,39 @@ function verify_subtitle(info)
 	return verified 
 end
 
-function display_subs_news_manager(info)
-	pr("Using News Manager for Subtitles")
-	local subtitle = info["subtitle"]
-	local subtitle_duration = info["duration"]
-	if is_subtitle_above_char_limit(subtitle) then
-		display_long_sub(info, "news_manager")
+function display_subtitles(info)
+	if get_config("enable_news_manager") then
+		pr("Using News Manager for Subtitles")
+		dynamic_news_helper.send_tip(info["subtitle"], info["speaker_name"], 0, info["duration"], get_speaker_icon(info), "news", "npc")
 	else
-		dynamic_news_helper.send_tip(subtitle, info["speaker_name"], 0, subtitle_duration, get_speaker_icon(info), "news", "npc")
-	end
-end
-
-function display_subs_hud(info)
-	pr("Using Subtitles HUD")
-	if is_subtitle_above_char_limit(info["subtitle"]) then
-        display_long_sub(info, "HUD")
-    else
+		pr("Using Subtitles HUD")
 		activate_subtitles(info) 
 	end
 end
 
-function display_long_sub(info, display_type)
-	pr("Subtitle Larger than Char Limit")
+function process_queue()
+	if not queue_has_entries() then return end
+	local info = dequeue()
 	local subtitle = info["subtitle"]
-	local total_duration = info["duration"]
-
-	local subtitles = split_subtitle(subtitle, CHAR_LIMIT)
-	pr("Total sub duration %s", total_duration)
-	pr("Each Sub Duration %s", duration)
-	pr("Subtitles length %s", #subtitles)
-	-- duration = duration < 0.5 and 0.5 or duration
-
-	local duration = 0
-	for idx, sub in pairs(subtitles) do
-		if idx > 1 then duration = 	(total_duration / #subtitles) > 0.5 and total_duration / #subtitles or 0.5 end
-		if display_type == "news_manager" then			
-			CreateTimeEvent("subtitles_display_nm"..math.random(1,10000), "subtitle_display_nm_long"..math.random(1,10000), duration,
-			function(subtitles, info, display_type)
-				dynamic_news_helper.send_tip(sub, info["speaker_name"], 0, duration, get_speaker_icon(info), "news", "npc")
-				pr("%s long sub displaying %s", display_type, sub)
-				return true 
-			end, subtitles, info, display_type)
-		elseif display_type == "HUD" then
-			info["subtitle"] = sub
-			info["duration"] = duration
-			activate_subtitles(info)
-			CreateTimeEvent("subtitles_display_hud"..math.random(1,10000), "subtitle_display_hud_long"..math.random(1,10000), duration, function()
-				return true
-			end)
+	if not subtitle then return end
+	if is_subtitle_above_char_limit(subtitle) then
+		local subtitles = split_subtitle(subtitle, CHAR_LIMIT)
+		for idx, sub in pairs(subtitles) do
+			local split_info = {
+				["speaker_name"] = info["speaker_name"],
+				["speaker_icon"] = info["speaker_icon"],
+				["speaker_faction"] = info["speaker_faction"],
+				["subtitle"] = sub,
+				["locale"] = info["locale"],
+				["duration"] = info["duration"] / #subtitles
+			}
+			enqueue(split_info)
 		end
 	end
-end
 
-
-function display_subtitles(info)
 	if not verify_subtitle(info) then return end
-	if get_config("enable_news_manager") then
-		display_subs_news_manager(info)
-	else
-		display_subs_hud(info)
-	end
+	display_subtitles(info)
 end
-
-
 
 
 -- Soundname Manipulation
@@ -208,12 +190,10 @@ function normalize_soundname(soundname)
 end
 
 function soundname_to_subtitle(soundname)
-	-- Replace separators with underscores
-	soundname = normalize_soundname(soundname)
-	return gts(strformat(SUBTITLE_PREFIX, gts(soundname)))
+	local x = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
+	local snd_name = game.translate_string(x)
+	return has_translation(x) and snd_name or nil
 end
-
-
 -- Subtitle Info Builders
 
 function extract_mutant_name(sect)
@@ -282,5 +262,6 @@ end
 function on_game_start()
 	RegisterScriptCallback("on_phrase_callback", subtitle_him)
 	RegisterScriptCallback("on_option_change", on_option_change)
+	RegisterScriptCallback("actor_on_update", process_queue)
 	on_option_change()
 end

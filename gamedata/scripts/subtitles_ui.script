@@ -143,9 +143,7 @@ end
 
 class "SUBUI" (CUIScriptWnd)
 function SUBUI:__init(info) super()
-    pr("Intialising HUD")
     self:SetAutoDelete(true)
-    pr("Assigning Subtitle Info")
     self.speaker = info["speaker_name"]
     self.speaker_icon = info["speaker_icon"]
     self.speaker_faction = info["speaker_faction"]
@@ -234,7 +232,6 @@ function SUBUI:Reset()
 end
 
 function SUBUI:display_subtitles()
-    pr("Building Subtitles")
     
     if self.subtitle_duration % 1 ~= 0 then 
         self.subtitle_duration = round_idp(self.subtitle_duration, 2)
