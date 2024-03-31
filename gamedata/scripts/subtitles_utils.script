@@ -1,4 +1,6 @@
+
 -- imports
+
 get_config = subtitles_mcm.get_config
 
 function has_translation(str)
