@@ -68,6 +68,7 @@ faction_to_colour = {
     ["greh"]        = function(opacity) return GetARGB(opacity, 14, 1, 1) end,
     ["renegade"]    = function(opacity) return GetARGB(opacity, 168, 67, 0) end,
     ["isg"]         = function(opacity) return GetARGB(opacity, 184, 102, 135) end,
+    ["monster"]     = function(opacity) return GetARGB(opacity, 74, 46, 16) end,
     ["default"]     = function(opacity) return GetARGB(opacity, 0, 0, 0) end
 }
 
@@ -151,7 +152,6 @@ function SUBUI:__init(info) super()
     self.localisation = info["locale"]
     self.subtitle_duration = info["duration"]
 
-    pr(print_table(info, true))
     self.xml_patches = CScriptXmlInit()
     self.xml_subs = CScriptXmlInit()
     self.xml_portraits = CScriptXmlInit()
@@ -209,7 +209,6 @@ function SUBUI:__finalize()
 end
 
 function SUBUI:Reset()
-    pr("Reseting UI")
     self.factions["stalker"]:Show(false)
     self.factions["bandit"]:Show(false)
     self.factions["csky"]:Show(false) 	
@@ -259,7 +258,7 @@ function SUBUI:display_subtitles()
     self.subtitle_text:Show(true)
 
     CreateTimeEvent("subtitles_ui_"..math.random(1,10000), "subtitle_duration_"..math.random(1,10000), self.subtitle_duration, function()
-        pr("Closing Subtitles")
+        pr("Showed Subtitles for %s", tostring(self.subtitle_duration))
         deactivate_subtitles()
         return true
     end)
