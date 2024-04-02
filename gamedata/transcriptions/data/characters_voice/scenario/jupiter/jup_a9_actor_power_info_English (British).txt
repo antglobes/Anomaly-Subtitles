@@ -1,0 +1,3 @@
+Here's the entrance to the way wire.
+If we run the generator, we can open the transport
+gateway.

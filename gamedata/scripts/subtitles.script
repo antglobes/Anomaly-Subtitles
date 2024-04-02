@@ -79,7 +79,7 @@ function subtitle_him(soundname, npc)
 			faction = npc:character_community()
 		elseif npc:is_monster() then
 			name = npc:name()
-			icon = strformat("ui_npc_monster_", extract_mutant_name(name))
+			icon = strformat("ui_npc_monster_%s", remove_digits(npc:name(), ''))
 			faction = "monster"
 		else
 			icon = news_manager.tips_icons["default"]
@@ -184,15 +184,10 @@ end
 
 function extract_mutant_name(sect)
 	if not sect then return end
-	pr("Monster sect: %s", sect)
-	local name = ""
-	for _, m_type in pairs(mutants) do
-		if string.find(sect, m_type) then
-			name = remove_digits(sect, '')
-			name = extract_str(name, m_type, '')
-		end
-	end
-	pr("Mutant Type: %s", name)
+	local rm_d = remove_digits(sect, '')
+	local start, finish = string.find(sect, "_")
+	local name = subtitles_utils.replace(rm_d, {rm_d:sub(start, #rm_d)}, '')
+	pr("Monster Name: %s", name)
 	return name
 end
 
