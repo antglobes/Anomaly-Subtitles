@@ -1,3 +1,8 @@
+--[[-------------
+Author(s): AntGlobes
+Purpose: Utils
+Last Modified: 04/04/24
+]]---------------
 
 -- imports
 
@@ -189,6 +194,7 @@ function print_table(tbl, return_string, tbl_str)
     return tbl_str
 end
 
+-- DEBUG print
 function dbg_pr(header, str, ...)
     if get_config("enable_debug") then
         printf(header, strformat(str, ...))
@@ -199,6 +205,7 @@ function pr(str, ...)
     dbg_pr("Subtitles|Utils: %s", str, ...)
 end
 
+-- Game Localisations to News Tip Icon Prefixes
 locale = {
 	["eng"] = "uk",
 	["rus"] = "rus",
@@ -211,6 +218,7 @@ locale = {
 factions = {"stalker", "csky", "bandit", "army", "killer",  "monolith", 
 			"ecolog", "dolg", "freedom", "greh", "renegade", "isg", "default"}  
 
+-- Mutant Sections
 mutants = {"bloodsucker", "mutant_boar", "burer", "cat", "chimera", "pseudodog_grey", "flesh_strong",
 			"kontroler", "dog", "dog_red", "dog_white", "flesh", "fracture", "gigant", "krovosos",
 			"poltergiest", "pseudodog", "psy_dog", "psy_dog_phantom", "mutant_boar_strong", "krovosos_strong",
@@ -218,11 +226,12 @@ mutants = {"bloodsucker", "mutant_boar", "burer", "cat", "chimera", "pseudodog_g
 			"kontroler_5", "psevdogigant",
 		}
 
+-- Unusual Subtitle Patterns
 subtitle_patterns = { "fight/fire/fire_,", "fight/attack/attack_,", "fight/attack/attack_many_,",
 					  "fight/detour/detour_,", "fight/attack/attack_one_,", "fight/backup/backup_,"
 }
 
-		
+-- Duration of each sound file		
 sound_duration = {
 	["$no_sound"] = 0.5765759637188209, 
 	["$silent"] = 0.5765759637188209, 

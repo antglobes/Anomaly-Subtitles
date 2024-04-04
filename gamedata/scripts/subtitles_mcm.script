@@ -1,7 +1,10 @@
--- If you don't use MCM, change your defaults from here.
+--[[-------------
+Author(s): AntGlobes, VodoXleb
+Purpose: Subtitles MCM setting
+Last Modified: 04/04/24 
+]]---------------
 
---Subtitles MCM setting
---VodoXleb
+-- If you don't use MCM, change your defaults from here.
 
 defaults = {
 	["companion_setting"] = 60,

@@ -1,3 +1,10 @@
+--[[-------------
+Author(s): AntGlobes, Vodoxleb
+Purpose: Subtitles Manager/Controller
+Last Modified: 04/04/24
+]]---------------
+
+
 -- Imports
 gts = game.translate_string
 sound_duration = subtitles_utils.sound_duration
@@ -32,32 +39,38 @@ function pr(str, ...)
 	subtitles_utils.dbg_pr("Subtitles|Main: %s", str, ...)
 end
 
--- Boolean Functions
-function is_subtitle_above_char_limit(subtitle)
-	return #subtitle > CHAR_LIMIT
-end
+----------------------------------------
+-- Queue Functions
+----------------------------------------
 
 local queue = {}
 local length = 0
 
+--- Remove and return from right of queue
 function dequeue()
     return table.remove(queue, 1)
 end
 
+--- Insert into left of queue
+---@param value any
 function enqueue(value)
     table.insert(queue, value)
 end
 
+--- Get queue length
 function queue_length()
     return #queue
 end
 
+--- Check queue is not empty
 function queue_has_entries()
 	return queue_length() > 0
 end
 
 
--- Main Subtitle Func
+--- Subtitle Callback: Build subtitle info and add to queue
+---@param soundname any
+---@param npc any
 function subtitle_him(soundname, npc)
 	if (not subs_enabled) then
 		return
@@ -65,14 +78,13 @@ function subtitle_him(soundname, npc)
 	if  (hear_on_cd) then
 		return
 	end
-	rnd = math.random(0,100)
-	if (not (hear_chance > rnd)) then
+	
+	if (not (hear_chance > math.random(0,100))) then
 		return
 	end
 
-	--playing message according to distance and phrase
-	npcpos = npc:position()
-	if (npcpos:distance_to(db.actor:position()) < hearing_distance) then
+	--build message according to distance and phrase
+	if (npc:position():distance_to(db.actor:position()) < hearing_distance) then
 		if npc:is_stalker() then
 			icon = npc:character_icon()
 			name = npc:character_name()
@@ -101,10 +113,11 @@ end
 
 -- Subtitle Controllers
 
+--- Validate contents of info table
+---@param info any
 function verify_subtitle(info)
 	local verified = true
 
-	-- Validate contents of info table
 	for k, v in pairs(info) do
 		if k == "speaker_name" then
 			if type(v) ~= "string" then
@@ -139,7 +152,10 @@ function verify_subtitle(info)
 	return verified 
 end
 
+--- Determine which display system to show subtitles in
+---@param info table
 function display_subtitles(info)
+	-- Prevent queue from processing if a inventory screen is open
 	if actor_menu.inventory_opened() then SUSPEND_QUEUE = true return else SUSPEND_QUEUE = false end
 	print_info(info)
 	if get_config("enable_news_manager") then

@@ -1,3 +1,10 @@
+--[[-------------
+Author(s): AntGlobes
+Purpose: Display Subtitles using custom HUD
+Last Modified: 04/04/24
+]]---------------
+
+
 -- Speaker Icon npc:character_icon
 -- Speaker Faction Icon get_story_story_info(faction_expansions.faction[npc:character_community()]["leader"]).icon
 -- Subtitle Background
@@ -72,7 +79,7 @@ faction_to_colour = {
     ["default"]     = function(opacity) return GetARGB(opacity, 0, 0, 0) end
 }
 
-spendecial_character_faction = {
+special_character_faction = {
     ["Barkeep"] = "stalker",
     ["Snitch"] = "stalker"
 }
@@ -84,6 +91,7 @@ align = {
 }
 
 -- Common Functions
+
 function pr(str, ...)
 	subtitles_utils.dbg_pr("Subtitles| HUD: %s", str, ...)
 end
@@ -156,9 +164,9 @@ function SUBUI:__init(info) super()
     self.xml_subs = CScriptXmlInit()
     self.xml_portraits = CScriptXmlInit()
 
-    self.xml_patches:ParseFile("ui_patches.xml")
+    self.xml_patches:ParseFile("ui_as_patches.xml")
     self.xml_subs:ParseFile("ui_subtitles_elements.xml")
-    self.xml_portraits:ParseFile("ui_actor_portraits.xml")
+    self.xml_portraits:ParseFile("ui_as_actor_portraits.xml")
 
     self.subtitle_background = self.xml_subs:InitStatic("background", self)
     self.subtitle_speaker_icon = self.xml_portraits:InitStatic(self.speaker_icon, self.subtitle_background)
