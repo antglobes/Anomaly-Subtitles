@@ -1,10 +1,16 @@
 # Anomaly Subtitles
 - Translation/Transcription of all voicelines and mutant sounds from Russian to English
+- Co-author VodoXleb
+
+## Disclaimer
+- The Majority of the subtitles are machine translated, since this is in Beta state until we can check the accuracy of translations,  some are missing, others don't make complete sense.
+- If you want to help our read the "Helping with Translations" Section.
 
 ## Displaying Subtitles
 - Using an engine patch, there is now a callback "on_phrase_callback" that whenever an npc makes a sound
   the path-name and the npc game object, from that depending on the MCM option the subtitle is displayed
   via the news manager or a customisable HUD with a few options for accessibility
+  - If using news manager + localisation mcm options and the flag you want isn't showing replace "eng" with any field in gamedata\configs\plugins\mod_news_tips_icons_as.ltx.
 
 ## How it's built
 - 6 Variables are used to build a table used to assit with how long it's shown, the contents of the subtitle, who said the subtitle, an icon to identify the speaker, the localisation (if needed) and the speakers faction.
@@ -15,7 +21,7 @@
 - The Tag must start with "as_sub_" in order to be recognised
 - The actual string inside can be whatever 
 
-## Helping with translations
+## Helping with Translations
 - If you check the [github](https://github.com/antglobes/Anomaly-Subtitles) for this addon, under the transcriptions folder should be a copy of each file's transcription in russian.
 - Since we don't have the full ability nor the time to dedicate to manual transcription and translation of each and every voice sound file, the majority of the ones present in this addon have been machine translated.
 - If you want access to the script please dm me on discord @antglobes
@@ -49,4 +55,4 @@
 - None as of v1.0
   
 ## Changelog
-- v1.0 Base Version
+- v0.5.2 Base Version

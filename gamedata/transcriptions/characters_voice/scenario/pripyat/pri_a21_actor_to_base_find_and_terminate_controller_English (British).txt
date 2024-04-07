@@ -1,0 +1,1 @@
+The sentry dead was behaving inappropriately, attacked me, near the point a controller was detected and destroyed.

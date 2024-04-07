@@ -1,0 +1,4 @@
+The shooter claims the helicopters hit anomalies.
+After each ejection, their location does not change,
+but this was not taken into account when mapping the operation
+fairway.
