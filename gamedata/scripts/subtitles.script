@@ -69,8 +69,8 @@ end
 
 
 --- Subtitle Callback: Build subtitle info and add to queue
----@param soundname any
----@param npc any
+---@param soundname string
+---@param npc game_object
 function subtitle_him(soundname, npc)
 	if (not subs_enabled) then
 		return
@@ -114,7 +114,7 @@ end
 -- Subtitle Controllers
 
 --- Validate contents of info table
----@param info any
+---@param info table
 function verify_subtitle(info)
 	local verified = true
 
@@ -194,6 +194,7 @@ end
 function soundname_to_subtitle(soundname)
 	local x = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
 	local snd_name = game.translate_string(x)
+	--subtitles_utils.collect_invalid_subs(x)
 	return has_translation(x) and snd_name or nil
 end
 -- Subtitle Info Builders
@@ -267,5 +268,6 @@ function on_game_start()
 	RegisterScriptCallback("on_phrase_callback", subtitle_him)
 	RegisterScriptCallback("on_option_change", on_option_change)
 	RegisterScriptCallback("actor_on_update", process_queue)
+--	RegisterScriptCallback("actor_on_net_destroy", function() subtitles_utils.collect_invalid_subs(nil, true) end)
 	on_option_change()
 end

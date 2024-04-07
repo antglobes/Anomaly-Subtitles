@@ -18,6 +18,7 @@ isnumber = subtitles_utils.isnumber
 print_table = subtitles_utils.print_table
 contains = subtitles_utils.contains
 split_subtitle = subtitles_utils.split_subtitle
+faction_tbl = subtitles_utils.factions
 
 --Constants
 settings = {}
@@ -81,7 +82,9 @@ faction_to_colour = {
 
 special_character_faction = {
     ["Barkeep"] = "stalker",
-    ["Snitch"] = "stalker"
+    ["Snitch"] = "stalker",
+    ["Hawaiian"] = "stalker",
+    ["Owl"] = "stalker"
 }
 
 align = {
@@ -243,6 +246,10 @@ function SUBUI:display_subtitles()
     if self.subtitle_duration % 1 ~= 0 then 
         self.subtitle_duration = round_idp(self.subtitle_duration, 2)
     end    
+
+    if not contains(self.factions, self.speaker_faction, true) then
+       self.speaker_faction = special_character_faction[self.speaker]
+    end
 
     self.subtitle_background:SetStretchTexture(true)
     self.subtitle_background:SetTextureColor(BACKGROUND_COLOUR) 
