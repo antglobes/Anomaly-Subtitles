@@ -4,9 +4,11 @@
 -->
 <?xml version="1.0" encoding="windows-1251"?>
 <string_table>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_1_help_combat_coming_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_1_help_combat_coming_1_pda">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
@@ -16,6 +18,7 @@
 	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_kill_wounded_2">
 		<text>I'm gonna fix you!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_kill_wounded_3">
 		<text>Catch a loose cannon!</text>
 	</string>
@@ -25,12 +28,14 @@
 	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_medkit_1">
 		<text>Hang in there, mate, you're gonna be all right!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_medkit_2">
 		<text>You're a real loa, bro, you're a real piece of work!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_medkit_3">
 		<text>Stay down, stay down, I'm gonna get you.</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_1">
 		<text>Hole me, boys!</text>
 	</string>
@@ -49,6 +54,7 @@
 	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_6">
 		<text>Ay, humour, humour!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_7">
 		<text>OOOOBALADAAA</text>
 	</string>

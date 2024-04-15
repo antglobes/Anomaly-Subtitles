@@ -29,8 +29,9 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_7">
 		<text>LOOKING FORWARD!</text>
 	</string>
+	<!-- Accuracy Check, previous:АЛЛЕВАЛЛИГАНО! -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_8">
-		<text>ALLEVALLIGANO!</text>
+		<text>FUUUCK! KILL THESE ASSHOLES</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_9">
 		<text>FUCK YOU BASTARDS!</text>
@@ -38,26 +39,31 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_10">
 		<text>You're going to die now, you bastard, you understand?</text>
 	</string>
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_many_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_one_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_1">
 		<text>Fucking guys!</text>
 	</string>
+	<!-- Accuracy Check: previous: Ta-lu-di-zu-ka! -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_10">
-		<text>Ta-lu-di-zu-ka!</text>
+		<text>What a bitch!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_11">
 		<text>ON YOU, ON YOU!</text>
 	</string>
+	<!-- Accuracy Check: previous: NAHAVA, BITCH! -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_12">
-		<text>NAHAVA, BITCH!</text>
+		<text>CATCH THIS BITCH!</text>
 	</string>
+	<!-- Accuracy Check: previous: LAVI, MOTHERFUCKER! -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_13">
-		<text>LAVI, MOTHERFUCKER!</text>
+		<text>Take that, fag!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_14">
 		<text>OVER THE CROWD!</text>
@@ -84,19 +90,19 @@
 		<text>LOOKING FORWARD!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_8">
-		<text>ALLEVALLIGANO!</text>
+		<text>FUUUCK! KILL THESE ASSHOLES</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_9">
 		<text>FUCK YOU BASTARDS!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_1">
-		<text>Ta-lu-di-zu-ka!</text>
+		<text>What a bitch!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_2">
 		<text>ON YOU, ON YOU!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_3">
-		<text>NAHAVA, BITCH!</text>
+		<text>CATCH THIS BITCH!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_4">
 		<text>LAVI, MOTHERFUCKER!</text>
@@ -117,7 +123,7 @@
 		<text>NAHAVA, BITCH!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_4">
-		<text>LAVI, MOTHERFUCKER!</text>
+		<text>Take that, fag!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_5">
 		<text>OVER THE CROWD!</text>
@@ -125,9 +131,11 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_6">
 		<text>Bitch!</text>
 	</string>
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_anomaly_0">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
+	<!-- Accuracy Check: needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_1">
 		<text>MLA!</text>
 	</string>
@@ -152,18 +160,21 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_1">
 		<text>Come in from the side!</text>
 	</string>
+	<!-- Accuracy Check, previous: KANDYUHAN HUNG! -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_10">
-		<text>KANDYUHAN HUNG!</text>
+		<text>TO THE END OF THE LINE!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_2">
 		<text>Two, two!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_3">
 		<text>DILNOMA WO TР“вЂ“PLING!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_4">
 		<text>Don't get monstrous, guys! Go round!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_5">
 		<text>SHAMMYR!</text>
 	</string>
@@ -173,36 +184,44 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_7">
 		<text>Come on, chicky-bricky, in the ladies!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_8">
 		<text>Mayor, go round, go round that husk!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_9">
 		<text>Well, you blew it, boys!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_1">
 		<text>Genduras!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_10">
 		<text>FRYR'S DOWN!</text>
 	</string>
+	<!-- silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_down_enemy_down_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
+	<!-- silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_hit_enemy_hit_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
+	<!-- silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_1">
 		<text>What are you, a cocksucker?</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_2">
 		<text>The head from Russuk!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_3">
 		<text>Hame to you, freak!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_4">
 		<text>I'll kick your arse, eat!</text>
 	</string>
@@ -212,6 +231,7 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_1">
 		<text>Bitch, I'm gonna put you in the trees right now!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_2">
 		<text>NAHSIKELDEWY!</text>
 	</string>
@@ -221,6 +241,7 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_4">
 		<text>What are you doing? You're gonna, like, kill me or something?</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friend_hitted_hit_friend_1">
 		<text>Bratona's got a bite!</text>
 	</string>
@@ -230,9 +251,11 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_1">
 		<text>Shocker, guys!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_2">
 		<text>GRMNATE!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_3">
 		<text>GRENLADO, POZOLE!</text>
 	</string>
@@ -245,6 +268,7 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_3">
 		<text>Eat an apple, bitch!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_4">
 		<text>KAWAII GRENADE MOTHERFUCKER!</text>
 	</string>
@@ -254,11 +278,13 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_6">
 		<text>I'll grenade you, you bastard!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_7">
 		<text>Lemonchike pindosina!</text>
 	</string>
+	 <!-- Accuracy Check -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_1">
-		<text>Ta-lu-di-zu-ka!</text>
+		<text>Catch this bitch!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_2">
 		<text>LAVI, MOTHERFUCKER!</text>
@@ -266,6 +292,7 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_hit_enemy_hit_1">
 		<text>Ooh-ooh-ooh!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_hit_hit_2">
 		<text>a-a-a-an!</text>
 	</string>
@@ -290,21 +317,25 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_relax_2">
 		<text>What are we doing? We're done talking!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_relax_3">
 		<text>Harev's poking, the ballyhoo's gone!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_1">
 		<text>Hey! Valyn is early, guys!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_2">
 		<text>Are we waiting for more, Spooner?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_3">
 		<text>Don't repent, don't repent, guys!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_4">
 		<text>Don't poke, the Freres are coming!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_5">
 		<text>ZIRIT WOB!</text>
 	</string>
@@ -338,6 +369,7 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_7">
 		<text>You won't last long! Get out, you goat!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_1">
 		<text>Vlaz, vlaz!</text>
 	</string>
@@ -380,24 +412,30 @@
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_9">
 		<text>SHOW YOURSELF, FAGGOT!</text>
 	</string>
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_threat_threat_close_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_threat_threat_distant_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_1">
 		<text>MOJE BNAS!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_2">
 		<text>SCHUHER!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_3">
 		<text>Atas, guys!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_4">
 		<text>The kid's getting shafted!</text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_5">
 		<text>Mlave, we're getting shafted on the tour!</text>
 	</string>

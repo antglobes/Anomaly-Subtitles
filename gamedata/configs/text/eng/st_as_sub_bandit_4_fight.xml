@@ -3,15 +3,18 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_1">
 		<text>Fucking guys! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_10">
 		<text>We're all you rah-rahs! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_11">
 		<text>Ahhhh, bitches! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_2">
 		<text>Get out, roosters! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_3">
 		<text>Take it out, Batya! </text>
 	</string>
@@ -24,18 +27,22 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_6">
 		<text>We'll bury you in the bitch! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_7">
 		<text>Valekteyev! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_8">
 		<text>BLEVALLIGADAS! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_9">
 		<text>Oh, my God, you bastards! </text>
 	</string>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_many_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
 	</string>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_attack_one_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
 	</string>
@@ -48,18 +55,21 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_script_attack_11">
 		<text>ON YOU! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_script_attack_12">
 		<text>NAHAVA SUHA! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_script_attack_13">
 		<text>Catch it, faggot! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_script_attack_14">
 		<text>NAZLIN! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_script_attack_15">
 		<text>FROM THE DRIVER! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_script_attack_2">
 		<text>Get out, roosters! </text>
 	</string>
@@ -75,9 +85,11 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_script_attack_6">
 		<text>We'll bury you in the bitch! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_script_attack_7">
 		<text>Valekteyev! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_attack_script_attack_8">
 		<text>BLEVALLIGADAS! </text>
 	</string>
@@ -102,24 +114,28 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_cover_fire_cover_fire_2">
 		<text>ON YOU! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_cover_fire_cover_fire_3">
 		<text>NAHAVA SUHA! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_cover_fire_cover_fire_4">
 		<text>Catch it, faggot! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_cover_fire_cover_fire_5">
 		<text>NAZLIN! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_cover_fire_cover_fire_6">
 		<text>FROM THE DRIVER! </text>
 	</string>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_death_anomaly_0">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_death_death_1">
 		<text>Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_death_death_2">
 		<text>Aaaaaaaaaaaaaaaaaaaaah.... Your mooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo. </text>
 	</string>
@@ -144,6 +160,7 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_detour_detour_1">
 		<text>Come in, come in from the side! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_detour_detour_10">
 		<text>Kondyoka, no more fun! </text>
 	</string>
@@ -162,6 +179,7 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_detour_detour_6">
 		<text>Get him! Get him out! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_detour_detour_7">
 		<text>Onochek and breki and vdamki </text>
 	</string>
@@ -171,9 +189,11 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_detour_detour_9">
 		<text>Well, you blew it, boys! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_1">
 		<text>Ganduras! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_10">
 		<text>Fryer's down! </text>
 	</string>
@@ -183,27 +203,34 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_12">
 		<text>Whoa! Lever's out! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_13">
 		<text>Arharov U.S.A.! Did you hear that? </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_14">
 		<text>Sha, guys! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_15">
 		<text>A-TA-A-A-S! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_16">
 		<text>SOCER! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_17">
 		<text>All right, before we get the bebekhas! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_18">
 		<text>Stop making fun of me! Quiet! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_2">
 		<text>Guys, ottas! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_3">
 		<text>Valin and fight! </text>
 	</string>
@@ -213,24 +240,29 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_5">
 		<text>And there it is! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_6">
 		<text>SCHUHER! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_7">
 		<text>They drew us! Shuker! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_8">
 		<text>CHUSHPAINS! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_enemy_9">
 		<text>Sha! It's a ruckus! </text>
 	</string>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_down_enemy_down_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
 	</string>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_enemy_hit_enemy_hit_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
 	</string>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_cover_fire_cover_fire_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
 	</string>
@@ -261,6 +293,7 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_friendly_grenade_friendly_grenade_4">
 		<text>What, are you, like, gonna kill me? </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_friend_hitted_hit_friend_1">
 		<text>Braton Klunoff! </text>
 	</string>
@@ -270,6 +303,7 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_friendly_grenade_friendly_grenade_1">
 		<text>Hustle, boys! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_friendly_grenade_friendly_grenade_2">
 		<text>GRANATE! </text>
 	</string>
@@ -294,6 +328,7 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_grenade_grenade_ready_6">
 		<text>I'll get you with a grenade, you thug! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_grenade_grenade_ready_7">
 		<text>Lemon for you, pendocina! </text>
 	</string>
@@ -408,12 +443,15 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_searching_enemy_search_8">
 		<text>But are you a man or not? Come out! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_searching_enemy_search_9">
 		<text>Show me, speedrila! </text>
 	</string>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_threat_threat_close_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
 	</string>
+	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_threat_threat_distant_1">
 		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
 	</string>
@@ -423,6 +461,7 @@
 	<string id="as_sub_characters_voice_human_bandit_4_fight_tolls_tolls_2">
 		<text>SCHUHER! </text>
 	</string>
+	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_4_fight_tolls_tolls_3">
 		<text>A ta! Spatsana! </text>
 	</string>
