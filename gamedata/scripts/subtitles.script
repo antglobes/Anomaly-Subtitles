@@ -21,6 +21,10 @@ find_suffix_num = subtitles_utils.find_suffix_num
 activate_subtitles = subtitles_ui.activate_subtitles
 has_translation = subtitles_utils.has_translation
 subs_to_exclude = subtitles_utils.subs_to_exclude
+is_dialog_open = subtitles_utils.is_dialog_open
+is_inv_open = subtitles_utils.is_inv_open
+contains = subtitles_utils.contains
+
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
 SUSPEND_QUEUE = false
@@ -67,6 +71,21 @@ function queue_has_entries()
 	return queue_length() > 0
 end
 
+function suspend_queue()
+	SUSPEND_QUEUE = true
+	local suspend_reason = is_inv_open() and "Inventory Open" or "Dialog Active" 
+	pr("%s, Suspending queue", suspend_reason) 
+end
+
+function resume_queue()
+	local resume_reason = is_inv_open() and "Inventory Closed" or "Dialog Inactive" 
+	if not is_queue_suspended() then pr("%s, resuming queue", resume_reason) end
+	SUSPEND_QUEUE = false
+end
+
+function is_queue_suspended()
+	return SUSPEND_QUEUE
+end
 
 --- Subtitle Callback: Build subtitle info and add to queue
 ---@param soundname string
@@ -111,6 +130,7 @@ function subtitle_him(soundname, npc)
 			["xml_string_id"] = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
 		}
 		
+		if is_queue_suspended() then return pr("Queue is Suspended can't add anymore subtitles") end
 		enqueue(info)
 	end
 end
@@ -139,7 +159,7 @@ function verify_subtitle(info)
 				verified = false
 			end
 		elseif k == "subtitle" then
-			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0 or subs_to_exclude[v] then
+			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0 or contains(subs_to_exclude, v) then
 				pr("Invalid Subtitle: %s", v)
 				verified = false
 			end
@@ -161,8 +181,6 @@ end
 --- Determine which display system to show subtitles in
 ---@param info table
 function display_subtitles(info)
-	-- Prevent queue from processing if a inventory screen is open
-	if actor_menu.inventory_opened() then SUSPEND_QUEUE = true return else SUSPEND_QUEUE = false end
 	if get_config("enable_news_manager") then
 		pr("Using News Manager for Subtitles")
 		dynamic_news_helper.send_tip(info["subtitle"], info["speaker_name"], 0, info["duration"], get_speaker_icon(info), "news", "npc")
@@ -171,12 +189,25 @@ function display_subtitles(info)
 		pr("Using Subtitles HUD")
 		activate_subtitles(info) 
 	else
+		pr("Printing to console")
 		print_info(info)
 	end
 end
 
 function process_queue()
-	if not queue_has_entries() or SUSPEND_QUEUE then return end
+	-- Prevent queue from processing...
+	-- if queue is suspended and has entries
+	if is_queue_suspended() and not queue_has_entries() then
+		resume_queue()
+		return
+	-- or if an inventory/dialog screen is open
+	elseif is_dialog_open() or is_inv_open() then
+		suspend_queue()
+		return		
+	elseif not queue_has_entries() then
+		return
+	end
+
 	local info = dequeue()
 	local subtitle = info["subtitle"]
 	if not subtitle then return end

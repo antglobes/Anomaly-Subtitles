@@ -92,6 +92,15 @@ function contains(tbl, key, by_key, return_value)
     return false
 end
 
+function is_inv_open()
+	local ui_inv = ui_inventory.GUI
+	if ui_inv and ui_inv:IsShown() then return true else return false end
+end
+
+function is_dialog_open() 
+	return db.actor:is_talking()
+end
+
 function get_keytable(tbl)
     local kt = {}
 	idx = 0
