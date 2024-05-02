@@ -64,7 +64,7 @@
 		<text>Finished! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_fight_death_anomaly_0">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_attack_prepare_attack_1">
 		<text>It's hot! </text>
@@ -163,7 +163,7 @@
 		<text>Squad! Take your positions! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_threat_back_off_backoff_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_fight_backup_backup_1">
 		<text>Move away, move away! </text>
@@ -199,16 +199,16 @@
 		<text>Let's go, shall we? If it's necessary, it's necessary. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_reactions_box_box_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_trade_buy_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_counter_attack_check_1">
 		<text>Attention! This is the base! </text>
@@ -223,10 +223,10 @@
 		<text>Guys, wait, shit, let's bet it against life! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_help_combat_coming_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_help_combat_coming_1_pda">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_counter_attack_counter_attack_begin_1">
 		<text>Guys, we're not getting out right now. See what's up and what's going on? </text>
@@ -340,7 +340,7 @@
 		<text>Give him a light, and I'll bide! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_defence_end_defence_1">
 		<text>Whoa, whoa, whoa, whoa, whoa, whoa, whoa, whoa, whoa, whoa! </text>
@@ -604,7 +604,7 @@
 		<text>Aah! In-n-na. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_help_wounded_heavy_help_12">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_help_wounded_heavy_help_13">
 		<text>SГјdya's. </text>
@@ -904,13 +904,13 @@
 		<text>hahahahahahahaha </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_loot_loot_bad_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_loot_loot_begin_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_loot_loot_good_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_help_wounded_medkit_1">
 		<text>Don't panic, bro! I'm a good doctor! </text>
@@ -970,13 +970,13 @@
 		<text>Countdown, another log that's not mine! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_meet_meet_use_no_talk_leader_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_meet_meet_use_no_weapon_1">
 		<text>Put the gun down, then we'll talk. </text>
@@ -1021,16 +1021,16 @@
 		<text>Husband, don't slow down! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_talk_use_no_sleep_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_meet_meet_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_panic_human_panic_human_1">
 		<text>Oh, Joop! </text>
@@ -1111,7 +1111,7 @@
 		<text>All right, knock it off! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_attack_attack_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_attack_attack_ready_2">
 		<text>Catch it, Bedrilla! </text>
@@ -1141,10 +1141,10 @@
 		<text>Mercenary, help me fight off the bandits! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_defence_request_help_vs_csky_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_defence_request_help_vs_csky_1_pda">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_defence_request_help_vs_dolg_1">
 		<text>The Debtors are pressing in, help me get a handle on it! </text>
@@ -1297,7 +1297,7 @@
 		<text>I see them! They'll come running! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_trade_sell_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_sleep_sleep_1">
 		<text>That's good stuff. I really am. It's a good one. Anything you want, I swear. </text>
@@ -1306,16 +1306,16 @@
 		<text>They're hanging their ears. Herd. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_sleep_sleep_3">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_sleep_sleep_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_sleep_sleep_5">
 		<text>SPOCHTIT HCCS porqueл°©m Vesel utbart Р пїЅ. But Don't VoiкІЅ </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_states_sleep_sleep_6">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_csky_1_alife_attack_smart_captured_1">
 		<text>Base, we've got the point! </text>

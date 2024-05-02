@@ -1,7 +1,7 @@
 --[[-------------
 Author(s): AntGlobes, Vodoxleb
 Purpose: Subtitles Manager/Controller
-Last Modified: 04/04/24
+Last Modified: 02/05/24
 ]]---------------
 
 
@@ -20,7 +20,7 @@ subtitle_patterns = subtitles_utils.subtitle_patterns
 find_suffix_num = subtitles_utils.find_suffix_num
 activate_subtitles = subtitles_ui.activate_subtitles
 has_translation = subtitles_utils.has_translation
-
+subs_to_exclude = subtitles_utils.subs_to_exclude
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
 SUSPEND_QUEUE = false
@@ -90,9 +90,12 @@ function subtitle_him(soundname, npc)
 			name = npc:character_name()
 			faction = npc:character_community()
 		elseif npc:is_monster() then
+			return
+			--[[
 			name = npc:name()
 			icon = strformat("ui_npc_monster_%s", remove_digits(npc:name(), ''))
 			faction = "monster"
+			]]
 		else
 			icon = news_manager.tips_icons["default"]
 			name = "st_noise"
@@ -136,7 +139,7 @@ function verify_subtitle(info)
 				verified = false
 			end
 		elseif k == "subtitle" then
-			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0  then
+			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0 or subs_to_exclude[v] then
 				pr("Invalid Subtitle: %s", v)
 				verified = false
 			end
@@ -149,7 +152,9 @@ function verify_subtitle(info)
 			end
 		end
 	end
-	
+	if not verified then
+		subtitles_utils.collect_invalid_subs(info["subtitle"])
+	end
 	return verified 
 end
 
@@ -158,14 +163,15 @@ end
 function display_subtitles(info)
 	-- Prevent queue from processing if a inventory screen is open
 	if actor_menu.inventory_opened() then SUSPEND_QUEUE = true return else SUSPEND_QUEUE = false end
-	print_info(info)
 	if get_config("enable_news_manager") then
 		pr("Using News Manager for Subtitles")
 		dynamic_news_helper.send_tip(info["subtitle"], info["speaker_name"], 0, info["duration"], get_speaker_icon(info), "news", "npc")
 		db.actor:give_info_portion(info["xml_string_id"])
-	else
+	elseif get_config("enable_subs") then
 		pr("Using Subtitles HUD")
 		activate_subtitles(info) 
+	else
+		print_info(info)
 	end
 end
 
@@ -176,7 +182,6 @@ function process_queue()
 	if not subtitle then return end
 	if not verify_subtitle(info) then return end
 	display_subtitles(info)
-	pr("Printing smart terrain")
 end
 
 
@@ -197,7 +202,7 @@ end
 function soundname_to_subtitle(soundname)
 	local x = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
 	local snd_name = game.translate_string(x)
-	--subtitles_utils.collect_invalid_subs(x)
+	subtitles_utils.collect_invalid_subs(x)
 	return has_translation(x) and snd_name or nil
 end
 -- Subtitle Info Builders
@@ -271,6 +276,6 @@ function on_game_start()
 	RegisterScriptCallback("on_phrase_callback", subtitle_him)
 	RegisterScriptCallback("on_option_change", on_option_change)
 	RegisterScriptCallback("actor_on_update", process_queue)
---	RegisterScriptCallback("actor_on_net_destroy", function() subtitles_utils.collect_invalid_subs(nil, true) end)
+	RegisterScriptCallback("actor_on_net_destroy", function() subtitles_utils.collect_invalid_subs(nil, true) end)
 	on_option_change()
 end

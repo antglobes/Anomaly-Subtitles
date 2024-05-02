@@ -185,11 +185,11 @@
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_2_states_trade_buy_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_2_states_trade_sell_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 
 	<string id="as_sub_characters_voice_human_bandit_2_states_panic_monster_panic_monster_1">

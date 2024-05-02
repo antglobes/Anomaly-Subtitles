@@ -5,6 +5,7 @@ luac.out
 *.src.rock
 *.zip
 *.tar.gz
+*.7z
 
 # Object files
 *.o
@@ -39,3 +40,5 @@ luac.out
 *.x86_64
 *.hex
 
+# Folders
+fomod

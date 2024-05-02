@@ -124,7 +124,7 @@
 		<text>Come on! Let's get him! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_anomaly_0">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_death_1">
 		<text>Ooh-ooh-ooh-ooh-ooh-ooh-ooh. </text>
@@ -280,7 +280,7 @@
 		<text>But a grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
 		<text>Shit! </text>
@@ -379,10 +379,10 @@
 		<text>Our man's been killed! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1_pda">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_kill_wounded_1">
 		<text>Take that, you bastard! </text>
@@ -433,7 +433,7 @@
 		<text>Thanks, man! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_box_box_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_joke_reaction_joke_1">
 		<text>Oh, man, that's not funny! </text>
@@ -445,10 +445,10 @@
 		<text>A-ha-ha-ha, notena vidal! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>Well, I don't know, maybe this kind of income is not suitable for some people, and to me, it's a good time, you know, it's not just hubarto look for. Here's an idea. </text>
@@ -520,13 +520,13 @@
 		<text>Yeah, it's twist it, twist it, twist it, twist it, twist it, twist it, twist it, and it's gonna come out the way the commanders say it's gonna come out. Well, or whatever the zone decides? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_bad_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_begin_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_good_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_hello_1">
 		<text>Hey! What do you want, stalker? </text>
@@ -538,13 +538,13 @@
 		<text>Yeah, whoever's in the zone doesn't get re-set. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_talk_leader_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
 		<text>Put the gun down, then we'll talk. </text>
@@ -565,22 +565,22 @@
 		<text>They're hanging their ears. Herd. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_3">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_5">
 		<text>lett that's all obsession </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_6">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_buy_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_sell_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
 		<text>Here's an anecdote! </text>
@@ -595,22 +595,22 @@
 		<text>That's the way to get me! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_no_sleep_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_back_off_backoff_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_prepare_attack_1">
 		<text>It's hot! </text>
@@ -736,7 +736,7 @@
 		<text>Come on! Let's get him! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_anomaly_0">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_death_1">
 		<text>Gaaaahhhh! </text>
@@ -892,7 +892,7 @@
 		<text>But a grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
 		<text>Shit! </text>
@@ -991,10 +991,10 @@
 		<text>Our man's been killed! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1_pda">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_kill_wounded_1">
 		<text>Take that, you bastard! </text>
@@ -1045,7 +1045,7 @@
 		<text>Thanks man! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_box_box_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_joke_reaction_joke_1">
 		<text>Oh, man, that's not funny! </text>
@@ -1060,7 +1060,7 @@
 		<text>xxxxxxxxxxxxxx </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor O. Golubkina </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>I don't know, maybe this kind of income is not suitable for some people, and it looks fine to me. You know, it's not just lugging stuff around, it's an idea. </text>
@@ -1132,13 +1132,13 @@
 		<text>Yes, you can twist it or not twist it, you can make it work the way the commanders say, or as the zone decides. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_bad_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_begin_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_good_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_hello_1">
 		<text>Hey! What do you want, Stalker? </text>
@@ -1150,13 +1150,13 @@
 		<text>Yes... Who doesn't get in the zone? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_talk_leader_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
 		<text>Put the gun down, then we'll talk. </text>
@@ -1189,10 +1189,10 @@
 		<text>Р СЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂСЂ </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_buy_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_sell_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
 		<text>Here's an anecdote. </text>
@@ -1207,22 +1207,22 @@
 		<text>That's the way to get me! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_no_sleep_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_back_off_backoff_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_prepare_attack_1">
 		<text>Let's get to work! </text>
@@ -1339,7 +1339,7 @@
 		<text>Calm down, I'm not going out! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_anomaly_0">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_death_1">
 		<text>Yoo-yoo. upbeat music </text>
@@ -1432,7 +1432,7 @@
 		<text>You hurt your own! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friendly_grenade_friendly_grenade_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friend_hitted_hit_friend_1">
 		<text>Good luck! </text>
@@ -1474,7 +1474,7 @@
 		<text>Take the grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
 		<text>retarded </text>
@@ -1570,10 +1570,10 @@
 		<text>Adin Webel! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1_pda">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_kill_wounded_1">
 		<text>Lavi, welcome! </text>
@@ -1630,10 +1630,10 @@
 		<text>LAUGHTER </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>I'd like to jump up and down for about 600 minutes. </text>
@@ -1705,13 +1705,13 @@
 		<text>Yes, that's the job, to protect my friend, to find out who depends on the circus, to answer. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_bad_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_begin_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_good_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_hello_1">
 		<text>Smakon, what can I do for you, Stalfer? </text>
@@ -1723,13 +1723,13 @@
 		<text>We had a nice chat! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_talk_leader_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
 		<text>Put your gun away, then we can talk. </text>
@@ -1747,16 +1747,16 @@
 		<text>edy Thank you </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_2">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_3">
 		<text>Fuffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_buy_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_sell_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
 		<text>Novosnashin! </text>
@@ -1768,7 +1768,7 @@
 		<text>Meeting and two stalkers. Do you know about Vasya, the one who wanted to be a lechik when he was a kid? What about him? He hit the Trumpline yesterday. Whoops! Well, a man's dream has come true, you might say. I'm flying! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_abuse_1">
-		<text>Subtitle Editor A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
 		<text>No, we're not talking now. </text>
@@ -1903,7 +1903,7 @@
 		<text>Calm down, don't listen to that! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_anomaly_0">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_death_1">
 		<text>Ciй„’l. Oooooh! </text>
@@ -2038,7 +2038,7 @@
 		<text>Take the grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
 		<text>Bordum. SIGU . </text>
@@ -2194,10 +2194,10 @@
 		<text>CALM MUSIC </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_1">
-		<text>Subtitle Editor A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>I'd like to go to bed now for about 600 minutes. </text>
@@ -2335,10 +2335,10 @@
 		<text>cop Hey </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_buy_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_sell_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
 		<text>Newsflash! </text>
@@ -2401,7 +2401,7 @@
 		<text>Get him! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_attack_script_attack_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_backup_backup_1">
 		<text>Take that, you bastard! </text>
@@ -2437,7 +2437,7 @@
 		<text>Don't worry, I got your back! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_anomaly_0">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_death_1">
 		<text>Aaaaaaaaaaaaah! </text>
@@ -2548,7 +2548,7 @@
 		<text>Why are you hitting your own? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friendly_grenade_friendly_grenade_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friend_hitted_hit_friend_1">
 		<text>Ours is hooked! </text>
@@ -2596,7 +2596,7 @@
 		<text>Igrana tula dessert! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
 		<text>Рђ! </text>
@@ -2695,10 +2695,10 @@
 		<text>Hey, we killed Oshama here! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1_pda">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_kill_wounded_1">
 		<text>It's been rough, hasn't it? </text>
@@ -2758,10 +2758,10 @@
 		<text>Ha-ha-ha-ha-ha! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>And why are there no women stalkers at all? It's only to imagine. Amazons! </text>
@@ -2833,13 +2833,13 @@
 		<text>Yeah, well, it's good where we're not, and what the hell am I doing here. I'd rather stay home, first thing in the morning. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_bad_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_begin_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_good_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_hello_1">
 		<text>So, what's your story? </text>
@@ -2857,7 +2857,7 @@
 		<text>You've got a head on your shoulders, you've got time. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_talk_leader_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
 		<text>I don't like to say under the gun man. </text>
@@ -2893,10 +2893,10 @@
 		<text>No, no, no, no, no, no, no. Well, where can you live? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_buy_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_sell_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
 		<text>Well, I'll tell you now. </text>
@@ -2959,7 +2959,7 @@
 		<text>Get him! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_attack_script_attack_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_backup_backup_1">
 		<text>Take that, you bastard! </text>
@@ -2995,7 +2995,7 @@
 		<text>Don't worry, I got your back! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_anomaly_0">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_death_1">
 		<text>РђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђ </text>
@@ -3106,7 +3106,7 @@
 		<text>Why are you hitting your own? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friendly_grenade_friendly_grenade_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friend_hitted_hit_friend_1">
 		<text>Ours is hooked! </text>
@@ -3154,7 +3154,7 @@
 		<text>Igrana tula dessert! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
 		<text>KICK! </text>
@@ -3166,7 +3166,7 @@
 		<text>Рђ? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_5">
 		<text>I've got papalis! </text>
@@ -3253,10 +3253,10 @@
 		<text>Hey, where are you going? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1_pda">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_kill_wounded_1">
 		<text>It's been rough, hasn't it? </text>
@@ -3316,10 +3316,10 @@
 		<text>LAUGHTER </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_1">
-		<text>Subtitle Editor A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>And why are there no women stalkers at all? It's just to imagine, the Amazons. </text>
@@ -3361,7 +3361,7 @@
 		<text>Oh! Oh! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_21">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_22">
 		<text>Ah, ah, ah, ah! </text>
@@ -3391,13 +3391,13 @@
 		<text>Yeah, well, it's nice where we're not. What the hell am I doing here? I'd rather stay home, first thing in the morning. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_bad_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_begin_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_good_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_hello_1">
 		<text>So, what's your story? </text>
@@ -3430,7 +3430,7 @@
 		<text>BEE-PEE-PEE-PEE-GAD! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_1">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_2">
 		<text>POTIVATE </text>
@@ -3439,7 +3439,7 @@
 		<text>РђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђ </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_4">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_5">
 		<text>CALM MUSIC </text>
@@ -3451,10 +3451,10 @@
 		<text>No, no, no, no, no, no, no, no, no, no. Well, where are you going? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_buy_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_sell_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
 		<text>Well, I'll tell you now. </text>
@@ -3517,10 +3517,10 @@
 		<text>Sookie! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_attack_attack_many_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_attack_attack_one_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_attack_script_attack_1">
 		<text>Go get 'em! </text>
@@ -3589,7 +3589,7 @@
 		<text>Yes! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_anomaly_0">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_death_1">
 		<text>AAAAAAAAAAAAAA!!! </text>
@@ -3652,13 +3652,13 @@
 		<text>We're on it! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_down_enemy_down_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_cover_fire_cover_fire_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friendly_fire_friendly_fire_1">
 		<text>B! </text>
@@ -3682,10 +3682,10 @@
 		<text>Grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_grenade_grenade_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
 		<text>Ouch, MAT! </text>
@@ -3706,10 +3706,10 @@
 		<text>Yoop! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_post_combat_wait_relax_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_post_combat_wait_wait_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_searching_enemy_enemy_lost_1">
 		<text>Come on, listen up. </text>
@@ -3745,10 +3745,10 @@
 		<text>As long as life is a guest! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_threat_threat_close_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_threat_threat_distant_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_tolls_tolls_1">
 		<text>All right, we got one down. </text>
@@ -3763,25 +3763,25 @@
 		<text>There are casualties! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1_pda">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_kill_wounded_1">
 		<text>You've had it, lad! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_medkit_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_defence_actor_help_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_thanx_thanx_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_box_box_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_joke_reaction_joke_1">
 		<text>That's the old one! </text>
@@ -3793,10 +3793,10 @@
 		<text>Ha ha ha! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>Now I'd like a kebab before the greens, before the good vino. </text>
@@ -3838,43 +3838,43 @@
 		<text>AAAAAAAAAA matrices </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_bad_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_begin_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_loot_loot_good_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_hello_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_hide_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_stop_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_talk_leader_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_wait_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_panic_human_panic_human_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_panic_monster_panic_monster_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_1">
 		<text>Sha-sha-sha-sha-shooters! Sha-ben we're gonna do some shooting here! </text>
@@ -3883,25 +3883,25 @@
 		<text>Ya-ya-ya-ya-ya-ya-ya-ya-ya-ya-ya-ya-ya-ya! Ooh-ooh-ooh-ooh! Whoo-hoo! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_3">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_5">
 		<text>KPUM </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_6">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_7">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_buy_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_sell_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
 		<text>Oh, they're catching up. </text>
@@ -3913,25 +3913,25 @@
 		<text>A new Russian comes to the clash and says, listen, man, I need an artefact, a goldfish, all the guys have it, and I'm alone as a bum. So it's radioactive, radioactive, radioactive, what the fuck does it matter, I live in the wrong place, I'll be over there by the chain on the net. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_abuse_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_no_sleep_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_back_off_backoff_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_prepare_attack_1">
 		<text>Agon! </text>
@@ -4042,7 +4042,7 @@
 		<text>All right! I got your back! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_anomaly_0">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_death_1">
 		<text>Aha! </text>
@@ -4138,7 +4138,7 @@
 		<text>I'm mine what the hell! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friendly_grenade_friendly_grenade_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friend_hitted_hit_friend_1">
 		<text>We've got the 300th! </text>
@@ -4180,7 +4180,7 @@
 		<text>And a grenade for you, you bastard! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
 		<text>CAG! </text>
@@ -4279,10 +4279,10 @@
 		<text>There are dead! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1_pda">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_kill_wounded_1">
 		<text>That's what you're up against! Why? </text>
@@ -4321,22 +4321,22 @@
 		<text>Thank you! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_box_box_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_joke_reaction_joke_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_music_reaction_music_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_story_laughter_1">
 		<text>Ha-ha-ha-ha-ha! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>Bored, like I'm bored with everything? </text>
@@ -4366,7 +4366,7 @@
 		<text>Uh-uh-uh-uh-uh-uh-uh-uh-uh-uh </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_18">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_19">
 		<text>Whoa, whoa, whoa, whoa, whoa, whoa, whoa! </text>
@@ -4441,7 +4441,7 @@
 		<text>Let go of the gun! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_stop_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
 		<text>I don't have time to chat. </text>
@@ -4456,7 +4456,7 @@
 		<text>You want to talk about hiding guns? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_wait_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_panic_human_panic_human_1">
 		<text>Hey, stalker, don't shoot! </text>
@@ -4486,40 +4486,40 @@
 		<text>Don't! Don't! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_buy_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_sell_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
 		<text>There was a guy in our platoon who'd do something crazy, like this. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_music_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_joke_reaction_joke_1">
 		<text>In a military town, a captain's wife comes to the general, and says, "Comrade General, I found Livchik in my husband's pocket, Well, what am I supposed to do? Let's go darker, I'll figure it out on my own." In the evening, the General returns home, Livchik forgotten in his pocket the wife finds. Darling, you're such a joker, and I keep wondering where I left it! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_abuse_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_no_sleep_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_back_off_backoff_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_prepare_attack_1">
 		<text>Protect the monolith! </text>
@@ -4684,7 +4684,7 @@
 		<text>I'll cover! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_anomaly_0">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_death_death_1">
 		<text>AAAAAA </text>
@@ -4795,10 +4795,10 @@
 		<text>Take that, blind man! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friendly_fire_friendly_fire_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friendly_grenade_friendly_grenade_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_friend_hitted_hit_friend_1">
 		<text>There's a man down! </text>
@@ -4846,7 +4846,7 @@
 		<text>Take that, enemy! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_enemy_hit_enemy_hit_1">
 		<text>FIGHT! </text>
@@ -4867,10 +4867,10 @@
 		<text>PAA! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_post_combat_wait_relax_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_post_combat_wait_wait_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_fight_searching_enemy_enemy_lost_1">
 		<text>The enemy, he must be found! </text>
@@ -4945,10 +4945,10 @@
 		<text>The monolith's slogan is dead! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_combat_coming_1_pda">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_kill_wounded_1">
 		<text>Die! </text>
@@ -4963,7 +4963,7 @@
 		<text>To be liquidated! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_medkit_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_defence_actor_help_1">
 		<text>Monna Lee </text>
@@ -4996,25 +4996,25 @@
 		<text>OH, OOOOOO! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_help_wounded_thanx_thanx_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_box_box_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_joke_reaction_joke_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_music_reaction_music_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_story_laughter_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>and the day will come and the monolith will rise again in its glory. </text>
@@ -5113,34 +5113,34 @@
 		<text>Yes, it will strengthen the monolith. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_hello_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_hide_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_stop_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_talk_leader_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_wait_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_panic_human_panic_human_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_panic_monster_panic_monster_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_sleep_sleep_1">
 		<text>gut. Seryozh. </text>
@@ -5164,40 +5164,40 @@
 		<text>On faces I am your faithful ear. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_buy_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_trade_sell_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_music_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_joke_reaction_joke_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_abuse_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_no_sleep_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_meet_meet_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_back_off_backoff_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_alife_attack_prepare_attack_1">
 		<text>Yay! </text>
@@ -5536,10 +5536,10 @@
 		<text>Aha! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_1">
 		<text>I can't feel anything anymore. </text>
@@ -5563,7 +5563,7 @@
 		<text>I can't vaporise that motive. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_16">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_17">
 		<text>Give me a break! </text>
@@ -5572,7 +5572,7 @@
 		<text>Whoa! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_19">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_states_idle_idle_2">
 		<text>When it's all over, then why dream? </text>
@@ -5638,13 +5638,13 @@
 		<text>Te-e-e.... </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_joke_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_intros_intro_music_1">
 		<text>I can't vaporise that motive. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_reactions_joke_reaction_joke_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_monolith_3_talk_use_abuse_1">
 		<text>Valentus get the hell over here! </text>

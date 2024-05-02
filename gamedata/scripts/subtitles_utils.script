@@ -241,6 +241,29 @@ mutants = {"bloodsucker", "mutant_boar", "burer", "cat", "chimera", "pseudodog_g
 			"kontroler_5", "psevdogigant",
 		}
 
+-- Subtitles to exclude
+--[[ 
+	Subtitle Editor N. Novikova Corrector A. Kulakova,
+	Subtitle Editor A. Semkin Corrector A. Egorova,
+	Subtitle Editor I.Boikova Corrector A. Egorova,
+	Subtitle Editor A.Sinetskaya Corrector A.Egorova,
+	Subtitle Editor N. Zakomoldina Corrector V. Sukhiashvili,
+	Subtitle Editor E.Voinova Corrector A.Kulakova,
+	Subtitle Editor T. Gorelova Corrector A. Egorova,
+	Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili,
+	Subtitle Editor O. Golubkina,
+	Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili,
+	Subtitle Editor N. Zakomoldina Corrector A. Egorova,
+	Subtitle Editor N. Olzoeva,
+	Subtitle Editor A. Kulakova,
+	= Silent_Subtitle 
+]]
+subs_to_exclude = {
+	"Silent_Subtitle",
+	"Missing_Subtitle"
+}
+
+
 -- Unusual Subtitle Patterns
 subtitle_patterns = { "fight/fire/fire_,", "fight/attack/attack_,", "fight/attack/attack_many_,",
 					  "fight/detour/detour_,", "fight/attack/attack_one_,", "fight/backup/backup_,"

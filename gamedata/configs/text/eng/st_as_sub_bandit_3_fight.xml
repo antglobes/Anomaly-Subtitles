@@ -40,11 +40,11 @@
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_many_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_one_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_1">
 		<text>Fucking guys! </text>
@@ -143,7 +143,7 @@
 	</string>
 	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_death_anomaly_0">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_3_fight_death_death_1">
 		<text>AAAAAAMLE AAAAAAAAAAAA!!!! </text>
@@ -264,15 +264,15 @@
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_down_enemy_down_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_hit_enemy_hit_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_cover_fire_cover_fire_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_fire_friendly_fire_1">
@@ -482,11 +482,11 @@
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_threat_threat_close_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_threat_threat_distant_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_3_fight_tolls_tolls_1">

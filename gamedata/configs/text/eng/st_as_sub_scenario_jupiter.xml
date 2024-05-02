@@ -562,7 +562,7 @@
 		<text>Subtitles by N. Novikov </text>
 	</string>
 	<string id="as_sub_characters_voice_scenario_jupiter_jup_b41_bunker_megaphone_3">
-		<text>Subtitle Editor T. Gorelova Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_scenario_jupiter_jup_b46_duty_founder_pda_diary">
 		<text>Where do you go? You come back to the same spot every time. This bloody fog is impossible to get used to. Cheburneau disappeared her with a bang. That's weird. Did you find a way out? Day six. The water's all out. And the Colonel's gone mad. Shot two men and put a bullet in his own head. I'm alone now. Alone inside the fucking anomaly. I've already mined to cut off communication with HQ. You could have taken it, eh? Gensi, dacha, fishing. And there would be no debt. And really, I wonder how it would have turned out. Just for the hell of it. Captain Tachenko has been dead for a long time. General Dolg Tachenko is about to leave. Soon. Upper tundra hopeful. Places both rolls game. That's the justice of it. </text>
@@ -721,13 +721,13 @@
 		<text>Just a little bit more! With the Terse Field measurement almost done! </text>
 	</string>
 	<string id="as_sub_characters_voice_scenario_jupiter_jup_b6_stalker_1_measurements_done">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_scenario_jupiter_jup_b6_stalker_1_measurements_done_pda">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_scenario_jupiter_jup_b6_stalker_1_monsters_coming_1">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_scenario_jupiter_jup_b6_stalker_1_monsters_coming_1_pda">
 		<text>Fuck, are you covering or what? </text>

@@ -1924,6 +1924,10 @@
 		<texture>ui_npc_u_green_stalker_antigas</texture>
 	</ui_npc_u_green_stalker_antigas>
 
+	<ui_npc_u_nebo_2_face_2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_npc_u_nebo_2_face_2</texture>
+	</ui_npc_u_nebo_2_face_2>
+
 	<ui_npc_u_stalker_zombie1 x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_npc_u_stalker_zombie1</texture>
 	</ui_npc_u_stalker_zombie1>

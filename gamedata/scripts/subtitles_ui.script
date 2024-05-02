@@ -84,7 +84,9 @@ special_character_faction = {
     ["Barkeep"] = "stalker",
     ["Snitch"] = "stalker",
     ["Hawaiian"] = "stalker",
-    ["Owl"] = "stalker"
+    ["Owl"] = "stalker",
+    ["Nimble"] = "stalker",
+    ["Ashot"] = "csky"
 }
 
 align = {
@@ -136,7 +138,7 @@ end
 -- HUD Control Functions
 
 function activate_subtitles(info)
-    if HUD ~= nil or not get_config("enable_subs") then return end
+    if HUD then return end
     pr("Displaying Subtitles HUD")
     HUD = SUBUI(info)
     get_hud():AddDialogToRender(HUD)
@@ -144,7 +146,7 @@ function activate_subtitles(info)
 end
 
 function deactivate_subtitles()
-    if HUD == nil then return end
+    if not HUD then return end
     pr("Removing Subtitles HUD")
     get_hud():RemoveDialogToRender(HUD)
     HUD:Reset()

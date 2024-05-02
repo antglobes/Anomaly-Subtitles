@@ -394,7 +394,7 @@
 		<text>Mate! Thank you! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_box_box_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_1">
 		<text>Oh, man, that's not funny! </text>
@@ -451,10 +451,10 @@
 		<text>Рђ </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_1">
 		<text>Well, I don't know, maybe this kind of income is not suitable for some people, and to me, it's a good time, you know, it's not just hubarto look for. Here's an idea. </text>
@@ -580,16 +580,16 @@
 		<text>They're hanging their ears. Herd. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_3">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_5">
 		<text>lett that's all obsession </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_6">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_joke_1">
 		<text>Here's an anecdote! </text>
@@ -658,22 +658,22 @@
 		<text>You got it! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_sleep_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_threat_back_off_backoff_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_attack_attack_1">
 		<text>It's hot! </text>
@@ -1069,7 +1069,7 @@
 		<text>Mate, thank you! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_box_box_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_1">
 		<text>Oh, man, that's not funny! </text>
@@ -1129,7 +1129,7 @@
 		<text>xxxxxxxxxxxxxx </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_2">
-		<text>Subtitle Editor O. Golubkina </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_1">
 		<text>I don't know, maybe this kind of income is not suitable for some people, and it looks fine to me. You know, it's not just lugging stuff around, it's an idea. </text>
@@ -1333,22 +1333,22 @@
 		<text>Fuck you! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_default_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_fight_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_sleep_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_weapon_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_threat_back_off_backoff_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_attack_attack_1">
 		<text>Let's get to work! </text>
@@ -1747,10 +1747,10 @@
 		<text>Ah-ah-ah-ah! Nothing then! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_1">
 		<text>I'd like to jump up and down for about 600 minutes. </text>
@@ -1816,7 +1816,7 @@
 		<text>LAUGHTER LAUGHTER </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_29">
-		<text>Subtitle Editor N. Olzoeva </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_3">
 		<text>However, things are clearly going to shit. We've been steaming around here for a while now, and there's hardly any underfoot. </text>
@@ -1879,7 +1879,7 @@
 		<text>edy Thank you </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_2">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_3">
 		<text>Fuffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff </text>
@@ -1942,7 +1942,7 @@
 		<text>Once my grandfather planted a turnip in the zone, and the turnip grew big, so big, so big that if it wasn't for the trunk, my grandfather wouldn't have been able to fight it off. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_abuse_1">
-		<text>Subtitle Editor A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_abuse_2">
 		<text>Fuck you! </text>
@@ -2440,10 +2440,10 @@
 		<text>nothing then??? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_1">
-		<text>Subtitle Editor A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_1">
 		<text>I'd like to go to bed now for about 600 minutes. </text>
@@ -3169,10 +3169,10 @@
 		<text>Ha ha ha! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_1">
 		<text>And why are there no women stalkers at all? It's only to imagine. Amazons! </text>
@@ -3223,7 +3223,7 @@
 		<text>Рё </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_24">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_3">
 		<text>Actually, it's interesting, it's great, it's not so golden Bottom, well, that takes time, time, skill, again, I'll get experience, and then I'll have money like people, I bet. </text>
@@ -3688,7 +3688,7 @@
 		<text>Рђ? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_enemy_hit_enemy_hit_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_enemy_hit_enemy_hit_5">
 		<text>I've got papalis! </text>
@@ -3895,10 +3895,10 @@
 		<text>Ha ha ha! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_1">
-		<text>Subtitle Editor A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_1">
 		<text>And why are there no women stalkers at all? It's just to imagine, the Amazons. </text>
@@ -3940,7 +3940,7 @@
 		<text>Oh! Oh! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_21">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_22">
 		<text>Ah, ah, ah, ah! </text>
@@ -4003,7 +4003,7 @@
 		<text>Help, people! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_1">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_2">
 		<text>POTIVATE </text>
@@ -4012,7 +4012,7 @@
 		<text>РђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђРђ </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_4">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_5">
 		<text>CALM MUSIC </text>
@@ -4195,10 +4195,10 @@
 		<text>Bring on the goats! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_attack_attack_many_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_attack_attack_one_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_backup_backup_1">
 		<text>Akatya Vamsia! </text>
@@ -4297,13 +4297,13 @@
 		<text>I see a stalker! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_enemy_down_enemy_down_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_enemy_hit_enemy_hit_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_cover_fire_cover_fire_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_friendly_fire_friendly_fire_1">
 		<text>B! </text>
@@ -4396,10 +4396,10 @@
 		<text>As long as life is a guest! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_threat_threat_close_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_threat_threat_distant_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_tolls_tolls_1">
 		<text>All right, we got one down. </text>
@@ -4417,16 +4417,16 @@
 		<text>You've had it, lad! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_help_wounded_medkit_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_help_wounded_heavy_help_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_help_wounded_thanx_thanx_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_box_box_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_1">
 		<text>That's the old one! </text>
@@ -4492,10 +4492,10 @@
 		<text>Ha ha ha! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_1">
 		<text>Now I'd like a kebab before the greens, before the good vino. </text>
@@ -4537,10 +4537,10 @@
 		<text>AAAAAAAAAA matrices </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_panic_human_panic_human_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_panic_monster_panic_monster_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_1">
 		<text>Sha-sha-sha-sha-shooters! Sha-ben we're gonna do some shooting here! </text>
@@ -4549,22 +4549,22 @@
 		<text>Ya-ya-ya-ya-ya-ya-ya-ya-ya-ya-ya-ya-ya-ya! Ooh-ooh-ooh-ooh! Whoo-hoo! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_3">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_5">
 		<text>KPUM </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_6">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_7">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_sleep_sleep_8">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_joke_1">
 		<text>Oh, they're catching up. </text>
@@ -4621,25 +4621,25 @@
 		<text>There's a new namalia in the zone, Stalker non-drinker. Distinguishing feature is not drinking alcohol. Method of detection, go to the amplified chodchik chant Geiger. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_abuse_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_sleep_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_threat_back_off_backoff_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_attack_attack_1">
 		<text>Agon! </text>
@@ -4972,13 +4972,13 @@
 		<text>A friend helped me out. Thank you. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_box_box_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_music_reaction_music_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_story_laughter_1">
 		<text>Ha-ha-ha-ha-ha! </text>
@@ -4999,10 +4999,10 @@
 		<text>Ha-ha-ha-ha-ha-ha-ha-ha! Eeeeeeeeeeeeeeeeeeeeeeeeeeee! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_1">
 		<text>Bored, like I'm bored with everything? </text>
@@ -5032,7 +5032,7 @@
 		<text>Uh-uh-uh-uh-uh-uh-uh-uh-uh-uh </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_18">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_19">
 		<text>Whoa, whoa, whoa, whoa, whoa, whoa, whoa! </text>
@@ -5137,7 +5137,7 @@
 		<text>Here's what someone once told me. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_music_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_1">
 		<text>In a military town, a captain's wife comes to the general, and says, "Comrade General, I found Livchik in my husband's pocket, Well, what am I supposed to do? Let's go darker, I'll figure it out on my own." In the evening, the General returns home, Livchik forgotten in his pocket the wife finds. Darling, you're such a joker, and I keep wondering where I left it! </text>
@@ -5170,25 +5170,25 @@
 		<text>A general once said to Redovy. I'm so lucky Redova, you're so fucking smart. The kind of person I am, well, I'm the kind of person I am! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_abuse_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_default_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_fight_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_sleep_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_weapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_threat_back_off_backoff_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_fight_attack_attack_1">
 		<text>Yay! </text>
@@ -5593,40 +5593,40 @@
 		<text>Okay! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
+		<text>Silent_Subtitle Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_10">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
+		<text>Silent_Subtitle Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_11">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova Corrector A. Sinetskaya Corrector A. Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Egorova Corrector A.Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Egorova Corrector A.Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya </text>
+		<text>Silent_Subtitle Corrector A. Sinetskaya Corrector A. Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Egorova Corrector A.Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Egorova Corrector A.Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_2">
-		<text>SCREENSAVER SCREENSAVER SCREENSAVER SCREENSAVER Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>SCREENSAVER SCREENSAVER SCREENSAVER SCREENSAVER Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_3">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
+		<text>Silent_Subtitle Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_4">
-		<text>CALM MUSIC CALM MUSIC CALM MUSIC CALM MUSIC Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili </text>
+		<text>CALM MUSIC CALM MUSIC CALM MUSIC CALM MUSIC Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_5">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova Corrector A. Sinetskaya Corrector A. Egorova Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A.A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector </text>
+		<text>Silent_Subtitle Corrector A. Sinetskaya Corrector A. Egorova Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A.A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_6">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
+		<text>Silent_Subtitle Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_7">
 		<text>DYNAMIC MUSIC DYNAMIC MUSIC DYNAMIC MUSIC DYNAMIC MUSIC DYNAMIC MUSIC DYNAMIC MUSIC DYNAMIC MUSIC </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_8">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova Corrector A. Sinetskaya Corrector A. Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector Corrector A. Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya </text>
+		<text>Silent_Subtitle Corrector A. Sinetskaya Corrector A. Egorova Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector A. Sinetskaya Corrector Corrector A. Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya Corrector A.Sinetskaya </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_guitar_9">
-		<text>Subtitle Editor A.Sinetskaya Corrector V.Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
+		<text>Silent_Subtitle Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili Subtitle Editor A. Sukhiashvili </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_music_harmonica_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_box_box_1">
 		<text>You took that from me! </text>
@@ -5701,10 +5701,10 @@
 		<text>Nice! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_breath_breath_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_1">
 		<text>I can't feel anything anymore. </text>
@@ -5728,7 +5728,7 @@
 		<text>I can't vaporise that motive. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_16">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_17">
 		<text>Give me a break! </text>
@@ -5737,7 +5737,7 @@
 		<text>Whoa! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_19">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_2">
 		<text>When it's all over, then why dream? </text>
@@ -5755,7 +5755,7 @@
 		<text>xxxxxxxxxx! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_24">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_states_idle_idle_25">
 		<text>Ugh! Ugh! </text>
@@ -5860,67 +5860,67 @@
 		<text>Mm-mm-mm-mm-mm-mm. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_joke_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_joke_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_joke_3">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_joke_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_joke_5">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_music_1">
 		<text>I can't vaporise that motive. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_music_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_music_3">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_music_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_music_5">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_intros_intro_music_6">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_1">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_jokes_joke_10">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_2">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_3">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_4">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_5">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_reactions_joke_reaction_joke_6">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_jokes_joke_7">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_jokes_joke_8">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_jokes_joke_9">
-		<text>Subtitle Editor A.Sinetskaya Corrector A.Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_abuse_1">
 		<text>Valentus get the hell over here! </text>
@@ -5971,7 +5971,7 @@
 		<text>Aaaah! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_sleep_3">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_woman_talk_use_no_weapon_1">
 		<text>So, what now? </text>

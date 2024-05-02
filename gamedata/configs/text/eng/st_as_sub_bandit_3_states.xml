@@ -6,7 +6,7 @@
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_3_states_breath_breath_2">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_1">
@@ -68,7 +68,7 @@
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_25">
-		<text>Subtitle Editor N. Zakomoldina Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_26">
 		<text>Ahem! </text>
@@ -314,7 +314,7 @@
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_2">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_3">
@@ -325,7 +325,7 @@
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_5">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_6">
 		<text>That's great! That's great! That's great! </text>
@@ -338,10 +338,10 @@
 	</string>
 	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_3_states_trade_buy_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_3_states_trade_sell_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 </string_table>

@@ -35,7 +35,7 @@
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_states_breath_breath_2">
-		<text> Holder</text>
+		<text> Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_1">
 		<text>Holy shit, I'm not the one who's going to starve to death. </text>
@@ -119,7 +119,7 @@
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_25">
-		<text>Subtitle Editor A. Semkin Corrector A. Egorova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_26">
 		<text>Ahem! </text>
@@ -346,7 +346,7 @@
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_2">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_3">
 		<text>The Star-Spangled Banner What about you? </text>
@@ -355,7 +355,7 @@
 		<text>What's a pretty girl like her not? What's up? No, you can't do it at night. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_5">
-		<text>Holder</text>
+		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_6">
 		<text>Hmmm... Hmmmmmmmmmmmm Hmmmmmmmmmmm </text>
@@ -368,10 +368,10 @@
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_1_states_trade_buy_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_1_states_trade_sell_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle </text>
 	</string>
 </string_table>
