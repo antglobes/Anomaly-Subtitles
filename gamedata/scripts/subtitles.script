@@ -21,9 +21,11 @@ find_suffix_num = subtitles_utils.find_suffix_num
 activate_subtitles = subtitles_ui.activate_subtitles
 has_translation = subtitles_utils.has_translation
 subs_to_exclude = subtitles_utils.subs_to_exclude
-is_dialog_open = subtitles_utils.is_dialog_open
-is_inv_open = subtitles_utils.is_inv_open
+is_actor_talking = subtitles_utils.is_actor_talking
+is_ui_open = subtitles_utils.is_ui_open
 contains = subtitles_utils.contains
+get_nearby_npcs = subtitles_utils.get_nearby_npcs
+dist_to_pos = subtitles_utils.dist_to_pos
 
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
@@ -61,6 +63,29 @@ function enqueue(value)
     table.insert(queue, value)
 end
 
+function peek()
+	return queue[queue_length()]
+end
+
+function sort_queue()
+	local function by_priority(a, b)
+		local queue_len = queue_length()
+		if queue_len < 2 then return end
+		if not (b["distance"] or a["distance"]) then return end
+		return b["distance"] > a["distance"]
+	end
+	table.sort(queue, by_priority)
+end
+
+function print_queue()
+	pr("-----------------------")
+	pr("Printing Queue Contents")
+	for idx, info in pairs(queue) do
+		print_info(info)
+	end
+	pr("-----------------------")
+end
+
 --- Get queue length
 function queue_length()
     return #queue
@@ -73,12 +98,12 @@ end
 
 function suspend_queue()
 	SUSPEND_QUEUE = true
-	local suspend_reason = is_inv_open() and "Inventory Open" or "Dialog Active" 
+	local suspend_reason = is_ui_open() and "Inventory Open" or "Dialog Active" 
 	pr("%s, Suspending queue", suspend_reason) 
 end
 
 function resume_queue()
-	local resume_reason = is_inv_open() and "Inventory Closed" or "Dialog Inactive" 
+	local resume_reason = is_ui_open() and "Inventory Closed" or "Dialog Inactive" 
 	if not is_queue_suspended() then pr("%s, resuming queue", resume_reason) end
 	SUSPEND_QUEUE = false
 end
@@ -127,11 +152,13 @@ function subtitle_him(soundname, npc)
 			["subtitle"] =  soundname_to_subtitle(soundname),
 			["locale"] = get_locale(),
 			["duration"] = get_sound_duration(soundname) or 3,
-			["xml_string_id"] = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
+			["xml_string_id"] = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname)),
+			["distance"] = dist_to_pos(npc)
 		}
 		
 		if is_queue_suspended() then return pr("Queue is Suspended can't add anymore subtitles") end
 		enqueue(info)
+		sort_queue()
 	end
 end
 
@@ -194,14 +221,16 @@ function display_subtitles(info)
 	end
 end
 
+local tmr = 0
 function process_queue()
 	-- Prevent queue from processing...
 	-- if queue is suspended and has entries
 	if is_queue_suspended() and not queue_has_entries() then
+		tmr = 0
 		resume_queue()
 		return
 	-- or if an inventory/dialog screen is open
-	elseif is_dialog_open() or is_inv_open() then
+	elseif is_actor_talking() or is_ui_open() then
 		suspend_queue()
 		return		
 	elseif not queue_has_entries() then
@@ -212,9 +241,17 @@ function process_queue()
 	local subtitle = info["subtitle"]
 	if not subtitle then return end
 	if not verify_subtitle(info) then return end
+
+	-- queue timer
+	local tg = time_global()
+	if not is_queue_suspended() and queue_has_entries() and tmr < tg then
+		tmr = tg + info["duration"]
+	elseif tmr >= tg then
+		return
+	end
+
 	display_subtitles(info)
 end
-
 
 -- Soundname Manipulation
 
@@ -290,8 +327,8 @@ function count_sounds_of_this(path)
 end
 
 function print_info(info)
-	info_str = strformat("Speaker Name: '%s', Speaker Faction: '%s', Subtitle: '%s', Locale: '%s', Duration: '%s'", 
-	info["speaker_name"], info["speaker_faction"], info["subtitle"], info["locale"], info["duration"])
+	info_str = strformat("Speaker Name: '%s', Speaker Faction: '%s', Subtitle: '%s', Locale: '%s', Duration: '%s', XML String id: '%s, Distance: '%s", 
+	info["speaker_name"], info["speaker_faction"], info["subtitle"], info["locale"], info["duration"], info["xml_string_id"], info["distance"])
 	pr("Subtitle Info: %s", info_str)
 end
  
