@@ -6,28 +6,28 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <string_table>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_1">
-		<text>Fucking guys!</text>
+		<text>Beat them guys!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_11">
 		<text>I'm gonna rip your arse for fascist signs!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_2">
-		<text>Get the cocksucker!</text>
+		<text>Kill the cocksuckers!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_3">
-		<text>Take it out!</text>
+		<text>Take out the bastards!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_4">
-		<text>YOU'RE DEAD, ZEN!</text>
+		<text>YOU'RE ALL DEAD!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_5">
-		<text>Let's get the fuck out of here!</text>
+		<text>We'll bury you!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_6">
-		<text>We'll bury you with dry land!</text>
+		<text>We'll bury you, bitches!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_7">
-		<text>LOOKING FORWARD!</text>
+		<text>Beat the bastards!</text>
 	</string>
 	<!-- Accuracy Check, previous:АЛЛЕВАЛЛИГАНО! -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_8">
@@ -41,21 +41,21 @@
 	</string>
 	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_many_1">
-		<text>Silent_Subtitle</text>
+		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_one_1">
-		<text>Silent_Subtitle</text>
+		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_1">
-		<text>Fucking guys!</text>
+		<text>Beat 'em guys!</text>
 	</string>
 	<!-- Accuracy Check: previous: Ta-lu-di-zu-ka! -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_10">
-		<text>What a bitch!</text>
+		<text>Catch this bitch!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_11">
-		<text>ON YOU, ON YOU!</text>
+		<text>CATCH IT YOU, CATCH!</text>
 	</string>
 	<!-- Accuracy Check: previous: NAHAVA, BITCH! -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_12">
@@ -66,28 +66,28 @@
 		<text>Take that, fag!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_14">
-		<text>OVER THE CROWD!</text>
+		<text>Take this, bastard!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_15">
-		<text>Bitch!</text>
+		<text>Ah, you Bitch!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_2">
-		<text>Get the cocksucker!</text>
+		<text>Take out the cocksuckers!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_3">
-		<text>Take it out!</text>
+		<text>Take them out!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_4">
-		<text>YOU'RE DEAD, ZEN!</text>
+		<text>YOU'RE ALL DEAD!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_5">
-		<text>Let's get the fuck out of here!</text>
+		<text>We will bury you!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_6">
-		<text>We'll bury you with dry land!</text>
+		<text>We'll bury you, bitches!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_7">
-		<text>LOOKING FORWARD!</text>
+		<text>Beat 'em guys!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_8">
 		<text>FUUUCK! KILL THESE ASSHOLES</text>
@@ -96,144 +96,144 @@
 		<text>FUCK YOU BASTARDS!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_1">
-		<text>What a bitch!</text>
+		<text>Catch this, bitch!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_2">
-		<text>ON YOU, ON YOU!</text>
+		<text>TAKE THAT, CATCH THIS!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_3">
-		<text>CATCH THIS BITCH!</text>
+		<text>CATCH THIS, BITCH!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_4">
-		<text>LAVI, MOTHERFUCKER!</text>
+		<text>Catch this, faggot!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_5">
-		<text>OVER THE CROWD!</text>
+		<text>Take that, bastard!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_6">
-		<text>Bitch!</text>
+		<text>Agh, you bitch!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_1">
-		<text>Ta-lu-di-zu-ka!</text>
+		<text>TAKE THAT, BITCH!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_2">
-		<text>ON YOU, ON YOU!</text>
+		<text>TAKE THIS, CATCH IT!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_3">
-		<text>NAHAVA, BITCH!</text>
+		<text>EAT THIS, BITCH!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_4">
 		<text>Take that, fag!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_5">
-		<text>OVER THE CROWD!</text>
+		<text>TAKE THEM OUT GUYS!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_6">
-		<text>Bitch!</text>
+		<text>Argh, you Bitch!</text>
 	</string>
 	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_anomaly_0">
-		<text>Silent_Subtitle</text>
+		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<!-- Accuracy Check: needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_1">
-		<text>MLA!</text>
+		<text>Argh, heeeeeeck!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_2">
-		<text>Ahhh, that's mine. Aahahahahahahahahahahahahahahahahahaha!</text>
+		<text>Ahhh, the heck. cough-cough-cough!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_3">
-		<text>POTPOTTED</text>
+		<text>Oh, uh, Guuuuys</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_4">
-		<text>MLEAN!</text>
+		<text>Fuck!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_5">
-		<text>MLEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR</text>
+		<text>Shiiii....t</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_6">
 		<text>AAAAAH!!!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_7">
-		<text>Ow, ow, ow, ow!</text>
+		<text>Uh, oh!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_1">
-		<text>Come in from the side!</text>
+		<text>Come in, come in from the side!</text>
 	</string>
 	<!-- Accuracy Check, previous: KANDYUHAN HUNG! -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_10">
-		<text>TO THE END OF THE LINE!</text>
+		<text>RUN FASTER BOYS!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_2">
-		<text>Two, two!</text>
+		<text>Let's do it, let's do!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_3">
-		<text>DILNOMA WO TР“вЂ“PLING!</text>
+		<text>Get him warm!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_4">
-		<text>Don't get monstrous, guys! Go round!</text>
+		<text>Don't get nervous, guys! Go 'round!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_5">
-		<text>SHAMMYR!</text>
+		<text>Now we will..!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_6">
 		<text>Get him! Get him out!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_7">
-		<text>Come on, chicky-bricky, in the ladies!</text>
+		<text>Come on, CHEEKI-BREEKI, and to the crowns!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_8">
-		<text>Mayor, go round, go round that husk!</text>
+		<text>Faster, go round, go round that husk!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_9">
-		<text>Well, you blew it, boys!</text>
+		<text>Well, let's go, boys!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_1">
-		<text>Genduras!</text>
+		<text>Honduras-ses!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_10">
-		<text>FRYR'S DOWN!</text>
+		<text>Dandies comin'!</text>
 	</string>
 	<!-- silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_down_enemy_down_1">
-		<text>Silent_Subtitle</text>
+		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<!-- silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_hit_enemy_hit_1">
-		<text>Silent_Subtitle</text>
+		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<!-- silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_1">
-		<text>Silent_Subtitle</text>
+		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_1">
-		<text>What are you, a cocksucker?</text>
+		<text>What are you, a chump?</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_2">
-		<text>The head from Russuk!</text>
+		<text>I'll rip your head, bitch!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_3">
-		<text>Hame to you, freak!</text>
+		<text>You are dead, bastard!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_4">
-		<text>I'll kick your arse, eat!</text>
+		<text>I'll kick your arse, understood?!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_5">
 		<text>You're fucking nuts, aren't you?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_1">
-		<text>Bitch, I'm gonna put you in the trees right now!</text>
+		<text>Bitch, I'm gonna put you in the coffin right now!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_2">
-		<text>NAHSIKELDEWY!</text>
+		<text>I'll bury you, coward!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_3">
 		<text>No, I don't get it!</text>
@@ -243,58 +243,58 @@
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friend_hitted_hit_friend_1">
-		<text>Bratona's got a bite!</text>
+		<text>Brother's got a bite!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friend_hitted_hit_friend_2">
 		<text>Guys, we're hit!</text>
 	</string>
-	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_1">
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_1">
 		<text>Shocker, guys!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
-	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_2">
-		<text>GRMNATE!</text>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_grenade_2">
+		<text>GRENADE!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_3">
-		<text>GRENLADO, POZOLE!</text>
+		<text>GRENADE, GUYS!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_1">
-		<text>Eat your lemon, you bastard!</text>
+		<text>Eat lemon, you bastard!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_2">
-		<text>She's for you, Grenade!</text>
+		<text>She's for you, the grenade!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_3">
 		<text>Eat an apple, bitch!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_4">
-		<text>KAWAII GRENADE MOTHERFUCKER!</text>
+		<text>EAT THE GRENADE MOTHERFUCKER!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_5">
-		<text>BUT A BITCH OF AN APPLE!</text>
+		<text>HAVE AN APPLE BITCH!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_6">
 		<text>I'll grenade you, you bastard!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_7">
-		<text>Lemonchike pindosina!</text>
+		<text>Lemon for you, yankee!</text>
 	</string>
 	 <!-- Accuracy Check -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_1">
 		<text>Catch this bitch!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_2">
-		<text>LAVI, MOTHERFUCKER!</text>
+		<text>CATCH THIS, MOTHERFUCKER!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_hit_enemy_hit_1">
-		<text>Ooh-ooh-ooh!</text>
+		<text>Ah, fu-!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_hit_hit_2">
-		<text>a-a-a-an!</text>
+		<text>Arrrgh!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_hit_hit_3">
 		<text>Fucking hell!</text>
@@ -319,28 +319,28 @@
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_relax_3">
-		<text>Harev's poking, the ballyhoo's gone!</text>
+		<text>Stop staring, the action's gone!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_1">
-		<text>Hey! Valyn is early, guys!</text>
+		<text>Hey! It's early to hide guns, guys!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_2">
-		<text>Are we waiting for more, Spooner?</text>
+		<text>Are we waiting for more losers?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_3">
-		<text>Don't repent, don't repent, guys!</text>
+		<text>Hide, hide, guys!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_4">
-		<text>Don't poke, the Freres are coming!</text>
+		<text>Don't stare, the dandies are coming!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_5">
-		<text>ZIRIT WOB!</text>
+		<text>Stare with both eyes!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_6">
-		<text>Quiet! Nobody drew anything!</text>
+		<text>Quiet! Did anyone hear anything?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_7">
 		<text>What's up?</text>
@@ -349,29 +349,29 @@
 		<text>Quiet! Baba's going round!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_1">
-		<text>Well, where did you close?</text>
+		<text>Well, where did you hide?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_2">
-		<text>Quiet, boys! On the chicks!</text>
+		<text>Quiet, boys! Move cautious!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_3">
-		<text>Duck! Don't duck! We'll find you anyway!</text>
+		<text>Hide-don't hide! We'll find you anyway!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_4">
 		<text>Bull, you're dead, you understand?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_5">
-		<text>You're fucked! Get out, you bastard!</text>
+		<text>You're finished! Get out, you bastard!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_6">
-		<text>Don't let him go down!</text>
+		<text>Don't let him go away!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_7">
 		<text>You won't last long! Get out, you goat!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_1">
-		<text>Vlaz, vlaz!</text>
+		<text>Go out, go out!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_10">
 		<text>Oh, we'll make you some blood!</text>
@@ -380,12 +380,12 @@
 		<text>Come on, mate, you're going to quack!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_12">
-		<text>Don't be afraid! We won't cut you!</text>
+		<text>Don't be afraid! We won't chop you!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_13">
-		<text>Hey, fry, don't get too warm, we'll catch you and cut you for a long time!</text>
+		<text>Hey, pal, don't get too hopeful, we'll catch you and cut you for a long time!</text>
 	</string>
-	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_15">
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_14">
 		<text>Come on, who's in here?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_2">
@@ -395,13 +395,13 @@
 		<text>Come out nicely!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_4">
-		<text>Hey, cocksucker, I need a rubdown! Come out!</text>
+		<text>Hey, cocksucker, need to talk! Come out!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_5">
-		<text>We'll cut it up for Micha!</text>
+		<text>We'll cut you to furs!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_6">
-		<text>Freyr, come out, don't worry, we won't hurt you!</text>
+		<text>Dandy, come out, don't worry, we won't hurt you!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_7">
 		<text>Listen, we're not gonna hurt you! For real, I'm responsible for what I say!</text>
@@ -414,29 +414,29 @@
 	</string>
 	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_threat_threat_close_1">
-		<text>Silent_Subtitle</text>
+		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_threat_threat_distant_1">
-		<text>Silent_Subtitle</text>
+		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_1">
-		<text>MOJE BNAS!</text>
+		<text>They kill us!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_2">
-		<text>SCHUHER!</text>
+		<text>ATTENTION!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_3">
-		<text>Atas, guys!</text>
+		<text>Watch out, guys!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_4">
-		<text>The kid's getting shafted!</text>
+		<text>Guys are being killed!</text>
 	</string>
 	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_5">
-		<text>Mlave, we're getting shafted on the tour!</text>
+		<text>Fuck, we're getting killed for real!</text>
 	</string>
 </string_table>
