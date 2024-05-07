@@ -106,7 +106,7 @@
 	
 	<!-- unknown -->
 	<patch_unknown  x="50" y="50" width="20" height="20" alignment="c" scale="1" scale_min="1" scale_max="1" stretch = "1">
-		<texture>id\r1.dds</texture>
+		<texture>ui\ui_as_patch_unknown_01.dds</texture>
 	</patch_unknown>
 
 </faction_patches>

@@ -63,6 +63,15 @@ function enqueue(value)
     table.insert(queue, value)
 end
 
+function requeue(value)
+	local temp = {}
+	temp[1] = value
+	for idx, entry in pairs(queue) do
+		temp[idx + 1] = entry
+	end
+	queue = temp
+end
+
 function peek()
 	return queue[queue_length()]
 end

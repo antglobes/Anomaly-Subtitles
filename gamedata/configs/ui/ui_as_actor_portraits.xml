@@ -1,5 +1,4 @@
 <w>
-	<!-- Stalkers-->
 	<ui_inGame2_hunter x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_inGame2_hunter</texture>
 	</ui_inGame2_hunter>
@@ -735,6 +734,10 @@
 	<ui_inGame2_bandit_4abc x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_inGame2_bandit_4abc</texture>
 	</ui_inGame2_bandit_4abc>
+
+	<ui_inGame2_bandit_5 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame2_bandit_5</texture>
+	</ui_inGame2_bandit_5>
 
 	<ui_inGame2_bandit_5 x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_inGame2_bandit_5</texture>
@@ -1552,6 +1555,10 @@
 		<texture>ui_inGame2_miklouha</texture>
 	</ui_inGame2_miklouha>
 
+	<ui_inGame2_ashot x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame2_ashot</texture>
+	</ui_inGame2_ashot>
+
 	<ui_inGame2_rigid x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_inGame2_rigid</texture>
 	</ui_inGame2_rigid>
@@ -1595,6 +1602,10 @@
 	<ui_inGame2_fatman x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_inGame2_fatman</texture>
 	</ui_inGame2_fatman>
+
+	<ui_inGame2_nimble x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame2_nimble</texture>
+	</ui_inGame2_nimble>
 
 	<ui_inGame2_ganja x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_inGame2_ganja</texture>
@@ -1923,10 +1934,6 @@
 	<ui_npc_u_green_stalker_antigas x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_npc_u_green_stalker_antigas</texture>
 	</ui_npc_u_green_stalker_antigas>
-
-	<ui_npc_u_nebo_2_face_2 x="20" y="20" width="60" height="60" stretch = "1">
-		<texture>ui_npc_u_nebo_2_face_2</texture>
-	</ui_npc_u_nebo_2_face_2>
 
 	<ui_npc_u_stalker_zombie1 x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_npc_u_stalker_zombie1</texture>
@@ -2540,6 +2547,22 @@
 		<texture>ui_iconsNpc_strelok</texture>
 	</ui_iconsNpc_strelok>
 
+	<ui_iconsTotal_found_money x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_found_money</texture>
+	</ui_iconsTotal_found_money>
+
+	<ui_iconsTotal_lost_money x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_lost_money</texture>
+	</ui_iconsTotal_lost_money>
+
+	<ui_iconsTotal_found_thing x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_found_thing</texture>
+	</ui_iconsTotal_found_thing>
+
+	<ui_iconsTotal_lost_thing x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_lost_thing</texture>
+	</ui_iconsTotal_lost_thing>
+
 	<ui_iconsTotal_storylineui_iconsTotal_eliminate_smart x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_iconsTotal_storylineui_iconsTotal_eliminate_smart</texture>
 	</ui_iconsTotal_storylineui_iconsTotal_eliminate_smart>
@@ -2576,6 +2599,438 @@
 		<texture>ui_iconsTotal_hide_from_surge</texture>
 	</ui_iconsTotal_hide_from_surge>
 
+	<ui_iconsTotal_artefact x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_artefact</texture>
+	</ui_iconsTotal_artefact>
+
+	<ui_iconsTotal_artefacts x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_artefacts</texture>
+	</ui_iconsTotal_artefacts>
+
+	<ui_iconsTotal_deficit x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_deficit</texture>
+	</ui_iconsTotal_deficit>
+
+	<ui_iconsTotal_monster_part x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_monster_part</texture>
+	</ui_iconsTotal_monster_part>
+
+	<ui_iconsTotal_weapons x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_weapons</texture>
+	</ui_iconsTotal_weapons>
+
+	<ui_iconsTotal_mutant x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mutant</texture>
+	</ui_iconsTotal_mutant>
+
+	<ui_iconsTotal_technique x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_technique</texture>
+	</ui_iconsTotal_technique>
+
+	<ui_iconsTotal_grouping x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_grouping</texture>
+	</ui_iconsTotal_grouping>
+
+	<ui_iconsTotal_locations x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_locations</texture>
+	</ui_iconsTotal_locations>
+
+	<ui_iconsTotal_toHelpFree_lancer x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_toHelpFree_lancer</texture>
+	</ui_iconsTotal_toHelpFree_lancer>
+
+	<ui_iconsTotal_storyline_eliminate_gunslinger x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_storyline_eliminate_gunslinger</texture>
+	</ui_iconsTotal_storyline_eliminate_gunslinger>
+
+	<ui_iconsTotal_tutorial_find_artefact x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_tutorial_find_artefact</texture>
+	</ui_iconsTotal_tutorial_find_artefact>
+
+	<ui_iconsTotal_tutorial_help_wounded x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_tutorial_help_wounded</texture>
+	</ui_iconsTotal_tutorial_help_wounded>
+
+	<ui_iconsTotal_esc_dinamit_to_volk x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_esc_dinamit_to_volk</texture>
+	</ui_iconsTotal_esc_dinamit_to_volk>
+
+	<ui_iconsTotal_esc_help_wounded_from_raid x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_esc_help_wounded_from_raid</texture>
+	</ui_iconsTotal_esc_help_wounded_from_raid>
+
+	<ui_iconsTotal_garbage_meet_stalker x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_garbage_meet_stalker</texture>
+	</ui_iconsTotal_garbage_meet_stalker>
+
+	<ui_iconsTotal_agroprom_get_military_documents x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_agroprom_get_military_documents</texture>
+	</ui_iconsTotal_agroprom_get_military_documents>
+
+	<ui_iconsTotal_agr_agr_help_krot x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_agr_agr_help_krot</texture>
+	</ui_iconsTotal_agr_agr_help_krot>
+
+	<ui_iconsTotal_gar_help_dymon x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_gar_help_dymon</texture>
+	</ui_iconsTotal_gar_help_dymon>
+
+	<ui_iconsTotal_gar_car_graveyard_quest x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_gar_car_graveyard_quest</texture>
+	</ui_iconsTotal_gar_car_graveyard_quest>
+
+	<ui_iconsTotal_esc_blockpost_case_to_trader x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_esc_blockpost_case_to_trader</texture>
+	</ui_iconsTotal_esc_blockpost_case_to_trader>
+
+	<ui_iconsTotal_esc_defend_lager x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_esc_defend_lager</texture>
+	</ui_iconsTotal_esc_defend_lager>
+
+	<ui_iconsTotal_gar_kill_boars x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_gar_kill_boars</texture>
+	</ui_iconsTotal_gar_kill_boars>
+
+	<ui_iconsTotal_doctor_meet x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_doctor_meet</texture>
+	</ui_iconsTotal_doctor_meet>
+
+	<ui_iconsTotal_val_captive_help x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_val_captive_help</texture>
+	</ui_iconsTotal_val_captive_help>
+
+	<ui_iconsTotal_val_sos_help x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_val_sos_help</texture>
+	</ui_iconsTotal_val_sos_help>
+
+	<ui_iconsTotal_val_prisoner_help x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_val_prisoner_help</texture>
+	</ui_iconsTotal_val_prisoner_help>
+
+	<ui_iconsTotal_bar_darklab_documents x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_darklab_documents</texture>
+	</ui_iconsTotal_bar_darklab_documents>
+
+	<ui_iconsTotal_bar_darklab_documents2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_darklab_documents2</texture>
+	</ui_iconsTotal_bar_darklab_documents2>
+
+	<ui_iconsTotal_yan_find_scientist x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_yan_find_scientist</texture>
+	</ui_iconsTotal_yan_find_scientist>
+
+	<ui_iconsTotal_yan_find_vasilyev_task x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_yan_find_vasilyev_task</texture>
+	</ui_iconsTotal_yan_find_vasilyev_task>
+
+	<ui_iconsTotal_yan_kill_brain_task x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_yan_kill_brain_task</texture>
+	</ui_iconsTotal_yan_kill_brain_task>
+
+	<ui_iconsTotal_mil_kill_sniper x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mil_kill_sniper</texture>
+	</ui_iconsTotal_mil_kill_sniper>
+
+	<ui_iconsTotal_mil_kill_lukash x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mil_kill_lukash</texture>
+	</ui_iconsTotal_mil_kill_lukash>
+
+	<ui_iconsTotal_kill_mil_hunters_task x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_kill_mil_hunters_task</texture>
+	</ui_iconsTotal_kill_mil_hunters_task>
+
+	<ui_iconsTotal_mil_kill_controller x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mil_kill_controller</texture>
+	</ui_iconsTotal_mil_kill_controller>
+
+	<ui_iconsTotal_mil_lukash_job x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mil_lukash_job</texture>
+	</ui_iconsTotal_mil_lukash_job>
+
+	<ui_iconsTotal_mil_mad_job x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mil_mad_job</texture>
+	</ui_iconsTotal_mil_mad_job>
+
+	<ui_iconsTotal_mil_courier_job x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mil_courier_job</texture>
+	</ui_iconsTotal_mil_courier_job>
+
+	<ui_iconsTotal_bar_radar_deactivate x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_radar_deactivate</texture>
+	</ui_iconsTotal_bar_radar_deactivate>
+
+	<ui_iconsTotal_sar_monolith x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_sar_monolith</texture>
+	</ui_iconsTotal_sar_monolith>
+
+	<ui_iconsTotal_sar_secret_lab x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_sar_secret_lab</texture>
+	</ui_iconsTotal_sar_secret_lab>
+
+	<ui_iconsTotal_agr_meet_krot_band x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_agr_meet_krot_band</texture>
+	</ui_iconsTotal_agr_meet_krot_band>
+
+	<ui_iconsTotal_agr_find_ghost x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_agr_find_ghost</texture>
+	</ui_iconsTotal_agr_find_ghost>
+
+	<ui_iconsTotal_dar_codedoor_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_dar_codedoor_1</texture>
+	</ui_iconsTotal_dar_codedoor_1>
+
+	<ui_iconsTotal_dar_codedoor_2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_dar_codedoor_2</texture>
+	</ui_iconsTotal_dar_codedoor_2>
+
+	<ui_iconsTotal_yan_kill_brain_task_2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_yan_kill_brain_task_2</texture>
+	</ui_iconsTotal_yan_kill_brain_task_2>
+
+	<ui_iconsTotal_yan_find_scientist_semenov x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_yan_find_scientist_semenov</texture>
+	</ui_iconsTotal_yan_find_scientist_semenov>
+
+	<ui_iconsTotal_yan_scientist_return_task x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_yan_scientist_return_task</texture>
+	</ui_iconsTotal_yan_scientist_return_task>
+
+	<ui_iconsTotal_yan_provodnik_task x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_yan_provodnik_task</texture>
+	</ui_iconsTotal_yan_provodnik_task>
+
+	<ui_iconsTotal_mil_blockpost_job x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mil_blockpost_job</texture>
+	</ui_iconsTotal_mil_blockpost_job>
+
+	<ui_iconsTotal_mil_freedom_rg6_task x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mil_freedom_rg6_task</texture>
+	</ui_iconsTotal_mil_freedom_rg6_task>
+
+	<ui_iconsTotal_mil_go_to_miser x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_mil_go_to_miser</texture>
+	</ui_iconsTotal_mil_go_to_miser>
+
+	<ui_iconsTotal_bar_resque_information x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_resque_information</texture>
+	</ui_iconsTotal_bar_resque_information>
+
+	<ui_iconsTotal_bar_resque_information_2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_resque_information_2</texture>
+	</ui_iconsTotal_bar_resque_information_2>
+
+	<ui_iconsTotal_bar_hunter_rifle x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_hunter_rifle</texture>
+	</ui_iconsTotal_bar_hunter_rifle>
+
+	<ui_iconsTotal_bar_crazy_veterans_quest x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_crazy_veterans_quest</texture>
+	</ui_iconsTotal_bar_crazy_veterans_quest>
+
+	<ui_iconsTotal_bar_dolg_base_rules x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_dolg_base_rules</texture>
+	</ui_iconsTotal_bar_dolg_base_rules>
+
+	<ui_iconsTotal_bar_dolg_svoboda_ambush_quest x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_dolg_svoboda_ambush_quest</texture>
+	</ui_iconsTotal_bar_dolg_svoboda_ambush_quest>
+
+	<ui_iconsTotal_bar_x16_documents x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_x16_documents</texture>
+	</ui_iconsTotal_bar_x16_documents>
+
+	<ui_iconsTotal_sar_monolith_destroy x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_sar_monolith_destroy</texture>
+	</ui_iconsTotal_sar_monolith_destroy>
+
+	<ui_iconsTotal_sar_warlab x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_sar_warlab</texture>
+	</ui_iconsTotal_sar_warlab>
+
+	<ui_iconsTotal_aes_military_task x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_aes_military_task</texture>
+	</ui_iconsTotal_aes_military_task>
+
+	<ui_iconsTotal_defend_lager x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_defend_lager</texture>
+	</ui_iconsTotal_defend_lager>
+
+	<ui_iconsTotal_esc_trader_job x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_esc_trader_job</texture>
+	</ui_iconsTotal_esc_trader_job>
+
+	<ui_iconsTotal_bar_barman_job x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_bar_barman_job</texture>
+	</ui_iconsTotal_bar_barman_job>
+
+	<ui_iconsTotal_yan_scientist_job x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_yan_scientist_job</texture>
+	</ui_iconsTotal_yan_scientist_job>
+
+	<ui_iconsTotal_find_railroad_passage x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_find_railroad_passage</texture>
+	</ui_iconsTotal_find_railroad_passage>
+
+	<ui_iconsTotal_rad_get_to_aes x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsTotal_rad_get_to_aes</texture>
+	</ui_iconsTotal_rad_get_to_aes>
+
+	<ui_iconsNpc_soldier_bandana_6 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_soldier_bandana_6</texture>
+	</ui_iconsNpc_soldier_bandana_6>
+
+	<ui_iconsNpc_stalker_neytral_rukzak_4 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_neytral_rukzak_4</texture>
+	</ui_iconsNpc_stalker_neytral_rukzak_4>
+
+	<ui_iconsNpc_soldier_beret x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_soldier_beret</texture>
+	</ui_iconsNpc_soldier_beret>
+
+	<ui_iconsNpc_stalker_neytral_balon_6 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_neytral_balon_6</texture>
+	</ui_iconsNpc_stalker_neytral_balon_6>
+
+	<ui_iconsNpc_stalker_bar_security x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_bar_security</texture>
+	</ui_iconsNpc_stalker_bar_security>
+
+	<ui_iconsNpc_barman x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_barman</texture>
+	</ui_iconsNpc_barman>
+
+	<ui_iconsNpc_stalker_do_balon_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_do_balon_1</texture>
+	</ui_iconsNpc_stalker_do_balon_1>
+
+	<ui_iconsNpc_stalker_do_balon_5 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_do_balon_5</texture>
+	</ui_iconsNpc_stalker_do_balon_5>
+
+	<ui_iconsNpc_stalker_do_balon_3 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_do_balon_3</texture>
+	</ui_iconsNpc_stalker_do_balon_3>
+
+	<ui_iconsNpc_stalker_do_komandir x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_do_komandir</texture>
+	</ui_iconsNpc_stalker_do_komandir>
+
+	<ui_iconsNpc_ucheniy_2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_ucheniy_2</texture>
+	</ui_iconsNpc_ucheniy_2>
+
+	<ui_iconsNpc_stalker_ki_head_5 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_ki_head_5</texture>
+	</ui_iconsNpc_stalker_ki_head_5>
+
+	<ui_iconsNpc_stalker_bandit_borov x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_bandit_borov</texture>
+	</ui_iconsNpc_stalker_bandit_borov>
+
+	<ui_iconsNpc_stalker_do_balon_7 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_do_balon_7</texture>
+	</ui_iconsNpc_stalker_do_balon_7>
+
+	<ui_iconsNpc_stalker_do_balon_6 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_do_balon_6</texture>
+	</ui_iconsNpc_stalker_do_balon_6>
+
+	<ui_iconsNpc_stalker_neytral_balon_4 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_neytral_balon_4</texture>
+	</ui_iconsNpc_stalker_neytral_balon_4>
+
+	<ui_iconsNpc_soldier_beret_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_soldier_beret_1</texture>
+	</ui_iconsNpc_soldier_beret_1>
+
+	<ui_iconsNpc_green_stalker_8 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_green_stalker_8</texture>
+	</ui_iconsNpc_green_stalker_8>
+
+	<ui_iconsNpc_green_stalker_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_green_stalker_1</texture>
+	</ui_iconsNpc_green_stalker_1>
+
+	<ui_iconsNpc_trader x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_trader</texture>
+	</ui_iconsNpc_trader>
+
+	<ui_iconsNpc_stalker_neytral_balon_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_neytral_balon_1</texture>
+	</ui_iconsNpc_stalker_neytral_balon_1>
+
+	<ui_iconsNpc_stalker_neytral_balon_5 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_neytral_balon_5</texture>
+	</ui_iconsNpc_stalker_neytral_balon_5>
+
+	<ui_iconsNpc_stalker_do_balon_4 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_do_balon_4</texture>
+	</ui_iconsNpc_stalker_do_balon_4>
+
+	<ui_iconsNpc_green_stalker_11 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_green_stalker_11</texture>
+	</ui_iconsNpc_green_stalker_11>
+
+	<ui_iconsNpc_stalker_neytral_hood_4 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_neytral_hood_4</texture>
+	</ui_iconsNpc_stalker_neytral_hood_4>
+
+	<ui_iconsNpc_stalker_sv_balon_10 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_sv_balon_10</texture>
+	</ui_iconsNpc_stalker_sv_balon_10>
+
+	<ui_iconsNpc_stalker_sv_leader x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_sv_leader</texture>
+	</ui_iconsNpc_stalker_sv_leader>
+
+	<ui_iconsNpc_stalker_sv_max x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_sv_max</texture>
+	</ui_iconsNpc_stalker_sv_max>
+
+	<ui_iconsNpc_stalker_sv_cook x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_sv_cook</texture>
+	</ui_iconsNpc_stalker_sv_cook>
+
+	<ui_iconsNpc_stalker_sv_balon_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_sv_balon_1</texture>
+	</ui_iconsNpc_stalker_sv_balon_1>
+
+	<ui_iconsNpc_stalker_ki_informator x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_ki_informator</texture>
+	</ui_iconsNpc_stalker_ki_informator>
+
+	<ui_iconsNpc_soldier_beret_2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_soldier_beret_2</texture>
+	</ui_iconsNpc_soldier_beret_2>
+
+	<ui_iconsNpc_soldier_beret_3 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_soldier_beret_3</texture>
+	</ui_iconsNpc_soldier_beret_3>
+
+	<ui_iconsNpc_soldier_beret_5 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_soldier_beret_5</texture>
+	</ui_iconsNpc_soldier_beret_5>
+
+	<ui_iconsNpc_stalker_neytral_rukzak_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_neytral_rukzak_1</texture>
+	</ui_iconsNpc_stalker_neytral_rukzak_1>
+
+	<ui_iconsNpc_stalker_neytral_rukzak_3 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_neytral_rukzak_3</texture>
+	</ui_iconsNpc_stalker_neytral_rukzak_3>
+
+	<ui_iconsNpc_stalker_prizrak x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_prizrak</texture>
+	</ui_iconsNpc_stalker_prizrak>
+
+	<ui_iconsNpc_green_stalker_7 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_green_stalker_7</texture>
+	</ui_iconsNpc_green_stalker_7>
+
+	<ui_iconsNpc_stalker_sv_rukzak_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_iconsNpc_stalker_sv_rukzak_1</texture>
+	</ui_iconsNpc_stalker_sv_rukzak_1>
+
 	<ui_iconsNpc_stalker_osoznanie x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_iconsNpc_stalker_osoznanie</texture>
 	</ui_iconsNpc_stalker_osoznanie>
@@ -2583,6 +3038,30 @@
 	<ui_iconsNpc_ecolog x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_iconsNpc_ecolog</texture>
 	</ui_iconsNpc_ecolog>
+
+	<ui_npc_u_soldier_bandana_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_npc_u_soldier_bandana_1</texture>
+	</ui_npc_u_soldier_bandana_1>
+
+	<ui_npc_u_soldier_bandana_3 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_npc_u_soldier_bandana_3</texture>
+	</ui_npc_u_soldier_bandana_3>
+
+	<ui_npc_u_soldier_bandana_2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_npc_u_soldier_bandana_2</texture>
+	</ui_npc_u_soldier_bandana_2>
+
+	<ui_npc_u_soldier_bandana_4 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_npc_u_soldier_bandana_4</texture>
+	</ui_npc_u_soldier_bandana_4>
+
+	<ui_npc_u_actor x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_npc_u_actor</texture>
+	</ui_npc_u_actor>
+
+	<ui_npc_u_izgoy x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_npc_u_izgoy</texture>
+	</ui_npc_u_izgoy>
 
 	<ui_temp_mq x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_temp_mq</texture>
@@ -2627,4 +3106,5 @@
 	<ui_small_icon_border x="20" y="20" width="60" height="60" stretch = "1">
 		<texture>ui_small_icon_border</texture>
 	</ui_small_icon_border>
+
 </w>

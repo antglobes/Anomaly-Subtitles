@@ -57,4 +57,4 @@
   
 ## Changelog
 - v0.5.2 Base Version
-- v0.5.3 Active Dialog/Inventory Opened Prevents queue processing, NPC Distance based queue priority, Exclude Silent Subtitles
+- v0.5.3 Active Dialog/Inventory Opened Prevents queue processing, NPC Distance based queue priority, Exclude Silent Subtitles, 

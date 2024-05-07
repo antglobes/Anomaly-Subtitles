@@ -77,7 +77,7 @@ faction_to_colour = {
     ["renegade"]    = function(opacity) return GetARGB(opacity, 168, 67, 0) end,
     ["isg"]         = function(opacity) return GetARGB(opacity, 184, 102, 135) end,
     ["monster"]     = function(opacity) return GetARGB(opacity, 74, 46, 16) end,
-    ["default"]     = function(opacity) return GetARGB(opacity, 0, 0, 0) end
+    ["default" or "Trader"]     = function(opacity) return GetARGB(opacity, 0, 0, 0) end
 }
 
 special_character_faction = {
@@ -93,6 +93,11 @@ align = {
     ["l"] = "left",
     ["r"] = "right",
     ["c"] = "center"
+}
+
+local test_info = {
+    ["speaker_name"] = "Screen Resolution Changed",
+    ["duration"] = 1.5,
 }
 
 -- Common Functions
@@ -138,19 +143,36 @@ end
 -- HUD Control Functions
 
 function activate_subtitles(info)
-    if HUD then return end
-    pr("Displaying Subtitles HUD")
-    HUD = SUBUI(info)
-    get_hud():AddDialogToRender(HUD)
-    HUD:display_subtitles()
+    RegisterScriptCallback("actor_on_net_destroy", deactivate_subtitles)
+
+      if HUD == nil then
+        pr("Displaying Subtitles HUD")
+        HUD = SUBUI(info)
+        get_hud():AddDialogToRender(HUD)
+        HUD:display_subtitles()
+        return true
+    else
+        pr("Subtitles HUD Already Shown")
+        return false
+    end
 end
 
 function deactivate_subtitles()
-    if not HUD then return end
-    pr("Removing Subtitles HUD")
-    get_hud():RemoveDialogToRender(HUD)
-    HUD:Reset()
-    HUD = nil
+      if HUD ~= nil then
+        pr("Removing Subtitles HUD")
+        HUD:Reset()
+        get_hud():RemoveDialogToRender(HUD)
+        HUD = nil
+    else
+        pr("Subtitles HUD Already Closed") return
+    end
+
+    UnregisterScriptCallback("actor_on_net_destroy", deactivate_subtitles)
+end
+
+function on_screen_resolution_changed()
+    deactivate_subtitles()
+    activate_subtitles(test_info)
 end
 
 -- Subtitle HUD Class
@@ -300,8 +322,8 @@ end
 -- Callbacks
 
 function on_game_start()
-	RegisterScriptCallback("actor_on_net_destroy", deactivate_subtitles)
     RegisterScriptCallback("on_option_change", on_option_change)
+    RegisterScriptCallback("on_screen_resolution_changed", on_screen_resolution_changed)
     on_option_change()
 end
 
