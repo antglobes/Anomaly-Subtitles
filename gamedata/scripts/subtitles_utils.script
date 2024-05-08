@@ -14,6 +14,7 @@ end
 
 local invalid_subs = {}
 function collect_invalid_subs(str, soundname, prn)
+	if not get_config("enable_debug") then return end
 	if str and not has_translation(str) then
 		invalid_subs[str] = soundname
 	end
