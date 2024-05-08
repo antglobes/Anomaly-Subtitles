@@ -20,9 +20,11 @@ contains = subtitles_utils.contains
 split_subtitle = subtitles_utils.split_subtitle
 faction_tbl = subtitles_utils.factions
 
---Constants
+-- Globals
 settings = {}
 HUD = nil
+
+--Constants
 mcm_prefix = {"bc_", "fc_", "fk_", "fa_"}
 CHAR_LIMIT = 42
 
@@ -292,7 +294,7 @@ function SUBUI:display_subtitles()
 
     self.subtitle_speaker_icon:Show(true and ENABLE_SPEAKER_ICON or false)
     self.subtitle_faction:Show(true and ENABLE_FACTION_ICON or false)
-    self.subtitle_background:Show(true and ENABLE_BACKGROUND or false)
+    self.subtitle_background:Show(true)
     self.subtitle_speaker_name:Show(true)
     self.subtitle_text:Show(true)
 
@@ -306,7 +308,6 @@ end
 -- MCM Settings
 
 function on_option_change()
-    ENABLE_BACKGROUND = get_config("enable_background")
     ENABLE_SPEAKER_ICON = get_config("enable_speaker_icon")
     ENABLE_FACTION_ICON = get_config("enable_faction_icon")
 

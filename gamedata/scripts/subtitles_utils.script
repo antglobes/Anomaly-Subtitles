@@ -13,16 +13,17 @@ function has_translation(str)
 end
 
 local invalid_subs = {}
-function collect_invalid_subs(str, prn)
-	if str and not has_translation (str)then
-		table.insert(invalid_subs, str)
+function collect_invalid_subs(str, soundname, prn)
+	if str and not has_translation(str) then
+		invalid_subs[str] = soundname
 	end
 
 	if prn then
-		pr("Invalid Subtitles")
+		pr("--Invalid Subtitles--")
 		for k, v in pairs(invalid_subs) do
 			pr("%s=%s", k, v)
 		end
+		pr("---------------------")
 	end
 end
 
