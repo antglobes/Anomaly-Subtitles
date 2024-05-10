@@ -29,7 +29,6 @@ dist_to_pos = subtitles_utils.dist_to_pos
 default_icon = "ui_iconsTotal_grouping"
 news_manager_icons = news_manager.tips_icons
 default_name = "st_noise"
-icon_exists = subtitles_utils.icon_exists
 
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
