@@ -4,30 +4,92 @@ Purpose: Utils
 Last Modified: 04/04/24
 ]]---------------
 
--- imports
+--[[
 
+]]
+
+--[[
+	Imports
+]]
 get_config = subtitles_mcm.get_config
+
+
+--[[
+	Constants	
+]]
+
+--[[
+	Locals	
+]]
+local invalid_subs = {}
+local inventory_opened = false
+
+local existing_icons = {}
+existing_icons.npcs = {}
+existing_icons.mutants = {}
+
+local absent_icons = {}
+
+
+--[[
+	Boolean Functions	
+]]
 
 function has_translation(str)
     return game.translate_string(str) ~= str
 end
 
-local invalid_subs = {}
-function collect_invalid_subs(str, soundname, prn)
-	if not get_config("enable_debug") then return end
-	if str and not has_translation(str) then
-		invalid_subs[str] = soundname
-	end
-
-	if prn then
-		pr("--Invalid Subtitles--")
-		for k, v in pairs(invalid_subs) do
-			pr("%s=%s", k, v)
-		end
-		pr("---------------------")
-	end
+--- Check if table contains a key
+---@param tbl table
+---@param key any
+---@param by_key boolean
+---@param return_value boolean
+function contains(tbl, key, by_key, return_value)
+    for k, v in pairs(tbl) do
+        if by_key then
+            if k == key then
+                if return_value then
+                    return true, k
+                else
+                    return true
+                end
+            end
+        else
+            if v == key then
+                if return_value then
+                    return true, v
+                else
+                    return true
+                end
+            end
+        end
+    end
+    return false
 end
 
+function is_ui_open()
+	return inventory_opened
+end
+
+function is_talking(npc)
+	npc:is_talking()
+end
+
+function is_actor_talking() 
+	return is_talking(db.actor)
+end
+
+function is_only_match(str, pattern)
+	return true and all_matches(str, pattern) == 1 or false
+end
+
+function isnumber(var)
+    return tonumber(var) and type(var) == "number"
+end
+
+--[[
+	String Mainpulation Functions	
+]]
 
 function list_pattern_occurances(str, pattern, limit)
     s = {}
@@ -64,212 +126,19 @@ end
 function split_subtitle(subtitle, CHAR_LIMIT)
 	return split_by_chunk(subtitle, CHAR_LIMIT)
 end
-	
-
---- Check if table contains a key
----@param tbl table
----@param key any
----@param by_key boolean
----@param return_value boolean
-function contains(tbl, key, by_key, return_value)
-    for k, v in pairs(tbl) do
-        if by_key then
-            if k == key then
-                if return_value then
-                    return true, k
-                else
-                    return true
-                end
-            end
-        else
-            if v == key then
-                if return_value then
-                    return true, v
-                else
-                    return true
-                end
-            end
-        end
-    end
-    return false
-end
-
-local inventory_opened = false
-function is_ui_open()
-	return inventory_opened
-end
-
-function set_ui_state(name, path, show)
-	if contains({"UIInventory", "Dialog", "UIWorkshop", "Trade"}, name) then
-		inventory_opened = show and true or false
-	end
-end
-
-function is_talking(npc)
-	npc:is_talking()
-end
-
-function is_actor_talking() 
-	return is_talking(db.actor)
-end
-
--- Author: @dan6642 12-04-23
-function get_nearby_allies(npc, distance, mutual_enemy)
-    -- sanity check for npc
-    if not npc then
-        talk_log("get_nearby_allies called with nil npc", 5)
-        return {}
-    end
-
-    local dist = distance or 100
-    local npc_comm = npc:character_community()
-    local mutual_enemy_comm = mutual_enemy and mutual_enemy:character_community()
-    
-    local allies = {}
-    local function itr(obj)
-        if obj and IsStalker(obj) and obj:alive() then 
-            local obj_comm = obj:character_community()
-            -- Check if mutual_enemy is provided
-            if mutual_enemy then
-                -- Check if not enemy with npc and enemy with mutual_enemy
-                if (not game_relations.is_factions_enemies(npc_comm, obj_comm)) and game_relations.is_factions_enemies(mutual_enemy_comm, obj_comm) then
-                    allies[obj:id()] = obj  -- Store the object
-                end
-            else
-                -- Check if friendly with npc when no mutual_enemy is provided
-                if game_relations.is_factions_friends(npc_comm, obj_comm) then
-                    allies[obj:id()] = obj  -- Store the object
-                end
-            end
-        end
-    end
-    level.iterate_nearest(npc:position(), dist, itr)
-
-    return allies  -- Return the table directly
-end
 
 
-function dist_to_pos(npc, pos)
-	return npc:position():distance_to(pos or db.actor:position())
-end
-
-function get_closest_smart(pos)
-    local closest_smart_id = false
-    local closest_dist
-    for name, smart in pairs(SIMBOARD.smarts_by_names) do
-        if simulation_objects.is_on_the_same_level(alife():actor(), smart) then
-            local dist = smart.position:distance_to(pos or db.actor:position())
-            local tbl = SIMBOARD.smarts[smart.id]
-            if tbl and (not closest_smart_id or (dist < closest_dist)) then
-                closest_smart_id = tbl.smrt.id
-                closest_dist = dist
-            end
-        end
-    end
-
-    return SIMBOARD.smarts[closest_smart_id].smrt
-end
-
---- Authored by NLTP_ASHES 17/02/24 Anomaly Discord
-function get_unknown_object(obj, result_obj_type)
-    if result_obj_type == "server" then
-        if obj and type(obj.id) == "number" then
-            return obj
-        elseif obj and type(obj.id) == "function" then
-            return alife_object(obj:id())
-        end
-    elseif result_obj_type == "game" then
-        if obj and type(obj.id) == "number" then
-            return level.object_by_id(obj.id)
-        elseif obj and type(obj.id) == "function" then
-            return obj
-        end
-    end
-    return nil
-end
-
---- Author: @NLTP_ASHES
-function get_squad_of(obj)
-    if (obj:id() == AC_ID) then
-        return
-    end
-
-    if not (IsStalker(obj) or IsMonster(obj)) then
-        return
-    end
-
-    local squad = get_object_squad(obj)
-    if not squad then
-        return
-    end
-
-    return squad
-end
-
-function get_nearby_npcs(distance)
-	local nearby_stalkers = {}	
-
-	alife():iterate_objects(function(se_obj)
-		local obj = get_unknown_object({id=se_obj.id}, "game")
-		if obj and IsStalker(obj)  and obj:alive() then
-			local squad = get_squad_of(obj)
-			for member in squad:squad_members() do
-				local sq_member = get_unknown_object({id=se_obj.id}, "game")
-				if contains(nearby_stalkers, sq_member:id(), true) then return end
-
-				-- local npc_smart = get_closest_smart(sq_member:position())
-				if dist_to_actor(sq_member) <= distance then
-					nearby_stalkers[sq_member:id()] = sq_member
-				end				
-			end
+function icon_exists(icon_id, type)
+	for idx, tbl in pairs(existing_icons) do
+		local cond = contains(tbl, icon_id, true)
+		if not contains(absent_icons, icon_id) then
+			absent_icons[#absent_icons + 1] = icon_id 
 		end
-	  end)
-
-	return nearby_stalkers
-end
-
-function npcs_by_distance(distance)
-	local tbl = {}
-	for id, obj in pairs(get_nearby_npcs(distance)) do
-		tbl[obj:id()] = dist_to_actor(obj)
+		if cond ~= nil then return cond end
 	end
-	return tbl
+	return false
 end
 
---[[
-	local function itr(obj)
-		if obj and IsStalker(obj) and obj:alive() then
-			if dist_to_actor(obj) <= distance then
-				nearby_stalkers[obj:id()] = obj
-			end
-		end
-	end
-function in_nearby_smarts(smart, distance)
-	local actor_pos = db.actor:position()
-	local area = {x=distance + actor_pos.x, z=distance + actor_pos.y}
-	local smart_pos = smart:postion()
-	local nearby_smarts = {}
-	for name, smart in pairs(SIMBOARD.smarts_by_names) do
-		if simulation_objects.is_on_the_same_level(alife():actor(), smart) then
-			if warfare.distance_to_xz_sqr(area, smart_pos) <= actor_pos then
-				nearby_smarts[#nearby_smarts + 1] = smart:id()
-			end
-		end
-	end
-	
-	return contains(nearby_smarts, smart:id())
-end
-]]
-
-function get_keytable(tbl)
-    local kt = {}
-	idx = 0
-    for k, _ in pairs(tbl) do
-        idx=idx+1
-        kt[idx] = k
-    end
-    return kt
-end
 
 function replace(string, patterns, repl)
 	for _, pattern in pairs(patterns) do
@@ -335,8 +204,42 @@ function all_matches(str, pattern)
 	return m
 end
 
-function is_only_match(str, pattern)
-	return true and all_matches(str, pattern) == 1 or false
+--[[
+	Table Functions
+]]
+function get_keytable(tbl)
+    local kt = {}
+	idx = 0
+    for k, _ in pairs(tbl) do
+        idx=idx+1
+        kt[idx] = k
+    end
+    return kt
+end
+
+--[[
+	Void Functions
+]]
+
+function set_ui_state(name, path, show)
+	if contains({"UIInventory", "Dialog", "UIWorkshop", "Trade"}, name) then
+		inventory_opened = show and true or false
+	end
+end
+
+function collect_existing_icons()
+	local file_list = {"ui_as_actor_portraits.xml", "ui_as_npc_monster.xml"}
+	for idx, file_name in pairs(file_list) do
+		local xml = CScriptXmlInit()
+		xml:ParseFile(file_name)
+		xml:NavigateToNode("string_table", 0)
+		local str_count = xml:GetNodesNum("", 0, "string")
+		for i=0, str_count-1 do
+			local id = idx == 0 and "npcs" or "mutants"
+			existing_icons[id][i + 1] = xml:ReadAttribute("string", i, "id")
+		end
+		xml = nil
+	end
 end
 
 
@@ -352,9 +255,162 @@ function find_suffix_num(str)
 	return find_digits(str, "(%d+)$")
 end
 
-function isnumber(var)
-    return tonumber(var) and type(var) == "number"
+--[[
+	Game and Server Object Functions
+]]
+
+-- Author: @dan6642 12-04-23
+function get_nearby_allies(npc, distance, mutual_enemy)
+    -- sanity check for npc
+    if not npc then
+        talk_log("get_nearby_allies called with nil npc", 5)
+        return {}
+    end
+
+    local dist = distance or 100
+    local npc_comm = npc:character_community()
+    local mutual_enemy_comm = mutual_enemy and mutual_enemy:character_community()
+    
+    local allies = {}
+    local function itr(obj)
+        if obj and IsStalker(obj) and obj:alive() then 
+            local obj_comm = obj:character_community()
+            -- Check if mutual_enemy is provided
+            if mutual_enemy then
+                -- Check if not enemy with npc and enemy with mutual_enemy
+                if (not game_relations.is_factions_enemies(npc_comm, obj_comm)) and game_relations.is_factions_enemies(mutual_enemy_comm, obj_comm) then
+                    allies[obj:id()] = obj  -- Store the object
+                end
+            else
+                -- Check if friendly with npc when no mutual_enemy is provided
+                if game_relations.is_factions_friends(npc_comm, obj_comm) then
+                    allies[obj:id()] = obj  -- Store the object
+                end
+            end
+        end
+    end
+    level.iterate_nearest(npc:position(), dist, itr)
+
+    return allies  -- Return the table directly
 end
+
+function get_closest_smart(pos)
+    local closest_smart_id = false
+    local closest_dist
+    for name, smart in pairs(SIMBOARD.smarts_by_names) do
+        if simulation_objects.is_on_the_same_level(alife():actor(), smart) then
+            local dist = smart.position:distance_to(pos or db.actor:position())
+            local tbl = SIMBOARD.smarts[smart.id]
+            if tbl and (not closest_smart_id or (dist < closest_dist)) then
+                closest_smart_id = tbl.smrt.id
+                closest_dist = dist
+            end
+        end
+    end
+
+    return SIMBOARD.smarts[closest_smart_id].smrt
+end
+
+function dist_to_pos(npc, pos)
+	return npc:position():distance_to(pos or db.actor:position())
+end
+
+function npcs_by_distance(distance)
+	local tbl = {}
+	for id, obj in pairs(get_nearby_npcs(distance)) do
+		tbl[obj:id()] = dist_to_actor(obj)
+	end
+	return tbl
+end
+
+--- Authored by NLTP_ASHES 17/02/24 Anomaly Discord
+function get_unknown_object(obj, result_obj_type)
+    if result_obj_type == "server" then
+        if obj and type(obj.id) == "number" then
+            return obj
+        elseif obj and type(obj.id) == "function" then
+            return alife_object(obj:id())
+        end
+    elseif result_obj_type == "game" then
+        if obj and type(obj.id) == "number" then
+            return level.object_by_id(obj.id)
+        elseif obj and type(obj.id) == "function" then
+            return obj
+        end
+    end
+    return nil
+end
+
+
+--- Author: @NLTP_ASHES
+function get_squad_of(obj)
+    if (obj:id() == AC_ID) then
+        return
+    end
+
+    if not (IsStalker(obj) or IsMonster(obj)) then
+        return
+    end
+
+    local squad = get_object_squad(obj)
+    if not squad then
+        return
+    end
+
+    return squad
+end
+
+function get_nearby_npcs(distance)
+	local nearby_stalkers = {}	
+
+	alife():iterate_objects(function(se_obj)
+		local obj = get_unknown_object({id=se_obj.id}, "game")
+		if obj and IsStalker(obj)  and obj:alive() then
+			local squad = get_squad_of(obj)
+			for member in squad:squad_members() do
+				local sq_member = get_unknown_object({id=se_obj.id}, "game")
+				if contains(nearby_stalkers, sq_member:id(), true) then return end
+
+				-- local npc_smart = get_closest_smart(sq_member:position())
+				if dist_to_actor(sq_member) <= distance then
+					nearby_stalkers[sq_member:id()] = sq_member
+				end				
+			end
+		end
+	  end)
+
+	return nearby_stalkers
+end
+
+--[[
+	Debugging Functions
+]]
+
+function collect_invalid_subs(str, soundname)
+	if str and not has_translation(str) then
+		invalid_subs[str] = soundname
+	end
+end
+
+function print_invalid_strings()
+	if not get_config("enable_debug") then return end
+	pr("--Invalid Subtitles--")
+	for k, v in pairs(invalid_subs) do
+		pr("%s=%s", k, v)
+	end
+	pr("---------------------")
+	pr("----Missing Icons----")
+	for k, v in pairs(absent_icons) do
+		pr("%s=%s", k, v)
+	end
+	pr("----Existing-Icons---")
+	for k, v in pairs(existing_icons) do
+		pr("%s=%s", k, v)
+	end
+
+	
+end
+
 
 --- Returns printable format for table, visualised as either a string or a table
 ---@param tbl table
@@ -389,11 +445,20 @@ function pr(str, ...)
     dbg_pr("Subtitles|Utils: %s", str, ...)
 end
 
+--[[
+	Callbacks
+]]
 function on_game_start()
 	RegisterScriptCallback("GUI_on_show", function(name, path) set_ui_state(name, path, true) end)
 	RegisterScriptCallback("GUI_on_hide", function(name, path) set_ui_state(name, path) end)
+	RegisterScriptCallback("actor_on_first_update", collect_existing_icons)
+	RegisterScriptCallback("actor_on_net_destroy", print_invalid_strings)
 end
 
+
+--[[
+	Tables
+]]
 
 -- Game Localisations to News Tip Icon Prefixes
 locale = {
@@ -415,6 +480,7 @@ mutants = {"bloodsucker", "mutant_boar", "burer", "cat", "chimera", "pseudodog_g
 			"rat", "snork", "tushkano", "zombie", "lurker", "karlik", "kontroler", "kontroler_3", "kontroler_4",
 			"kontroler_5", "psevdogigant",
 		}
+
 
 -- Subtitles to exclude
 --[[ 
@@ -18550,3 +18616,41 @@ sound_duration = {
 	["weapons_silencers_no_clinks_silencer_9x19"] = 1.7341043083900227, 
 	["weapons_silencers_no_clinks_silencer_9x39"] = 0.45850340136054424, 
 }
+
+
+-- Unused
+
+--[[
+	local function itr(obj)
+		if obj and IsStalker(obj) and obj:alive() then
+			if dist_to_actor(obj) <= distance then
+				nearby_stalkers[obj:id()] = obj
+			end
+		end
+	end
+function in_nearby_smarts(smart, distance)
+	local actor_pos = db.actor:position()
+	local area = {x=distance + actor_pos.x, z=distance + actor_pos.y}
+	local smart_pos = smart:postion()
+	local nearby_smarts = {}
+	for name, smart in pairs(SIMBOARD.smarts_by_names) do
+		if simulation_objects.is_on_the_same_level(alife():actor(), smart) then
+			if warfare.distance_to_xz_sqr(area, smart_pos) <= actor_pos then
+				nearby_smarts[#nearby_smarts + 1] = smart:id()
+			end
+		end
+	end
+	
+	return contains(nearby_smarts, smart:id())
+end
+]]
+
+
+
+
+
+
+
+
+
+

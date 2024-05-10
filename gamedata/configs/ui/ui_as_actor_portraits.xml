@@ -3107,4 +3107,320 @@
 		<texture>ui_small_icon_border</texture>
 	</ui_small_icon_border>
 
+	<ui_icon_news_trx_freedom x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_freedom</texture>
+	</ui_icon_news_trx_freedom>
+
+	<ui_icon_news_trx_dolg x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_dolg</texture>
+	</ui_icon_news_trx_dolg>
+
+	<ui_icon_news_trx_killer x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_killer</texture>
+	</ui_icon_news_trx_killer>
+
+	<ui_icon_news_trx_stalker x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_stalker</texture>
+	</ui_icon_news_trx_stalker>
+
+	<ui_icon_news_trx_bandit x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_bandit</texture>
+	</ui_icon_news_trx_bandit>
+
+	<ui_icon_news_trx_csky x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_csky</texture>
+	</ui_icon_news_trx_csky>
+
+	<ui_icon_news_trx_monolith x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_monolith</texture>
+	</ui_icon_news_trx_monolith>
+
+	<ui_icon_news_trx_army x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_army</texture>
+	</ui_icon_news_trx_army>
+
+	<ui_icon_news_trx_ecolog x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_ecolog</texture>
+	</ui_icon_news_trx_ecolog>
+
+	<ui_icon_news_trx_renegade x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_renegade</texture>
+	</ui_icon_news_trx_renegade>
+
+	<ui_icon_news_trx_greh x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_greh</texture>
+	</ui_icon_news_trx_greh>
+
+	<ui_icon_news_trx_isg x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_isg</texture>
+	</ui_icon_news_trx_isg>
+
+	<ui_icon_news_trx_common x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_common</texture>
+	</ui_icon_news_trx_common>
+
+	<ui_icon_news_trx_communication x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_communication</texture>
+	</ui_icon_news_trx_communication>
+
+	<ui_icon_news_trx_surge_1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_surge_1</texture>
+	</ui_icon_news_trx_surge_1>
+
+	<ui_icon_news_trx_surge_2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_surge_2</texture>
+	</ui_icon_news_trx_surge_2>
+
+	<ui_icon_news_trx_surge_3 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_surge_3</texture>
+	</ui_icon_news_trx_surge_3>
+
+	<ui_icon_news_trx_surge_4 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_surge_4</texture>
+	</ui_icon_news_trx_surge_4>
+
+	<ui_icon_news_trx_death_report x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_trx_death_report</texture>
+	</ui_icon_news_trx_death_report>
+
+	<ui_icon_news_deth x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_deth</texture>
+	</ui_icon_news_deth>
+
+	<ui_icon_news_all x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icon_news_all</texture>
+	</ui_icon_news_all>
+
+	<ui_inGame3_ico_dolg x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_dolg</texture>
+	</ui_inGame3_ico_dolg>
+
+	<ui_inGame3_ico_killer x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_killer</texture>
+	</ui_inGame3_ico_killer>
+
+	<ui_inGame3_ico_freedom x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_freedom</texture>
+	</ui_inGame3_ico_freedom>
+
+	<ui_inGame3_ico_stalker x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_stalker</texture>
+	</ui_inGame3_ico_stalker>
+
+	<ui_inGame3_ico_bandit x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_bandit</texture>
+	</ui_inGame3_ico_bandit>
+
+	<ui_inGame3_ico_csky x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_csky</texture>
+	</ui_inGame3_ico_csky>
+
+	<ui_inGame3_ico_renegade x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_renegade</texture>
+	</ui_inGame3_ico_renegade>
+
+	<ui_inGame3_ico_monolith x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_monolith</texture>
+	</ui_inGame3_ico_monolith>
+
+	<ui_inGame3_ico_army x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_army</texture>
+	</ui_inGame3_ico_army>
+
+	<ui_inGame3_ico_ecolog x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_ecolog</texture>
+	</ui_inGame3_ico_ecolog>
+
+	<ui_inGame3_ico_isg x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_isg</texture>
+	</ui_inGame3_ico_isg>
+
+	<ui_inGame3_ico_greh x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_greh</texture>
+	</ui_inGame3_ico_greh>
+
+	<ui_inGame3_ico_zombied x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_ico_zombied</texture>
+	</ui_inGame3_ico_zombied>
+
+	<ui_inGame4_ico_dolg x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_dolg</texture>
+	</ui_inGame4_ico_dolg>
+
+	<ui_inGame4_ico_killer x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_killer</texture>
+	</ui_inGame4_ico_killer>
+
+	<ui_inGame4_ico_freedom x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_freedom</texture>
+	</ui_inGame4_ico_freedom>
+
+	<ui_inGame4_ico_stalker x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_stalker</texture>
+	</ui_inGame4_ico_stalker>
+
+	<ui_inGame4_ico_bandit x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_bandit</texture>
+	</ui_inGame4_ico_bandit>
+
+	<ui_inGame4_ico_csky x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_csky</texture>
+	</ui_inGame4_ico_csky>
+
+	<ui_inGame4_ico_renegade x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_renegade</texture>
+	</ui_inGame4_ico_renegade>
+
+	<ui_inGame4_ico_monolith x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_monolith</texture>
+	</ui_inGame4_ico_monolith>
+
+	<ui_inGame4_ico_army x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_army</texture>
+	</ui_inGame4_ico_army>
+
+	<ui_inGame4_ico_ecolog x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_ecolog</texture>
+	</ui_inGame4_ico_ecolog>
+
+	<ui_inGame4_ico_isg x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_isg</texture>
+	</ui_inGame4_ico_isg>
+
+	<ui_inGame4_ico_greh x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_greh</texture>
+	</ui_inGame4_ico_greh>
+
+	<ui_inGame4_ico_zombied x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame4_ico_zombied</texture>
+	</ui_inGame4_ico_zombied>
+
+	<ui_inGame3_swiss_knife x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_swiss_knife</texture>
+	</ui_inGame3_swiss_knife>
+
+	<ui_inGame3_leatherman_tool x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_inGame3_leatherman_tool</texture>
+	</ui_inGame3_leatherman_tool>
+
+	<ui_icons_more_money1 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_more_money1</texture>
+	</ui_icons_more_money1>
+
+	<ui_icons_find_detector_sci2 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_find_detector_sci2</texture>
+	</ui_icons_find_detector_sci2>
+
+	<ui_icons_find_case3 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_find_case3</texture>
+	</ui_icons_find_case3>
+
+	<ui_icons_face_controller4 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_face_controller4</texture>
+	</ui_icons_face_controller4>
+
+	<ui_icons_face_snork5 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_face_snork5</texture>
+	</ui_icons_face_snork5>
+
+	<ui_icons_kill_stalker6 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_kill_stalker6</texture>
+	</ui_icons_kill_stalker6>
+
+	<ui_icons_anom_gravi7 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_anom_gravi7</texture>
+	</ui_icons_anom_gravi7>
+
+	<ui_icons_bubble8 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_bubble8</texture>
+	</ui_icons_bubble8>
+
+	<ui_icons_controller_face9 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_controller_face9</texture>
+	</ui_icons_controller_face9>
+
+	<ui_icons_svd_rifle10 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_svd_rifle10</texture>
+	</ui_icons_svd_rifle10>
+
+	<ui_icons_teleport11 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_teleport11</texture>
+	</ui_icons_teleport11>
+
+	<ui_icons_scientists12 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_scientists12</texture>
+	</ui_icons_scientists12>
+
+	<ui_icons_mercicon13 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_mercicon13</texture>
+	</ui_icons_mercicon13>
+
+	<ui_icons_dolgsquad14 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_dolgsquad14</texture>
+	</ui_icons_dolgsquad14>
+
+	<ui_icons_bloodsucker15 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_bloodsucker15</texture>
+	</ui_icons_bloodsucker15>
+
+	<ui_icons_burer16 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_burer16</texture>
+	</ui_icons_burer16>
+
+	<ui_icons_black_chimera17 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_black_chimera17</texture>
+	</ui_icons_black_chimera17>
+
+	<ui_icons_bar_100rentgen18 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_bar_100rentgen18</texture>
+	</ui_icons_bar_100rentgen18>
+
+	<ui_icons_PDA19 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_PDA19</texture>
+	</ui_icons_PDA19>
+
+	<ui_icons_stash20 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_stash20</texture>
+	</ui_icons_stash20>
+
+	<ui_icons_zombied21 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_zombied21</texture>
+	</ui_icons_zombied21>
+
+	<ui_icons_cordon22 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_cordon22</texture>
+	</ui_icons_cordon22>
+
+	<ui_icons_prisoners23 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_prisoners23</texture>
+	</ui_icons_prisoners23>
+
+	<ui_icons_base_attack24 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_base_attack24</texture>
+	</ui_icons_base_attack24>
+
+	<ui_icons_boar25 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_boar25</texture>
+	</ui_icons_boar25>
+
+	<ui_icons_rg6_26 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_rg6_26</texture>
+	</ui_icons_rg6_26>
+
+	<ui_icons_corpse_stalker_27 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_corpse_stalker_27</texture>
+	</ui_icons_corpse_stalker_27>
+
+	<ui_icons_freedom_wolf_28 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_freedom_wolf_28</texture>
+	</ui_icons_freedom_wolf_28>
+
+	<ui_icons_forester_29 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_forester_29</texture>
+	</ui_icons_forester_29>
+
+	<ui_icons_forest_bridge_30 x="20" y="20" width="60" height="60" stretch = "1">
+		<texture>ui_icons_forest_bridge_30</texture>
+	</ui_icons_forest_bridge_30>
+
 </w>

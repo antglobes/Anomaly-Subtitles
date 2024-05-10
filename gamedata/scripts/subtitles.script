@@ -26,6 +26,10 @@ is_ui_open = subtitles_utils.is_ui_open
 contains = subtitles_utils.contains
 get_nearby_npcs = subtitles_utils.get_nearby_npcs
 dist_to_pos = subtitles_utils.dist_to_pos
+default_icon = "ui_iconsTotal_grouping"
+news_manager_icons = news_manager.tips_icons
+default_name = "st_noise"
+icon_exists = subtitles_utils.icon_exists
 
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
@@ -138,25 +142,15 @@ function subtitle_him(soundname, npc)
 
 	--build message according to distance and phrase
 	if (npc:position():distance_to(db.actor:position()) < hearing_distance) then
-		if npc:is_stalker() then
-			icon = npc:character_icon()
-			name = npc:character_name()
-			faction = npc:character_community()
-		elseif npc:is_monster() then
-			return
-			--[[
-			name = npc:name()
-			icon = strformat("ui_npc_monster_%s", remove_digits(npc:name(), ''))
-			faction = "monster"
-			]]
-		else
-			icon = news_manager.tips_icons["default"]
-			name = "st_noise"
-		end
+		if not (npc:is_stalker() or npc:is_monster()) then pr("Not Stalker or Monster: %s", npc:name()) return end
+			
+		icon = npc:character_icon()
+		name = npc:character_name()
+		faction = npc:character_community() or "monster"
 		
 		local info = {
-			["speaker_name"] = gts(name),
-			["speaker_icon"] = icon,
+			["speaker_name"] = gts(name) or default_name,
+			["speaker_icon"] = icon or default_icon,
 			["speaker_faction"] = faction,
 			["subtitle"] =  soundname_to_subtitle(soundname),
 			["locale"] = get_locale(),
@@ -353,6 +347,5 @@ function on_game_start()
 	RegisterScriptCallback("on_phrase_callback", subtitle_him)
 	RegisterScriptCallback("on_option_change", on_option_change)
 	RegisterScriptCallback("actor_on_update", process_queue)
-	RegisterScriptCallback("actor_on_net_destroy", function() subtitles_utils.collect_invalid_subs(nil, nil, true) end)
 	on_option_change()
 end
