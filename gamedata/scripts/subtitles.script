@@ -225,6 +225,7 @@ end
 
 local tmr = 0
 function process_queue()
+	local tg = time_global()
 	-- Prevent queue from processing...
 	-- if queue is suspended and has entries
 	if is_queue_suspended() and not queue_has_entries() then
@@ -245,14 +246,17 @@ function process_queue()
 	if not verify_subtitle(info) then return end
 
 	-- queue timer
-	local tg = time_global()
-	if not is_queue_suspended() and queue_has_entries() and tmr < tg then
-		tmr = tg + info["duration"]
-	elseif tmr >= tg then
-		return
+	if queue_has_entries() then
+		if not is_queue_suspended() and queue_has_entries() and tg >= tmr then
+			tmr = tg + ((info["duration"] + hear_cooldown) * 1000)
+			pr("Next possible display time: %s, Time added: %s", tmr, (info["duration"] + hear_cooldown ) * 1000)
+			display_subtitles(info)
+			return
+		elseif tg < tg then
+			pr("Current Time: %s", tmr)
+			return
+		end
 	end
-
-	display_subtitles(info)
 end
 
 -- Soundname Manipulation
