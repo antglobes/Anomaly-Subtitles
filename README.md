@@ -55,9 +55,11 @@
 ## Known Issues
 - v0.5.2+ (Fixed in v0.6.0) Subtitles HUD not showing due to removed mcm opt meaning continous nil variable
 - v0.6.0 (Fixed in v0.6.1) Certain npc portraits are missing causing CTD
+- v0.5.2+ (Fixed) Cooldown mcm option was present but not being applied during queue processing
   
 ## Changelog
 - v0.5.2 Base Version
 - v0.5.3 Active Dialog/Inventory Opened Prevents queue processing, NPC Distance based queue priority, Exclude Silent Subtitles, Inclusion of Trader Faction, Reworked HUD Activation
 - v0.6.0 Fixed HUD not showing, Inclusion of some missing subtitles.
 - v0.6.1 Include News Manager Icons for HUD
+- v0.6.2 Fixed Queue Timer, Reintergrated Subtitle Cooldown
