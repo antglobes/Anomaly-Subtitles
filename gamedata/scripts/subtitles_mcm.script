@@ -102,17 +102,18 @@ function on_mcm_load()
 			{id="divider", type="line"},
 			{id="title_additional", type="title", text="ui_mcm_subtitles_title_additional"},
 			{id ="enable_subs", type = "check", val = 1, def = true},
-			{id="enable_debug", type="check", val=1, def=false},
-			{id="debug_level", type="radio_h", val=0, def="dl_player", precondition={debugging_enabled},
-				content={
-					{"dl_player", "dl_player"},
-					{"dl_dev", "dl_dev"},
-				}
-			},
 			{id="enable_faction_icon", type="check", val=1, def=true, precondition={using_news_manager}},
 			{id="enable_speaker_icon", type="check", val=1, def=true, precondition={using_news_manager}},
 			{id="enable_news_manager", type="check", val=1, def=false},
-			{id="use_localization", type="check", val=1, def=false, precondition={function() return not using_news_manager() end}}	
+			{id="use_localization", type="check", val=1, def=false, precondition={function() return not using_news_manager() end}},
+			{id="enable_debug", type="check", val=1, def=false},
+			{id="debug_level", type="list", val=0, def="dl_player", precondition={debugging_enabled},
+				content={
+					{"dl_player", "dl_player"},
+					{"dl_dev", "dl_dev"},
+					{"dl_all", "dl_all"}
+				}
+			}
 		}
     }
     return op

@@ -143,13 +143,13 @@
     </string>
 
     <!-- Debugging Messages Level-->
-    <string id="ui_mcm_subtitles_dl_player">
+    <string id="ui_mcm_lst_dl_player">
         <text>Player</text>
     </string>
-     <string id="ui_mcm_subtitles_dl_dev">
+     <string id="ui_mcm_lst_dl_dev">
         <text>Developer</text>
     </string>
-     <string id="ui_mcm_subtitles_dl_all">
+     <string id="ui_mcm_lst_dl_all">
         <text>All</text>
     </string>
 

@@ -446,6 +446,20 @@ function pr(str, ...)
 end
 
 
+function mcm_debug_level()
+	return get_config("debug_level")
+end
+
+function filter_debug_msg(debug_level)
+	local mcm_dbg_lvl = mcm_debug_level()
+	local accepted_debug_msgs = {
+		["dl_player"] = {"dl_player"},
+		["dl_dev"] = {"dl_player", "dl_dev"},
+		["dl_all"] = {"dl_player", "dl_dev", "dl_all"}
+	}
+	return contains(accepted_debug_msgs[mcm_dbg_lvl], debug_level)
+end
+
 
 --[[
 	Callbacks

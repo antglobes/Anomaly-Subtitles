@@ -19,6 +19,8 @@ print_table = subtitles_utils.print_table
 contains = subtitles_utils.contains
 split_subtitle = subtitles_utils.split_subtitle
 faction_tbl = subtitles_utils.factions
+set_debug_level = subtitles_utils.set_debug_level
+filter_debug_msg = subtitles_utils.filter_debug_msg
 
 -- Globals
 settings = {}
@@ -104,8 +106,17 @@ local test_info = {
 
 -- Common Functions
 
+-- Debugging
+
+local dbg_lvl = "dl_dev"
+
 function pr(str, ...)
+    if not filter_debug_msg(dbg_lvl) then return end
 	subtitles_utils.dbg_pr("Subtitles| HUD: %s", str, ...)
+end
+
+function set_debug_level(new_dbg_level)
+	dbg_lvl = new_dbg_level
 end
 
 function colours(key, opacity)
@@ -118,6 +129,7 @@ function alignment(key, get_char)
 end
 
 function parse_accessibility_option(key, opacity)
+    set_debug_level("dl_dev")
     local mcm_option = get_config(key)
     if isnumber(mcm_option) then pr("Getting %s option: %s", key, mcm_option) return tostring(mcm_option) end
 
@@ -145,6 +157,7 @@ end
 -- HUD Control Functions
 
 function activate_subtitles(info)
+    set_debug_level("dl_all")
     RegisterScriptCallback("actor_on_net_destroy", deactivate_subtitles)
 
       if HUD == nil then
@@ -160,6 +173,7 @@ function activate_subtitles(info)
 end
 
 function deactivate_subtitles()
+    set_debug_level("dl_all")
       if HUD ~= nil then
         pr("Removing Subtitles HUD")
         HUD:Reset()
@@ -298,7 +312,11 @@ function SUBUI:display_subtitles()
     self.subtitle_speaker_name:Show(true)
     self.subtitle_text:Show(true)
 
+    set_debug_level("dl_player")
+    pr('"%s" from %s faction said "%s" for %s seconds', self.speaker, self.speaker_faction, self.subtitle, self.subtitle_duration)
+
     CreateTimeEvent("subtitles_ui_"..math.random(1,10000), "subtitle_duration_"..math.random(1,10000), self.subtitle_duration, function()
+        set_debug_level("dl_all")
         pr("Showed Subtitles for %s", tostring(self.subtitle_duration))
         deactivate_subtitles()
         return true
