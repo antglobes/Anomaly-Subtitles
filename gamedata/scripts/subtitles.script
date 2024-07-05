@@ -44,9 +44,27 @@ local hear_cooldown = 0
 local hear_on_cd = false
 
 -- DEBUG Print           Debugging levels, Filter out specific subs
-function pr(str, ...)
+function pr(dbg_lvl, str, ...)
+	-- filter out messages by debug level (Avoid console spam)
+	if not dbg_lvl then dbg_lvl = "dev" end
+	if not filter_debug_msg(dbg_lvl) then return end
 	subtitles_utils.dbg_pr("Subtitles|Main: %s", str, ...)
 end
+
+function mcm_debug_level()
+	return get_config("debug_level")
+end
+
+function filter_debug_msg(debug_level)
+	local mcm_dbg_lvl = mcm_debug_level()
+	local accepted_debug_msgs = {
+		["player"] = {"player"},
+		["dev"] = {"player", "dev"},
+		["all"] = {"player", "dev", "all"}
+	}
+	return contains(accepted_debug_msgs[mcm_dbg_lvl], debug_level)
+end
+
 
 ----------------------------------------
 -- Queue Functions
@@ -113,12 +131,12 @@ end
 function suspend_queue()
 	SUSPEND_QUEUE = true
 	local suspend_reason = is_ui_open() and "Inventory Open" or "Dialog Active" 
-	pr("%s, Suspending queue", suspend_reason)
+	pr("player", "%s, Suspending queue", suspend_reason)
 end
 
 function resume_queue()
 	local resume_reason = is_ui_open() and "Inventory Closed" or "Dialog Inactive" 
-	if not is_queue_suspended() then pr("%s, resuming queue", resume_reason) end
+	if not is_queue_suspended() then pr("player", "%s, resuming queue", resume_reason) end
 	SUSPEND_QUEUE = false
 	tmr = tmr + (time_global() - tmr)
 
@@ -167,7 +185,7 @@ function subtitle_him(soundname, npc)
 			["distance"] = dist_to_pos(npc),
 		}
 		
-		if is_queue_suspended() then return pr("Queue is Suspended can't add anymore subtitles") end
+		if is_queue_suspended() then return pr("player", "Queue is Suspended can't add anymore subtitles") end
 		enqueue(info)
 		sort_queue()
 

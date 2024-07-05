@@ -142,6 +142,17 @@
         <text>I'm a fast reader</text>
     </string>
 
+    <!-- Debugging Messages Level-->
+    <string id="ui_mcm_subtitles_dl_player">
+        <text>Player</text>
+    </string>
+     <string id="ui_mcm_subtitles_dl_dev">
+        <text>Developer</text>
+    </string>
+     <string id="ui_mcm_subtitles_dl_all">
+        <text>All</text>
+    </string>
+
     <!-- Additional Options-->
     <string id="ui_mcm_subtitles_title_additional">
         <text>Additional Options</text>
@@ -151,6 +162,9 @@
     </string>
     <string id="ui_mcm_subtitles_enable_debug">
         <text>Enable Debugging</text>
+    </string>
+    <string id="ui_mcm_subtitles_debug_level">
+        <text>Select Debugging Level</text>
     </string>
     <string id="ui_mcm_subtitles_enable_faction_icon">
         <text>Show Faction Icon</text>
