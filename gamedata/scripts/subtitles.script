@@ -26,15 +26,15 @@ is_ui_open = subtitles_utils.is_ui_open
 contains = subtitles_utils.contains
 get_nearby_npcs = subtitles_utils.get_nearby_npcs
 dist_to_pos = subtitles_utils.dist_to_pos
-default_icon = "ui_iconsTotal_grouping"
 news_manager_icons = news_manager.tips_icons
-default_name = "st_noise"
 
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
 SUSPEND_QUEUE = false
 ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
 CHAR_LIMIT = 42
+default_name = "st_noise"
+default_icon = "ui_iconsTotal_grouping"
 
 -- MCM Default Options
 local subs_enabled = true
@@ -43,7 +43,7 @@ local hear_chance = 100
 local hear_cooldown = 0
 local hear_on_cd = false
 
--- DEBUG Print
+-- DEBUG Print           Debugging levels, Filter out specific subs
 function pr(str, ...)
 	subtitles_utils.dbg_pr("Subtitles|Main: %s", str, ...)
 end
@@ -51,7 +51,7 @@ end
 ----------------------------------------
 -- Queue Functions
 ----------------------------------------
-
+local tmr = 0
 local queue = {}
 local length = 0
 
@@ -67,12 +67,14 @@ function enqueue(value)
 end
 
 function requeue(value)
+	suspend_queue()
 	local temp = {}
 	temp[1] = value
 	for idx, entry in pairs(queue) do
 		temp[idx + 1] = entry
 	end
 	queue = temp
+	resume_queue()
 end
 
 function peek()
@@ -111,17 +113,24 @@ end
 function suspend_queue()
 	SUSPEND_QUEUE = true
 	local suspend_reason = is_ui_open() and "Inventory Open" or "Dialog Active" 
-	pr("%s, Suspending queue", suspend_reason) 
+	pr("%s, Suspending queue", suspend_reason)
 end
 
 function resume_queue()
 	local resume_reason = is_ui_open() and "Inventory Closed" or "Dialog Inactive" 
 	if not is_queue_suspended() then pr("%s, resuming queue", resume_reason) end
 	SUSPEND_QUEUE = false
+	tmr = tmr + (time_global() - tmr)
+
 end
 
 function is_queue_suspended()
 	return SUSPEND_QUEUE
+end
+
+function print_timer()
+	pr("Current Time: %s", time_global())
+	pr("Next possible display time: %s", tmr)
 end
 
 --- Subtitle Callback: Build subtitle info and add to queue
@@ -155,12 +164,13 @@ function subtitle_him(soundname, npc)
 			["locale"] = get_locale(),
 			["duration"] = get_sound_duration(soundname) or 3,
 			["xml_string_id"] = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname)),
-			["distance"] = dist_to_pos(npc)
+			["distance"] = dist_to_pos(npc),
 		}
 		
 		if is_queue_suspended() then return pr("Queue is Suspended can't add anymore subtitles") end
 		enqueue(info)
 		sort_queue()
+
 	end
 end
 
@@ -188,7 +198,7 @@ function verify_subtitle(info)
 				verified = false
 			end
 		elseif k == "subtitle" then
-			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0 or contains(subs_to_exclude, v) then
+			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0 or contains(subs_to_exclude, v) or not info[k] then
 				pr("Invalid Subtitle: %s", v)
 				verified = false
 			end
@@ -199,10 +209,19 @@ function verify_subtitle(info)
 				pr("Invalid Duration: %s", v)
 				verified = false
 			end
+
+		elseif k == "xml_string_id" then
+			if type(v) ~= "string" or not has_translation(v) then
+				verified = false
+			end
 		end
 	end
 	if not verified then
+		pr("Subtitle not verified")
+		pr("Invalid Subtitle: %s", info["subtitle"])
 		subtitles_utils.collect_invalid_subs(info["subtitle"])
+	else
+		pr("Subtitles Verified")
 	end
 	return verified 
 end
@@ -210,54 +229,77 @@ end
 --- Determine which display system to show subtitles in
 ---@param info table
 function display_subtitles(info)
+	local debug_enabled = get_config("enable_debug")
+
 	if get_config("enable_news_manager") then
 		pr("Using News Manager for Subtitles")
 		dynamic_news_helper.send_tip(info["subtitle"], info["speaker_name"], 0, info["duration"], get_speaker_icon(info), "news", "npc")
 		db.actor:give_info_portion(info["xml_string_id"])
+
 	elseif get_config("enable_subs") then
 		pr("Using Subtitles HUD")
 		activate_subtitles(info) 
-	else
+	elseif not debug_enabled then
 		pr("Printing to console")
+		print_info(info)
+	end
+
+	if debug_enabled then
 		print_info(info)
 	end
 end
 
-local tmr = 0
 function process_queue()
-	local tg = time_global()
-	-- Prevent queue from processing...
-	-- if queue is suspended and has entries
-	if is_queue_suspended() and not queue_has_entries() then
-		tmr = 0
-		resume_queue()
+	local tg = time_global()	
+	
+	if is_queue_suspended() then
+		-- Re-enable queue processing only if no dialog is currently open or the queue is empty
+		if queue_has_entries() then
+			if not (is_actor_talking() or is_ui_open()) then
+				resume_queue()
+			end
+		elseif not queue_has_entries() then
+			resume_queue()
+		end
 		return
-	-- or if an inventory/dialog screen is open
-	elseif is_actor_talking() or is_ui_open() then
-		suspend_queue()
-		return		
-	elseif not queue_has_entries() then
-		return
-	end
+	else
+		-- Prevent queue from processing...
+		-- if an inventory/dialog screen is open
+		if is_actor_talking() or is_ui_open() then
+			suspend_queue()
+			return		
+		end
 
-	local info = dequeue()
-	local subtitle = info["subtitle"]
-	if not subtitle then return end
-	if not verify_subtitle(info) then return end
+		-- Reset timer and queue if no entries, resume only if suspended
+		if not queue_has_entries() then
+			tmr = 0
+			return
+		end
 
-	-- queue timer
-	if queue_has_entries() then
-		if not is_queue_suspended() and queue_has_entries() and tg >= tmr then
-			tmr = tg + ((info["duration"] + hear_cooldown) * 1000)
-			pr("Next possible display time: %s, Time added: %s", tmr, (info["duration"] + hear_cooldown ) * 1000)
-			display_subtitles(info)
-			return
-		elseif tg < tg then
-			pr("Current Time: %s", tmr)
-			return
+		-- queue timer
+		if queue_has_entries() then
+			pr("Processing Queue")	
+			
+			if tg > tmr then
+				local info = dequeue()
+				if not verify_subtitle(info) then return end
+				display_subtitles(info)
+
+				-- Set delay so next subtitle is shown after current
+				pr("Setting New sub timer")				
+				tmr = ((info["duration"] + hear_cooldown + 0.1) * 1000) + tg
+				return
+			
+			-- If the current time hasn't reached the timer's value wait
+			elseif tg < tmr then
+				return
+			end	
 		end
 	end
 end
+
+-- if not is_queue_suspended() then pr("Queue not suspended")
+
 
 -- Soundname Manipulation
 

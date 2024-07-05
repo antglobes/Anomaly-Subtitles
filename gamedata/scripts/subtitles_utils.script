@@ -445,6 +445,8 @@ function pr(str, ...)
     dbg_pr("Subtitles|Utils: %s", str, ...)
 end
 
+
+
 --[[
 	Callbacks
 ]]
@@ -501,7 +503,8 @@ mutants = {"bloodsucker", "mutant_boar", "burer", "cat", "chimera", "pseudodog_g
 ]]
 subs_to_exclude = {
 	"Silent_Subtitle",
-	"Missing_Subtitle"
+	"Missing_Subtitle",
+	"nil"
 }
 
 
