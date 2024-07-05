@@ -11,13 +11,14 @@
   the path-name and the npc game object, from that depending on the MCM option the subtitle is displayed
   via the news manager or a customisable HUD with a few options for accessibility
   - If using news manager + localisation mcm options and the flag you want isn't showing replace "eng" with any field in gamedata\configs\plugins\mod_news_tips_icons_as.ltx.
+- With either way of displaying the subtitles, they are processed in a fifo(first in first out) queue. It's sorted based on the npc's distance to the player with the closest speaker taking highest priority. More filtering options to be added.
 
 ## How it's built
 - 6 Variables are used to build a table used to assit with how long it's shown, the contents of the subtitle, who said the subtitle, an icon to identify the speaker, the localisation (if needed) and the speakers faction.
 - Speaker Name, Speaker Icon, Speaker Faction, Subtitle, Locale, Duration
   
 ## Adding your own Subtitles
-- The file name doesn't matter, however the structure has to be like any other string table file
+- The file name doesn't matter, however the structure has to be like any other "<string_table>" file
 - The Tag must start with "as_sub_" in order to be recognised
 - The path-name to the sound file HAS to included in the tag after the "as_sub_" prefix (Starting with the folder under the root folder aka characters_voice under sounds)
 - The actual string inside can be whatever 
@@ -53,9 +54,10 @@
 - Lucy, xcvb, mrdemonized, SimplyLeo (Vinci).
   
 ## Known Issues
-- v0.5.2+ (Fixed in v0.6.0) Subtitles HUD not showing due to removed mcm opt meaning continous nil variable
-- v0.6.0 (Fixed in v0.6.1) Certain npc portraits are missing causing CTD
-- v0.5.2+ (Fixed) Cooldown mcm option was present but not being applied during queue processing
+- v0.5.2+ (Fixed in v0.6.0) Subtitles HUD not showing due to removed mcm opt meaning continous nil variable.
+- v0.6.0 (Fixed in v0.6.1) Certain npc portraits are missing causing CTD.
+- v0.5.2+ (Fixed in v0.6.2) Cooldown mcm option was present but not being applied during queue processing.
+- v0.6.2 (Fixed in v0.6.3) Queue stuck in finite suspension after dialog/inventory window opened, skipping over subtitles due to incorrect timer updating, nil/invalid subtitles not being caught and still displayed.
   
 ## Changelog
 - v0.5.2 Base Version
@@ -63,3 +65,4 @@
 - v0.6.0 Fixed HUD not showing, Inclusion of some missing subtitles.
 - v0.6.1 Include News Manager Icons for HUD
 - v0.6.2 Fixed Queue Timer, Reintergrated Subtitle Cooldown
+- v0.6.3 Reworked queue processing, More verification for subtitle
