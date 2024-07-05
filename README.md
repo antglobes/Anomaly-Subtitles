@@ -61,8 +61,9 @@
   
 ## Changelog
 - v0.5.2 Base Version
-- v0.5.3 Active Dialog/Inventory Opened Prevents queue processing, NPC Distance based queue priority, Exclude Silent Subtitles, Inclusion of Trader Faction, Reworked HUD Activation
+- v0.5.3 Active Dialog/Inventory Opened Prevents queue processing, NPC Distance based queue .priority, Exclude Silent Subtitles, Inclusion of Trader Faction, Reworked HUD Activation.
 - v0.6.0 Fixed HUD not showing, Inclusion of some missing subtitles.
-- v0.6.1 Include News Manager Icons for HUD
-- v0.6.2 Fixed Queue Timer, Reintergrated Subtitle Cooldown
-- v0.6.3 Reworked queue processing, More verification for subtitle
+- v0.6.1 Include News Manager Icons for HUD.
+- v0.6.2 Fixed Queue Timer, Reintergrated Subtitle Cooldown.
+- v0.6.3 Reworked queue processing, More verification for subtitle.
+- v0.6.4 Added Debugging Levels to debug print functions.
