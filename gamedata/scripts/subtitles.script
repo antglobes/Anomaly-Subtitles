@@ -29,6 +29,10 @@ dist_to_pos = subtitles_utils.dist_to_pos
 news_manager_icons = news_manager.tips_icons
 set_debug_level = subtitles_utils.set_debug_level
 filter_debug_msg = subtitles_utils.filter_debug_msg
+mutant_patterns = subtitles_utils.mutant_patterns
+get_all_mutant_sections = subtitles_utils.get_all_mutant_sections
+remove_end_digits = subtitles_utils.remove_end_digits
+remove_trailing_underscore = subtitles_utils.remove_trailing_underscore
 
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
@@ -163,16 +167,18 @@ function subtitle_him(soundname, npc)
 	end
 
 	set_debug_level("dl_all")
+	if not (npc:is_stalker() or npc:is_monster()) then pr("Not Stalker or Monster: %s", npc:name()) return end
 	--build message according to distance and phrase
-	if (npc:position():distance_to(db.actor:position()) < hearing_distance) then
-		if not (npc:is_stalker() or npc:is_monster()) then pr("Not Stalker or Monster: %s", npc:name()) return end
+	if (npc:position():distance_to(db.actor:position()) <= hearing_distance) then
 			
+		is_monster = npc:is_monster()
 		icon = npc:character_icon()
 		name = npc:character_name()
 		faction = npc:character_community() or "monster"
+		sect = npc:name()
 		
 		local info = {
-			["speaker_name"] = gts(name) or default_name,
+			["speaker_name"] = is_monster and get_mutant_name(sect) or gts(name) or default_name,
 			["speaker_icon"] = icon or default_icon,
 			["speaker_faction"] = faction,
 			["subtitle"] =  soundname_to_subtitle(soundname),
@@ -181,7 +187,7 @@ function subtitle_him(soundname, npc)
 			["xml_string_id"] = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname)),
 			["distance"] = dist_to_pos(npc),
 		}
-		
+		printf("%s %s", get_mutant_name(sect), sect)
 		set_debug_level("dl_player")
 		if is_queue_suspended() then return pr("Queue is Suspended can't add anymore subtitles") end
 		enqueue(info)
@@ -258,10 +264,11 @@ function display_subtitles(info)
 	elseif get_config("enable_subs") then
 		pr("Using Subtitles HUD")
 		activate_subtitles(info) 
-	elseif not debug_enabled then
-		pr("Printing to console")
-		print_info(info)
 	end
+
+	set_debug_level("dl_all")
+	pr("Printing to console")
+	print_info(info)
 end
 
 function process_queue()
@@ -339,14 +346,25 @@ function soundname_to_subtitle(soundname)
 end
 -- Subtitle Info Builders
 
-function extract_mutant_name(sect)
-	set_debug_level("dl_dev")
+function sort_mutant_sect_to_generic()
+	generic_mutant_sect = {}
+	local mutant_sections = get_all_mutant_sections()
+	for i=1, #mutant_patterns do
+		local mutant_name = mutant_patterns[i]
+		for _, sect in pairs(mutant_sections) do
+			if string.find(sect, mutant_name) then
+				generic_mutant_sect[sect] = mutant_name
+			end
+		end
+	end
+end
+
+function get_mutant_name(sect)
+	set_debug_level("dl_all")
 	if not sect then return end
-	local rm_d = remove_digits(sect, '')
-	local start, finish = string.find(sect, "_")
-	local name = subtitles_utils.replace(rm_d, {rm_d:sub(start, #rm_d)}, '')
-	pr("Monster Name: %s", name)
-	return name
+	local no_digits = remove_end_digits(sect, '')
+	local clean_sect = remove_trailing_underscore(no_digits, '')
+	return generic_mutant_sect[clean_sect]
 end
 
 function get_speaker_icon(info)
@@ -376,22 +394,6 @@ function get_locale()
 	return ui_options.get("other/localization")
 end
 
-function count_sounds_of_this(path)
-	path = soundname_to_path(path)
-	local flag = true
-	for count=1,100 do
-		local snd 
-		pcall(function()
-			if not getFS():exist("$game_sounds$", path .. ".ogg") then return end
-			snd = sound_object(path..count)
-		end)
-		if not snd then return end
-		if snd:length() == 576 then
-			return (count-1)
-		end
-	end
-end
-
 function print_info(info)
 	info_str = strformat("Speaker Name: '%s', Speaker Faction: '%s', Subtitle: '%s', Locale: '%s', Duration: '%s', XML String id: '%s, Distance: '%s", 
 	info["speaker_name"], info["speaker_faction"], info["subtitle"], info["locale"], info["duration"], info["xml_string_id"], info["distance"])
@@ -410,5 +412,6 @@ function on_game_start()
 	RegisterScriptCallback("on_phrase_callback", subtitle_him)
 	RegisterScriptCallback("on_option_change", on_option_change)
 	RegisterScriptCallback("actor_on_update", process_queue)
+	RegisterScriptCallback("actor_on_first_update", sort_mutant_sect_to_generic)
 	on_option_change()
 end

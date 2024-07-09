@@ -192,6 +192,14 @@ function remove_digits(str, repl)
 	return remove_pattern(str, "[%d]", repl)
 end
 
+function remove_end_digits(str, repl)
+	return remove_pattern(str, '[%d+$]+', repl)
+end
+
+function remove_trailing_underscore(str, repl)
+	return remove_pattern(str, '[_]$', repl)
+end
+
 function extract_str(str, pattern, repl)
 	return remove_pattern(str, strformat("[^%s]", pattern), repl)
 end
@@ -386,6 +394,25 @@ end
 	Debugging Functions
 ]]
 
+function get_all_mutant_sections()
+	local mutant_sections = {}
+	ini_sys:section_for_each( function(section)
+		local visual = ini_sys:r_string_ex(section, "visual")
+		if visual and string.find(visual, "monsters\\") then
+			mutant_sections[#mutant_sections + 1] = section
+		end
+	end)
+	return mutant_sections
+end
+
+function print_all_mutant_sections()
+	local mutant_sections = get_all_mutant_sections()
+	pr("Mutant Sections:")
+	for k, v in pairs(mutant_sections) do
+		pr("%s=%s", k, v)
+	end
+end
+
 function collect_invalid_subs(str, soundname)
 	if str and not has_translation(str) then
 		invalid_subs[str] = soundname
@@ -418,7 +445,9 @@ end
 ---@param tbl_str string
 function print_table(tbl, return_string, tbl_str)
     if not return_string then
-       return utils_data.print_table(tbl, false, true)
+		for k, v in pairs(tbl) do
+			pr("%s=%s", k, v)
+		end
     end
     local tbl_str = tbl_str or ""
     for k, v in pairs(tbl) do
@@ -489,14 +518,21 @@ locale = {
 factions = {"stalker", "csky", "bandit", "army", "killer",  "monolith", 
 			"ecolog", "dolg", "freedom", "greh", "renegade", "isg", "default"}  
 
+
+
 -- Mutant Sections
-mutants = {"bloodsucker", "mutant_boar", "burer", "cat", "chimera", "pseudodog_grey", "flesh_strong",
+mutant_patterns = {"bloodsucker", "mutant_boar", "burer", "cat", "chimera", "pseudodog_grey", "flesh_strong",
 			"kontroler", "dog", "dog_red", "dog_white", "flesh", "fracture", "gigant", "krovosos",
 			"poltergiest", "pseudodog", "psy_dog", "psy_dog_phantom", "mutant_boar_strong", "krovosos_strong",
 			"rat", "snork", "tushkano", "zombie", "lurker", "karlik", "kontroler", "kontroler_3", "kontroler_4",
-			"kontroler_5", "psevdogigant",
+			"kontroler_5", "psevdogigant", "bibliotekar", "boar", "controller", "psysucker",
 		}
 
+special_mutant_pattenrs = {
+	"borya_normal", -- snork
+	"flesh_02a_normal", "flesh_03a_normal", -- flesh
+	"fracture_29450" -- fracture
+}
 
 -- Subtitles to exclude
 --[[ 
