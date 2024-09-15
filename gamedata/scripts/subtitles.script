@@ -40,7 +40,7 @@ SUBTITLE_PREFIX = "as_sub_%s"
 HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
 SUSPEND_QUEUE = false
 ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
-ini_script_sound = ini_ex("misc\\sound\\script_sound.ltx")
+ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
 CHAR_LIMIT = 42
 default_name = "st_noise"
 default_mutant_name = "monster"
@@ -221,29 +221,29 @@ function verify_subtitle(info)
 	for k, v in pairs(info) do
 		if k == "speaker_name" then
 			if type(v) ~= "string" then
-				pr("Invalid Speaker name: %s", v)
+				-- pr("Invalid Speaker name: %s", v)
 				verified = false
 			end
 		elseif k == "speaker_icon" then
 			if v == nil then
-				pr("Invalid Speaker Icon: %s", v)
+				-- pr("Invalid Speaker Icon: %s", v)
 				verified = false
 			end
 		elseif k == "speaker_faction" then
 			if v == nil then
-				pr("Invalid Speaker Faction: %s", v)
+				-- pr("Invalid Speaker Faction: %s", v)
 				verified = false
 			end
 		elseif k == "subtitle" then
 			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0 or contains(subs_to_exclude, v) or not info[k] then
-				pr("Invalid Subtitle: %s", v)
+				-- pr("Invalid Subtitle: %s", v)
 				verified = false
 			end
 		--elseif k == "locale" then
 			
 		elseif k == "duration" then
 			if type(v) ~= "number" or v < 0 then
-				pr("Invalid Duration: %s", v)
+				-- pr("Invalid Duration: %s", v)
 				verified = false
 			end
 
@@ -322,8 +322,9 @@ function process_queue()
 				display_subtitles(info)
 
 				-- Set delay so next subtitle is shown after current
-				pr("Setting New sub timer")				
-				tmr = ((info["duration"] + hear_cooldown + 0.1) * 1000) + tg
+				local old_tmr = tmr
+				tmr = ((info["duration"] + hear_cooldown + 0.025) * 1000) + tg
+				pr("Setting new sub timer from: %s to: %s", (old_tmr/1000) - tg, (tmr/1000) - tg)
 				return
 			
 			-- If the current time hasn't reached the timer's value wait
@@ -422,8 +423,12 @@ end
 base_set_sound_play = xr_sound.set_sound_play
 function xr_sound.set_sound_play(npc_id, sound, faction, point)
 	local npc = get_unknown_object({id=npc_id}, "game")
-	script_sounds = parse_list(ini_script_sound, sound, "path")
-	for _, soundname in pairs(scripts_sounds) do
+	if npc then
+		local soundname = ini_script_sound:r_string_ex(sound, "path")
+		if not has_translation(strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))) then
+			base_set_sound_play(npc_id, sound, faction, point)
+			return
+		end
 		local info = build_info(soundname, npc)
 		ask_to_queue(info)
 	end
