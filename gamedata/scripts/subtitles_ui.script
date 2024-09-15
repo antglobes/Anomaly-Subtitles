@@ -29,6 +29,7 @@ HUD = nil
 --Constants
 mcm_prefix = {"bc_", "fc_", "fk_", "fa_"}
 CHAR_LIMIT = 42
+default_speaker_icon = "ui_inGame2_no_data"
 
 -- Tables
 fonts = {
@@ -212,7 +213,7 @@ function SUBUI:__init(info) super()
     self.xml_portraits:ParseFile("ui_as_actor_portraits.xml")
 
     self.subtitle_background = self.xml_subs:InitStatic("background", self)
-    self.subtitle_speaker_icon = self.xml_portraits:InitStatic(self.speaker_icon, self.subtitle_background)
+    self.subtitle_speaker_icon = self.xml_portraits:InitStatic(self.speaker_icon, self.subtitle_background) or self.xml_portraits:InitStatic(default_speaker_icon, self.subtitle_background)
     self.subtitle_speaker_name = self.xml_subs:InitTextWnd("sub_speaker_name", self.subtitle_background)
     self.subtitle_text = self.xml_subs:InitTextWnd("sub_text", self.subtitle_background)
 

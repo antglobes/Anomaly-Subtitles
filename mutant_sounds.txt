@@ -1,5 +1,7 @@
 ^(Subtitles\|Utils:\s)(\w)+(=)
+
 monsters
+
 biblio:
 attack_hit: prolonged snarl
 hurt: pained growl
@@ -50,3 +52,37 @@ swamp_appear: leaves stepped on
 swamp_runway: thudding of hooves
 threaten: quick grunt
 landing: pound
+
+burer
+aggressive: snarl raspy 
+attack, attacking: groggy shout roar
+die: raspy groan
+eat: munch
+gavi_attack: 
+gravi_wave: loud boom
+idle: deep moan, low groan
+idle_3: lauging
+scan_affect: faint pulsating whispers
+tele_0: rah
+tele_hold: froze in suspension  
+tele_throw: fast waft
+telekinetic: electric shout
+telekinetic_1: strained forceful pressure movement
+
+cat
+1, 5: meow
+2: snarl
+3: moan
+4,9: stressed meow
+6: aggressive meow
+7, 11: yowl
+8: yip
+10: suprised meow
+11: pained yowl
+attack, c_attack: aggresive grumble
+attack_2, c_attack_2: hiss
+c_die : cry
+c_eat: light chomp crunch
+c_hit: prolonged hiss impact
+c2_attack: shreek
+c2_die: 

@@ -420,12 +420,12 @@ function collect_invalid_subs(str, soundname)
 end
 
 function print_invalid_strings()
-	if not get_config("enable_debug") then return end
 	pr("--Invalid Subtitles--")
 	for k, v in pairs(invalid_subs) do
 		pr("%s=%s", k, v)
 	end
 	pr("---------------------")
+	--[[
 	pr("----Missing Icons----")
 	for k, v in pairs(absent_icons) do
 		pr("%s=%s", k, v)
@@ -434,7 +434,7 @@ function print_invalid_strings()
 	for k, v in pairs(existing_icons) do
 		pr("%s=%s", k, v)
 	end
-
+	]]--
 	
 end
 
