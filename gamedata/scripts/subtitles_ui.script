@@ -82,7 +82,8 @@ faction_to_colour = {
     ["renegade"]    = function(opacity) return GetARGB(opacity, 168, 67, 0) end,
     ["isg"]         = function(opacity) return GetARGB(opacity, 184, 102, 135) end,
     ["monster"]     = function(opacity) return GetARGB(opacity, 74, 46, 16) end,
-    ["default" or "Trader"]     = function(opacity) return GetARGB(opacity, 0, 0, 0) end
+    ["default"]     = function(opacity) return GetARGB(opacity, 250, 250, 250) end,
+    ["Trader"]      = function(opacity) return GetARGB(opacity, 128, 0, 255) end
 }
 
 special_character_faction = {
@@ -91,7 +92,8 @@ special_character_faction = {
     ["Hawaiian"] = "stalker",
     ["Owl"] = "stalker",
     ["Nimble"] = "stalker",
-    ["Ashot"] = "csky"
+    ["Ashot"] = "csky",
+    ["Professor Kalancha"] = "csky"    
 }
 
 align = {
@@ -132,14 +134,14 @@ end
 function parse_accessibility_option(key, opacity)
     set_debug_level("dl_dev")
     local mcm_option = get_config(key)
-    if isnumber(mcm_option) then pr("Getting %s option: %s", key, mcm_option) return tostring(mcm_option) end
+    if isnumber(mcm_option) then pr("Getting %s number option: %s", key, mcm_option) return tostring(mcm_option) end
 
     pr("Parsing acessibility option %s", mcm_option)
     local option = false
     for _, prefix in pairs(mcm_prefix) do
         option = exclude_str(mcm_option, prefix)
         if option ~= false then
-            pr("Getting %s option: %s", key, option)
+            pr("Getting %s string option: %s", key, option)
 
             if contains(align, option, true) then
                 return alignment(option, true)
@@ -199,7 +201,7 @@ function SUBUI:__init(info) super()
     self:SetAutoDelete(true)
     self.speaker = info["speaker_name"]
     self.speaker_icon = info["speaker_icon"]
-    self.speaker_faction = info["speaker_faction"]
+    self.speaker_faction = info["speaker_faction"] or "default"
     self.subtitle = info["subtitle"]
     self.localisation = info["locale"]
     self.subtitle_duration = info["duration"]
@@ -234,7 +236,11 @@ function SUBUI:__init(info) super()
 	self.factions["unknown"] 	= self.xml_patches:InitStatic("patch_unknown", self.subtitle_speaker_icon)
 	
     
-    self.subtitle_faction = self.factions[self.speaker_faction] or self.factions[special_character_faction[self.speaker_name]] or self.factions["unknown"]
+    self.subtitle_faction = self.factions[self.speaker_faction] or self.factions[special_character_faction[self.speaker]] or self.factions["unknown"]
+    if not contains(self.factions, self.speaker_faction, true) then
+        self.speaker_faction = special_character_faction[self.speaker]
+        self.subtitle_faction = self.factions[self.speaker_faction]
+     end
     
     self.factions["stalker"]:Show(false)
     self.factions["bandit"]:Show(false)
@@ -286,10 +292,6 @@ function SUBUI:display_subtitles()
     
     if self.subtitle_duration % 1 ~= 0 then 
         self.subtitle_duration = round_idp(self.subtitle_duration, 2)
-    end    
-
-    if not contains(self.factions, self.speaker_faction, true) then
-       self.speaker_faction = special_character_faction[self.speaker]
     end
 
     self.subtitle_background:SetStretchTexture(true)

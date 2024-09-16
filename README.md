@@ -29,6 +29,9 @@
 - If you want access to the script that is used to translate/transcribe .ogg files and write the outputs to xml, please dm me on discord @antglobes
 - If you feel like you can help out and check the accuracy of the transcriptions/provide relplacements for the nonsensical or incorrect ones please dm or make an issue stating so on the github repo.
 
+## Subtitles for own mod/addon
+- If you want subtitles for your mod please raise an issue on the github and fill out the form or dm me with a link to your mod via moddb dms and i'll send you what details i'll need from you.
+
 ## Installation
 ### M02
 - Download the mod, M02, DLTX/Modded Exes, MCM

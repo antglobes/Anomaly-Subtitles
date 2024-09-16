@@ -182,6 +182,7 @@ function build_info(soundname, npc)
 		["duration"] = get_sound_duration(soundname) or 3,
 		["xml_string_id"] = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname)),
 		["distance"] = dist_to_pos(npc),
+		["position"] = npc:position()
 	}
 	return info
 end
@@ -251,6 +252,9 @@ function verify_subtitle(info)
 			if type(v) ~= "string" or not has_translation(v) then
 				verified = false
 			end
+		elseif k == "position" then
+			
+			
 		end
 	end
 	if not verified then
@@ -268,7 +272,7 @@ end
 function display_subtitles(info)
 	set_debug_level("dl_dev")
 	local debug_enabled = get_config("enable_debug")
-
+	
 	if get_config("enable_news_manager") then
 		pr("Using News Manager for Subtitles")
 		dynamic_news_helper.send_tip(info["subtitle"], info["speaker_name"], 0, info["duration"], get_speaker_icon(info), "news", "npc")
@@ -324,7 +328,7 @@ function process_queue()
 				-- Set delay so next subtitle is shown after current
 				local old_tmr = tmr
 				tmr = ((info["duration"] + hear_cooldown + 0.025) * 1000) + tg
-				pr("Setting new sub timer from: %s to: %s", (old_tmr/1000) - tg, (tmr/1000) - tg)
+				pr("Setting new sub timer from: %s to: %s", (old_tmr) - tg, (tmr) - tg)
 				return
 			
 			-- If the current time hasn't reached the timer's value wait
