@@ -212,6 +212,26 @@ function all_matches(str, pattern)
 	return m
 end
 
+function truncate(str, limit)
+	local start = 0
+	local _end = 0
+
+	local strings = {}
+    local char_max = #str
+    while ( start < char_max or _end < char_max)
+    do
+        if #str < limit then
+            _end = _end + #str
+        else
+            _end = _end + limit
+        end
+        
+        strings[#strings + 1] = string.sub(str, start, _end)
+        start = start + _end
+    end
+	return strings
+end
+
 --[[
 	Table Functions
 ]]

@@ -34,6 +34,7 @@ get_all_mutant_sections = subtitles_utils.get_all_mutant_sections
 remove_end_digits = subtitles_utils.remove_end_digits
 remove_trailing_underscore = subtitles_utils.remove_trailing_underscore
 get_unknown_object = subtitles_utils.get_unknown_object
+truncate = subtitles_utils.truncate
 
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
@@ -101,12 +102,21 @@ function peek()
 end
 
 function sort_queue()
-	local function by_priority(a, b)
+	local function by_distance(a, b)
 		local queue_len = queue_length()
 		if queue_len < 2 then return end
 		if not (b["distance"] or a["distance"]) then return end
 		return b["distance"] > a["distance"]
 	end
+
+	local function by_priority(a, b)
+		local queue_len = queue_length()
+		if queue_len < 2 then return end
+		if not (b["priority"] or a["priority"]) then return end
+		return b["priority"] > a["priority"]
+	end
+
+	table.sort(queue, by_distance)
 	table.sort(queue, by_priority)
 end
 
@@ -149,11 +159,38 @@ function is_queue_suspended()
 	return SUSPEND_QUEUE
 end
 
+function truncate_subtitle(info)
+	local infos = {}
+	local sub_tokens = truncate(info["subtitle"], CHAR_LIMIT)
+	for i=1, #sub_tokens do
+		infos[i] = {
+			speaker_name = info["speaker_name"],
+			speaker_icon = info["speaker_icon"],
+			speaker_faction = info["speaker_faction"],
+			subtitle = sub_tokens[i],
+			locale = info["locale"],
+			duration = info["duration"] / #sub_tokens,
+			xml_string_id = info["xml_string_id"],
+			distance = info["distance"],
+			position = info["position"],
+			priority = i
+		}
+	end
+	return infos
+end
+
 function ask_to_queue(info)
 	CreateTimeEvent("subtitles_main"..math.random(1,10000),  "ask_to_queue"..math.random(1,10000), 0.1,
 	function(info)
 		set_debug_level("dl_player")
 		if is_queue_suspended() then return false end
+		if info["subtitle"] and #info["subtitle"] > CHAR_LIMIT then
+			local new_infos = truncate_subtitle(info)
+			for i=1, #new_infos do
+				ask_to_queue(new_infos[i])
+			end
+			return true
+		end
 		enqueue(info)
 		sort_queue()
 		return true
@@ -218,38 +255,40 @@ end
 function verify_subtitle(info)
 	set_debug_level("dl_dev")
 	local verified = true
+	local reason = ""
 
 	for k, v in pairs(info) do
 		if k == "speaker_name" then
 			if type(v) ~= "string" then
-				-- pr("Invalid Speaker name: %s", v)
+				reason = strformat("Invalid Speaker name: %s", v)
 				verified = false
 			end
 		elseif k == "speaker_icon" then
 			if v == nil then
-				-- pr("Invalid Speaker Icon: %s", v)
+				reason = strformat("Invalid Speaker Icon: %s", v)
 				verified = false
 			end
 		elseif k == "speaker_faction" then
 			if v == nil then
-				-- pr("Invalid Speaker Faction: %s", v)
+				reason = strformat("Invalid Speaker Faction: %s", v)
 				verified = false
 			end
 		elseif k == "subtitle" then
 			if type(v) ~= "string" or #{string.find(v, "as_sub_")} > 0 or contains(subs_to_exclude, v) or not info[k] then
-				-- pr("Invalid Subtitle: %s", v)
+				reason = strformat("Invalid Subtitle: %s", v)
 				verified = false
 			end
 		--elseif k == "locale" then
 			
 		elseif k == "duration" then
 			if type(v) ~= "number" or v < 0 then
-				-- pr("Invalid Duration: %s", v)
+				reason = strformat("Invalid Duration: %s", v)
 				verified = false
 			end
 
 		elseif k == "xml_string_id" then
 			if type(v) ~= "string" or not has_translation(v) then
+				reason = strformat("Invalid xml_string_id: %s", v)
 				verified = false
 			end
 		elseif k == "position" then
@@ -260,7 +299,7 @@ function verify_subtitle(info)
 	if not verified then
 		set_debug_level("dl_all")
 		pr("Subtitle not verified")
-		subtitles_utils.collect_invalid_subs(info["subtitle"])
+		subtitles_utils.collect_invalid_subs(info["xml_string_id"], reason)
 	else
 		pr("Subtitles Verified")
 	end
@@ -328,7 +367,7 @@ function process_queue()
 				-- Set delay so next subtitle is shown after current
 				local old_tmr = tmr
 				tmr = ((info["duration"] + hear_cooldown + 0.025) * 1000) + tg
-				pr("Setting new sub timer from: %s to: %s", (old_tmr) - tg, (tmr) - tg)
+				pr("Setting new sub timer from: %s to: %s", old_tmr, (tmr) - tg)
 				return
 			
 			-- If the current time hasn't reached the timer's value wait
@@ -359,7 +398,7 @@ end
 function soundname_to_subtitle(soundname)
 	local x = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
 	local snd_name = game.translate_string(x)
-	subtitles_utils.collect_invalid_subs(x, soundname)
+	--subtitles_utils.collect_invalid_subs(x, soundname)
 	return has_translation(x) and snd_name or nil
 end
 -- Subtitle Info Builders

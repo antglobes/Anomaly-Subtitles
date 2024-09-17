@@ -93,7 +93,9 @@ special_character_faction = {
     ["Owl"] = "stalker",
     ["Nimble"] = "stalker",
     ["Ashot"] = "csky",
-    ["Professor Kalancha"] = "csky"    
+    ["Professor Kalancha"] = "csky",
+    ['Senior Sergeant Grebenko'] = "dolg",
+    ["Beard"] = "stalker"
 }
 
 align = {
