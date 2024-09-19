@@ -92,22 +92,22 @@ end
 ]]
 
 function list_pattern_occurances(str, pattern, limit)
-    s = {}
-    local function search(str, substr, callback, init)
-       init = init or 1
-       local first, last = str:find(substr, init)
-       if first then
-            if limit and first >= limit and init < limit then
-                for i=1, #str, last do
-                    s[#s + 1] = str:sub(i, i + first - 1)
-                end
-            end            
-           --callback(str, first, last)
-           return search(str, substr, callback, first + 1)
-       end
-    end
-    search(str, pattern, print)
-    return s
+	s = {}
+	local function search(tbl, str, substr, callback, init)
+	   init = init or 1
+	   local first, last = str:find(substr, init)
+	   if first then
+			--print(first, last, limit, init)
+			if first > limit and first < #str or init < limit then 
+			   tbl[#tbl + 1] =  first 
+			   -- print(first, last)
+			end            
+		   --callback(str, first, last)
+		   return search(tbl, str, substr, callback, first + 1)
+	   end 
+	end
+	search(s, str, pattern)
+	return s
 end
 
 function split_by_chunk(text, chunkSize)
@@ -230,6 +230,100 @@ function truncate(str, limit)
         start = start + _end
     end
 	return strings
+end
+
+function remove_duplicate_values(tbl)
+	local pt = {}
+	for _, v in pairs(tbl) do
+	   if not contains(pt, v) then
+		   pt[#pt + 1] = v
+	   end
+	end
+	return pt
+end	 
+
+function get_punc_occurances(str, char_limit)
+	pr("Getting Puncutation Occurances in %s", str)
+	-- Find all occurances of pattern if pattern exists in string
+		-- Collect every occurances index
+		-- Split string from start of string until occurance index
+			-- If occurance is a word seprator remove it and trailing whitespace
+	
+	local start = 0
+	local tokens = {}
+	for _, tkn in pairs(list_pattern_occurances(str, "[,!?.]", char_limit)) do
+		local fin = tkn
+		if fin >= char_limit then
+			tokens[#tokens + 1] = string.sub(str, start, fin)
+			tokens[#tokens + 1] = string.sub(str, fin+1, #str)
+			start = fin + 1
+		end
+	end
+
+	for idx, v in pairs(tokens) do
+		if v == "" then
+			pr("Removing %s at %s index", v, idx)
+			tokens[idx] = nil
+		end
+	end
+
+	pr("Pattern Indexes %s", print_table(tokens, true))
+	return tokens
+end
+	
+
+function group_tokens(tbl, char_limit)
+	-- Go through table
+	-- Iterate Table checking for token length
+	-- If token length is less than char_limit
+		-- and if token ends with a comma, concentate with the next tokens until total length reaches char_limt or one of the next tokens end with a period
+	local total_len = 0
+	local tmp = {}
+	local str = ""
+	pr("Tokens: %s", print_table(tbl, true))
+	for idx, token in pairs(tbl) do 
+		local tkn_len = #token
+		pr("token len: %s, total len: %s, char limit: %s, idx: %s", tkn_len, total_len, char_limit, idx)
+		pr("idx at max? %s", idx == #tbl)
+		if tkn_len + total_len <= char_limit then
+			total_len = total_len + tkn_len
+			str = str .. token
+			pr("Combining tokens: %s", token)
+			pr("Current Grouped Token: %s", str)
+			pr("total len: %s", total_len)
+						
+		elseif tkn_len > char_limit or tkn_len + total_len > char_limit then
+			pr("Adding token: %s",token, str)
+			tmp[#tmp + 1] = token
+			total_len = 0
+			str = ""	
+		end	
+	end
+
+	for idx, v in pairs(tmp) do
+		if v == "" then
+			pr("Removing %s at %s index", v, idx)
+			tmp[idx] = nil
+		end
+	end
+
+	return tmp
+end
+
+function truncate_by_puncation(str, char_limit)
+	if #str - char_limit < 0 then
+		return {str}
+	end
+
+	local punc_occurrances = get_punc_occurances(str, char_limit)
+	if #punc_occurrances == 1 then
+		return punc_occurrances
+	end
+
+	pr("Punc Occurances: %s", print_table(punc_occurrances, true))
+	local grp_tkns = group_tokens(punc_occurrances, char_limit)
+	pr("Grouped Tokens: %s", print_table(grp_tkns, true))
+	return grp_tkns
 end
 
 --[[

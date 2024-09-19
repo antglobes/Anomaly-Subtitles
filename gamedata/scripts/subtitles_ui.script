@@ -164,7 +164,9 @@ end
 function activate_subtitles(info)
     set_debug_level("dl_all")
     RegisterScriptCallback("actor_on_net_destroy", deactivate_subtitles)
-
+    if not info["subtitle"] then
+        return false
+    end
       if HUD == nil then
         pr("Displaying Subtitles HUD")
         HUD = SUBUI(info)
