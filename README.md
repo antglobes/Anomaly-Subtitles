@@ -1,10 +1,11 @@
 # Anomaly Subtitles
 - Translation/Transcription of all voicelines and mutant sounds from Russian to English
-- Co-author VodoXleb
+- Co-author **VodoXleb**
 
 ## Disclaimer
 - The Majority of the subtitles are machine translated, since this is in Beta state until we can check the accuracy of translations,  some are missing, others don't make complete sense.
 - If you want to help our read the "Helping with Translations" Section.
+- Factions Not Yet Translated Zombied, Killer (Mercs), Greh (Sin).
 
 ## Displaying Subtitles
 - Using an engine patch, there is now a callback "on_phrase_callback" that whenever an npc makes a sound
@@ -57,10 +58,13 @@
 - Lucy, xcvb, mrdemonized, SimplyLeo (Vinci).
   
 ## Known Issues
+Example: Version with issues (Version with issues fixed) Reason for issues occuring.
 - v0.5.2+ (Fixed in v0.6.0) Subtitles HUD not showing due to removed mcm opt meaning continous nil variable.
 - v0.6.0 (Fixed in v0.6.1) Certain npc portraits are missing causing CTD.
 - v0.5.2+ (Fixed in v0.6.2) Cooldown mcm option was present but not being applied during queue processing.
 - v0.6.2 (Fixed in v0.6.3) Queue stuck in finite suspension after dialog/inventory window opened, skipping over subtitles due to incorrect timer updating, nil/invalid subtitles not being caught and still displayed.
+- v0.6.4 (Fixed in v0.7.1) Missing Icon textures (specifically prof. kalancha) causing CTD beacuse of missing texture xml.
+- v0.7.2 (Fixed in v0.7.3) Failure to catch last part of the sentence, causing unintented functionality.
   
 ## Changelog
 - v0.5.2 Base Version
@@ -70,3 +74,6 @@
 - v0.6.2 Fixed Queue Timer, Reintergrated Subtitle Cooldown.
 - v0.6.3 Reworked queue processing, More verification for subtitle.
 - v0.6.4 Added Debugging Levels to debug print functions.
+- v0.7.1 Fixed Missing Icon Texture, UI Defaults.
+- v0.7.2 Subtitle Truncation.
+- v0.7.3 Ask to Queue, Fixed Subtitle Truncation.
