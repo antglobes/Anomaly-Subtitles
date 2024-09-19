@@ -15,7 +15,7 @@ defaults = {
 	["hear_cooldown"] = 0,
 	["enable_debug"] = false,
 	["background_colour"] = "bc_white",
-	["background_opacity"] = 15,
+	["background_opacity"] = 0,
 	["font_colour"] = "fc_white",
 	["font_opacity"] = 255,
 	["font_kind"] = "fk_graff22",
@@ -90,7 +90,7 @@ function on_mcm_load()
 					{"fa_r", "fa_r"}
 				}
 			},
-			{id="sub_duration", type="radio_v", val=0, def="ok_reader", 
+			{id="sub_duration", type="radio_v", val=0, def="true_duration", 
 				content={
 					{"true_duration", "true_duration"},
 					{"slow_reader", "slow_reader"},
