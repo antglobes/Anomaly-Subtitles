@@ -53,6 +53,7 @@ default_mutant_name = "monster"
 default_icon = "ui_iconsTotal_grouping"
 max_hear_dist = 180
 subtitle_info_tbl = {}
+subtitle_info_tbl.hear_equip = {}
 
 -- DEBUGGING
 local dbg_lvl = "dl_dev"
@@ -428,7 +429,7 @@ function get_locale()
 	return ui_options.get("other/localization")
 end
 
-function get_hearing_distance(obj)
+function set_hearing_distance(obj)
 	-- get sect list of player's equipment
 	-- filter by equipment that would go on the head
 	-- check each equipment against hearing effect multiplier#
@@ -436,7 +437,7 @@ function get_hearing_distance(obj)
 	local helmet_slot_id = 12
 	local device_slot_id = 9
 	local no_equip = -1
-	local hear_multi = subtitle_info_tbl.hear_multi or 1
+	local sect = obj:section()
 	local helm = db.actor:item_in_slot(helmet_slot_id) or no_equip
 	local device = db.actor:item_in_slot(device_slot_id) or no_equip
 	
@@ -444,22 +445,43 @@ function get_hearing_distance(obj)
 	--if obj:section() ~= helm:section() or obj:section() ~= device:section() then return end
 	if obj and (IsHeadgear(obj) or IsItem("device", obj:section())) then
 		--if obj and (helm and obj:id() ~= helm:id()) or (device and obj:id() ~= device:id()) then return end
-		pr("Hearing Distance: %sm", hear_dist)	
+		pr("Hearing Distance: %sm", hear_dist)
+		
+		subtitle_info_tbl.hear_equip[sect] = subtitle_info_tbl.hear_equip[sect] or {}
+		subtitle_info_tbl.hear_equip[sect].multi = subtitle_info_tbl.hear_equip[sect].multi  or 1
+		local hear_multi = subtitle_info_tbl.hear_equip[sect].multi
+		
 		for idx, entry in pairs(subtitles_utils.equipment_tbl) do
-			if entry.sect == obj:section() then
+			if entry.sect == sect then
 				hear_multi = hear_multi / entry.multiplier
 			end
 		end
 		
-		local hear_dist_buff = round_idp(min_hear_dist * hear_multi, 2)
-		hear_dist = hear_dist_buff < 0 and 0 or hear_dist_buff < max_hear_dist and hear_dist_buff or max_hear_dist
-		subtitle_info_tbl.hear_multi = hear_multi
-		pr("Hear Dist Buff: %sm", hear_dist_buff)
+		local new_hear_dist = round_idp(hear_dist * hear_multi, 2)
+		hear_dist = new_hear_dist < 0 and 0 or new_hear_dist < max_hear_dist and new_hear_dist or max_hear_dist
+		subtitle_info_tbl.hear_equip[sect] = {multi=hear_multi, buff=new_hear_dist}
 		pr("Hear Multi: %s", hear_multi)
 		pr("New Hearing Distance: %sm", hear_dist)
 		return
 	end
-	pr("%s is not headgear or device", obj:section())
+	pr("%s is not headgear or device", sect)
+end
+
+function reset_hearing_distance(obj)
+	if obj and not (IsHeadgear(obj) or IsItem("device", obj:section())) then return end
+	local sect = obj:section()
+	if contains(subtitle_info_tbl.hear_equip, sect, true) then
+		local hear_multi = subtitle_info_tbl.hear_equip[sect].multi or 1
+		for idx, entry in pairs(subtitles_utils.equipment_tbl) do
+			if entry.sect == sect then
+				hear_multi =  entry.multiplier
+			end
+		end
+		old_hear_dist = hear_dist
+		hear_dist = min_hear_dist
+		pr("Reseting Hearing Distance from %s to %s", old_hear_dist, hear_dist)
+		subtitle_info_tbl.hear_equip[sect] = nil
+	end
 end
 
 -- Dev Debugging
@@ -473,12 +495,12 @@ end
 
 function on_save(mdata)
 	local save_tbl = {}
-	copy_table(save_table, subtitle_info_tbl)
-	mdata.subtitle_info = subtitle_info_tbl
+	copy_table(save_tbl, subtitle_info_tbl)
+	mdata.subtitle_info_tbl = subtitle_info_tbl
 end
 
 function on_load(mdata)
-	local load_tbl = mdata.subtitle_info or {}
+	local load_tbl = mdata.subtitle_info_tbl or {}
 	copy_table(subtitle_info_tbl, load_tbl)
 end
 
@@ -495,7 +517,9 @@ function on_game_start()
 	RegisterScriptCallback("on_option_change", on_option_change)
 	RegisterScriptCallback("actor_on_update", process_queue)
 	RegisterScriptCallback("actor_on_first_update", sort_mutant_sect_to_generic)
-	RegisterScriptCallback("actor_item_to_slot", get_hearing_distance)
+	RegisterScriptCallback("actor_item_to_slot", set_hearing_distance)
+	RegisterScriptCallback("actor_on_item_drop", reset_hearing_distance)
+	RegisterScriptCallback("actor_item_to_ruck", reset_hearing_distance)
 	RegisterScriptCallback("save_state", on_save)
 	RegisterScriptCallback("load_state", on_load)
 	on_option_change()
