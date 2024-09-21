@@ -34,6 +34,12 @@ get_all_mutant_sections = subtitles_utils.get_all_mutant_sections
 remove_end_digits = subtitles_utils.remove_end_digits
 remove_trailing_underscore = subtitles_utils.remove_trailing_underscore
 get_unknown_object = subtitles_utils.get_unknown_object
+get_sect_list = subtitles_utils.get_sect_list
+get_actor_equipment = subtitles.get_actor_equipment
+print_table = subtitles_utils.print_table
+
+-- Monkey Patches
+base_set_sound_play = xr_sound.set_sound_play
 
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
@@ -45,13 +51,8 @@ CHAR_LIMIT = 42
 default_name = "st_noise"
 default_mutant_name = "monster"
 default_icon = "ui_iconsTotal_grouping"
-
--- MCM Default Options
-local subs_enabled = true
-local hearing_distance = 25
-local hear_chance = 100
-local hear_cooldown = 0
-local hear_on_cd = false
+max_hear_dist = 180
+subtitle_info_tbl = {}
 
 -- DEBUGGING
 local dbg_lvl = "dl_dev"
@@ -186,28 +187,42 @@ function build_info(soundname, npc)
 	return info
 end
 
+-- Sound/Sound Path Detction 
+
 --- Subtitle Callback: Build subtitle info and add to queue
 ---@param soundname string
 ---@param npc game_object
 function subtitle_him(soundname, npc)
-	if (not subs_enabled) then
-		return
-	end
-	if  (hear_on_cd) then
+	if not subs_enabled then
 		return
 	end
 	
-	if (not (hear_chance > math.random(0,100))) then
+	if hear_chance < math.random(0,100) then
 		return
 	end
 
 	set_debug_level("dl_all")
 	if not (npc:is_stalker() or npc:is_monster()) then pr("Not Stalker or Monster: %s", npc:name()) return end
 	--build message according to distance and phrase
-	if (npc:position():distance_to(db.actor:position()) <= hearing_distance) then
+	local npc_dist = round_idp(npc:position():distance_to(db.actor:position()), 2)
+	--pr("hear dist: %s, npc_dist: %s", hear_dist, npc_dist)
+	if (npc_dist <= hear_dist) then
 		local info = build_info(soundname, npc)
 		ask_to_queue(info)
 	end
+end
+
+function xr_sound.set_sound_play(npc_id, sound, faction, point)
+	local npc = get_unknown_object({id=npc_id}, "game")
+	if npc then
+		local soundname = ini_script_sound:r_string_ex(sound, "path")
+		if not has_translation(strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))) then
+			base_set_sound_play(npc_id, sound, faction, point)
+			return
+		end
+		subtitle_him(soundname, npc)
+	end
+	base_set_sound_play(npc_id, sound, faction, point)
 end
 
 -- Subtitle Controllers
@@ -413,35 +428,66 @@ function get_locale()
 	return ui_options.get("other/localization")
 end
 
+function get_hearing_distance(obj)
+	-- get sect list of player's equipment
+	-- filter by equipment that would go on the head
+	-- check each equipment against hearing effect multiplier#
+	pr("Getting Hearing Distance for %s", obj:section())
+	local helmet_slot_id = 12
+	local device_slot_id = 9
+	local no_equip = -1
+	local hear_multi = subtitle_info_tbl.hear_multi or 1
+	local helm = db.actor:item_in_slot(helmet_slot_id) or no_equip
+	local device = db.actor:item_in_slot(device_slot_id) or no_equip
+	
+	if obj and helm == no_equip and device == no_equip then pr("%s not in headgear or device slot", obj:section()) return end
+	--if obj:section() ~= helm:section() or obj:section() ~= device:section() then return end
+	if obj and (IsHeadgear(obj) or IsItem("device", obj:section())) then
+		--if obj and (helm and obj:id() ~= helm:id()) or (device and obj:id() ~= device:id()) then return end
+		pr("Hearing Distance: %sm", hear_dist)	
+		for idx, entry in pairs(subtitles_utils.equipment_tbl) do
+			if entry.sect == obj:section() then
+				hear_multi = hear_multi / entry.multiplier
+			end
+		end
+		
+		local hear_dist_buff = round_idp(min_hear_dist * hear_multi, 2)
+		hear_dist = hear_dist_buff < 0 and 0 or hear_dist_buff < max_hear_dist and hear_dist_buff or max_hear_dist
+		subtitle_info_tbl.hear_multi = hear_multi
+		pr("Hear Dist Buff: %sm", hear_dist_buff)
+		pr("Hear Multi: %s", hear_multi)
+		pr("New Hearing Distance: %sm", hear_dist)
+		return
+	end
+	pr("%s is not headgear or device", obj:section())
+end
+
+-- Dev Debugging
 function print_info(info)
 	info_str = strformat("Speaker Name: '%s', Speaker Faction: '%s', Subtitle: '%s', Locale: '%s', Duration: '%s', XML String id: '%s, Distance: '%s", 
 	info["speaker_name"], info["speaker_faction"], info["subtitle"], info["locale"], info["duration"], info["xml_string_id"], info["distance"])
 	pr("Subtitle Info: %s", info_str)
 end
 
--- Dev Debugging
-base_set_sound_play = xr_sound.set_sound_play
-function xr_sound.set_sound_play(npc_id, sound, faction, point)
-	local npc = get_unknown_object({id=npc_id}, "game")
-	if npc then
-		local soundname = ini_script_sound:r_string_ex(sound, "path")
-		if not has_translation(strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))) then
-			base_set_sound_play(npc_id, sound, faction, point)
-			return
-		end
-		local info = build_info(soundname, npc)
-		ask_to_queue(info)
-	end
-	base_set_sound_play(npc_id, sound, faction, point)
+-- Callbacks
+
+function on_save(mdata)
+	local save_tbl = {}
+	copy_table(save_table, subtitle_info_tbl)
+	mdata.subtitle_info = subtitle_info_tbl
 end
 
+function on_load(mdata)
+	local load_tbl = mdata.subtitle_info or {}
+	copy_table(subtitle_info_tbl, load_tbl)
+end
 
--- Callbacks
 function on_option_change()
 	subs_enabled = get_config("enable_subs")
-	hearing_distance = get_config("hear_dist")
+	min_hear_dist = get_config("hear_dist")
 	hear_chance = get_config("hear_chance")
 	hear_cooldown = get_config("hear_cooldown")
+	hear_dist = min_hear_dist
 end
 
 function on_game_start()
@@ -449,5 +495,8 @@ function on_game_start()
 	RegisterScriptCallback("on_option_change", on_option_change)
 	RegisterScriptCallback("actor_on_update", process_queue)
 	RegisterScriptCallback("actor_on_first_update", sort_mutant_sect_to_generic)
+	RegisterScriptCallback("actor_item_to_slot", get_hearing_distance)
+	RegisterScriptCallback("save_state", on_save)
+	RegisterScriptCallback("load_state", on_load)
 	on_option_change()
 end

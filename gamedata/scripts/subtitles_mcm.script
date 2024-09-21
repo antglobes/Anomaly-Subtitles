@@ -42,7 +42,7 @@ end
 function on_mcm_load()
     op = { id= "subtitles",sh=true ,gr={
 			{id = "title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_subtitles_title",size= {512,50},spacing= 20 },
-			{id = "hear_dist", type = "track", val = 2, min=1,max=100,step=1, def = 25},
+			{id = "hear_dist", type = "track", val = 2, min=1,max=35,step=1, def = 25},
 			{id = "hear_chance", type = "track", val = 2, min=0,max=100,step=1, def = 100},
 			{id = "hear_cooldown", type = "track", val = 2, min=0,max=10,step=1, def = 0},			
 

@@ -10,7 +10,7 @@
         <text>Subtitles</text>
     </string>
 	<string id="ui_mcm_subtitles_hear_dist">
-        <text>Hearing Distance (Meters)</text>
+        <text>Minimum Hearing Distance (Meters)</text>
     </string>
 	<string id="ui_mcm_subtitles_hear_chance">
         <text>Subtitle Chance</text>
