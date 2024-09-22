@@ -65,6 +65,7 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.6.2 (Fixed in v0.6.3) Queue stuck in finite suspension after dialog/inventory window opened, skipping over subtitles due to incorrect timer updating, nil/invalid subtitles not being caught and still displayed.
 - v0.6.4 (Fixed in v0.7.1) Missing Icon textures (specifically prof. kalancha) causing CTD beacuse of missing texture xml.
 - v0.7.2 (Fixed in v0.7.3) Failure to catch last part of the sentence, causing unintented functionality.
+- v0.8.0 (Partial Fix in v0.8.1) Incorrect Calculation of hearing multiplier when headgear removed.
   
 ## Changelog
 - v0.5.2 Base Version
@@ -77,3 +78,6 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.7.1 Fixed Missing Icon Texture, UI Defaults.
 - v0.7.2 Subtitle Truncation.
 - v0.7.3 Ask to Queue, Fixed Subtitle Truncation.
+- v0.8.0 Headgear Affects Hearing Distance
+- v0.8.1 Reset Headgear when Removed
+- v0.8.2 Material Effects Haring Chance, Dev Utils
