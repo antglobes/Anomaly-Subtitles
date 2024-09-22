@@ -34,6 +34,15 @@ get_all_mutant_sections = subtitles_utils.get_all_mutant_sections
 remove_end_digits = subtitles_utils.remove_end_digits
 remove_trailing_underscore = subtitles_utils.remove_trailing_underscore
 get_unknown_object = subtitles_utils.get_unknown_object
+get_sect_list = subtitles_utils.get_sect_list
+get_actor_equipment = subtitles.get_actor_equipment
+print_table = subtitles_utils.print_table
+geo_ray = demonized_geometry_ray.geometry_ray
+vis_ray = demonized_geometry_ray.VisualizeRay
+lerp = demonized_geometry_ray.lerp
+
+-- Monkey Patches
+base_set_sound_play = xr_sound.set_sound_play
 truncate_by_puncation = subtitles_utils.truncate_by_puncation
 
 -- Constants
@@ -46,13 +55,9 @@ CHAR_LIMIT = 42
 default_name = "st_noise"
 default_mutant_name = "monster"
 default_icon = "ui_iconsTotal_grouping"
-
--- MCM Default Options
-local subs_enabled = true
-local hearing_distance = 25
-local hear_chance = 100
-local hear_cooldown = 0
-local hear_on_cd = false
+max_hear_dist = 180
+subtitle_info_tbl = {}
+subtitle_info_tbl.hear_equip = {}
 
 -- DEBUGGING
 local dbg_lvl = "dl_dev"
@@ -233,28 +238,40 @@ function build_info(soundname, npc)
 	return info
 end
 
+-- Sound/Sound Path Detction 
+
 --- Subtitle Callback: Build subtitle info and add to queue
 ---@param soundname string
 ---@param npc game_object
 function subtitle_him(soundname, npc)
-	if (not subs_enabled) then
-		return
-	end
-	if  (hear_on_cd) then
+	if not subs_enabled then
 		return
 	end
 	
-	if (not (hear_chance > math.random(0,100))) then
-		return
-	end
-
 	set_debug_level("dl_all")
 	if not (npc:is_stalker() or npc:is_monster()) then pr("Not Stalker or Monster: %s", npc:name()) return end
 	--build message according to distance and phrase
-	if (npc:position():distance_to(db.actor:position()) <= hearing_distance) then
+	local npc_dist = round_idp(npc:position():distance_to(db.actor:position()), 2)
+	--pr("hear dist: %s, npc_dist: %s", hear_dist, npc_dist)
+	if (npc_dist <= hear_dist) then
 		local info = build_info(soundname, npc)
+		if not verify_subtitle(info) then return end
+		if calc_hear_chance(npc, info["duration"]) < math.random(0,100) then return end
 		placeholder(info)
 	end
+end
+
+function xr_sound.set_sound_play(npc_id, sound, faction, point)
+	local npc = get_unknown_object({id=npc_id}, "game")
+	if npc then
+		local soundname = ini_script_sound:r_string_ex(sound, "path")
+		if not has_translation(strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))) then
+			base_set_sound_play(npc_id, sound, faction, point)
+			return
+		end
+		subtitle_him(soundname, npc)
+	end
+	base_set_sound_play(npc_id, sound, faction, point)
 end
 
 -- Subtitle Controllers
@@ -370,7 +387,7 @@ function process_queue()
 			
 			if tg > tmr then
 				local info = dequeue()
-				if not verify_subtitle(info) then return end
+				--if not verify_subtitle(info) then return end
 				display_subtitles(info)
 
 				-- Set delay so next subtitle is shown after current
@@ -476,35 +493,192 @@ function get_locale()
 	return ui_options.get("other/localization")
 end
 
+function set_hearing_distance(obj)
+	-- get sect list of player's equipment
+	-- filter by equipment that would go on the head
+	-- check each equipment against hearing effect multiplier#
+	pr("Getting Hearing Distance for %s", obj:section())
+	local helmet_slot_id = 12
+	local device_slot_id = 9
+	local no_equip = -1
+	local sect = obj:section()
+	local helm = db.actor:item_in_slot(helmet_slot_id) or no_equip
+	local device = db.actor:item_in_slot(device_slot_id) or no_equip
+	
+	if obj and helm == no_equip and device == no_equip then pr("%s not in headgear or device slot", obj:section()) return end
+	--if obj:section() ~= helm:section() or obj:section() ~= device:section() then return end
+	if obj and (IsHeadgear(obj) or IsItem("device", obj:section())) then
+		--if obj and (helm and obj:id() ~= helm:id()) or (device and obj:id() ~= device:id()) then return end
+		pr("Hearing Distance: %sm", hear_dist)
+		
+		subtitle_info_tbl.hear_equip[sect] = subtitle_info_tbl.hear_equip[sect] or {}
+		subtitle_info_tbl.hear_equip[sect].multi = subtitle_info_tbl.hear_equip[sect].multi  or 1
+		local hear_multi = subtitle_info_tbl.hear_equip[sect].multi
+		
+		for idx, entry in pairs(subtitles_utils.equipment_tbl) do
+			if entry.sect == sect then
+				hear_multi = hear_multi / entry.multiplier
+			end
+		end
+		
+		local new_hear_dist = round_idp(hear_dist * hear_multi, 2)
+		hear_dist = new_hear_dist < 0 and min_hear_dist or new_hear_dist < max_hear_dist and new_hear_dist or max_hear_dist
+		subtitle_info_tbl.hear_equip[sect] = {multi=hear_multi, buff=new_hear_dist}
+		pr("Hear Multi: %s", hear_multi)
+		pr("New Hearing Distance: %sm", hear_dist)
+		return
+	end
+	pr("%s is not headgear or device", sect)
+end
+
+function reset_hearing_distance(obj)
+	if obj and not (IsHeadgear(obj) or IsItem("device", obj:section())) then return end
+	local sect = obj:section()
+	if contains(subtitle_info_tbl.hear_equip, sect, true) then
+		local hear_multi = 1
+		for idx, entry in pairs(subtitles_utils.equipment_tbl) do
+			if entry.sect == sect then
+				hear_multi = entry.multiplier / hear_multi
+			end
+		end
+		old_hear_dist = hear_dist
+		hear_dist = round_idp(hear_dist * hear_multi, 2)
+		pr("Hear Multi: %s", hear_multi)
+		pr("Reseting Hearing Distance from %s to %s", old_hear_dist, hear_dist)
+		subtitle_info_tbl.hear_equip[sect] = nil
+	end
+end
+
+-- Dev Debugging
+function display_ray(pos, dir, display_time)
+	local display_time = display_time or 10000
+
+	local ray = geo_ray({
+        ray_range = 1000,
+        visualize = false,
+        flags = 1+2,
+        ignore_object = db.actor,
+    })
+
+    -- Get player's camera position and direction in world space
+    local pos0 = pos and vector():set(pos) or device().cam_pos
+    local angle1 = dir and vector():set(dir) or device().cam_dir
+
+    -- Generate two positions orthogonal to camera direction and each other
+    local pos01 = vector():set(0, 1, 0)
+    pos01 = pos01:sub(vector():set(angle1):mul(pos01:dotproduct(angle1)))
+    pos01:normalize()
+
+    local pos02 = vector_cross(angle1, pos01)
+
+    pos01 = pos01:mul(0.01)
+    pos02 = pos02:mul(0.01)
+
+    pos01 = pos01:add(pos0)
+    pos02 = pos02:add(pos0)
+
+    -- Get positions of intersections of rays around pos0
+    local res = ray:get(pos0, angle1)
+    local pos1 = res.position
+    local pos2 = ray:get(pos01, angle1).position
+    local pos3 = ray:get(pos02, angle1).position
+
+    if not res.success then
+        -- print_tip("cant get normal by pos %s, dir %s", pos0, angle1)
+        return
+    end
+
+	vis_ray(pos0, pos1, nil, display_time)
+	vis_ray(pos01, pos2, nil, display_time)
+	vis_ray(pos02, pos3, nil, display_time)
+
+	 -- Get vectors from intersection points from pos1
+	 local vec2 = vec_sub(pos1, pos2)
+	 local vec3 = vec_sub(pos1, pos3)
+ 
+	 -- Find normal vector of surface by taking cross product of intersection vectors
+	 local cross = (vector_cross(vec2, vec3)):normalize()   
+ 
+	 -- If the direction and normal vectors heading in similar direction - invert normal
+	 local deg = angle1:dotproduct(cross)
+	 if deg > 0 then
+		 cross:invert()
+	 end
+
+	local dist = dist_to_pos(db.actor, vector():set(pos1):add(cross))
+	pr("Distance: %s", dist)
+	return 
+end
+
+function material_sound_info(pos, dir)
+	local ray = geo_ray({ray_range = hear_dist, contact_range=0.1, flag=2 + 4 + 8, ignore_object=db.actor})
+	local res = ray:get(pos or device().cam_pos, dir or device().cam_dir)
+	if not res.result.material_name then return end
+	local material = res.result.material_name
+	local snd_occlusion_factor = res.result.material_snd_occlusion_factor
+	local density_factor = res.result.material_density_factor
+	return {name=material, of=snd_occlusion_factor, df=density_factor}
+end
+
+
+function info_binos(obj)
+	if obj:section() ~= "wpn_binoc_inv" then return end	
+	local distance = display_ray(device().cam_pos,  device().cam_dir)
+	local info = material_sound_info()
+	if is_empty(info) then return end
+	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Distance: %s", info.name, info.of, info.df, distance)
+end
+
+function enable_dev_tools(name)
+	pr("Displaying %s", name)
+	if not get_config("enable_debug") then return end
+	if name == "UIZoom" then
+		info_binos(db.actor:active_item())
+	end
+end
+
+function calc_hear_chance(npc, display_time)
+	local hear_chance = get_config("hear_chance")
+	local start_pos = db.actor:position()
+	local end_pos = npc:position()
+	local dist_to_head = 1.75
+	vis_ray( vector():set(start_pos.x, start_pos.y +dist_to_head, start_pos.z),  vector():set(end_pos.x, end_pos.y + dist_to_head, end_pos.z), 0.01, round(display_time * 1000))
+
+	local actor_dir = db.actor:direction()
+	local npc_dir = npc:direction()
+	local msi_pos = vector():set(lerp(start_pos.x, end_pos.x), lerp(start_pos.y, end_pos.y), lerp(start_pos.z, end_pos.z))
+	local msi_dir = vector():set(lerp(actor_dir.x, npc_dir.x), lerp(actor_dir.y, npc_dir.y), lerp(actor_dir.z, npc_dir.z))
+	local info = material_sound_info(msi_pos, msi_pos)
+	if is_empty(info) then return hear_chance end
+	hear_chance = hear_chance - (info.of  * 100)
+	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Hear chance: %s, Dist: %s", info.name, info.of, info.df, hear_chance, dist_to_pos(db.actor, end_pos))
+	return hear_chance < 0 and 0 or round(hear_chance)
+end
+
 function print_info(info)
 	info_str = strformat("Speaker Name: '%s', Speaker Faction: '%s', Subtitle: '%s', Locale: '%s', Duration: '%s', XML String id: '%s, Distance: '%s", 
 	info["speaker_name"], info["speaker_faction"], info["subtitle"], info["locale"], info["duration"], info["xml_string_id"], info["distance"])
 	pr("Subtitle Info: %s", info_str)
 end
 
--- Dev Debugging
-base_set_sound_play = xr_sound.set_sound_play
-function xr_sound.set_sound_play(npc_id, sound, faction, point)
-	local npc = get_unknown_object({id=npc_id}, "game")
-	if npc then
-		local soundname = ini_script_sound:r_string_ex(sound, "path")
-		if not has_translation(strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))) then
-			base_set_sound_play(npc_id, sound, faction, point)
-			return
-		end
-		local info = build_info(soundname, npc)
-		placeholder(info)
-	end
-	base_set_sound_play(npc_id, sound, faction, point)
+-- Callbacks
+
+function on_save(mdata)
+	local save_tbl = {}
+	copy_table(save_tbl, subtitle_info_tbl)
+	mdata.subtitle_info_tbl = subtitle_info_tbl
 end
 
+function on_load(mdata)
+	local load_tbl = mdata.subtitle_info_tbl or {}
+	copy_table(subtitle_info_tbl, load_tbl)
+end
 
--- Callbacks
 function on_option_change()
 	subs_enabled = get_config("enable_subs")
-	hearing_distance = get_config("hear_dist")
-	hear_chance = get_config("hear_chance")
+	min_hear_dist = get_config("hear_dist")
 	hear_cooldown = get_config("hear_cooldown")
+	hear_dist = min_hear_dist
 end
 
 function on_game_start()
@@ -512,5 +686,12 @@ function on_game_start()
 	RegisterScriptCallback("on_option_change", on_option_change)
 	RegisterScriptCallback("actor_on_update", process_queue)
 	RegisterScriptCallback("actor_on_first_update", sort_mutant_sect_to_generic)
+	RegisterScriptCallback("actor_item_to_slot", set_hearing_distance)
+	RegisterScriptCallback("actor_on_item_drop", reset_hearing_distance)
+	RegisterScriptCallback("actor_item_to_ruck", reset_hearing_distance)
+	RegisterScriptCallback("GUI_on_show", enable_dev_tools)
+	RegisterScriptCallback("GUI_on_hide", disable_dev_tools)
+	RegisterScriptCallback("save_state", on_save)
+	RegisterScriptCallback("load_state", on_load)
 	on_option_change()
 end
