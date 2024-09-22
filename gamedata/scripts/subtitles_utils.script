@@ -433,7 +433,7 @@ function collect_xml_tags(xml_path)
 	if xml then
 		for index, node in pairs(xml.ChildNodes) do
 			if (type(node) == "table") then
-				xml_tags[index] = node.Attributes.Name
+				xml_tags[#xml_tags + 1] = node.Name
 			end
 		end
 	end
