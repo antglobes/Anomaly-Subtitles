@@ -17,6 +17,7 @@ get_config = subtitles_mcm.get_config
 --[[
 	Constants	
 ]]
+XMLParser = utils_xml.XmlParser
 
 --[[
 	Locals	
@@ -343,6 +344,21 @@ function find_suffix_num(str)
 	return find_digits(str, "(%d+)$")
 end
 
+function find_table(tbl, str, by_key)
+	for k, v in pairs(tbl) do
+		if by_key then
+			if string.find(k, str) then
+				return true
+			end
+		else
+			if string.find(v, str) then
+				return true
+			end
+		end
+	end
+	return false
+end
+
 --[[
 	Table Functions
 ]]
@@ -400,15 +416,28 @@ function list_files(path, exclude_dirs)
 
     for i = 1, count do
         local file_name = file_list_fs:GetAt(i - 1)
-        if file_name and not contains(exclude_dirs, file_name) then
+        if file_name and not find_table(exclude_dirs, file_name) then
             file_list[#file_list + 1] = file_name
         end
     end
     return file_list
 end
 
-function collect_xml_tags()
+function get_path(path)
+	return getFS():update_path('$game_config$', '')..path
+end
 
+function collect_xml_tags(xml_path)
+	local xml_tags = {}
+	local xml = XMLParser:loadFile(xml_path)
+	if xml then
+		for index, node in pairs(xml.ChildNodes) do
+			if (type(node) == "table") then
+				xml_tags[index] = node.Attributes.Name
+			end
+		end
+	end
+	return xml_tags
 end
 
 --[[

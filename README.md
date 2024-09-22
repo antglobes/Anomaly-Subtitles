@@ -17,6 +17,7 @@
 ## How it's built
 - 6 Variables are used to build a table used to assit with how long it's shown, the contents of the subtitle, who said the subtitle, an icon to identify the speaker, the localisation (if needed) and the speakers faction.
 - Speaker Name, Speaker Icon, Speaker Faction, Subtitle, Locale, Duration
+- If your addon itself or other addons that you have in M02, includes icons that are assigned to the npc's character description file and you are wanting to add them; you just need to append the table "icon_textures_files" with the corresponding "configs\ui\ui_<addon_name>_.xml" name without the suffix or parent folders include.
   
 ## Adding your own Subtitles
 - The file name doesn't matter, however the structure has to be like any other "<string_table>" file

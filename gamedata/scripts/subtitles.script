@@ -40,6 +40,8 @@ print_table = subtitles_utils.print_table
 geo_ray = demonized_geometry_ray.geometry_ray
 vis_ray = demonized_geometry_ray.VisualizeRay
 lerp = demonized_geometry_ray.lerp
+collect_xml_tags = subtitles_utils.collect_xml_tags
+
 
 -- Monkey Patches
 base_set_sound_play = xr_sound.set_sound_play
@@ -58,7 +60,8 @@ default_icon = "ui_iconsTotal_grouping"
 max_hear_dist = 180
 subtitle_info_tbl = {}
 subtitle_info_tbl.hear_equip = {}
-icon_texture_files = {"ui_as_actor_portraits.xml"}
+icon_texture_files = {"ui_as_actor_portraits"}
+icon_texture_tbl = {}
 
 -- DEBUGGING
 local dbg_lvl = "dl_dev"
@@ -434,7 +437,7 @@ function soundname_to_subtitle(soundname)
 	--subtitles_utils.collect_invalid_subs(x, soundname)
 	return has_translation(parsed_xml_id) and snd_name or nil
 end
--- Subtitle Info Builders
+-- Subtitle Info Services
 
 function sort_mutant_sect_to_generic()
 	generic_mutant_sect = {}
@@ -447,6 +450,16 @@ function sort_mutant_sect_to_generic()
 			end
 		end
 	end
+end
+
+function collect_icon_textures()
+	local icon_textures = {}
+	local parser = utils_xml.XmlParser
+	for _, file in pairs(icon_texture_files) do
+		pr("Collecting Icon Textures from: %s", file)
+		icon_textures[file] = collect_xml_tags(strformat("%s.xml", file))
+	end
+	icon_texture_tbl = icon_textures
 end
 
 function get_mutant_name(sect)
@@ -545,7 +558,28 @@ function reset_hearing_distance(obj)
 	end
 end
 
+
+function calc_hear_chance(npc, display_time)
+	local hear_chance = get_config("hear_chance")
+	local start_pos = db.actor:position()
+	local end_pos = npc:position()
+	local dist_to_head = 1.75
+	vis_ray( vector():set(start_pos.x, start_pos.y +dist_to_head, start_pos.z),  vector():set(end_pos.x, end_pos.y + dist_to_head, end_pos.z), 0.01, round(display_time * 1000))
+
+	local actor_dir = db.actor:direction()
+	local npc_dir = npc:direction()
+	local msi_pos = vector():set(lerp(start_pos.x, end_pos.x), lerp(start_pos.y, end_pos.y), lerp(start_pos.z, end_pos.z))
+	local msi_dir = vector():set(lerp(actor_dir.x, npc_dir.x), lerp(actor_dir.y, npc_dir.y), lerp(actor_dir.z, npc_dir.z))
+	local info = material_sound_info(msi_pos, msi_pos)
+	if is_empty(info) then return hear_chance end
+	hear_chance = hear_chance - (info.of  * 100)
+	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Hear chance: %s, Dist: %s", info.name, info.of, info.df, hear_chance, dist_to_pos(db.actor, end_pos))
+	return hear_chance < 0 and 0 or round(hear_chance)
+end
+
 -- Dev Debugging
+
+--- @author demonized
 function display_ray(pos, dir, display_time)
 	local display_time = display_time or 10000
 
@@ -616,7 +650,6 @@ function material_sound_info(pos, dir)
 	return {name=material, of=snd_occlusion_factor, df=density_factor}
 end
 
-
 function info_binos(obj)
 	if obj:section() ~= "wpn_binoc_inv" then return end	
 	local distance = display_ray(device().cam_pos,  device().cam_dir)
@@ -633,43 +666,6 @@ function enable_dev_tools(name)
 	end
 end
 
-function calc_hear_chance(npc, display_time)
-	local hear_chance = get_config("hear_chance")
-	local start_pos = db.actor:position()
-	local end_pos = npc:position()
-	local dist_to_head = 1.75
-	vis_ray( vector():set(start_pos.x, start_pos.y +dist_to_head, start_pos.z),  vector():set(end_pos.x, end_pos.y + dist_to_head, end_pos.z), 0.01, round(display_time * 1000))
-
-	local actor_dir = db.actor:direction()
-	local npc_dir = npc:direction()
-	local msi_pos = vector():set(lerp(start_pos.x, end_pos.x), lerp(start_pos.y, end_pos.y), lerp(start_pos.z, end_pos.z))
-	local msi_dir = vector():set(lerp(actor_dir.x, npc_dir.x), lerp(actor_dir.y, npc_dir.y), lerp(actor_dir.z, npc_dir.z))
-	local info = material_sound_info(msi_pos, msi_pos)
-	if is_empty(info) then return hear_chance end
-	hear_chance = hear_chance - (info.of  * 100)
-	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Hear chance: %s, Dist: %s", info.name, info.of, info.df, hear_chance, dist_to_pos(db.actor, end_pos))
-	return hear_chance < 0 and 0 or round(hear_chance)
-end
-
-function collect_icon_texture()
-	local parser = utils_xml.XmlParser
-	for _, file in pairs(icon_texture_files) do
-		pr("Collecting Icon Textures from: %s", file)
-		local xml = parser:loadFile(getFS():update_path('$game_config$', '').."ui\\"..file)
-		if xml then
-			pr("xml %s", print_table(xml, true))
-			for index, node in pairs(xml.ChildNodes) do
-				if (type(node) == "table") then
-					pr("Index: %s, Node: %s", index, print_table(node, true))
-				end
-
-			end
-		end
-
-	end
-end
-
-
 function print_info(info)
 	info_str = strformat("Speaker Name: '%s', Speaker Faction: '%s', Subtitle: '%s', Locale: '%s', Duration: '%s', XML String id: '%s, Distance: '%s", 
 	info["speaker_name"], info["speaker_faction"], info["subtitle"], info["locale"], info["duration"], info["xml_string_id"], info["distance"])
@@ -677,6 +673,11 @@ function print_info(info)
 end
 
 -- Callbacks
+
+function setup()
+	sort_mutant_sect_to_generic()
+	collect_icon_textures()
+end
 
 function on_save(mdata)
 	local save_tbl = {}
@@ -700,7 +701,7 @@ function on_game_start()
 	RegisterScriptCallback("on_phrase_callback", subtitle_him)
 	RegisterScriptCallback("on_option_change", on_option_change)
 	RegisterScriptCallback("actor_on_update", process_queue)
-	RegisterScriptCallback("actor_on_first_update", sort_mutant_sect_to_generic)
+	RegisterScriptCallback("actor_on_first_update", setup)
 	RegisterScriptCallback("actor_item_to_slot", set_hearing_distance)
 	RegisterScriptCallback("actor_on_item_drop", reset_hearing_distance)
 	RegisterScriptCallback("actor_item_to_ruck", reset_hearing_distance)
