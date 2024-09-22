@@ -58,6 +58,7 @@ default_icon = "ui_iconsTotal_grouping"
 max_hear_dist = 180
 subtitle_info_tbl = {}
 subtitle_info_tbl.hear_equip = {}
+icon_texture_files = {"ui_as_actor_portraits.xml"}
 
 -- DEBUGGING
 local dbg_lvl = "dl_dev"
@@ -179,7 +180,6 @@ function truncate_subtitle(info)
 				duration = info["duration"] / #sub_tokens,
 				xml_string_id = info["xml_string_id"],
 				distance = info["distance"],
-				position = info["position"],
 				priority = n
 			}
 			n = n + 1
@@ -188,7 +188,7 @@ function truncate_subtitle(info)
 	return infos
 end
 
-function placeholder(info)
+function shorten(info)
 	if info["subtitle"] and info["subtitle"] ~= 'nil' and #info["subtitle"] > CHAR_LIMIT then
 		local new_infos = truncate_subtitle(info)
 		for i=1, #new_infos do
@@ -232,7 +232,6 @@ function build_info(soundname, npc)
 		["duration"] = get_sound_duration(soundname) or 3,
 		["xml_string_id"] = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname)),
 		["distance"] = dist_to_pos(npc),
-		["position"] = npc:position(),
 		["priority"] = queue_length() + 1
 	}
 	return info
@@ -257,7 +256,7 @@ function subtitle_him(soundname, npc)
 		local info = build_info(soundname, npc)
 		if not verify_subtitle(info) then return end
 		if calc_hear_chance(npc, info["duration"]) < math.random(0,100) then return end
-		placeholder(info)
+		shorten(info)
 	end
 end
 
@@ -317,9 +316,6 @@ function verify_subtitle(info)
 				reason = strformat("Invalid xml_string_id: %s", v)
 				verified = false
 			end
-		elseif k == "position" then
-			
-			
 		end
 	end
 	if not verified then
@@ -655,6 +651,25 @@ function calc_hear_chance(npc, display_time)
 	return hear_chance < 0 and 0 or round(hear_chance)
 end
 
+function collect_icon_texture()
+	local parser = utils_xml.XmlParser
+	for _, file in pairs(icon_texture_files) do
+		pr("Collecting Icon Textures from: %s", file)
+		local xml = parser:loadFile(getFS():update_path('$game_config$', '').."ui\\"..file)
+		if xml then
+			pr("xml %s", print_table(xml, true))
+			for index, node in pairs(xml.ChildNodes) do
+				if (type(node) == "table") then
+					pr("Index: %s, Node: %s", index, print_table(node, true))
+				end
+
+			end
+		end
+
+	end
+end
+
+
 function print_info(info)
 	info_str = strformat("Speaker Name: '%s', Speaker Faction: '%s', Subtitle: '%s', Locale: '%s', Duration: '%s', XML String id: '%s, Distance: '%s", 
 	info["speaker_name"], info["speaker_faction"], info["subtitle"], info["locale"], info["duration"], info["xml_string_id"], info["distance"])
@@ -690,8 +705,8 @@ function on_game_start()
 	RegisterScriptCallback("actor_on_item_drop", reset_hearing_distance)
 	RegisterScriptCallback("actor_item_to_ruck", reset_hearing_distance)
 	RegisterScriptCallback("GUI_on_show", enable_dev_tools)
-	RegisterScriptCallback("GUI_on_hide", disable_dev_tools)
 	RegisterScriptCallback("save_state", on_save)
 	RegisterScriptCallback("load_state", on_load)
 	on_option_change()
+	collect_icon_texture()
 end

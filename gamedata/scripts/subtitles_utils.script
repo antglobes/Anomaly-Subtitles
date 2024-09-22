@@ -45,6 +45,7 @@ end
 ---@param by_key boolean
 ---@param return_value boolean
 function contains(tbl, key, by_key, return_value, return_idx)
+	if is_empty(tbl) or key == "" then return false end
     for k, v in pairs(tbl) do
         if by_key then
             if k == key then
@@ -330,6 +331,18 @@ function truncate_by_puncation(str, char_limit)
 	return grp_tkns
 end
 
+function find_digits(str, pattern)
+    local nums = {}
+    for m in string.gmatch(str, pattern or "(%d+)") do
+        nums[#nums + 1] = tonumber(m)
+    end
+    return nums
+end
+
+function find_suffix_num(str)
+	return find_digits(str, "(%d+)$")
+end
+
 --[[
 	Table Functions
 ]]
@@ -368,17 +381,34 @@ function collect_existing_icons()
 	end
 end
 
+--[[
+	File Mainpulation
+]]
 
-function find_digits(str, pattern)
-    local nums = {}
-    for m in string.gmatch(str, pattern or "(%d+)") do
-        nums[#nums + 1] = tonumber(m)
+--- Function used to list all the files in a given folder (excluding the sub-folders).
+--- @author NLTP_Ashes
+--- @param path string
+--- @return table
+function list_files(path, exclude_dirs)
+    local file_list_fs = getFS():file_list_open("$game_config$", path, bit_or(FS.FS_ListFiles, FS.FS_RootOnly))
+    local file_list = {}
+	local exclude_dirs = exclude_dirs or {}
+    local count = file_list_fs and file_list_fs:Size() or 0
+    if count <= 0 then
+        return file_list
     end
-    return nums
+
+    for i = 1, count do
+        local file_name = file_list_fs:GetAt(i - 1)
+        if file_name and not contains(exclude_dirs, file_name) then
+            file_list[#file_list + 1] = file_name
+        end
+    end
+    return file_list
 end
 
-function find_suffix_num(str)
-	return find_digits(str, "(%d+)$")
+function collect_xml_tags()
+
 end
 
 --[[
