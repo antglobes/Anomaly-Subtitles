@@ -588,8 +588,8 @@ function calc_hear_chance(npc, display_time)
 	local info = material_sound_info(msi_pos, msi_pos)
 	if is_empty(info) then return hear_chance end
 	hear_chance = hear_chance - (info.of  * 100)
-	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Hear chance: %s", info.name, info.of, info.df, hear_chance)
-	return hear_chance < 0 and 0 or hear_chance
+	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Hear chance: %s, Dist: %s", info.name, info.of, info.df, hear_chance, dist_to_pos(db.actor, end_pos))
+	return hear_chance < 0 and 0 or round(hear_chance)
 end
 
 function print_info(info)
