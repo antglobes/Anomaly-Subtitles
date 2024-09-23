@@ -84,3 +84,4 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.8.1 Reset Headgear when Removed.
 - v0.8.2 Material Effects Haring Chance, Dev Utils.
 - v0.8.3 Collect Icon Textures for Subtitle Verification, Fixed Subtitle Grouping Truncation Tokens. Majority Sounds Translated.
+- v0.8.4 Ray Shown Only If Debugging Enabled
