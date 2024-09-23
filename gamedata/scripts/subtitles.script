@@ -575,7 +575,9 @@ function calc_hear_chance(npc, display_time)
 	local start_pos = db.actor:position()
 	local end_pos = npc:position()
 	local dist_to_head = 1.75
-	vis_ray( vector():set(start_pos.x, start_pos.y +dist_to_head, start_pos.z),  vector():set(end_pos.x, end_pos.y + dist_to_head, end_pos.z), 0.01, round(display_time * 1000))
+	if get_config("enable_debug") then
+		vis_ray( vector():set(start_pos.x, start_pos.y +dist_to_head, start_pos.z),  vector():set(end_pos.x, end_pos.y + dist_to_head, end_pos.z), 0.01, round(display_time * 1000))
+	end
 
 	local actor_dir = db.actor:direction()
 	local npc_dir = npc:direction()
