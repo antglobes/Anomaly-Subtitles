@@ -50,18 +50,18 @@ truncate_by_puncation = subtitles_utils.truncate_by_puncation
 -- Constants
 SUBTITLE_PREFIX = "as_sub_%s"
 HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
-SUSPEND_QUEUE = false
-ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
-ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
-CHAR_LIMIT = 42
 default_name = "st_noise"
 default_mutant_name = "monster"
 default_icon = "ui_iconsTotal_grouping"
+CHAR_LIMIT = 42
 max_hear_dist = 180
+SUSPEND_QUEUE = false
 subtitle_info_tbl = {}
 subtitle_info_tbl.hear_equip = {}
-icon_texture_files = {"ui_as_actor_portraits"}
 icon_texture_tbl = {}
+icon_texture_files = {"ui_as_actor_portraits"}
+ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
+ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
 
 -- DEBUGGING
 local dbg_lvl = "dl_dev"
@@ -153,7 +153,7 @@ function suspend_queue()
 	set_debug_level("dl_dev")
 	SUSPEND_QUEUE = true
 	local suspend_reason = is_ui_open() and "Inventory Open" or "Dialog Active" 
-	pr("player", "%s, Suspending queue", suspend_reason)
+	pr("Suspending queue: %s", suspend_reason)
 end
 
 function resume_queue()
@@ -205,7 +205,6 @@ end
 function ask_to_queue(info)
 	CreateTimeEvent("subtitles_main"..math.random(1,10000),  "ask_to_queue"..math.random(1,10000), 0.1,
 	function(info)
-		set_debug_level("dl_player")
 		if is_queue_suspended() then return false end
 		enqueue(info)
 		sort_queue()
@@ -327,8 +326,9 @@ function verify_subtitle(info)
 			end
 		end
 	end
-	if not verified then
-		set_debug_level("dl_all")
+
+	set_debug_level("dl_dev")
+	if not verified then		
 		pr("Subtitle not verified: %s", reason)
 		subtitles_utils.collect_invalid_subs(info["xml_string_id"], reason)
 	else
@@ -489,8 +489,8 @@ function get_speaker_icon(info)
 	if get_config("use_localization") then
 		manual_loc = string.find(info["locale"], "eng") and "eng_uk" or info["locale"]
 		speaker_icon = ini_news_tips:r_value("news_tips_icons", info["locale"]) or "ui_icon_news_tip_subtitle_".. manual_loc
-		pr("Speaker Icon:%s", speaker_icon)
 	end
+	pr("Speaker Icon:%s", speaker_icon)
 	return speaker_icon
 end
 
@@ -511,6 +511,7 @@ function get_locale()
 end
 
 function set_hearing_distance(obj)
+	set_debug_level("dl_all")
 	-- get sect list of player's equipment
 	-- filter by equipment that would go on the head
 	-- check each equipment against hearing effect multiplier#
@@ -549,6 +550,7 @@ function set_hearing_distance(obj)
 end
 
 function reset_hearing_distance(obj)
+	set_debug_level("dl_all")
 	if obj and not (IsHeadgear(obj) or IsItem("device", obj:section())) then return end
 	local sect = obj:section()
 	if contains(subtitle_info_tbl.hear_equip, sect, true) then
@@ -568,6 +570,7 @@ end
 
 
 function calc_hear_chance(npc, display_time)
+	set_debug_level("dl_dev")
 	local hear_chance = get_config("hear_chance")
 	local start_pos = db.actor:position()
 	local end_pos = npc:position()
@@ -643,9 +646,7 @@ function display_ray(pos, dir, display_time)
 		 cross:invert()
 	 end
 
-	local dist = dist_to_pos(db.actor, vector():set(pos1):add(cross))
-	pr("Distance: %s", dist)
-	return 
+	return dist_to_pos(db.actor, vector():set(pos1):add(cross))
 end
 
 function material_sound_info(pos, dir)

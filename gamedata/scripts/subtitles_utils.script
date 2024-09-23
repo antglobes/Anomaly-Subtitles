@@ -24,12 +24,11 @@ XMLParser = utils_xml.XmlParser
 ]]
 local invalid_subs = {}
 local inventory_opened = false
-
 local existing_icons = {}
 existing_icons.npcs = {}
 existing_icons.mutants = {}
-
 local absent_icons = {}
+local dbg_lvl = "dl_dev"
 
 
 --[[
@@ -282,34 +281,22 @@ function group_tokens(tbl, char_limit)
 	-- Go through table
 	-- Iterate Table checking for token length
 	-- If token length is less than char_limit
-		-- and if token ends with a comma, concentate with the next tokens until total length reaches char_limt or one of the next tokens end with a period
-	local total_len = 0
+	-- and if token ends with a comma, concentate with the next tokens until total length reaches char_limt or one of the next tokens end with a period
+	set_debug_level("dl_all")
 	local tmp = {}
 	local str = ""
-	pr("Tokens: %s", print_table(tbl, true))
 	for idx, token in pairs(tbl) do 
 		local tkn_len = #token
 		pr("token len: %s, total len: %s, char limit: %s, idx: %s", tkn_len, total_len, char_limit, idx)
 		pr("idx at max? %s", idx == #tbl)
-		if tkn_len + total_len <= char_limit then
-			total_len = total_len + tkn_len
-			str = str .. token
-			pr("Combining tokens: %s", token)
-			pr("Current Grouped Token: %s", str)
-			pr("total len: %s", total_len)
-						
-		elseif tkn_len > char_limit or tkn_len + total_len > char_limit then
-			pr("Adding token: %s",token, str)
-			tmp[#tmp + 1] = token
-			total_len = 0
-			str = ""	
-		end	
-	end
 
-	for idx, v in pairs(tmp) do
-		if v == "" then
-			pr("Removing %s at %s index", v, idx)
-			tmp[idx] = nil
+	    if #token > char_limit and #token + #str > char_limit then -- if token exceeds char limit and adding token to the str would execeed the char_limit add token to list
+			tmp[#tmp + 1] = token
+		elseif #token < char_limit and #token + #str > char_limit then -- 
+			tmp[#tmp + 1] = str
+			str = ""
+		elseif #token < char_limit and #str < char_limit and #token + #str < char_limit then
+			str = str .. token
 		end
 	end
 
@@ -317,16 +304,17 @@ function group_tokens(tbl, char_limit)
 end
 
 function truncate_by_puncation(str, char_limit)
+	set_debug_level("dl_dev")
 	if #str - char_limit < 0 then
 		return {str}
 	end
 
 	local punc_occurrances = get_punc_occurances(str, char_limit)
+	pr("Punc Occurances: %s", print_table(punc_occurrances, true))
 	if #punc_occurrances == 1 then
 		return punc_occurrances
 	end
 
-	pr("Punc Occurances: %s", print_table(punc_occurrances, true))
 	local grp_tkns = group_tokens(punc_occurrances, char_limit)
 	pr("Grouped Tokens: %s", print_table(grp_tkns, true))
 	return grp_tkns
@@ -686,6 +674,7 @@ function dbg_pr(header, str, ...)
 end
 
 function pr(str, ...)
+	if not filter_debug_msg(dbg_lvl) then return end
     dbg_pr("Subtitles|Utils: %s", str, ...)
 end
 
@@ -702,6 +691,10 @@ function filter_debug_msg(debug_level)
 		["dl_all"] = {"dl_player", "dl_dev", "dl_all"}
 	}
 	return contains(accepted_debug_msgs[mcm_dbg_lvl], debug_level)
+end
+
+function set_debug_level(new_dbg_level)
+	dbg_lvl = new_dbg_level
 end
 
 
