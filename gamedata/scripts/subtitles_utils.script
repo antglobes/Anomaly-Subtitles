@@ -256,14 +256,17 @@ function get_punc_occurances(str, char_limit)
 	
 	local start = 0
 	local tokens = {}
-	for _, tkn in pairs(list_pattern_occurances(str, "[,!?.]", char_limit)) do
-		local fin = tkn
-		if fin >= char_limit then
-			tokens[#tokens + 1] = string.sub(str, start, fin)
-			tokens[#tokens + 1] = string.sub(str, fin+1, #str)
-			start = fin + 1
+	local occurs = list_pattern_occurances(str, "[,!?.]", char_limit)
+	for i, idx in pairs(occurs) do
+		if i == #occurs then
+			tokens[#tokens + 1] = string.sub(str, start, #str)
+		else
+			tokens[#tokens + 1] = string.sub(str, start, idx)
+			start = idx + 1
 		end
 	end
+	
+
 
 	for idx, v in pairs(tokens) do
 		if v == "" then
@@ -314,10 +317,7 @@ function truncate_by_puncation(str, char_limit)
 	if #punc_occurrances == 1 then
 		return punc_occurrances
 	end
-
-	local grp_tkns = group_tokens(punc_occurrances, char_limit)
-	pr("Grouped Tokens: %s", print_table(grp_tkns, true))
-	return grp_tkns
+	return punc_occurrances
 end
 
 function find_digits(str, pattern)
@@ -426,6 +426,24 @@ function collect_xml_tags(xml_path)
 		end
 	end
 	return xml_tags
+end
+
+--[[
+	Maths
+]]
+
+function vector_rotate_x(v, angle)
+	angle = angle * 0.017453292519943295769236907684886
+	local c = math.cos (angle)
+	local s = math.sin (angle)
+	return vector():set(v.x, v.y * c - v.z * s, v.y * s + v.z * c)
+end
+
+function vector_rotate_z(v, angle)
+	angle = angle * 0.017453292519943295769236907684886
+	local c = math.cos (angle)
+	local s = math.sin (angle)
+	return vector():set(v.x * c - v.y * s, v.x * s + v.y * c, v.z)
 end
 
 --[[

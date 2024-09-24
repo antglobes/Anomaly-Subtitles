@@ -530,18 +530,18 @@ function set_hearing_distance(obj)
 		pr("Hearing Distance: %sm", hear_dist)
 		
 		subtitle_info_tbl.hear_equip[sect] = subtitle_info_tbl.hear_equip[sect] or {}
-		subtitle_info_tbl.hear_equip[sect].multi = subtitle_info_tbl.hear_equip[sect].multi  or 1
+		subtitle_info_tbl.hear_equip[sect].multi = subtitle_info_tbl.hear_equip[sect].multi or 1
 		local hear_multi = subtitle_info_tbl.hear_equip[sect].multi
 		
 		for idx, entry in pairs(subtitles_utils.equipment_tbl) do
 			if entry.sect == sect then
-				hear_multi = hear_multi / entry.multiplier
+				hear_multi = entry.multiplier
 			end
 		end
 		
-		local new_hear_dist = round_idp(hear_dist * hear_multi, 2)
+		local new_hear_dist = hear_dist + round_idp(hear_dist * hear_multi, 2)
+		subtitle_info_tbl.hear_equip[sect] = {multi=hear_multi, old_hear_dist=hear_dist}
 		hear_dist = new_hear_dist < 0 and min_hear_dist or new_hear_dist < max_hear_dist and new_hear_dist or max_hear_dist
-		subtitle_info_tbl.hear_equip[sect] = {multi=hear_multi, buff=new_hear_dist}
 		pr("Hear Multi: %s", hear_multi)
 		pr("New Hearing Distance: %sm", hear_dist)
 		return
@@ -554,14 +554,15 @@ function reset_hearing_distance(obj)
 	if obj and not (IsHeadgear(obj) or IsItem("device", obj:section())) then return end
 	local sect = obj:section()
 	if contains(subtitle_info_tbl.hear_equip, sect, true) then
-		local hear_multi = 1
+		local hear_multi = 0
 		for idx, entry in pairs(subtitles_utils.equipment_tbl) do
 			if entry.sect == sect then
-				hear_multi = entry.multiplier / hear_multi
+				hear_multi = entry.multiplier 
 			end
 		end
-		old_hear_dist = hear_dist
-		hear_dist = round_idp(hear_dist * hear_multi, 2)
+		hear_multi = subtitle_info_tbl.hear_equip[sect].multi
+		old_hear_dist = subtitle_info_tbl.hear_equip[sect].old_hear_dist
+		hear_dist = hear_dist - round_idp(old_hear_dist * hear_multi, 2)
 		pr("Hear Multi: %s", hear_multi)
 		pr("Reseting Hearing Distance from %s to %s", old_hear_dist, hear_dist)
 		subtitle_info_tbl.hear_equip[sect] = nil
@@ -575,7 +576,7 @@ function calc_hear_chance(npc, display_time)
 	local start_pos = db.actor:position()
 	local end_pos = npc:position()
 	local dist_to_head = 1.75
-	if get_config("enable_debug") then
+	if get_config("enable_debug") and dbg_lvl == "dl_dev" then
 		vis_ray( vector():set(start_pos.x, start_pos.y +dist_to_head, start_pos.z),  vector():set(end_pos.x, end_pos.y + dist_to_head, end_pos.z), 0.01, round(display_time * 1000))
 	end
 
@@ -583,10 +584,18 @@ function calc_hear_chance(npc, display_time)
 	local npc_dir = npc:direction()
 	local msi_pos = vector():set(lerp(start_pos.x, end_pos.x), lerp(start_pos.y, end_pos.y), lerp(start_pos.z, end_pos.z))
 	local msi_dir = vector():set(lerp(actor_dir.x, npc_dir.x), lerp(actor_dir.y, npc_dir.y), lerp(actor_dir.z, npc_dir.z))
-	local info = material_sound_info(msi_pos, msi_pos)
-	if is_empty(info) then return hear_chance end
-	hear_chance = hear_chance - (info.of  * 100)
-	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Hear chance: %s, Dist: %s", info.name, info.of, info.df, hear_chance, dist_to_pos(db.actor, end_pos))
+	local info = shoot_ray({
+		pos = msi_pos, 
+		dir = msi_dir,
+		range = hear_dist,
+		vis = get_config("enable_debug") and true,
+		contact = 0.1,
+		flags = 2 + 4 + 8,
+		ignore_actor = true
+	})
+	if is_empty(info["material"]) then return hear_chance end
+	hear_chance = hear_chance - (100 - (info["material"].of  * 100))
+	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Hear chance: %s, Dist: %s", info["material"].name, info["material"].of, info["material"].df, hear_chance, dist_to_pos(db.actor, end_pos))
 	return hear_chance < 0 and 0 or round(hear_chance)
 end
 
@@ -651,26 +660,40 @@ function display_ray(pos, dir, display_time)
 	return dist_to_pos(db.actor, vector():set(pos1):add(cross))
 end
 
-function material_sound_info(pos, dir)
-	local ray = geo_ray({ray_range = hear_dist, contact_range=0.1, flag=2 + 4 + 8, ignore_object=db.actor})
-	local res = ray:get(pos or device().cam_pos, dir or device().cam_dir)
-	if not res.result.material_name then return end
-	local material = res.result.material_name
-	local snd_occlusion_factor = res.result.material_snd_occlusion_factor
-	local density_factor = res.result.material_density_factor
-	return {name=material, of=snd_occlusion_factor, df=density_factor}
+
+function shoot_ray(args)
+	local ray = geo_ray({
+		ray_range = args.range,
+		visualize= args.vis,
+		contact_range= args.contact,
+		flag=args.flags,
+		ignore_object=args.ignore_actor and db.actor or args.ignore_obj ~= nil and args.ignore_obj or false
+	})
+	local res = ray:get(args.pos or device().cam_pos, args.dir or device().cam_dir)
+	local info = {contact_pos=res.position, contact_normal=demonized_geometry_ray.get_surface_normal(res.position)}
+	local material_info = material_info(res)	
+	return {ray=info, material=material_info}
+end
+
+function material_info(res)
+	set_debug_level("dl_all")
+	if not res.result.material_name then return {} end
+	local info = {
+		name = res.result.material_name,
+		of = res.result.material_snd_occlusion_factor,
+		df = res.result.material_density_factor
+	}
+	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s", info.name, info.of, info.df)
+	return info
 end
 
 function info_binos(obj)
 	if obj:section() ~= "wpn_binoc_inv" then return end	
-	local distance = display_ray(device().cam_pos,  device().cam_dir)
-	local info = material_sound_info()
-	if is_empty(info) then return end
-	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Distance: %s", info.name, info.of, info.df, distance)
+	local info = shoot_ray({range=hear_dist, vis=true, contact=0.1, flags=2 + 4 + 8, ignore_actor=true})
+	pr("Info Bincos: %s", utils_data.print_table(info, nil, true))
 end
 
 function enable_dev_tools(name)
-	pr("Displaying %s", name)
 	if not get_config("enable_debug") then return end
 	if name == "UIZoom" then
 		info_binos(db.actor:active_item())
