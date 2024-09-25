@@ -67,7 +67,8 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.6.4 (Fixed in v0.7.1) Missing Icon textures (specifically prof. kalancha) causing CTD beacuse of missing texture xml.
 - v0.7.2 (Fixed in v0.7.3) Failure to catch last part of the sentence, causing unintented functionality.
 - v0.8.0 (Partial Fix in v0.8.1) Incorrect Calculation of hearing multiplier when headgear removed.
-- v0.7.3 (FIxed v0.8.3) Additional or Missing Tokens when grouping subtitle truncation tokens
+- v0.7.3 (FIxed v0.8.3) Additional or Missing Tokens when grouping subtitle truncation tokens.
+- v0.8.4 (Fixed v0.8.4) Incorrect solution for calculating hearing distance; equipping/removing headgear/NVGs.
   
 ## Changelog
 - v0.5.2 Base Version
@@ -85,3 +86,4 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.8.2 Material Effects Haring Chance, Dev Utils.
 - v0.8.3 Collect Icon Textures for Subtitle Verification, Fixed Subtitle Grouping Truncation Tokens. Majority Sounds Translated.
 - v0.8.4 Ray Shown Only If Debugging Enabled
+- v0.8.5 Ray Shown Only at higher debug levels, Hearing Distance and Truncation Token Duplicate Fix.
