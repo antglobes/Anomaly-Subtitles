@@ -6,11 +6,11 @@
 <string_table>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_1_help_combat_coming_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_1_help_combat_coming_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova</text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_kill_wounded_1">
 		<text>EAT THIS!</text>

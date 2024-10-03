@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <string_table>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_actor_in_battle_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_actor_in_battle_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_attack_begin_1">
 		<text>Break's over, let's move out! </text>
@@ -40,25 +40,25 @@
 		<text>What the hell are you guys doing? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_end_fight_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_found_enemy_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_found_enemy_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_prepare_attack_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_see_counter_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_smart_captured_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_smart_captured_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_start_fight_1">
 		<text>Fire at will! </text>
@@ -70,28 +70,28 @@
 		<text>Let's go! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_again_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_again_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_counter_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_counter_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_signal_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_signal_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_we_spotted_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_we_spotted_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_counter_attack_check_1">
 		<text>Group! Set the scene! </text>
@@ -124,76 +124,76 @@
 		<text>Got it! Sending a search party! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_actor_come_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_actor_come_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_actor_help_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_actor_help_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_end_defence_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_end_defence_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_bandit_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_bandit_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_csky_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_csky_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_dolg_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_dolg_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_freedom_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_freedom_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_military_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_military_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_mutant_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_mutant_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_stalker_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_stalker_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_zombied_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_zombied_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_wait_help_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_defence_wait_help_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_patrol_run_1">
 		<text>Go, Mars! </text>
@@ -325,7 +325,7 @@
 		<text>I got him! Let's go! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_death_anomaly_0">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_death_death_1">
 		<text>HA! HA! </text>
@@ -433,7 +433,7 @@
 		<text>Don't hit your own! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_friendly_grenade_friendly_grenade_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_friend_hitted_hit_friend_1">
 		<text>We have the 300th! </text>
@@ -478,7 +478,7 @@
 		<text>And a grenade for you, you bastard! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_alife_attack_attack_ready_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_1">
 		<text>HA! </text>
@@ -604,10 +604,10 @@
 		<text>There are dead! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_combat_coming_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_combat_coming_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_kill_wounded_1">
 		<text>Who are you going up against? Why? </text>
@@ -661,13 +661,13 @@
 		<text>You've been a help, mate. Thank you. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_box_box_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_joke_reaction_joke_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_music_reaction_music_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_story_laughter_1">
 		<text>Ha ha ha! </text>
@@ -814,7 +814,7 @@
 		<text>Hide your weapon! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_stop_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_default_1">
 		<text>I don't have time to chat </text>
@@ -853,7 +853,7 @@
 		<text>Put the gun down, then we'll talk. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_wait_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_panic_human_panic_human_1">
 		<text>Hey, stalker, don't shoot! </text>
@@ -907,10 +907,10 @@
 		<text>Don't! Don't! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_trade_buy_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_trade_sell_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_joke_1">
 		<text>We had one guy in the platoon who'd take a piss, like this. </text>
@@ -979,24 +979,24 @@
 		<text>Says one day to the general-in-chief. I'm so lucky Private, you're so fucking smart. That's who I am, isn't it? I'm going to her! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_use_abuse_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_default_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_fight_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_use_no_sleep_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_weapon_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_threat_back_off_backoff_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_threat_drop_weapon_dropweapon_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 </string_table>

@@ -35,6 +35,29 @@ local dbg_lvl = "dl_dev"
 	Boolean Functions	
 ]]
 
+
+---@Author NLTP ASHES
+function get_translation(str, ...)
+    if not has_translation(str) then return end
+
+    local string = game.translate_string(str)
+
+    if (select('#',...) >= 1) then
+        local i = 0
+        local p = {...}
+        local function sr()
+            i = i + 1
+            if (type(p[i]) == "userdata") then
+                return "userdata"
+            end
+            return tostring(p[i])
+        end
+        string = string.gsub(string,"%%s",sr)
+    end
+
+    return string
+end
+
 function has_translation(str)
     return game.translate_string(str) ~= str
 end
@@ -805,6 +828,7 @@ special_mutant_pattenrs = {
 	Subtitle Editor N. Zakomoldina Corrector A. Egorova,
 	Subtitle Editor N. Olzoeva,
 	Subtitle Editor A. Kulakova,
+	Subtitle Editor A. Sukhiashvili
 	= Silent_Subtitle 
 ]]
 subs_to_exclude = {

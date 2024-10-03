@@ -20,6 +20,7 @@ subtitle_patterns = subtitles_utils.subtitle_patterns
 find_suffix_num = subtitles_utils.find_suffix_num
 activate_subtitles = subtitles_ui.activate_subtitles
 has_translation = subtitles_utils.has_translation
+get_translation = subtitles_utils.get_translation
 subs_to_exclude = subtitles_utils.subs_to_exclude
 is_actor_talking = subtitles_utils.is_actor_talking
 is_ui_open = subtitles_utils.is_ui_open
@@ -219,11 +220,11 @@ function print_timer()
 end
 
 function build_info(soundname, npc)
-	is_monster =  npc:is_monster()
-	sect       =  npc:name()
-	name       =  is_monster and get_mutant_name(sect) or npc:character_name()
-	icon       =  is_monster and get_mutant_icon(sect) or npc:character_icon()
-	faction    =  is_monster and default_mutant_name   or npc:character_community() --IsStalker(npc) and npc:character_community() or "monster"
+	local is_monster =  npc:is_monster()
+	local sect       =  npc:section() or npc:name()
+	local name       =  is_monster and get_mutant_name(sect) or npc:character_name()
+	local icon       =  is_monster and get_mutant_icon(sect) or npc:character_icon()
+	local faction    =  is_monster and default_mutant_name   or npc:character_community() --IsStalker(npc) and npc:character_community() or "monster"
 
 	local info = {
 		["speaker_name"] = is_monster and name or gts(name) or default_name,
@@ -232,7 +233,7 @@ function build_info(soundname, npc)
 		["subtitle"] =  soundname_to_subtitle(soundname),
 		["locale"] = get_locale(),
 		["duration"] = get_sound_duration(soundname) or 3,
-		["xml_string_id"] = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname)),
+		["xml_string_id"] = soundname_to_subtitle(soundname, true),
 		["distance"] = dist_to_pos(npc),
 		["priority"] = queue_length() + 1
 	}
@@ -257,7 +258,7 @@ function subtitle_him(soundname, npc)
 	if (npc_dist <= hear_dist) then
 		local info = build_info(soundname, npc)
 		if not verify_subtitle(info) then return end
-		if calc_hear_chance(npc, info["duration"]) < math.random(0,100) then return end
+		if not calc_hear_chance(npc) then return end
 		shorten(info)
 	end
 end
@@ -398,7 +399,7 @@ function process_queue()
 				-- Set delay so next subtitle is shown after current
 				local old_tmr = tmr
 				tmr = ((info["duration"] + hear_cooldown ) * 1000) + tg
-				pr("Setting new sub timer from: %s to: %s", old_tmr, (tmr) - tg)
+				pr("Setting new sub timer from: %s to: %s", old_tmr, ((tmr) - tg)/1000)
 				return
 			
 			-- If the current time hasn't reached the timer's value wait
@@ -427,22 +428,25 @@ function normalize_soundname(soundname)
 end
 
 function parse_special_soundname(soundname)
-	return soundname
-	--[[
-	-- if story in soundname remove end digit
-	if string.find(soundname, ".story.") then
-		return remove_end_digits(soundname)
+	set_debug_level("dl_all")
+	pr("Parsing Special Soundname")
+	if string.find(soundname, "story_story") then
+		soundname = string.sub(soundname, 1, #soundname - 1)
+	elseif string.find(soundname, "human_music") then
+		soundname = remove_trailing_underscore(string.sub(soundname, 1, #soundname - 1), "")
 	end
-	return soundname ]]--
+	pr("Parsed Story Soundname: %s", soundname)
+	return soundname
 end
 
-function soundname_to_subtitle(soundname)
+function soundname_to_subtitle(soundname, rtn_xml_id)
 	local xml_id = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
 	local parsed_xml_id = parse_special_soundname(xml_id)
-	local snd_name = game.translate_string(parsed_xml_id)
+	local snd_name = get_translation(parsed_xml_id)
 	--subtitles_utils.collect_invalid_subs(x, soundname)
-	return has_translation(parsed_xml_id) and snd_name or nil
+	return rtn_xml_id and parsed_xml_id or snd_name
 end
+
 -- Subtitle Info Services
 
 function sort_mutant_sect_to_generic()
@@ -473,9 +477,9 @@ end
 function get_mutant_name(sect)
 	set_debug_level("dl_all")
 	if not sect then return end
-	local no_digits = remove_end_digits(sect, '')
-	local clean_sect = remove_trailing_underscore(no_digits, '')
-	return generic_mutant_sect[clean_sect]
+	--local no_digits = remove_end_digits(sect, '')
+	--local clean_sect = remove_trailing_underscore(no_digits, '')
+	return generic_mutant_sect[sect]
 end
 
 function get_mutant_icon(sect)
@@ -576,27 +580,24 @@ function calc_hear_chance(npc, display_time)
 	local start_pos = db.actor:position()
 	local end_pos = npc:position()
 	local dist_to_head = 1.75
-	if get_config("enable_debug") and dbg_lvl == "dl_dev" then
-		vis_ray( vector():set(start_pos.x, start_pos.y +dist_to_head, start_pos.z),  vector():set(end_pos.x, end_pos.y + dist_to_head, end_pos.z), 0.01, round(display_time * 1000))
-	end
+	local show_ray = get_config("enable_debug") and get_config("debug_level") == "dl_all"
 
 	local actor_dir = db.actor:direction()
 	local npc_dir = npc:direction()
-	local msi_pos = vector():set(lerp(start_pos.x, end_pos.x), lerp(start_pos.y, end_pos.y), lerp(start_pos.z, end_pos.z))
 	local msi_dir = vector():set(lerp(actor_dir.x, npc_dir.x), lerp(actor_dir.y, npc_dir.y), lerp(actor_dir.z, npc_dir.z))
+	
 	local info = shoot_ray({
-		pos = msi_pos, 
+		pos = vector():set(start_pos.x, start_pos.y +dist_to_head, start_pos.z), 
 		dir = msi_dir,
-		range = hear_dist,
-		vis = get_config("enable_debug") and true,
+		range = dist_to_pos(db.actor, end_pos),
+		vis = show_ray,
 		contact = 0.1,
-		flags = 2 + 4 + 8,
+		flags = 2 + 8,
 		ignore_actor = true
 	})
-	if is_empty(info["material"]) then return hear_chance end
-	hear_chance = hear_chance - (100 - (info["material"].of  * 100))
-	pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s, Hear chance: %s, Dist: %s", info["material"].name, info["material"].of, info["material"].df, hear_chance, dist_to_pos(db.actor, end_pos))
-	return hear_chance < 0 and 0 or round(hear_chance)
+	if is_empty(info["material"]) then return true end
+	pr("Hear Chance: %s", hear_chance)
+	return round(info["material"].of * 100) < hear_chance
 end
 
 -- Dev Debugging

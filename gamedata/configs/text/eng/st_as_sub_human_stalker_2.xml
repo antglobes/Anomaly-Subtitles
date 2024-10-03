@@ -325,10 +325,10 @@
 		<text>Mate, the monsters are crazy! Help me out! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_2_alife_defence_request_help_vs_stalker_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_2_alife_defence_request_help_vs_stalker_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_2_alife_defence_request_help_vs_zombied_1">
 		<text>Man, Zambakov's here, he wants him. Help! </text>
@@ -487,7 +487,7 @@
 		<text>Okay, I got your back! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_2_fight_death_anomaly_0">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_2_fight_death_death_1">
 		<text>MAYBE! </text>
@@ -676,7 +676,7 @@
 		<text>And a grenade for dessert! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_2_alife_attack_attack_ready_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_2_fight_enemy_hit_enemy_hit_1">
 		<text>Shit! </text>
@@ -1015,7 +1015,7 @@
 		<text>xxxxxxxxxx </text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_2_states_idle_idle_26">
-		<text>Subtitle Editor O. Golubkina </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_2_states_idle_idle_27">
 		<text>Mmm </text>

@@ -328,7 +328,7 @@
 		<text>Hey, man! Help me fight off the stalkers! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_4_alife_defence_request_help_vs_stalker_1_pda">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_4_alife_defence_request_help_vs_zombied_1">
 		<text>Man, there's a zombie that wants him. Help! </text>
@@ -487,7 +487,7 @@
 		<text>Okay, I got your back! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_4_fight_death_anomaly_0">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_4_fight_death_death_1">
 		<text>Man! </text>
@@ -631,7 +631,7 @@
 		<text>Watch where you're aiming, you idiot! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_4_fight_friendly_grenade_friendly_grenade_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_4_fight_friend_hitted_hit_friend_1">
 		<text>Ours is hooked! </text>
@@ -679,7 +679,7 @@
 		<text>And a grenade for dessert! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_4_alife_attack_attack_ready_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_stalker_4_fight_enemy_hit_enemy_hit_1">
 		<text>Shit! </text>

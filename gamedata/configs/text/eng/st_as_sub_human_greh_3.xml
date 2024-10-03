@@ -616,7 +616,7 @@
 		<text>Missing_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_greh_3_states_idle_idle_23">
-		<text>Subtitle Editor N. Novikova Corrector A. Egorova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_greh_3_states_idle_idle_24">
 		<text>CALM MUSIC </text>
@@ -940,10 +940,10 @@
 		<text>fuuuuuuuuuuuuuuuuuuuuuuuuuuu </text>
 	</string>
 	<string id="as_sub_characters_voice_human_greh_3_states_trade_buy_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_greh_3_states_trade_sell_1">
-		<text>Subtitle Editor N. Novikova Corrector A. Kulakova </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_greh_3_talk_intros_intro_joke_1">
 		<text>Oh, that reminds me of an anecdote. </text>
