@@ -31,7 +31,7 @@ news_manager_icons = news_manager.tips_icons
 set_debug_level = subtitles_utils.set_debug_level
 filter_debug_msg = subtitles_utils.filter_debug_msg
 mutant_patterns = subtitles_utils.mutant_patterns
-get_all_mutant_sections = subtitles_utils.get_all_mutant_sections
+get_mutant_section = subtitles_utils.get_mutant_section
 remove_end_digits = subtitles_utils.remove_end_digits
 remove_trailing_underscore = subtitles_utils.remove_trailing_underscore
 get_unknown_object = subtitles_utils.get_unknown_object
@@ -54,12 +54,13 @@ HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
 default_name = "st_noise"
 default_mutant_name = "monster"
 default_icon = "ui_iconsTotal_grouping"
-CHAR_LIMIT = 42
+CHAR_LIMIT = 80
 max_hear_dist = 180
 SUSPEND_QUEUE = false
 subtitle_info_tbl = {}
 subtitle_info_tbl.hear_equip = {}
 icon_texture_tbl = {}
+subtitle_info_tbl.item_in_slot = {}
 icon_texture_files = {"ui_as_actor_portraits"}
 ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
 ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
@@ -154,13 +155,13 @@ function suspend_queue()
 	set_debug_level("dl_dev")
 	SUSPEND_QUEUE = true
 	local suspend_reason = is_ui_open() and "Inventory Open" or "Dialog Active" 
-	pr("Suspending queue: %s", suspend_reason)
+	--pr("Suspending queue: %s", suspend_reason)
 end
 
 function resume_queue()
 	set_debug_level("dl_dev")
 	local resume_reason = is_ui_open() and "Inventory Closed" or "Dialog Inactive" 
-	if not is_queue_suspended() then pr("player", "%s, resuming queue", resume_reason) end
+	--if not is_queue_suspended() then pr("player", "%s, resuming queue", resume_reason) end
 	SUSPEND_QUEUE = false
 	tmr = tmr + (time_global() - tmr)
 end
@@ -434,6 +435,14 @@ function parse_special_soundname(soundname)
 		soundname = string.sub(soundname, 1, #soundname - 1)
 	elseif string.find(soundname, "human_music") then
 		soundname = remove_trailing_underscore(string.sub(soundname, 1, #soundname - 1), "")
+	elseif string.find(soundname, "fight") then
+		if string.find(soundname, "fight_threat") then
+			soundname = string.sub(soundname, 1, #soundname - 1)..math.random(1,4)
+		elseif string.find(soundname, "fight_hit") then
+			soundname = string.sub(soundname, 1, #soundname - 1)..math.random(8, 10)
+		elseif string.find(soundname, "fight_enemy") then
+			soundname = string.sub(soundname, 1, #soundname - 1)..math.random(4, 5)
+		end
 	end
 	pr("Parsed Story Soundname: %s", soundname)
 	return soundname
@@ -451,7 +460,7 @@ end
 
 function sort_mutant_sect_to_generic()
 	generic_mutant_sect = {}
-	local mutant_sections = get_all_mutant_sections()
+	local mutant_sections = get_mutant_section()
 	for i=1, #mutant_patterns do
 		local mutant_name = mutant_patterns[i]
 		for _, sect in pairs(mutant_sections) do
@@ -527,50 +536,74 @@ function set_hearing_distance(obj)
 	local helm = db.actor:item_in_slot(helmet_slot_id) or no_equip
 	local device = db.actor:item_in_slot(device_slot_id) or no_equip
 	
-	if obj and helm == no_equip and device == no_equip then pr("%s not in headgear or device slot", obj:section()) return end
+
 	--if obj:section() ~= helm:section() or obj:section() ~= device:section() then return end
-	if obj and (IsHeadgear(obj) or IsItem("device", obj:section())) then
+	if obj and (IsHeadgear(obj)) then -- or IsItem("device", obj:section())) then
 		--if obj and (helm and obj:id() ~= helm:id()) or (device and obj:id() ~= device:id()) then return end
-		pr("Hearing Distance: %sm", hear_dist)
+		--if helm ~= no_equip and sect == helm:section() or device ~= no_equip and sect == device:section() then return end
+		pr("Current Hearing Distance: %sm", hear_dist)
 		
-		subtitle_info_tbl.hear_equip[sect] = subtitle_info_tbl.hear_equip[sect] or {}
-		subtitle_info_tbl.hear_equip[sect].multi = subtitle_info_tbl.hear_equip[sect].multi or 1
-		local hear_multi = subtitle_info_tbl.hear_equip[sect].multi
+		subtitle_info_tbl.hear_equip.sects = subtitle_info_tbl.hear_equip.sects or {sect}
+		subtitle_info_tbl.hear_equip.total_multi = subtitle_info_tbl.hear_equip.total_multi or 1
+
+		local total_multi = subtitle_info_tbl.hear_equip.total_multi
+		local has_sect, entry = contains(subtitles_utils.equipment_tbl, sect, true, true)
 		
-		for idx, entry in pairs(subtitles_utils.equipment_tbl) do
-			if entry.sect == sect then
-				hear_multi = entry.multiplier
-			end
+		if has_sect then
+			pr("Equipment Table Details for %s: \n%s", sect, utils_data.print_table(entry, nil, true))
+			total_multi = total_multi + entry.multiplier
+			subtitle_info_tbl.hear_equip.total_multi = total_multi
 		end
 		
-		local new_hear_dist = hear_dist + round_idp(hear_dist * hear_multi, 2)
-		subtitle_info_tbl.hear_equip[sect] = {multi=hear_multi, old_hear_dist=hear_dist}
-		hear_dist = new_hear_dist < 0 and min_hear_dist or new_hear_dist < max_hear_dist and new_hear_dist or max_hear_dist
-		pr("Hear Multi: %s", hear_multi)
-		pr("New Hearing Distance: %sm", hear_dist)
+		local new_hear_dist = round_idp(min_hear_dist * total_multi, 1)
+		local old_hear_dist = hear_dist
+		hear_dist = new_hear_dist <= 0 and min_hear_dist or new_hear_dist < max_hear_dist and new_hear_dist or max_hear_dist
+		
+		--if not contains(subtitle_info_tbl.hear_equip.sects, sect) then table.insert(subtitle_info_tbl.hear_equip.sects, sect) end
+		pr("Hear Multi: %s", total_multi)
+		pr("Setting Hearing Distance from %s to %s", old_hear_dist, hear_dist)
+
+		if not contains(subtitle_info_tbl.item_in_slot, sect) then table.insert(subtitle_info_tbl.item_in_slot, sect) end
 		return
 	end
 	pr("%s is not headgear or device", sect)
 end
 
-function reset_hearing_distance(obj)
+function reset_hearing_distance(obj, to_ruck)
 	set_debug_level("dl_all")
-	if obj and not (IsHeadgear(obj) or IsItem("device", obj:section())) then return end
+	pr("%s | %s in slot?: %s", to_ruck and "Moving to ruck" or "Dropping", obj:section(), contains(subtitle_info_tbl.item_in_slot, obj:section()) and "true" or "false")
+	if not is_ui_open() then return end
+	if obj and not (IsHeadgear(obj)) then return end -- or IsItem("device", obj:section())) then return end
+	if not to_ruck and not contains(subtitle_info_tbl.item_in_slot, obj:section()) then return end
+
 	local sect = obj:section()
-	if contains(subtitle_info_tbl.hear_equip, sect, true) then
-		local hear_multi = 0
-		for idx, entry in pairs(subtitles_utils.equipment_tbl) do
-			if entry.sect == sect then
-				hear_multi = entry.multiplier 
+	local total_multi = subtitle_info_tbl.hear_equip.total_multi or 1
+	local old_total_multi = total_multi
+	local old_hear_dist = hear_dist
+
+	if contains(subtitle_info_tbl.item_in_slot, sect) then
+		for idx, section in pairs(subtitle_info_tbl.item_in_slot) do
+			if section == sect then
+				subtitle_info_tbl.item_in_slot[idx] = nil
+				pr("Removing %s from slot", section)
 			end
 		end
-		hear_multi = subtitle_info_tbl.hear_equip[sect].multi
-		old_hear_dist = subtitle_info_tbl.hear_equip[sect].old_hear_dist
-		hear_dist = hear_dist - round_idp(old_hear_dist * hear_multi, 2)
-		pr("Hear Multi: %s", hear_multi)
-		pr("Reseting Hearing Distance from %s to %s", old_hear_dist, hear_dist)
-		subtitle_info_tbl.hear_equip[sect] = nil
 	end
+	
+	local has_sect, entry = contains(subtitles_utils.equipment_tbl, sect, true, true)
+	if has_sect then
+		pr("Equipment Table Details for %s: \n%s", sect, utils_data.print_table(entry, nil, true))
+		total_multi = total_multi - entry.multiplier
+		subtitle_info_tbl.hear_equip.total_multi = total_multi
+	end
+	pr("Resetting Hear Multi from %s to %s", old_total_multi, total_multi)
+
+	local new_hear_dist = round_idp(min_hear_dist * total_multi, 1)
+	hear_dist = new_hear_dist <= 0 and min_hear_dist or new_hear_dist
+	pr("Reseting Hearing Distance from %s to %s", old_hear_dist, hear_dist)
+
+	local _, idx = contains(subtitle_info_tbl.hear_equip.sects, sect, nil, nil, true)
+	if idx then table.remove(subtitle_info_tbl.hear_equip.sects, idx) end
 end
 
 
@@ -738,8 +771,8 @@ function on_game_start()
 	RegisterScriptCallback("actor_on_update", process_queue)
 	RegisterScriptCallback("actor_on_first_update", setup)
 	RegisterScriptCallback("actor_item_to_slot", set_hearing_distance)
-	RegisterScriptCallback("actor_on_item_drop", reset_hearing_distance)
-	RegisterScriptCallback("actor_item_to_ruck", reset_hearing_distance)
+	RegisterScriptCallback("actor_on_item_drop", function(obj) reset_hearing_distance(obj) end)
+	RegisterScriptCallback("actor_item_to_ruck", function(obj) reset_hearing_distance(obj, true) end)
 	RegisterScriptCallback("GUI_on_show", enable_dev_tools)
 	RegisterScriptCallback("save_state", on_save)
 	RegisterScriptCallback("load_state", on_load)

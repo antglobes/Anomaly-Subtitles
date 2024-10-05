@@ -70,14 +70,14 @@ end
 function contains(tbl, key, by_key, return_value, return_idx)
 	if is_empty(tbl) or key == "" then return false end
     for k, v in pairs(tbl) do
-        if by_key then
-            if k == key then
-                if return_value then
-                    return true, k
-                else
-                    return true
-                end
-            end
+        if by_key and k == key then
+			if return_idx then
+				return true, k
+			elseif return_value then
+				return true, v
+			else
+				return true
+			end
         else
             if v == key then
                 if return_value and return_idx then
@@ -394,6 +394,7 @@ function set_ui_state(name, path, show)
 end
 
 function collect_existing_icons()
+	set_debug_level("dl_all")
 	local file_list = {"ui_as_actor_portraits.xml", "ui_as_npc_monster.xml"}
 	for idx, file_name in pairs(file_list) do
 		local xml = CScriptXmlInit()
@@ -634,11 +635,15 @@ function get_sect_list(tbl, sect_tbl)
 	return sect_tbl
 end 
 
+function get_faction(obj)
+	return obj.character_community and obj:character_community() or "monster"
+end
+
 --[[
 	Debugging Functions
 ]]
 
-function get_all_mutant_sections()
+function get_mutant_section(sect)
 	local mutant_sections = {}
 	ini_sys:section_for_each( function(section)
 		local visual = ini_sys:r_string_ex(section, "visual")
@@ -646,11 +651,11 @@ function get_all_mutant_sections()
 			mutant_sections[#mutant_sections + 1] = section
 		end
 	end)
-	return mutant_sections
+	return sect and mutant_sections[sect] or mutant_sections
 end
 
 function print_all_mutant_sections()
-	local mutant_sections = get_all_mutant_sections()
+	local mutant_sections = get_mutant_section()
 	pr("Mutant Sections:")
 	for k, v in pairs(mutant_sections) do
 		pr("%s=%s", k, v)
@@ -755,31 +760,31 @@ end
 ]]
 
 equipment_tbl = {
-	[1] =  {equip_type="device",   sect="device_torch_dummy",  material="cotton",   multiplier=0.9 },
-	[2] =  {equip_type="device",   sect="device_torch_nv_1",   material="cotton",   multiplier=0.9 }, 
-	[3] =  {equip_type="device",   sect="device_torch_nv_2",   material="cotton",   multiplier=0.9 },
-	[4] =  {equip_type="device",   sect="device_torch_nv_3",   material="cotton",   multiplier=0.9 },
-	[5] =  {equip_type="helm",     sect="helm_bandana",        material="cotton",   multiplier=0.8 },
-	[6] =  {equip_type="helm",     sect="helm_ach7",           material="steel",    multiplier=1   },
-	[7] =  {equip_type="helm",     sect="helm_ach7ex",         material="steel",    multiplier=0.7 },
-	[8] =  {equip_type="helm",     sect="helm_battle",         material="aluminum", multiplier=0.6 },
-	[9] =  {equip_type="helm",     sect="helm_cloth_mask",     material="cotton",   multiplier=0.9 },
-	[10] = {equip_type="helm",     sect="helm_exo",            material="titanium", multiplier=0.4 },
-	[11] = {equip_type="helm",     sect="helm_hardhat",        material="steel",    multiplier=1   },
-	[12] = {equip_type="helm",     sect="helm_hardhat_snag",   material="steel",    multiplier=1   },
-	[13] = {equip_type="helm",     sect="helm_m40",            material="rubber",   multiplier=0.6 },
-	[14] = {equip_type="helm",     sect="helm_m50",            material="titanium", multiplier=0.4 },
-	[15] = {equip_type="helm",     sect="helm_metro",          material="rubber",   multiplier=0.3 },
-	[16] = {equip_type="helm",     sect="helm_ppm88",          material="rubber",   multiplier=0.7 },
-	[17] = {equip_type="helm",     sect="helm_protective",     material="nylon",    multiplier=0.6 },
-	[18] = {equip_type="helm",     sect="helm_ranger",         material="rubber",   multiplier=0.65},
-	[19] = {equip_type="helm",     sect="helm_resp",           material="rubber",   multiplier=1   },
-	[20] = {equip_type="helm",     sect="helm_respirator",     material="rubber",   multiplier=0.65},
-	[21] = {equip_type="helm",     sect="helm_respirator_gp5", material="rubber",   multiplier=0.6 },
-	[22] = {equip_type="helm",     sect="helm_respirator",     material="aluminum", multiplier=0.45},
-	[23] = {equip_type="helm",     sect="helm_rp_bala",        material="cotton  ", multiplier=0.8 },
-	[24] = {equip_type="helm",     sect="helm_spartan",        material="titanium", multiplier=0.25},
-	[25] = {equip_type="helm",     sect="helm_tactic",         material="aluminum", multiplier=0.55},
+	-- ["device_torch_dummy"] =  {equip_type="device",  material="cotton",   multiplier=0.9 },
+	-- ["device_torch_nv_1"] =  {equip_type="device",  material="cotton",   multiplier=0.9 }, 
+	-- ["device_torch_nv_2"] =  {equip_type="device",  material="cotton",   multiplier=0.9 },
+	-- ["device_torch_nv_3"] =  {equip_type="device",  material="cotton",   multiplier=0.9 },
+	["helm_bandana"] =          {equip_type="helm",    material="cotton",   multiplier=0.065 },
+	["helm_ach7"] =             {equip_type="helm",    material="steel",    multiplier=0.1   },
+	["helm_ach7ex"] =           {equip_type="helm",    material="steel",    multiplier=0.15 },
+	["helm_battle"] =           {equip_type="helm",    material="aluminum", multiplier=0.2 },
+	["helm_cloth_mask"] =       {equip_type="helm",    material="cotton",   multiplier=0.09 },
+	["helm_exo"] =              {equip_type="helm",    material="titanium", multiplier=0.04 },
+	["helm_hardhat"] =          {equip_type="helm",    material="steel",    multiplier=0.1   },
+	["helm_hardhat_snag"] =     {equip_type="helm",    material="steel",    multiplier=0.1   },
+	["helm_m40"] =              {equip_type="helm",    material="rubber",   multiplier=0.3 },
+	["helm_m50"] =              {equip_type="helm",    material="titanium", multiplier=0.35 },
+	["helm_metro"] =            {equip_type="helm",    material="rubber",   multiplier=0.2 },
+	["helm_ppm88"] =            {equip_type="helm",    material="rubber",   multiplier=0.1 },
+	["helm_protective"] =       {equip_type="helm",    material="nylon",    multiplier=0.325},
+	["helm_ranger"] =           {equip_type="helm",    material="rubber",   multiplier=0.08},
+	["helm_resp"] =             {equip_type="helm",    material="rubber",   multiplier=1   },
+	["helm_respirator"] =       {equip_type="helm",    material="rubber",   multiplier=0.065},
+	["helm_respirator_gp5"] =   {equip_type="helm",    material="rubber",   multiplier=0.6 },
+	["helm_respirator_old"] =       {equip_type="helm",    material="aluminum", multiplier=0.45},
+	["helm_rp_bala"] =          {equip_type="helm",    material="cotton  ", multiplier=0.09},
+	["helm_spartan"] =          {equip_type="helm",    material="titanium", multiplier=0.4},
+	["helm_tactic"] =           {equip_type="helm",    material="aluminum", multiplier=0.55}
 	-- [] = {equip_type="", sect="", material="", multiplier=0}
 }
 
