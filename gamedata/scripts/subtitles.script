@@ -49,6 +49,9 @@ base_set_sound_play = xr_sound.set_sound_play
 truncate_by_puncation = subtitles_utils.truncate_by_puncation
 
 -- Constants
+as_version = "v0.8.6"
+as_authors = "Antglobes & VodoXleb"
+as_last_update = "05-10-24"
 SUBTITLE_PREFIX = "as_sub_%s"
 HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
 default_name = "st_noise"
@@ -741,8 +744,16 @@ function print_info(info)
 end
 
 -- Callbacks
+function anomaly_subtitles_info()
+	printf("--------Anomaly Subtitles--------")
+	printf("Version: %s", as_version)
+	printf("Author(s): %s", as_authors)
+	printf("Last Updated: %s", as_last_update)
+	printf("---------------------------------")
+end
 
 function setup()
+	anomaly_subtitles_info()
 	sort_mutant_sect_to_generic()
 	collect_icon_textures()
 end
