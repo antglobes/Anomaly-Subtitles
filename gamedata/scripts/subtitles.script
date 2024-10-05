@@ -542,7 +542,7 @@ function set_hearing_distance(obj)
 		--if obj and (helm and obj:id() ~= helm:id()) or (device and obj:id() ~= device:id()) then return end
 		--if helm ~= no_equip and sect == helm:section() or device ~= no_equip and sect == device:section() then return end
 		pr("Current Hearing Distance: %sm", hear_dist)
-		
+		pr("Helm Equipped: %s", helm ~= no_equip and helm:section() or "no equip")
 		subtitle_info_tbl.hear_equip.sects = subtitle_info_tbl.hear_equip.sects or {sect}
 		subtitle_info_tbl.hear_equip.total_multi = subtitle_info_tbl.hear_equip.total_multi or 1
 
@@ -551,7 +551,7 @@ function set_hearing_distance(obj)
 		
 		if has_sect then
 			pr("Equipment Table Details for %s: \n%s", sect, utils_data.print_table(entry, nil, true))
-			total_multi = total_multi + entry.multiplier
+			total_multi = total_multi + (entry.multiplier * obj:condition())
 			subtitle_info_tbl.hear_equip.total_multi = total_multi
 		end
 		
@@ -593,7 +593,7 @@ function reset_hearing_distance(obj, to_ruck)
 	local has_sect, entry = contains(subtitles_utils.equipment_tbl, sect, true, true)
 	if has_sect then
 		pr("Equipment Table Details for %s: \n%s", sect, utils_data.print_table(entry, nil, true))
-		total_multi = total_multi - entry.multiplier
+		total_multi = total_multi - (entry.multiplier * obj:condition())
 		subtitle_info_tbl.hear_equip.total_multi = total_multi
 	end
 	pr("Resetting Hear Multi from %s to %s", old_total_multi, total_multi)
