@@ -180,6 +180,7 @@ function truncate_subtitle(info)
 	for i=1, #sub_tokens do
 		if sub_tokens[i] then
 			infos[n] = {
+				speaker_id = info["speaker_id"],
 				speaker_name = info["speaker_name"],
 				speaker_icon = info["speaker_icon"],
 				speaker_faction = info["speaker_faction"],
@@ -231,6 +232,7 @@ function build_info(soundname, npc)
 	local faction    =  is_monster and default_mutant_name   or npc:character_community() --IsStalker(npc) and npc:character_community() or "monster"
 
 	local info = {
+		["speaker_id"] = npc:id(),
 		["speaker_name"] = is_monster and name or gts(name) or default_name,
 		["speaker_icon"] = icon or default_icon,
 		["speaker_faction"] = faction,
@@ -371,6 +373,12 @@ function process_queue()
 		if queue_has_entries() then
 			if not (is_actor_talking() or is_ui_open()) then
 				resume_queue()
+			elseif (is_actor_talking() or is_ui_open()) and tg >= tmr then
+				dequeue()
+				if queue_has_entries() then
+					local info = dequeue()
+					tmr = ((info["duration"] + hear_cooldown ) * 1000) + tg
+				end
 			end
 		elseif not queue_has_entries() then
 			resume_queue()
