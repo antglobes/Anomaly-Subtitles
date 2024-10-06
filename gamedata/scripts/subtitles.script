@@ -62,8 +62,9 @@ max_hear_dist = 180
 SUSPEND_QUEUE = false
 subtitle_info_tbl = {}
 subtitle_info_tbl.hear_equip = {}
-icon_texture_tbl = {}
 subtitle_info_tbl.item_in_slot = {}
+subtitle_info_tbl.recent_npc_deaths = {}
+icon_texture_tbl = {}
 icon_texture_files = {"ui_as_actor_portraits"}
 ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
 ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
@@ -406,12 +407,23 @@ function process_queue()
 			if tg > tmr then
 				local info = dequeue()
 				--if not verify_subtitle(info) then return end
-				display_subtitles(info)
-
+				
 				-- Set delay so next subtitle is shown after current
 				local old_tmr = tmr
 				tmr = ((info["duration"] + hear_cooldown ) * 1000) + tg
-				pr("Setting new sub timer from: %s to: %s", old_tmr, ((tmr) - tg)/1000)
+				pr("New Sub Timer: %s +  %s seconds", old_tmr, ((tmr) - tg)/1000)
+				
+				-- Check if npc is alive 
+				local npc = get_unknown_object({id=info["speaker_id"]}, "game")
+
+				if not (npc and npc.alive and npc:alive()) then
+					if not contains(subtitle_info_tbl.recent_npc_deaths, info["speaker_id"]) then 
+						return
+					end
+					update_recent_npc_deaths(info["speaker_id"])
+				end
+
+				display_subtitles(info)
 				return
 			
 			-- If the current time hasn't reached the timer's value wait
@@ -644,6 +656,23 @@ function calc_hear_chance(npc, display_time)
 	return round(info["material"].of * 100) < hear_chance
 end
 
+function set_recent_npc_deaths(npc, who)
+	if who and who:id() ~= AC_ID then return end
+	if not contains(subtitle_info_tbl.recent_npc_deaths, npc:id()) then
+		table.insert(subtitle_info_tbl.recent_npc_deaths, npc:id())
+	end
+end
+
+function update_recent_npc_deaths(npc_id)
+	if contains(subtitle_info_tbl.recent_npc_deaths, npc_id) then
+		for idx, id in pairs(subtitle_info_tbl.recent_npc_deaths) do
+			if npc_id == id then
+				subtitle_info_tbl.recent_npc_deaths[idx] = nil
+			end
+		end
+	end
+end
+
 -- Dev Debugging
 
 --- @author demonized
@@ -792,6 +821,7 @@ function on_game_start()
 	RegisterScriptCallback("actor_item_to_slot", set_hearing_distance)
 	RegisterScriptCallback("actor_on_item_drop", function(obj) reset_hearing_distance(obj) end)
 	RegisterScriptCallback("actor_item_to_ruck", function(obj) reset_hearing_distance(obj, true) end)
+	RegisterScriptCallback("npc_on_death_callback", set_recent_npc_deaths)
 	RegisterScriptCallback("GUI_on_show", enable_dev_tools)
 	RegisterScriptCallback("save_state", on_save)
 	RegisterScriptCallback("load_state", on_load)

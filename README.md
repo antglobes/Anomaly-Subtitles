@@ -50,7 +50,9 @@
   
 ### Requirements
 - [MO2](https://github.com/ModOrganizer2/modorganizer) (optional but preferred)
-- [DLTX/Modded Exes](https://github.com/themrdemonized/STALKER-Anomaly-modded-exes) (Required, at least Release 2024.03.08)
+- [DLTX/Modded Exes](https://github.com/themrdemonized/STALKER-Anomaly-modded-exes) (Required, at least Release 2024.10.05)
+- [MCM]() (If using the required Modded Exes, use at least v1.7.0 of MCM)
+- Compatible with 1.5.2 and 1.5.3 (From v0.8.6 onwards)
 
 ## License
 [GNU GPL 3](https://www.gnu.org/licenses/gpl-3.0.en.html)
