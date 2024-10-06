@@ -71,6 +71,7 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.8.0 (Partial Fix in v0.8.1) Incorrect Calculation of hearing multiplier when headgear removed.
 - v0.7.3 (FIxed v0.8.3) Additional or Missing Tokens when grouping subtitle truncation tokens.
 - v0.8.4 (Fixed v0.8.4) Incorrect solution for calculating hearing distance; equipping/removing headgear/NVGs.
+- v0.8.5 (Fixed v0.8.6) Incorrect Pattern Matching for Unsual soundnames, Ignore Setting/Reseting Distance on item pickup or drop from inventory.
   
 ## Changelog
 - v0.5.2 Base Version
@@ -89,3 +90,4 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.8.3 Collect Icon Textures for Subtitle Verification, Fixed Subtitle Grouping Truncation Tokens. Majority Sounds Translated.
 - v0.8.4 Ray Shown Only If Debugging Enabled
 - v0.8.5 Ray Shown Only at higher debug levels, Hearing Distance and Truncation Token Duplicate Fix.
+- v0.9.0 Hear Chance Calculation Altered, Helemet Condition Effects Total Multiplier, Equip Table Multiplier Values Lowered, Subtitles Removed if Timer Expired, Ignore/Remove Subtitles After NPC Death.
