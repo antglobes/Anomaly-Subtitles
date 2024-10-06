@@ -60,6 +60,7 @@ default_icon = "ui_iconsTotal_grouping"
 CHAR_LIMIT = 80
 max_hear_dist = 180
 SUSPEND_QUEUE = false
+setup_completed = false
 subtitle_info_tbl = {}
 subtitle_info_tbl.hear_equip = {}
 subtitle_info_tbl.item_in_slot = {}
@@ -548,6 +549,7 @@ end
 
 function set_hearing_distance(obj)
 	set_debug_level("dl_all")
+	if not setup_completed then return end
 	-- get sect list of player's equipment
 	-- filter by equipment that would go on the head
 	-- check each equipment against hearing effect multiplier#
@@ -793,6 +795,7 @@ function setup()
 	anomaly_subtitles_info()
 	sort_mutant_sect_to_generic()
 	collect_icon_textures()
+	setup_completed = true
 end
 
 function on_save(mdata)
