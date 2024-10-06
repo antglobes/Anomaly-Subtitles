@@ -71,7 +71,7 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.8.0 (Partial Fix in v0.8.1) Incorrect Calculation of hearing multiplier when headgear removed.
 - v0.7.3 (FIxed v0.8.3) Additional or Missing Tokens when grouping subtitle truncation tokens.
 - v0.8.4 (Fixed v0.8.4) Incorrect solution for calculating hearing distance; equipping/removing headgear/NVGs.
-- v0.8.5 (Fixed v0.8.6) Incorrect Pattern Matching for Unsual soundnames, Ignore Setting/Reseting Distance on item pickup or drop from inventory.
+- v0.8.5 (Fixed v0.9.0) Incorrect Pattern Matching for Unsual soundnames, Ignore Setting/Reseting Distance on item pickup or drop from inventory.
   
 ## Changelog
 - v0.5.2 Base Version
