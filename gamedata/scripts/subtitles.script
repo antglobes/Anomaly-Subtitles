@@ -49,9 +49,9 @@ base_set_sound_play = xr_sound.set_sound_play
 truncate_by_puncation = subtitles_utils.truncate_by_puncation
 
 -- Constants
-as_version = "v0.8.6"
+as_version = "v0.9.1"
 as_authors = "Antglobes & VodoXleb"
-as_last_update = "05-10-24"
+as_last_update = "06-10-24"
 SUBTITLE_PREFIX = "as_sub_%s"
 HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
 default_name = "st_noise"
