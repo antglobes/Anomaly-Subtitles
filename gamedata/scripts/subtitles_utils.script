@@ -1,7 +1,7 @@
 --[[-------------
 Author(s): AntGlobes
 Purpose: Utils
-Last Modified: 04/04/24
+Last Modified: 09/10/24
 ]]---------------
 
 --[[
@@ -279,7 +279,7 @@ function get_punc_occurances(str, char_limit)
 	
 	local start = 0
 	local tokens = {}
-	local occurs = list_pattern_occurances(str, "[,!?.]", char_limit)
+	local occurs = list_pattern_occurances(str, "[!?%.]", char_limit)
 	for i, idx in pairs(occurs) do
 		if i == #occurs then
 			tokens[#tokens + 1] = string.sub(str, start, #str)
@@ -298,7 +298,7 @@ function get_punc_occurances(str, char_limit)
 		end
 	end
 
-	pr("Pattern Indexes %s", print_table(tokens, true))
+	--pr("Pattern Indexes %s", print_table(tokens, true))
 	return tokens
 end
 	
@@ -336,10 +336,10 @@ function truncate_by_puncation(str, char_limit)
 	end
 
 	local punc_occurrances = get_punc_occurances(str, char_limit)
-	pr("Punc Occurances: %s", print_table(punc_occurrances, true))
 	if #punc_occurrances == 1 then
 		return punc_occurrances
 	end
+	pr("Shortened Subtitle Tokenss: %s", print_table(punc_occurrances, true))
 	return punc_occurrances
 end
 
@@ -458,16 +458,57 @@ end
 
 function vector_rotate_x(v, angle)
 	angle = angle * 0.017453292519943295769236907684886
-	local c = math.cos (angle)
-	local s = math.sin (angle)
+	local c = math.cos(angle)
+	local s = math.sin(angle)
 	return vector():set(v.x, v.y * c - v.z * s, v.y * s + v.z * c)
 end
 
 function vector_rotate_z(v, angle)
 	angle = angle * 0.017453292519943295769236907684886
-	local c = math.cos (angle)
-	local s = math.sin (angle)
+	local c = math.cos(angle)
+	local s = math.sin(angle)
 	return vector():set(v.x * c - v.y * s, v.x * s + v.y * c, v.z)
+end
+
+function vector_rotate_y(v, angle)
+	angle = angle * 0.017453292519943295769236907684886
+	local c = math.cos(angle)
+	local s = math.sin(angle)
+	return vector():set(v.x, v.y * c - v.z * s, v.y * s + v.z * s)
+end
+
+function rotate_vector_xyz(v, angle)
+	v = vector_rotate_x(v, angle)
+	v = vector_rotate_y(v, angle)
+	v = vector_rotate_z(v, angle)
+	return v
+end
+
+function find_direction_intersection(vec_1_start, vec_1_end, vec_2_start, vec_2_end)
+	local vec_1_m = (vec_1_end.z - vec_1_start.z) / (vec_1_end.x - vec_1_start.x)
+	local vec_2_m = (vec_2_end.z - vec_2_start.z) / (vec_2_end.x - vec_2_start.x)
+	local vec_1_b = vec_1_start.z - (vec_1_m * vec_1_start.x)
+	local vec_2_b = vec_2_start.z - (vec_2_m * vec_2_start.x)
+	local intersect_x = (vec_2_b - vec_1_b) / (vec_1_m - vec_2_m)
+	local intersect_z = (vec_1_m * intersect_x) + vec_1_b
+	return vector():set(intersect_x, vec_1_start.y, intersect_z)
+end
+
+function dir_from_pos(pos_end, pos_start)
+	return vector():set(pos_end:sub(pos_start):normalize())
+end
+
+
+function get_time_sequence(tm, seq_len)
+	local seq = {}
+	for i=1, seq_len do
+        if i == 1 then
+            seq[i] = 0
+        else
+            seq[i] = tm / i
+        end
+	end
+	return seq
 end
 
 --[[
