@@ -1,7 +1,7 @@
 --[[-------------
 Author(s): AntGlobes, VodoXleb
 Purpose: Subtitles MCM setting
-Last Modified: 04/04/24 
+Last Modified: 08/10/24 
 ]]---------------
 
 -- If you don't use MCM, change your defaults from here.
@@ -25,6 +25,7 @@ defaults = {
 	["enable_speaker_icon"] = true,
 	["enable_news_manager"] = false,
 	["use_localization"] = false,
+	["enable_mutant_subs"] = false,
 }
 
 function get_config(key)
@@ -102,6 +103,7 @@ function on_mcm_load()
 			{id="divider", type="line"},
 			{id="title_additional", type="title", text="ui_mcm_subtitles_title_additional"},
 			{id ="enable_subs", type = "check", val = 1, def = true},
+			{id="enable_mutant_subs", type = "check", val = 1, def = false},
 			{id="enable_faction_icon", type="check", val=1, def=true, precondition={using_news_manager}},
 			{id="enable_speaker_icon", type="check", val=1, def=true, precondition={using_news_manager}},
 			{id="enable_news_manager", type="check", val=1, def=false},
