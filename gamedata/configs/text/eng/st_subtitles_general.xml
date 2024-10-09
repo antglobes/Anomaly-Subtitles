@@ -160,6 +160,9 @@
     <string id="ui_mcm_subtitles_enable_subs">
         <text>Turn on Subtitles</text>
     </string>
+    <string id="ui_mcm_subtitles_enable_mutant_subs">
+        <text>Enable Mutant Subtitles</text>
+    </string>
     <string id="ui_mcm_subtitles_enable_debug">
         <text>Enable Debugging</text>
     </string>
