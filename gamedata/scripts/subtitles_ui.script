@@ -1,7 +1,7 @@
 --[[-------------
 Author(s): AntGlobes
 Purpose: Display Subtitles using custom HUD
-Last Modified: 04/04/24
+Last Modified: 09/10/24
 ]]---------------
 
 
@@ -87,15 +87,28 @@ faction_to_colour = {
 }
 
 special_character_faction = {
+    -- Cordon
+    ["Loris"] = "stalker",
+    ["Sidorovich"] = "stalker",
+    -- Garbage
+    ["Butcher"] = "stalker",
+    -- Rostok
     ["Barkeep"] = "stalker",
     ["Snitch"] = "stalker",
+    ["Arnie"] = "stalker",
+    -- Red Forest
+    ["Forester"] = "stalker",
+    -- Jupiter
     ["Hawaiian"] = "stalker",
-    ["Owl"] = "stalker",
+    ["Ashot"] = "freedom",
+    -- Zaton
     ["Nimble"] = "stalker",
-    ["Ashot"] = "csky",
+    ["Beard"] = "stalker",
+    ["Owl"] = "stalker",
+    -- Great Swamps
     ["Professor Kalancha"] = "csky",
+    -- Misc
     ['Senior Sergeant Grebenko'] = "dolg",
-    ["Beard"] = "stalker"
 }
 
 align = {
