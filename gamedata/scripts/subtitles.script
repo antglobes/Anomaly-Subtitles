@@ -1,7 +1,7 @@
 --[[-------------
 Author(s): AntGlobes, Vodoxleb
 Purpose: Subtitles Manager/Controller
-Last Modified: 02/05/24
+Last Modified: 06/10/24
 ]]---------------
 
 
@@ -42,16 +42,17 @@ geo_ray = demonized_geometry_ray.geometry_ray
 vis_ray = demonized_geometry_ray.VisualizeRay
 lerp = demonized_geometry_ray.lerp
 collect_xml_tags = subtitles_utils.collect_xml_tags
-
+get_time_sequence = subtitles_utils.get_time_sequence
+dir_from_pos = subtitles_utils.dir_from_pos
 
 -- Monkey Patches
 base_set_sound_play = xr_sound.set_sound_play
 truncate_by_puncation = subtitles_utils.truncate_by_puncation
 
 -- Constants
-as_version = "v0.9.1"
+as_version = "v0.9.2"
 as_authors = "Antglobes & VodoXleb"
-as_last_update = "06-10-24"
+as_last_update = "09-10-24"
 SUBTITLE_PREFIX = "as_sub_%s"
 HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
 default_name = "st_noise"
@@ -113,8 +114,9 @@ function requeue(value)
 	resume_queue()
 end
 
-function peek()
-	return queue[queue_length()]
+function peek(idx)
+	local i = idx or queue_length()
+	return queue[i]
 end
 
 function sort_queue()
@@ -132,8 +134,17 @@ function sort_queue()
 		return b["priority"] > a["priority"]
 	end
 
+	if not queue_has_entries() then return end
 	table.sort(queue, by_distance)
-	table.sort(queue, by_priority)
+	--table.sort(queue, by_priority)
+end
+
+function itr_queue(func, ...)
+	if not queue_has_entries() then return end	
+	for i=1, queue_length() do
+		local entry = peek(i)
+		if entry then func(i, entry, ...) end
+	end
 end
 
 function print_queue()
@@ -175,6 +186,19 @@ function is_queue_suspended()
 	return SUSPEND_QUEUE
 end
 
+function is_next_speaker_different(current_speaker_id)
+	local idx, entry = next(queue)
+	if not entry then return end
+	return current_speaker_id == entry.id
+end
+
+
+function calc_duration_reduction(tm, tkn_num)
+	local reduction = (tm / tkn_num) * 0.95
+	pr("Calculating Duration Reduction: Duration: %s, Reduction: %s, Total Reduction: %s", tm, reduction, reduction * tkn_num)
+	return reduction
+end
+
 function truncate_subtitle(info)
 	local n = 1
 	local infos = {}
@@ -188,7 +212,7 @@ function truncate_subtitle(info)
 				speaker_faction = info["speaker_faction"],
 				subtitle = sub_tokens[i],
 				locale = info["locale"],
-				duration = info["duration"] / #sub_tokens,
+				duration = info["duration"],
 				xml_string_id = info["xml_string_id"],
 				distance = info["distance"],
 				priority = n
@@ -201,13 +225,9 @@ end
 
 function shorten(info)
 	if info["subtitle"] and info["subtitle"] ~= 'nil' and #info["subtitle"] > CHAR_LIMIT then
-		local new_infos = truncate_subtitle(info)
-		for i=1, #new_infos do
-			ask_to_queue(new_infos[i])
-		end
-		return
+		return truncate_subtitle(info)
 	end
-	ask_to_queue(info)
+	return info
 end
 
 function ask_to_queue(info)
@@ -227,11 +247,11 @@ function print_timer()
 end
 
 function build_info(soundname, npc)
-	local is_monster =  npc:is_monster()
+	local is_monster =  get_config("enable_mutant_subs") and npc:is_monster() or false
 	local sect       =  npc:section() or npc:name()
-	local name       =  is_monster and get_mutant_name(sect) or npc:character_name()
-	local icon       =  is_monster and get_mutant_icon(sect) or npc:character_icon()
-	local faction    =  is_monster and default_mutant_name   or npc:character_community() --IsStalker(npc) and npc:character_community() or "monster"
+	local name       =  is_monster and get_mutant_name(sect) or IsStalker(npc) and npc:character_name()
+	local icon       =  is_monster and get_mutant_icon(sect) or IsStalker(npc) and npc:character_icon()
+	local faction    =  is_monster and default_mutant_name   or IsStalker(npc) and npc:character_community() --IsStalker(npc) and npc:character_community() or "monster"
 
 	local info = {
 		["speaker_id"] = npc:id(),
@@ -242,7 +262,7 @@ function build_info(soundname, npc)
 		["locale"] = get_locale(),
 		["duration"] = get_sound_duration(soundname) or 3,
 		["xml_string_id"] = soundname_to_subtitle(soundname, true),
-		["distance"] = dist_to_pos(npc),
+		["distance"] = round_idp(dist_to_pos(npc), 2),
 		["priority"] = queue_length() + 1
 	}
 	return info
@@ -267,7 +287,7 @@ function subtitle_him(soundname, npc)
 		local info = build_info(soundname, npc)
 		if not verify_subtitle(info) then return end
 		if not calc_hear_chance(npc) then return end
-		shorten(info)
+		ask_to_queue(info)
 	end
 end
 
@@ -363,7 +383,6 @@ function display_subtitles(info)
 	end
 
 	set_debug_level("dl_all")
-	pr("Printing to console")
 	print_info(info)
 end
 
@@ -403,26 +422,60 @@ function process_queue()
 		set_debug_level("dl_all")
 		-- queue timer
 		if queue_has_entries() then
-			pr("Processing Queue")	
-			
+			pr("Processing Queue")
 			if tg > tmr then
 				local info = dequeue()
 				--if not verify_subtitle(info) then return end
-				
-				-- Set delay so next subtitle is shown after current
-				local old_tmr = tmr
-				tmr = ((info["duration"] + hear_cooldown ) * 1000) + tg
-				pr("New Sub Timer: %s +  %s seconds", old_tmr, ((tmr) - tg)/1000)
-				
+				if not info then return end		
 				-- Check if npc is alive 
 				local npc = get_unknown_object({id=info["speaker_id"]}, "game")
-
-				if not (npc and npc.alive and npc:alive()) then
-					if not contains(subtitle_info_tbl.recent_npc_deaths, info["speaker_id"]) then 
+				if npc then
+					-- Assuming that the NPC has died either recently or for a while and said something whilst dying; in both cases still has subs left to process
+					if not (npc.alive and npc:alive()) then
+						if not contains(subtitle_info_tbl.recent_npc_deaths, info["speaker_id"]) then
+							-- Bulk Remove Subs with same id
+							local function query(idx, entry, speaker_id) 
+								if entry and entry["speaker_id"] == speaker_id then
+									pr("Removing sub from %s from queue", entry["speaker_name"])
+									queue[idx] = nil
+								end 
+							end
+							itr_queue(query, info["speaker_id"])
+							tmr = 0
+							return 
+						end
+						-- NPC Death is no longer recent so remove it
+						update_recent_npc_deaths(info["speaker_id"])					
+					end
+					-- If Player is moving away from the speaker but is not within distance to hear it don't display sub 
+					local curr_dist = dist_to_pos(npc)
+					local og_dist = info["distance"]
+					if curr_dist > og_dist and (curr_dist - og_dist) > hear_dist then
+						sort_queue()
+						pr("Current Distance: %s, Original Distance: %s", curr_dist, og_dist) 
 						return
 					end
-					update_recent_npc_deaths(info["speaker_id"])
 				end
+
+				-- If next subtitle is the same speaker, delay it otherwise process it
+
+				-- get_config("enable_news_manager") and info["duration"] or calc_duration_reduction(info["duration"], #sub_tokens), if not is_next_speaker_different(info["speaker_id"]) then
+				local duration = info["duration"]
+				local new_infos = shorten(info)
+				if #new_infos > 1 then
+					-- same speaker
+					--  tmr = (( (info["duration"]/#info) + hear_cooldown ) * 1000) + tg	
+					local delays = get_time_sequence(duration/#new_infos, #new_infos)
+					for idx, info in pairs(new_infos) do
+						CreateTimeEvent("subtitles_queue"..math.random(1,1000), "bulk_speaker"..math.random(1,1000), delays[idx], 
+						function(info)
+							display_subtitles(info)
+							return true
+						end, info)
+					end
+					return
+				end
+				new_infos = info
 
 				display_subtitles(info)
 				return
@@ -454,7 +507,6 @@ end
 
 function parse_special_soundname(soundname)
 	set_debug_level("dl_all")
-	pr("Parsing Special Soundname")
 	if string.find(soundname, "story_story") then
 		soundname = string.sub(soundname, 1, #soundname - 1)
 	elseif string.find(soundname, "human_music") then
@@ -468,7 +520,6 @@ function parse_special_soundname(soundname)
 			soundname = string.sub(soundname, 1, #soundname - 1)..math.random(4, 5)
 		end
 	end
-	pr("Parsed Story Soundname: %s", soundname)
 	return soundname
 end
 
@@ -527,7 +578,6 @@ function get_speaker_icon(info)
 		manual_loc = string.find(info["locale"], "eng") and "eng_uk" or info["locale"]
 		speaker_icon = ini_news_tips:r_value("news_tips_icons", info["locale"]) or "ui_icon_news_tip_subtitle_".. manual_loc
 	end
-	pr("Speaker Icon:%s", speaker_icon)
 	return speaker_icon
 end
 
@@ -640,13 +690,9 @@ function calc_hear_chance(npc, display_time)
 	local dist_to_head = 1.75
 	local show_ray = get_config("enable_debug") and get_config("debug_level") == "dl_all"
 
-	local actor_dir = db.actor:direction()
-	local npc_dir = npc:direction()
-	local msi_dir = vector():set(lerp(actor_dir.x, npc_dir.x), lerp(actor_dir.y, npc_dir.y), lerp(actor_dir.z, npc_dir.z))
-	
 	local info = shoot_ray({
-		pos = vector():set(start_pos.x, start_pos.y +dist_to_head, start_pos.z), 
-		dir = msi_dir,
+		pos = vector():set(start_pos.x, start_pos.y, start_pos.z), 
+		dir = dir_from_pos(end_pos, start_pos),
 		range = dist_to_pos(db.actor, end_pos),
 		vis = show_ray,
 		contact = 0.1,
@@ -654,8 +700,9 @@ function calc_hear_chance(npc, display_time)
 		ignore_actor = true
 	})
 	if is_empty(info["material"]) then return true end
-	pr("Hear Chance: %s", hear_chance)
-	return round(info["material"].of * 100) < hear_chance
+	if string.find(info["material"].name, "fake") then return true end
+	pr("Is %s greater than of in range (%s-100)", hear_chance, round(info["material"].of * 100))
+	return hear_chance >= math.random(round(info["material"].of * 100), 100)
 end
 
 function set_recent_npc_deaths(npc, who)
@@ -813,7 +860,7 @@ function on_option_change()
 	subs_enabled = get_config("enable_subs")
 	min_hear_dist = get_config("hear_dist")
 	hear_cooldown = get_config("hear_cooldown")
-	hear_dist = min_hear_dist
+	hear_dist = min_hear_dist <= 35 and min_hear_dist or 25
 end
 
 function on_game_start()
