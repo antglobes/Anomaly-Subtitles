@@ -73,6 +73,7 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.8.4 (Fixed v0.8.4) Incorrect solution for calculating hearing distance; equipping/removing headgear/NVGs.
 - v0.8.5 (Fixed v0.9.0) Incorrect Pattern Matching for Unusual soundnames, Ignore Setting/Resetting Distance on item pickup or drop from inventory.
 - v0.9.0 (Fixed v0.9.1) Prevent Setting Hearing Distance until setup complete
+- v0.9.1 (Fixed v0.10.0-alpha) Included More Special Characters
   
 ## Changelog
 - v0.5.2 Base Version
@@ -93,3 +94,4 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.8.5 Ray Shown Only at higher debug levels, Hearing Distance and Truncation Token Duplicate Fix.
 - v0.9.0 Hear Chance Calculation Altered, Helmet Condition Effects Total Multiplier, Equip Table Multiplier Values Lowered, Subtitles Removed if Timer Expired, Ignore/Remove Subtitles After NPC Death.
 - v0.9.1 Prevent Setting Hearing Distance until setup complete
+- v0.10.0-alpha Bulk Remove Dead NPC Subtitles, Active Hear Distance Check, Rework: Displaying Shorten Subtitles via News Manager; Material Ray Direction via Position, MCM Option: Enable Mutant Subtitles.

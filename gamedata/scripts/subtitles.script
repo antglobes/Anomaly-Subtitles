@@ -546,13 +546,13 @@ function sort_mutant_sect_to_generic()
 	end
 end
 
-function collect_icon_textures()
-	set_debug_level("dl_all")
+function collect_icon_textures()	
 	local icon_textures = {}
 	local parser = utils_xml.XmlParser
 	for idx, file in pairs(icon_texture_files) do
 		pr("Collecting Icon Textures from: %s", file)
 		icon_textures[idx] = collect_xml_tags(subtitles_utils.get_path("ui\\"..file..".xml"))
+		set_debug_level("dl_all")
 		pr("Icon Textures: %s", print_table(icon_textures[idx], true))
 	end
 	icon_texture_tbl = icon_textures

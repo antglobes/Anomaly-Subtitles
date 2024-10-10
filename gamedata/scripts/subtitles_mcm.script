@@ -73,15 +73,11 @@ function on_mcm_load()
 				}
 			},
 			{id="font_opacity", type="track", val=2, min=0, max=255, step=1, def=255, precondition={using_news_manager}},
-			{id="font_kind", type="list", val=0, def="fk_graff22", precondition={using_news_manager},
+			{id="font_kind", type="list", val=0, def="fk_med", precondition={using_news_manager},
 				content={
-					{"fk_small", "fk_small"},
 					{"fk_med", "fk_med"},
 					{"fk_di", "fk_di"},
 					{"fk_let16", "fk_let16"},
-					{"fk_let18", "fk_let18"},
-					{"fk_graff19", "fk_graff19"},
-					{"fk_graff22", "fk_graff22"},
 				}
 			},
 			{id="font_alignment", type="list", val=0, def="fa_l", precondition={using_news_manager},
