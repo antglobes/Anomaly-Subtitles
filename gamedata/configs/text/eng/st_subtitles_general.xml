@@ -161,7 +161,7 @@
         <text>Turn on Subtitles</text>
     </string>
     <string id="ui_mcm_subtitles_enable_mutant_subs">
-        <text>Enable Mutant Subtitles</text>
+        <text>Enable Mutant Subtitles (Not Implemented)</text>
     </string>
     <string id="ui_mcm_subtitles_enable_debug">
         <text>Enable Debugging</text>
@@ -179,7 +179,7 @@
         <text>Display Subtitles via News Manager</text>
     </string>
     <string id="ui_mcm_subtitles_use_localization">
-        <text>Use Localization (Instead of Speaker Icon)</text>
+        <text>Use Localization As Speaker Icon</text>
     </string>
     <string id="ui_mcm_enable_news_manager">
         <text>Enable News Manager (Disables Subtitle HUD)</text>

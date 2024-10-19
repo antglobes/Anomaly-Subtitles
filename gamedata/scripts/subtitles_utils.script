@@ -119,6 +119,24 @@ end
 	String Mainpulation Functions	
 ]]
 
+--- Returns XML valid colour string 
+---@param any
+function get_colour_string(name, str)
+    return strformat("%c[%s]%s", name, str)
+end
+
+function capitalise(str)
+    return (str:gsub("^%l", string.upper))
+end
+
+function sentence_case(str)
+    local sentence = ""
+     for word in string.gmatch(str, "%S+") do
+        sentence = sentence.." ".. capitalise(word)
+     end
+    return sentence
+end
+
 function list_pattern_occurances(str, pattern, limit)
 	s = {}
 	local function search(tbl, str, substr, callback, init)
@@ -499,17 +517,13 @@ function dir_from_pos(pos_end, pos_start)
 end
 
 
-function get_time_sequence(tm, seq_len)
-	local seq = {}
-	for i=1, seq_len do
-        if i == 1 then
-            seq[i] = 0
-        else
-            seq[i] = tm / i
-        end
+function subtitle_delay(tm, seq_len)
+	local delays = {0}  
+	for i=2, seq_len do
+	  delays[i] = (tm/seq_len) * (i - 1)
 	end
-	return seq
-end
+	return delays
+  end
 
 --[[
 	Game and Server Object Functions
@@ -799,6 +813,116 @@ end
 --[[
 	Tables
 ]]
+clr_table = {
+    -- Additional Colours
+    ["black"]       = {0, 0, 0},
+    ["blue"]        = {34, 106, 226},
+    ["magenta"]     = {209, 74, 169},
+
+    -- Base Game Colours
+	["white"]       = {255,255,255},
+	["green"]       = {0,255,0},
+	["yellow"]      = {255,255,0},
+	["red"]         = {255,0,0},
+	["orange"]      = {250,150,0},
+	["d_orange"]    = {238,153,26},
+	["d_red"]       = {204,0,51},
+	["d_cyan"]      = {153,255,255},
+	["d_purple"]    = {93,0,116},
+	["d_green"]     = {51,255,102},
+	["d_blue"]      = {100,100,255},	
+	["ui_gray_1"]   = {170,170,170},
+	["ui_gray_2"]   = {140,140,140},
+	["pda_green"]   = {56,209,115},
+	["pda_blue"]    = {56,166,209},
+	["pda_yellow"]  = {209,209,56},
+	["pda_white"]   = {250,250,250},
+}
+
+clr_table_opacity = {
+    -- Additional Colours
+    ["black"]       = function(opacity) return GetARGB(opacity, 0, 0, 0) end,
+    ["blue"]        = function(opacity) return GetARGB(opacity, 34, 106, 226) end,
+    ["magenta"]     = function(opacity) return GetARGB(opacity, 209, 74, 169) end,
+
+    -- Base Game Colours
+	["white"]       = function(opacity) return GetARGB(opacity,255,255,255) end,
+	["green"]       = function(opacity) return GetARGB(opacity,0,255,0) end,
+	["yellow"]      = function(opacity) return GetARGB(opacity,255,255,0) end,
+	["red"]         = function(opacity) return GetARGB(opacity,255,0,0) end,
+	["orange"]      = function(opacity) return GetARGB(opacity,250,150,0) end,
+	["d_orange"]    = function(opacity) return GetARGB(opacity,238,153,26) end,
+	["d_red"]       = function(opacity) return GetARGB(opacity,204,0,51) end,
+	["d_cyan"]      = function(opacity) return GetARGB(opacity,153,255,255) end,
+	["d_purple"]    = function(opacity) return GetARGB(opacity,93,0,116) end,
+	["d_green"]     = function(opacity) return GetARGB(opacity,51,255,102) end,
+	["d_blue"]      = function(opacity) return GetARGB(opacity,100,100,255) end,	
+	["ui_gray_1"]   = function(opacity) return GetARGB(opacity,170,170,170) end,
+	["ui_gray_2"]   = function(opacity) return GetARGB(opacity,140,140,140) end,
+	["pda_green"]   = function(opacity) return GetARGB(opacity,56,209,115) end,
+	["pda_blue"]    = function(opacity) return GetARGB(opacity,56,166,209) end,
+	["pda_yellow"]  = function(opacity) return GetARGB(opacity,209,209,56) end,
+	["pda_white"]   = function(opacity) return GetARGB(opacity,250,250,250) end,
+}
+
+faction_to_colour_opacity = {
+    ["stalker"]     = function(opacity) return GetARGB(opacity, 241, 196, 15) end,
+    ["csky"]        = function(opacity) return GetARGB(opacity, 0, 191, 255) end,
+    ["bandit"]      = function(opacity) return GetARGB(opacity, 194, 125, 14) end,
+    ["army"]        = function(opacity) return GetARGB(opacity, 118, 139, 5) end,
+    ["killer"]      = function(opacity) return GetARGB(opacity, 61, 104, 145) end,
+    ["monolith"]    = function(opacity) return GetARGB(opacity, 33, 148, 150) end,
+    ["ecolog"]      = function(opacity) return GetARGB(opacity, 122, 199, 184)end,
+    ["dolg"]        = function(opacity) return GetARGB(opacity, 178, 34, 34) end,
+    ["freedom"]     = function(opacity) return GetARGB(opacity, 34, 139, 34) end,
+    ["greh"]        = function(opacity) return GetARGB(opacity, 14, 1, 1) end,
+    ["renegade"]    = function(opacity) return GetARGB(opacity, 168, 67, 0) end,
+    ["isg"]         = function(opacity) return GetARGB(opacity, 184, 102, 135) end,
+    ["monster"]     = function(opacity) return GetARGB(opacity, 74, 46, 16) end,
+    ["default"]     = function(opacity) return GetARGB(opacity, 250, 250, 250) end,
+}
+
+faction_to_colour = {
+    ["stalker"]     = {241, 196, 15},
+    ["csky"]        = {0, 191, 255},
+    ["bandit"]      = {194, 125, 14},
+    ["army"]        = {118, 139, 5},
+    ["killer"]      = {61, 104, 145},
+    ["monolith"]    = {33, 148, 150},
+    ["ecolog"]      = {122, 199, 184},
+    ["dolg"]        = {178, 34, 34},
+    ["freedom"]     = {34, 139, 34},
+    ["greh"]        = {14, 1, 1},
+    ["renegade"]    = {168, 67, 0},
+    ["isg"]         = {184, 102, 135},
+    ["monster"]     = {74, 46, 16},
+    ["default"]     = {250, 250, 250},
+}
+
+special_character_faction = {
+    -- Cordon
+    ["Loris"] = "stalker",
+    ["Sidorovich"] = "stalker",
+    -- Garbage
+    ["Butcher"] = "stalker",
+    -- Rostok
+    ["Barkeep"] = "stalker",
+    ["Snitch"] = "stalker",
+    ["Arnie"] = "stalker",
+    -- Red Forest
+    ["Forester"] = "stalker",
+    -- Jupiter
+    ["Hawaiian"] = "stalker",
+    ["Ashot"] = "freedom",
+    -- Zaton
+    ["Nimble"] = "stalker",
+    ["Beard"] = "stalker",
+    ["Owl"] = "stalker",
+    -- Great Swamps
+    ["Professor Kalancha"] = "csky",
+    -- Misc
+    ['Senior Sergeant Grebenko'] = "dolg",
+}
 
 equipment_tbl = {
 	-- ["device_torch_dummy"] =  {equip_type="device",  material="cotton",   multiplier=0.9 },

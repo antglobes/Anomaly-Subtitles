@@ -42,17 +42,19 @@ geo_ray = demonized_geometry_ray.geometry_ray
 vis_ray = demonized_geometry_ray.VisualizeRay
 lerp = demonized_geometry_ray.lerp
 collect_xml_tags = subtitles_utils.collect_xml_tags
-get_time_sequence = subtitles_utils.get_time_sequence
+subtitle_delay = subtitles_utils.subtitle_delay
 dir_from_pos = subtitles_utils.dir_from_pos
+special_character_faction = subtitles_utils.special_character_faction
+exclude_str = subtitles_utils.exclude_str
+truncate_by_puncation = subtitles_utils.truncate_by_puncation
 
 -- Monkey Patches
 base_set_sound_play = xr_sound.set_sound_play
-truncate_by_puncation = subtitles_utils.truncate_by_puncation
 
 -- Constants
-as_version = "v0.9.2"
+as_version = "v0.10.0"
 as_authors = "Antglobes & VodoXleb"
-as_last_update = "09-10-24"
+as_last_update = "19-10-24"
 SUBTITLE_PREFIX = "as_sub_%s"
 HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
 default_name = "st_noise"
@@ -70,6 +72,9 @@ icon_texture_tbl = {}
 icon_texture_files = {"ui_as_actor_portraits"}
 ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
 ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
+
+-- Tables
+mcm_prefix = {"bc_", "fc_", "fk_", "fa_"}
 
 -- DEBUGGING
 local dbg_lvl = "dl_dev"
@@ -191,7 +196,6 @@ function is_next_speaker_different(current_speaker_id)
 	if not entry then return end
 	return current_speaker_id == entry.id
 end
-
 
 function calc_duration_reduction(tm, tkn_num)
 	local reduction = (tm / tkn_num) * 0.95
@@ -369,21 +373,24 @@ end
 --- Determine which display system to show subtitles in
 ---@param info table
 function display_subtitles(info)
-	set_debug_level("dl_dev")
-	local debug_enabled = get_config("enable_debug")
-	
-	if get_config("enable_news_manager") then
-		pr("Using News Manager for Subtitles")
-		dynamic_news_helper.send_tip(info["subtitle"], info["speaker_name"], 0, info["duration"], get_speaker_icon(info), "news", "npc")
-		db.actor:give_info_portion(info["xml_string_id"])
+	send_tip(info)
+	if debug_enabled then set_debug_level("dl_all") print_info(info) end
+end
 
-	elseif get_config("enable_subs") then
-		pr("Using Subtitles HUD")
-		activate_subtitles(info) 
-	end
+function send_tip(info)
+	if not db.actor then return end
+	local faction = info["speaker_faction"]
+	local speaker = info["speaker_name"]
+	local subtitle = info["subtitle"]
+	local timeout = info["timeout"] or 0
 
-	set_debug_level("dl_all")
-	print_info(info)
+	local header = strformat("%s: %s", subtitles_utils.capitalise(faction), speaker)
+	local msg = subtitle
+	local sender = get_speaker_icon(info)
+	db.actor:give_game_news(header, msg, sender, timeout*1000, info["duration"]*1000)
+	db.actor:give_info_portion(info["xml_string_id"])	
+	set_debug_level("dl_player")
+    pr('"%s" from %s faction said "%s" for %s seconds', speaker, faction, subtitle, info["timeout"])
 end
 
 function process_queue()
@@ -422,7 +429,7 @@ function process_queue()
 		set_debug_level("dl_all")
 		-- queue timer
 		if queue_has_entries() then
-			pr("Processing Queue")
+			pr("Processing Queue. Current Timer: %s", tmr)
 			if tg > tmr then
 				local info = dequeue()
 				--if not verify_subtitle(info) then return end
@@ -457,6 +464,8 @@ function process_queue()
 					end
 				end
 
+
+				
 				-- If next subtitle is the same speaker, delay it otherwise process it
 
 				-- get_config("enable_news_manager") and info["duration"] or calc_duration_reduction(info["duration"], #sub_tokens), if not is_next_speaker_different(info["speaker_id"]) then
@@ -464,19 +473,28 @@ function process_queue()
 				local new_infos = shorten(info)
 				if #new_infos > 1 then
 					-- same speaker
-					--  tmr = (( (info["duration"]/#info) + hear_cooldown ) * 1000) + tg	
-					local delays = get_time_sequence(duration/#new_infos, #new_infos)
+					--  tmr = {( (info["duration"]/#info) + hear_cooldown ) * 1000) + tg
+					set_debug_level("dl_dev")
+					local delays = subtitle_delay(duration, #new_infos)
+					local display_end = (delays[#new_infos] * 1000) + time_global()
+					pr("Started Displaying at: %s, Estimated Display end: %s, Total Subtitle Duration: %s", time_global(), display_end, duration)
 					for idx, info in pairs(new_infos) do
+						info.timeout = info.duration
+						info.duration = info.duration - delays[idx] 
+						
+						pr("Displaying %s's Shortened Subtitle in %s seconds, Expected at: %s", idx, delays[idx], (delays[idx] * 1000) + time_global())
 						CreateTimeEvent("subtitles_queue"..math.random(1,1000), "bulk_speaker"..math.random(1,1000), delays[idx], 
 						function(info)
+							set_debug_level("dl_dev")
 							display_subtitles(info)
+							pr("Displaying at: %s", time_global())
 							return true
 						end, info)
 					end
 					return
 				end
 				new_infos = info
-
+				info.timeout = duration
 				display_subtitles(info)
 				return
 			
@@ -546,18 +564,6 @@ function sort_mutant_sect_to_generic()
 	end
 end
 
-function collect_icon_textures()	
-	local icon_textures = {}
-	local parser = utils_xml.XmlParser
-	for idx, file in pairs(icon_texture_files) do
-		pr("Collecting Icon Textures from: %s", file)
-		icon_textures[idx] = collect_xml_tags(subtitles_utils.get_path("ui\\"..file..".xml"))
-		set_debug_level("dl_all")
-		pr("Icon Textures: %s", print_table(icon_textures[idx], true))
-	end
-	icon_texture_tbl = icon_textures
-end
-
 function get_mutant_name(sect)
 	set_debug_level("dl_all")
 	if not sect then return end
@@ -574,9 +580,11 @@ end
 function get_speaker_icon(info)
 	set_debug_level("dl_dev")
 	speaker_icon = info["speaker_icon"]
-	if get_config("use_localization") then
+	if get_config("enable_speaker_icon") and get_config("use_localization") then
 		manual_loc = string.find(info["locale"], "eng") and "eng_uk" or info["locale"]
 		speaker_icon = ini_news_tips:r_value("news_tips_icons", info["locale"]) or "ui_icon_news_tip_subtitle_".. manual_loc
+	elseif get_config("enable_speaker_icon") then
+		return default_icon
 	end
 	return speaker_icon
 end
@@ -688,7 +696,7 @@ function calc_hear_chance(npc, display_time)
 	local start_pos = db.actor:position()
 	local end_pos = npc:position()
 	local dist_to_head = 1.75
-	local show_ray = get_config("enable_debug") and get_config("debug_level") == "dl_all"
+	local show_ray = debug_enabled and get_config("debug_level") == "dl_all"
 
 	local info = shoot_ray({
 		pos = vector():set(start_pos.x, start_pos.y, start_pos.z), 
@@ -817,7 +825,7 @@ function info_binos(obj)
 end
 
 function enable_dev_tools(name)
-	if not get_config("enable_debug") then return end
+	if not debug_enabled then return end
 	if name == "UIZoom" then
 		info_binos(db.actor:active_item())
 	end
@@ -838,10 +846,22 @@ function anomaly_subtitles_info()
 	printf("---------------------------------")
 end
 
+function collect_icon_textures()	
+	local icon_textures = {}
+	for idx, file in pairs(icon_texture_files) do
+		pr("Collecting Icon Textures from: %s", file)
+		icon_textures[idx] = collect_xml_tags(subtitles_utils.get_path("ui\\"..file..".xml"))
+		set_debug_level("dl_all")
+		pr("Icon Textures: %s", print_table(icon_textures[idx], true))
+	end
+	icon_texture_tbl = icon_textures
+end
+
 function setup()
 	anomaly_subtitles_info()
 	sort_mutant_sect_to_generic()
 	collect_icon_textures()
+	on_option_change()
 	setup_completed = true
 end
 
@@ -857,10 +877,13 @@ function on_load(mdata)
 end
 
 function on_option_change()
+	set_debug_level("dl_player")
+	pr("Loading MCM Options")
 	subs_enabled = get_config("enable_subs")
 	min_hear_dist = get_config("hear_dist")
 	hear_cooldown = get_config("hear_cooldown")
 	hear_dist = min_hear_dist <= 35 and min_hear_dist or 25
+	debug_enabled = get_config("enable_debug")
 end
 
 function on_game_start()
@@ -875,6 +898,5 @@ function on_game_start()
 	RegisterScriptCallback("GUI_on_show", enable_dev_tools)
 	RegisterScriptCallback("save_state", on_save)
 	RegisterScriptCallback("load_state", on_load)
-	on_option_change()
-	collect_icon_textures()
+	-- on_option_change()
 end
