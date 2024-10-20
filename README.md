@@ -11,12 +11,12 @@
 - Using an engine patch, there is now a callback "on_phrase_callback" that whenever an npc makes a sound
   the path-name and the npc game object, from that depending on the MCM option the subtitle is displayed
   via the news manager or a customisable HUD with a few options for accessibility
-  - If using news manager + localisation mcm options and the flag you want isn't showing replace "eng" with any field in gamedata\configs\plugins\mod_news_tips_icons_as.ltx.
-- With either way of displaying the subtitles, they are processed in a fifo(first in first out) queue. It's sorted based on the npc's distance to the player with the closest speaker taking highest priority. More filtering options to be added.
+- xr_sound is also monkey-patched and subtitle info is gathered similar to the prior process.
+- If using localisation mcm options and the flag you want isn't showing replace "eng" with any field in gamedata\configs\plugins\mod_news_tips_icons_as.ltx.
 
 ## How it's built
 - 6 Variables are used to build a table used to assit with how long it's shown, the contents of the subtitle, who said the subtitle, an icon to identify the speaker, the localisation (if needed) and the speakers faction.
-- Speaker Name, Speaker Icon, Speaker Faction, Subtitle, Locale, Duration
+- Speaker Name, Speaker Icon, Speaker Faction, Subtitle, Locale, Duration, Distance
 - If your addon itself or other addons that you have in M02, includes icons that are assigned to the npc's character description file and you are wanting to add them; you just need to append the table "icon_textures_files" with the corresponding "configs\ui\ui_<addon_name>_.xml" name without the suffix or parent folders include.
   
 ## Adding your own Subtitles
@@ -61,7 +61,7 @@
 - Lucy, xcvb, mrdemonized, SimplyLeo (Vinci).
   
 ## Known Issues
-Example: Version with issues (Version with issues fixed) Reason for issues occuring.
+- Version with issues (Version with issues fixed) Reason for issues occuring.
 - v0.5.2+ (Fixed in v0.6.0) Subtitles HUD not showing due to removed mcm opt meaning continous nil variable.
 - v0.6.0 (Fixed in v0.6.1) Certain npc portraits are missing causing CTD.
 - v0.5.2+ (Fixed in v0.6.2) Cooldown mcm option was present but not being applied during queue processing.
@@ -74,7 +74,8 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.8.5 (Fixed v0.9.0) Incorrect Pattern Matching for Unusual soundnames, Ignore Setting/Resetting Distance on item pickup or drop from inventory.
 - v0.9.0 (Fixed v0.9.1) Prevent Setting Hearing Distance until setup complete
 - v0.9.1 (Fixed v0.10.0-alpha) Included More Special Characters
-  
+- v0.6.1 (Fixed v0.10.0) HUD(UI) HUD blocks other subtitles being shown, Scrapped Completely.
+
 ## Changelog
 - v0.5.2 Base Version
 - v0.5.3 Active Dialog/Inventory Opened Prevents queue processing, NPC Distance based queue .priority, Exclude Silent Subtitles, Inclusion of Trader Faction, Reworked HUD Activation.
@@ -95,3 +96,4 @@ Example: Version with issues (Version with issues fixed) Reason for issues occur
 - v0.9.0 Hear Chance Calculation Altered, Helmet Condition Effects Total Multiplier, Equip Table Multiplier Values Lowered, Subtitles Removed if Timer Expired, Ignore/Remove Subtitles After NPC Death.
 - v0.9.1 Prevent Setting Hearing Distance until setup complete
 - v0.10.0-alpha Bulk Remove Dead NPC Subtitles, Active Hear Distance Check, Rework: Displaying Shorten Subtitles via News Manager; Material Ray Direction via Position, MCM Option: Enable Mutant Subtitles.
+- v0.10.0 Scrapped Custom UI, Fix for subtitle timing, Using just news manager for UI, Removed MCM Options.

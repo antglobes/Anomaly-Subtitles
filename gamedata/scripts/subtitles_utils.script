@@ -1,7 +1,7 @@
 --[[-------------
 Author(s): AntGlobes
 Purpose: Utils
-Last Modified: 09/10/24
+Last Modified: 20/10/24
 ]]---------------
 
 --[[
@@ -289,7 +289,6 @@ function remove_duplicate_values(tbl)
 end	 
 
 function get_punc_occurances(str, char_limit)
-	pr("Getting Puncutation Occurances in %s", str)
 	-- Find all occurances of pattern if pattern exists in string
 		-- Collect every occurances index
 		-- Split string from start of string until occurance index
@@ -391,6 +390,16 @@ end
 --[[
 	Table Functions
 ]]
+function table_slice(tbl, first, last, step)
+	local sliced = {}
+  
+	for i = first or 1, last or #tbl, step or 1 do
+	  sliced[#sliced+1] = tbl[i]
+	end
+  
+	return sliced
+end
+
 function get_keytable(tbl)
     local kt = {}
 	idx = 0
