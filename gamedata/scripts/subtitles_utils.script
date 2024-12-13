@@ -95,6 +95,8 @@ function contains(tbl, key, by_key, return_value, return_idx)
     return false
 end
 
+
+
 function is_ui_open()
 	return inventory_opened
 end

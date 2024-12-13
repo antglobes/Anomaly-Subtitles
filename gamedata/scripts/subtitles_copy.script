@@ -1,7 +1,7 @@
 --[[-------------
 Author(s): AntGlobes, Vodoxleb
 Purpose: Subtitles Manager/Controller
-Last Modified: 13/12/24
+Last Modified: 05/12/24
 ]]---------------
 
 
@@ -53,14 +53,14 @@ base_set_sound_play = xr_sound.set_sound_play
 
 -- Constants
 as_version = "v0.10.0"
-as_authors = "Antglobes %& VodoXleb"
-as_last_update = "20-10-24"
+as_authors = "Antglobes & VodoXleb"
+as_last_update = "05-12-24"
 SUBTITLE_PREFIX = "as_sub_%s"
 HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
 default_name = "st_noise"
 default_mutant_name = "monster"
 default_icon = "ui_iconsTotal_grouping"
-CHAR_LIMIT = 100
+CHAR_LIMIT = 80
 max_hear_dist = 180
 SUSPEND_SUBS = false
 setup_completed = false
@@ -126,16 +126,14 @@ function subtitle_him(soundname, npc)
 end
 
 function xr_sound.set_sound_play(npc_id, sound, faction, point)
+	base_set_sound_play(npc_id, sound, faction, point)
 	local npc = get_unknown_object({id=npc_id}, "game")
 	if npc then
-		local soundname = ini_script_sound:r_string_ex(sound, "path")
-		if not has_translation(strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))) then
-			base_set_sound_play(npc_id, sound, faction, point)
-			return
+		local soundname = ini_script_sound:r_string_ex(sound, "path") or sound
+		if soundname ~= nil and has_translation(strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))) then
+			subtitle_him(soundname, npc)
 		end
-		subtitle_him(soundname, npc)
 	end
-	base_set_sound_play(npc_id, sound, faction, point)
 end
 
 -- Subtitle Controllers
@@ -205,7 +203,7 @@ function display_subtitles(info)
 	local faction = info["speaker_faction"]
 	local speaker = info["speaker_name"]
 	local subtitle = info["subtitle"]
-	local timeout = info["timeout"] or 0.1
+	local timeout = info["timeout"] or 0
 
 	local header = strformat("%s: %s", subtitles_utils.capitalise(faction), speaker)
 	local msg = subtitle
@@ -213,7 +211,7 @@ function display_subtitles(info)
 	db.actor:give_game_news(header, msg, sender, timeout*1000, info["duration"]*1000)
 	db.actor:give_info_portion(info["xml_string_id"])	
 	set_debug_level("dl_player")
-    pr('"%s" from %s faction said "%s" for %s seconds', speaker, faction, subtitle, info["duration"])
+    pr('"%s" from %s faction said "%s" for %s seconds', speaker, faction, subtitle, info["timeout"])
 	if debug_enabled then set_debug_level("dl_all") print_info(info) end
 end
 
@@ -257,6 +255,7 @@ function process_info(info)
 			pr("Started Displaying at: %s, Estimated Display end: %s, Total Subtitle Duration: %s", time_global(), display_end, duration)
 			for idx, info in pairs(new_infos) do
 				pr("Displaying %s's Shortened Subtitle in %s seconds, Expected at: %s", idx, delays[idx], (delays[idx] * 1000) + time_global())
+				info.timeout = delays[(#delays + 1) - idx]
 				info.duration = duration - delays[idx]
 				CreateTimeEvent("subtitles_queue"..math.random(1,1000), "bulk_speaker"..math.random(1,1000), delays[idx], 
 					function(info)
@@ -316,30 +315,15 @@ end
 function truncate_subtitle(info)
 	local n = 1
 	local infos = {}
-	local sub_tokens = truncate_by_puncation(info["subtitle"], 80)
-
-	local group_subs = false
-	for i=1, #sub_tokens do
-		if #sub_tokens[i] >= CHAR_LIMIT then
-			group_subs = true
-		end
-	end
-	
+	local sub_tokens = truncate_by_puncation(info["subtitle"], CHAR_LIMIT)
 	for i=1, #sub_tokens do
 		if sub_tokens[i] then
-			local subtitle = sub_tokens[i]
-			-- Group Sub Tokens 
-			if group_subs and i ~= #sub_tokens and (i + 1) <= #sub_tokens then
-				subtitle = subtitle .. sub_tokens[i + 1]
-				sub_tokens[i + 1] = nil
-			end
-
 			infos[n] = {
 				speaker_id = info["speaker_id"],
 				speaker_name = info["speaker_name"],
 				speaker_icon = info["speaker_icon"],
 				speaker_faction = info["speaker_faction"],
-				subtitle = subtitle,
+				subtitle = sub_tokens[i],
 				locale = info["locale"],
 				duration = info["duration"],
 				xml_string_id = info["xml_string_id"],
