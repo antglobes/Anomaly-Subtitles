@@ -1,7 +1,7 @@
 --[[-------------
 Author(s): AntGlobes, Vodoxleb
 Purpose: Subtitles Manager/Controller
-Last Modified: 13/12/24
+Last Modified: 14/12/24
 ]]---------------
 
 
@@ -54,7 +54,7 @@ base_news_snd = dynamic_news_helper.news_snd
 -- Constants
 as_version = "v0.10.1"
 as_authors = "Antglobes & VodoXleb"
-as_last_update = "13-12-24"
+as_last_update = "14-12-24"
 SUBTITLE_PREFIX = "as_sub_%s"
 HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
 default_name = "st_noise"
@@ -130,9 +130,7 @@ function xr_sound.set_sound_play(npc_id, sound, faction, point)
 	if npc and npc_id ~= AC_ID then
 		local soundname = ini_script_sound:r_string_ex(sound, "path") or sound
 		if soundname ~= nil then
-			subtitle_him(soundname, npc)
-		else
-			subtitles_utils.collect_invalid_subs(soundname, "Invalid xr_sound")		
+			subtitle_him(soundname, npc)	
 		end
 	end
 	base_set_sound_play(npc_id, sound, faction, point)
@@ -190,9 +188,7 @@ function verify_subtitle(info)
 		end
 	end
 
-	set_debug_level("dl_dev")
 	if not verified then		
-		pr("Subtitle not verified: %s", reason)
 		subtitles_utils.collect_invalid_subs(info["xml_string_id"], reason)
 	end
 	return verified 
@@ -459,7 +455,7 @@ function set_hearing_distance(obj)
 		--if obj and (helm and obj:id() ~= helm:id()) or (device and obj:id() ~= device:id()) then return end
 		--if helm ~= no_equip and sect == helm:section() or device ~= no_equip and sect == device:section() then return end
 		pr("Current Hearing Distance: %sm", hear_dist)
-		pr("Helm Equipped: %s", helm ~= no_equip and helm:section() or "no equip")
+		--pr("Helm Equipped: %s", helm ~= no_equip and helm:section() or "no equip")
 		subtitle_info_tbl.hear_equip.sects = subtitle_info_tbl.hear_equip.sects or {sect}
 		subtitle_info_tbl.hear_equip.total_multi = subtitle_info_tbl.hear_equip.total_multi or 1
 
@@ -477,18 +473,18 @@ function set_hearing_distance(obj)
 		hear_dist = new_hear_dist <= 0 and min_hear_dist or new_hear_dist < max_hear_dist and new_hear_dist or max_hear_dist
 		
 		--if not contains(subtitle_info_tbl.hear_equip.sects, sect) then table.insert(subtitle_info_tbl.hear_equip.sects, sect) end
-		pr("Hear Multi: %s", total_multi)
+		--pr("Hear Multi: %s", total_multi)
 		pr("Setting Hearing Distance from %s to %s", old_hear_dist, hear_dist)
 
 		if not contains(subtitle_info_tbl.item_in_slot, sect) then table.insert(subtitle_info_tbl.item_in_slot, sect) end
 		return
 	end
-	pr("%s is not headgear or device", sect)
+	--pr("%s is not headgear or device", sect)
 end
 
 function reset_hearing_distance(obj, to_ruck)
 	set_debug_level("dl_all")
-	pr("%s | %s in slot?: %s", to_ruck and "Moving to ruck" or "Dropping", obj:section(), contains(subtitle_info_tbl.item_in_slot, obj:section()) and "true" or "false")
+	-- pr("%s | %s in slot?: %s", to_ruck and "Moving to ruck" or "Dropping", obj:section(), contains(subtitle_info_tbl.item_in_slot, obj:section()) and "true" or "false")
 	if not is_ui_open() then return end
 	if obj and not (IsHeadgear(obj)) then return end -- or IsItem("device", obj:section())) then return end
 	if not to_ruck and not contains(subtitle_info_tbl.item_in_slot, obj:section()) then return end

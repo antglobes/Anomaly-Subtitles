@@ -1,7 +1,7 @@
 --[[-------------
 Author(s): AntGlobes
 Purpose: Utils
-Last Modified: 20/10/24
+Last Modified: 14/12/24
 ]]---------------
 
 --[[
@@ -908,6 +908,23 @@ faction_to_colour = {
     ["isg"]         = {184, 102, 135},
     ["monster"]     = {74, 46, 16},
     ["default"]     = {250, 250, 250},
+}
+
+faction_to_name = {
+    ["stalker"]     = "stalker",
+    ["csky"]        = "clear sky",
+    ["bandit"]      = "Bandit",
+    ["army"]        = "Army",
+    ["killer"]      = "Mercenary",
+    ["monolith"]    = "Monolith",
+    ["ecolog"]      = "Ecologist",
+    ["dolg"]        = "Duty",
+    ["freedom"]     = "Freedom",
+    ["greh"]        = "Sin",
+    ["renegade"]    = "Renegade",
+    ["isg"]         = "ISG",
+    ["monster"]     = "Mutant",
+    [nil]           = "Unknown",
 }
 
 special_character_faction = {
