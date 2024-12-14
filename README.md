@@ -10,13 +10,13 @@
 ## Displaying Subtitles
 - Using an engine patch, there is now a callback "on_phrase_callback" that whenever an npc makes a sound
   the path-name and the npc game object, from that depending on the MCM option the subtitle is displayed
-  via the news manager or a customisable HUD with a few options for accessibility
+  via the news manager ~~or a customisable HUD~~ with a few options for accessibility
 - xr_sound is also monkey-patched and subtitle info is gathered similar to the prior process.
 - If using localisation mcm options and the flag you want isn't showing replace "eng" with any field in gamedata\configs\plugins\mod_news_tips_icons_as.ltx.
 
 ## How it's built
-- 6 Variables are used to build a table used to assit with how long it's shown, the contents of the subtitle, who said the subtitle, an icon to identify the speaker, the localisation (if needed) and the speakers faction.
-- Speaker Name, Speaker Icon, Speaker Faction, Subtitle, Locale, Duration, Distance
+- 7 Variables are used to build a table used to assit with how long it's shown, the contents of the subtitle, who said the subtitle, an icon to identify the speaker, the localisation (if needed) and the speakers faction.
+- Speaker Name, Speaker Icon, Speaker Faction, Subtitle, Locale, Duration, Distance, xml_id
 - If your addon itself or other addons that you have in M02, includes icons that are assigned to the npc's character description file and you are wanting to add them; you just need to append the table "icon_textures_files" with the corresponding "configs\ui\ui_<addon_name>_.xml" name without the suffix or parent folders include.
   
 ## Adding your own Subtitles
@@ -32,7 +32,7 @@
 - If you feel like you can help out and check the accuracy of the transcriptions/provide relplacements for the nonsensical or incorrect ones please dm or make an issue stating so on the github repo.
 
 ## Subtitles for own mod/addon
-- If you want subtitles for your mod please raise an issue on the github and fill out the form or dm me with a link to your mod via moddb dms and i'll send you what details i'll need from you.
+- If you want subtitles for your mod please raise an issue on the github and ~~fill out the form~~ or dm me with a link to your mod via moddb dms and i'll send you what details i'll need from you.
 
 ## Installation
 ### M02
@@ -58,7 +58,7 @@
 [GNU GPL 3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Credits
-- Lucy, xcvb, mrdemonized, SimplyLeo (Vinci).
+- Lucy, xcvb, mrdemonized, SimplyLeo (Vinci), Meeps (meepysama).
   
 ## Known Issues
 - Version with issues (Version with issues fixed) Reason for issues occuring.
@@ -75,6 +75,7 @@
 - v0.9.0 (Fixed v0.9.1) Prevent Setting Hearing Distance until setup complete
 - v0.9.1 (Fixed v0.10.0-alpha) Included More Special Characters
 - v0.6.1 (Fixed v0.10.0) HUD(UI) HUD blocks other subtitles being shown, Scrapped Completely.
+- v0.10.0 (Fixed v0.10.1) CTD when attemptting to display nil subtitles
 
 ## Changelog
 - v0.5.2 Base Version
@@ -97,3 +98,4 @@
 - v0.9.1 Prevent Setting Hearing Distance until setup complete
 - v0.10.0-alpha Bulk Remove Dead NPC Subtitles, Active Hear Distance Check, Rework: Displaying Shorten Subtitles via News Manager; Material Ray Direction via Position, MCM Option: Enable Mutant Subtitles.
 - v0.10.0 Scrapped Custom UI, Fix for subtitle timing, Using just news manager for UI, Removed MCM Options.
+- v0.10.1 Group Sub Tokens to increase time shown on screen, More Subtitles for 100 Rads located NPCs.
