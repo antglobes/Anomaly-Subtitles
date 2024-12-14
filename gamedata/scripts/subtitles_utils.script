@@ -436,6 +436,7 @@ function collect_existing_icons()
 		end
 		xml = nil
 	end
+	--pr("Icons Found in AS:\n %s", utils_data.print_table(existing_icons))
 end
 
 --[[
@@ -816,7 +817,7 @@ end
 function on_game_start()
 	RegisterScriptCallback("GUI_on_show", function(name, path) set_ui_state(name, path, true) end)
 	RegisterScriptCallback("GUI_on_hide", function(name, path) set_ui_state(name, path) end)
-	RegisterScriptCallback("actor_on_first_update", collect_existing_icons)
+	--RegisterScriptCallback("actor_on_first_update", collect_existing_icons)
 	RegisterScriptCallback("actor_on_net_destroy", print_invalid_strings)
 end
 
@@ -911,8 +912,8 @@ faction_to_colour = {
 }
 
 faction_to_name = {
-    ["stalker"]     = "stalker",
-    ["csky"]        = "clear sky",
+    ["stalker"]     = "Stalker",
+    ["csky"]        = "Clear Sky",
     ["bandit"]      = "Bandit",
     ["army"]        = "Army",
     ["killer"]      = "Mercenary",
@@ -1009,6 +1010,7 @@ special_mutant_pattenrs = {
 	"flesh_02a_normal", "flesh_03a_normal", -- flesh
 	"fracture_29450" -- fracture
 }
+
 
 -- Unusual Subtitle Patterns
 subtitle_patterns = { "fight/fire/fire_,", "fight/attack/attack_,", "fight/attack/attack_many_,",

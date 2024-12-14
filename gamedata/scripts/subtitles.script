@@ -46,6 +46,7 @@ truncate_by_puncation = subtitles_utils.truncate_by_puncation
 table.slice = subtitles_utils.table_slice
 subtitle_patterns = subtitles_utils.subtitle_patterns
 mutant_patterns = subtitles_utils.mutant_patterns
+faction_to_name = subtitles_utils.faction_to_name
 
 -- Monkey Patches
 base_set_sound_play = xr_sound.set_sound_play
@@ -69,7 +70,7 @@ subtitle_info_tbl.hear_equip = {}
 subtitle_info_tbl.item_in_slot = {}
 subtitle_info_tbl.recent_npc_deaths = {}
 icon_texture_tbl = {}
-icon_texture_files = {"ui_as_actor_portraits"}
+icon_texture_files = {"ui_as_actor_portraits", "ui_as_npc_monster"}
 ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
 ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
 
@@ -114,6 +115,7 @@ function subtitle_him(soundname, npc)
 	
 	set_debug_level("dl_all")
 	if not (IsStalker(npc) or IsMonster(npc)) then return end
+	if IsMonster(npc) and not get_config("enable_mutant_subs") then pr("mutant subs disabled") return end
 	--build message according to distance and phrase
 	local npc_dist = round_idp(npc:position():distance_to(db.actor:position()), 2)
 	--pr("hear dist: %s, npc_dist: %s", hear_dist, npc_dist)
@@ -141,7 +143,6 @@ end
 --- Validate contents of info table
 ---@param info table
 function verify_subtitle(info)
-	set_debug_level("dl_dev")
 	local verified = true
 	local reason = ""
 
@@ -153,15 +154,14 @@ function verify_subtitle(info)
 			end
 		elseif k == "speaker_icon" then
 			if v == nil  then
-				reason = strformat("Invalid Speaker Icon: %s", v)
+				reason = strformat("Invalid Speaker Icon: %s is nil", v)
+				verified = false
+			
+			elseif not contains(icon_texture_tbl, v) then
+				reason = strformat("Invalid Speaker Icon: %s is not found in icon texture table", v)
 				verified = false
 			end
-			for idx, icons in pairs(icon_texture_tbl) do
-				if not contains(icons, v) then
-					reason = strformat("Invalid Speaker Icon: %s", v)
-					verified = false
-				end
-			end
+			
 		elseif k == "speaker_faction" then
 			if v == nil then
 				reason = strformat("Invalid Speaker Faction: %s", v)
@@ -188,7 +188,9 @@ function verify_subtitle(info)
 		end
 	end
 
-	if not verified then		
+	if not verified then	
+		set_debug_level("dl_all")
+		pr(reason)	
 		subtitles_utils.collect_invalid_subs(info["xml_string_id"], reason)
 	end
 	return verified 
@@ -203,7 +205,7 @@ function display_subtitles(info)
 	local subtitle = info["subtitle"]
 	local timeout = info["timeout"] or 0.1
 
-	local header = strformat("%s: %s", subtitles_utils.capitalise(faction), speaker)
+	local header = strformat("%s: %s", faction_to_name[faction], speaker)
 	local msg = subtitle
 	local sender = get_speaker_icon(info)
 
@@ -307,6 +309,10 @@ end
 function soundname_to_subtitle(soundname, rtn_xml_id)
 	local xml_id = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
 	local parsed_xml_id = parse_special_soundname(xml_id)
+	if string.find(parsed_xml_id, "monsters") then
+		parsed_xml_id = remove_end_digits(parsed_xml_id, "")
+		parsed_xml_id = remove_trailing_underscore(parsed_xml_id, "")
+	end
 	local snd_name = get_translation(parsed_xml_id)
 	--subtitles_utils.collect_invalid_subs(x, soundname)
 	return rtn_xml_id and parsed_xml_id or snd_name
@@ -373,6 +379,7 @@ function sort_mutant_sect_to_generic()
 			end
 		end
 	end
+	--pr("Mutant Sections:\n %s", utils_data.print_table(generic_mutant_sect, nil, true))
 end
 
 function get_mutant_name(sect)
@@ -417,7 +424,7 @@ function get_locale()
 end
 
 function build_info(soundname, npc)
-	local is_monster =  get_config("enable_mutant_subs") and npc:is_monster() or false
+	local is_monster =  IsMonster(npc) or false
 	local sect       =  npc:section() or npc:name()
 	local name       =  is_monster and get_mutant_name(sect) or IsStalker(npc) and npc:character_name()
 	local icon       =  is_monster and get_mutant_icon(sect) or IsStalker(npc) and npc:character_icon()
@@ -658,14 +665,14 @@ function anomaly_subtitles_info()
 end
 
 function collect_icon_textures()	
-	local icon_textures = {}
 	for idx, file in pairs(icon_texture_files) do
 		pr("Collecting Icon Textures from: %s", file)
-		icon_textures[idx] = collect_xml_tags(subtitles_utils.get_path("ui\\"..file..".xml"))
+		local icon_textures = collect_xml_tags(subtitles_utils.get_path("ui\\"..file..".xml"))
+		copy_table(icon_texture_tbl, icon_textures)
 		set_debug_level("dl_all")
-		--pr("Icon Textures: %s", print_table(icon_textures[idx], true))
+		--pr("Icons Found in %s:\n %s", file, utils_data.print_table(icon_textures, nil, true))
 	end
-	icon_texture_tbl = icon_textures
+	pr("Found Icon Textures in:\n %s", utils_data.print_table(icon_texture_tbl, nil, true))
 end
 
 function setup()
