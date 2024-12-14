@@ -76,6 +76,7 @@
 - v0.9.1 (Fixed v0.10.0-alpha) Included More Special Characters
 - v0.6.1 (Fixed v0.10.0) HUD(UI) HUD blocks other subtitles being shown, Scrapped Completely.
 - v0.10.0 (Fixed v0.10.1) CTD when attemptting to display nil subtitles
+- v0.10.1 (Fixed v0.10.2) Fail to load due to nil table index
 
 ## Changelog
 - v0.5.2 Base Version

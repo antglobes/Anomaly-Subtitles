@@ -709,7 +709,7 @@ end
 	Debugging Functions
 ]]
 
-function get_mutant_section(sect)
+function get_mutant_section()
 	local mutant_sections = {}
 	ini_sys:section_for_each( function(section)
 		local visual = ini_sys:r_string_ex(section, "visual")
@@ -717,7 +717,7 @@ function get_mutant_section(sect)
 			mutant_sections[#mutant_sections + 1] = section
 		end
 	end)
-	return sect and mutant_sections[sect] or mutant_sections
+	return mutant_sections
 end
 
 function print_all_mutant_sections()
@@ -924,7 +924,6 @@ faction_to_name = {
     ["renegade"]    = "Renegade",
     ["isg"]         = "ISG",
     ["monster"]     = "Mutant",
-    [nil]           = "Unknown",
 }
 
 special_character_faction = {
@@ -1002,13 +1001,18 @@ mutant_patterns = {"bloodsucker", "mutant_boar", "burer", "cat", "chimera", "pse
 			"kontroler", "dog", "dog_red", "dog_white", "flesh", "fracture", "gigant", "krovosos",
 			"poltergiest", "pseudodog", "psy_dog", "psy_dog_phantom", "mutant_boar_strong", "krovosos_strong",
 			"rat", "snork", "tushkano", "zombie", "lurker", "karlik", "kontroler", "kontroler_3", "kontroler_4",
-			"kontroler_5", "psevdogigant", "bibliotekar", "boar", "controller", "psysucker",
+			"kontroler_5", "psevdogigant", "bibliotekar", "boar", "controller", "psysucker"
 		}
 
 special_mutant_pattenrs = {
 	"borya_normal", -- snork
 	"flesh_02a_normal", "flesh_03a_normal", -- flesh
 	"fracture_29450" -- fracture
+}
+
+-- Unusual Subtitle Patterns
+subtitle_patterns = { "fight/fire/fire_,", "fight/attack/attack_,", "fight/attack/attack_many_,",
+					  "fight/detour/detour_,", "fight/attack/attack_one_,", "fight/backup/backup_,"
 }
 
 -- Subtitles to exclude
@@ -1033,12 +1037,6 @@ subs_to_exclude = {
 	"Silent_Subtitle",
 	"Missing_Subtitle",
 	"nil"
-}
-
-
--- Unusual Subtitle Patterns
-subtitle_patterns = { "fight/fire/fire_,", "fight/attack/attack_,", "fight/attack/attack_many_,",
-					  "fight/detour/detour_,", "fight/attack/attack_one_,", "fight/backup/backup_,"
 }
 
 -- Duration of each sound file		

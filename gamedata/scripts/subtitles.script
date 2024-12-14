@@ -16,7 +16,6 @@ split_subtitle = subtitles_utils.split_subtitle
 mutants = subtitles_utils.mutants
 remove_digits = subtitles_utils.remove_digits
 extract_str = subtitles_utils.extract_str
-subtitle_patterns = subtitles_utils.subtitle_patterns
 find_suffix_num = subtitles_utils.find_suffix_num
 has_translation = subtitles_utils.has_translation
 get_translation = subtitles_utils.get_translation
@@ -28,7 +27,6 @@ dist_to_pos = subtitles_utils.dist_to_pos
 news_manager_icons = news_manager.tips_icons
 set_debug_level = subtitles_utils.set_debug_level
 filter_debug_msg = subtitles_utils.filter_debug_msg
-mutant_patterns = subtitles_utils.mutant_patterns
 get_mutant_section = subtitles_utils.get_mutant_section
 remove_end_digits = subtitles_utils.remove_end_digits
 remove_trailing_underscore = subtitles_utils.remove_trailing_underscore
@@ -46,6 +44,8 @@ special_character_faction = subtitles_utils.special_character_faction
 exclude_str = subtitles_utils.exclude_str
 truncate_by_puncation = subtitles_utils.truncate_by_puncation
 table.slice = subtitles_utils.table_slice
+subtitle_patterns = subtitles_utils.subtitle_patterns
+mutant_patterns = subtitles_utils.mutant_patterns
 
 -- Monkey Patches
 base_set_sound_play = xr_sound.set_sound_play
@@ -113,7 +113,7 @@ function subtitle_him(soundname, npc)
 	end
 	
 	set_debug_level("dl_all")
-	if not (IsStalker(npc) or IsMonster(npc)) then pr("Not Stalker or Monster: %s", npc:name()) return end
+	if not (IsStalker(npc) or IsMonster(npc)) then return end
 	--build message according to distance and phrase
 	local npc_dist = round_idp(npc:position():distance_to(db.actor:position()), 2)
 	--pr("hear dist: %s, npc_dist: %s", hear_dist, npc_dist)
@@ -361,10 +361,12 @@ end
 -- Subtitle Info Services
 
 function sort_mutant_sect_to_generic()
+	pr("Sorting Mutant Sections")
 	generic_mutant_sect = {}
 	local mutant_sections = get_mutant_section()
-	for i=1, #mutant_patterns do
-		local mutant_name = mutant_patterns[i]
+	--pr("Mutant Patterns:\n %s", utils_data.print_table(mutant_patterns, nil, true))
+	--pr("Mutant Sections:\n %s", utils_data.print_table(mutant_sections, nil, true))
+	for _, mutant_name in pairs(mutant_patterns) do
 		for _, sect in pairs(mutant_sections) do
 			if string.find(sect, mutant_name) then
 				generic_mutant_sect[sect] = mutant_name
@@ -667,6 +669,7 @@ function collect_icon_textures()
 end
 
 function setup()
+	if setup_completed then return end
 	anomaly_subtitles_info()
 	sort_mutant_sect_to_generic()
 	collect_icon_textures()
