@@ -113,10 +113,10 @@ function subtitle_him(soundname, npc)
 	end
 	
 	set_debug_level("dl_all")
-	if not (IsStalker(npc) or IsMonster(npc)) then return end
+	if not (IsStalker(npc) ) then return end
 	--build message according to distance and phrase
 	local npc_dist = round_idp(npc:position():distance_to(db.actor:position()), 2)
-	--pr("hear dist: %s, npc_dist: %s", hear_dist, npc_dist)
+
 	if (npc_dist <= hear_dist) then
 		local info = build_info(soundname, npc)
 		if not verify_subtitle(info) then return end
@@ -216,6 +216,27 @@ function display_subtitles(info)
 	if debug_enabled then set_debug_level("dl_all") print_info(info) end
 end
 
+function build_info(soundname, npc)
+	local is_monster =  get_config("enable_mutant_subs") and npc:is_monster() or false
+	local sect       =  npc:section() or npc:name()
+	local name       =  is_monster and get_mutant_name(sect) or IsStalker(npc) and npc:character_name()
+	local icon       =  is_monster and get_mutant_icon(sect) or IsStalker(npc) and npc:character_icon()
+	local faction    =  is_monster and default_mutant_name   or IsStalker(npc) and npc:character_community() --IsStalker(npc) and npc:character_community() or "monster"
+
+	local info = {
+		["speaker_id"] = npc:id(),
+		["speaker_name"] = is_monster and name or gts(name) or default_name,
+		["speaker_icon"] = icon or default_icon,
+		["speaker_faction"] = faction,
+		["subtitle"] =  soundname_to_subtitle(soundname),
+		["locale"] = get_locale(),
+		["duration"] = get_sound_duration(soundname) or 3,
+		["xml_string_id"] = soundname_to_subtitle(soundname, true),
+		["distance"] = round_idp(dist_to_pos(npc), 2),
+	}
+	return info
+end
+
 function process_info(info)	
 	-- processing only if no dialog is currently open 
 	if is_subtitles_suspended() then
@@ -256,7 +277,7 @@ function process_info(info)
 			pr("Started Displaying at: %s, Estimated Display end: %s, Total Subtitle Duration: %s", time_global(), display_end, duration)
 			for idx, info in pairs(new_infos) do
 				pr("Displaying %s's Shortened Subtitle in %s seconds, Expected at: %s", idx, delays[idx], (delays[idx] * 1000) + time_global())
-				info.timeout = delays[(#delays + 1) - idx]
+				info.timeout = (duration/#new_infos) * ((#delays + 1) - idx) --delays[(#delays + 1) - idx]
 				info.duration = duration - delays[idx]
 				CreateTimeEvent("subtitles_queue"..math.random(1,1000), "bulk_speaker"..math.random(1,1000), delays[idx], 
 					function(info)
@@ -283,33 +304,74 @@ function normalize_soundname(soundname)
     for _, pattern in pairs(subtitle_patterns) do        
         nml_sm = nml_sm:gsub(slashes_to_underscores(pattern), '')
 	end
+
+	if string.find(nml_sm, "[_]$") then
+		nml_sm = remove_trailing_underscore(nml_sm, "")		
+	end
 	return nml_sm
 end
 
 function parse_special_soundname(soundname)
 	set_debug_level("dl_all")
-	if string.find(soundname, "story_story") then
-		soundname = string.sub(soundname, 1, #soundname - 1)
-	elseif string.find(soundname, "human_music") then
-		soundname = remove_trailing_underscore(string.sub(soundname, 1, #soundname - 1), "")
-	elseif string.find(soundname, "fight") then
-		if string.find(soundname, "fight_threat") then
-			soundname = string.sub(soundname, 1, #soundname - 1)..math.random(1,4)
-		elseif string.find(soundname, "fight_hit") then
-			soundname = string.sub(soundname, 1, #soundname - 1)..math.random(8, 10)
-		elseif string.find(soundname, "fight_enemy") then
-			soundname = string.sub(soundname, 1, #soundname - 1)..math.random(4, 5)
+	if not get_translation(soundname) then
+		--pr("parsing special soundname: %s", soundname)
+		if soundname:find("story_story") then
+			-- Expand story1_ to story_1
+			--soundname = soundname:gsub("(%d+)(_)", "_%1%2")
+			-- Replace multiple ending digits to a single digit e.g. 11 to 1
+			soundname = soundname:gsub("(%d)(%d+)", "%1")
+		
+		elseif soundname:find("story_reactions") then
+			if not soundname:find("[%d+$]") then
+				soundname = soundname .. "_" .. math.random(1, 5)	
+			end
+		
+		elseif soundname:find("human_music") then
+			-- Remove Ending digit and underscore
+			soundname = soundname:gsub("(_*%d)", "")
+
+			-- Give proper subtitle prefix
+			if soundname:find("as_sub") and not soundname:find("characters_voice") then
+				soundname = soundname:gsub("(as_sub)", "%1_characters_voice")
+			end
+
+		elseif soundname:find("talk_intros") then
+			if soundname:find("human") then
+				soundname = soundname:gsub("(_%d)(_%d)", "%2")
+			end
+
+		elseif soundname:find("scenario_marsh") then
+			if soundname:find("as_sub") and not soundname:find("characters_voice") then
+				soundname = soundname:gsub("(as_sub)", "%1_characters_voice")
+			end
+			if not (soundname:find("doctor") or soundname:find("tech") or soundname:find("barman"))  then
+				soundname = soundname .. "_" .. math.random(1, 3)
+			end
+
+		elseif soundname:find("fight") then
+			if soundname:find("death_death") then
+				soundname = soundname:gsub("(%d)(%d+)", "%1")
+			
+			elseif soundname:find("searching_enemy") or soundname:find("fire_fire") then
+				soundname = soundname:gsub("(%d)(%d+)", "%1")
+
+			elseif soundname:find("fight_threat") then
+				soundname = soundname:gsub("(%d)(%d+)", "%2")
+			end
 		end
 	end
 	return soundname
 end
 
 function soundname_to_subtitle(soundname, rtn_xml_id)
+	pr("soundname: %s", soundname)
 	local xml_id = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
-	local parsed_xml_id = parse_special_soundname(xml_id)
-	local snd_name = get_translation(parsed_xml_id)
-	--subtitles_utils.collect_invalid_subs(x, soundname)
-	return rtn_xml_id and parsed_xml_id or snd_name
+	pr("parsed xml id: %s", xml_id)
+	xml_id = parse_special_soundname(xml_id)
+	local subtitle = get_translation(xml_id)
+	pr("parsed xml id: %s", xml_id)
+	pr("subtitle: %s\n", subtitle)
+	return rtn_xml_id and xml_id or subtitle
 end
 
 
@@ -416,26 +478,7 @@ function get_locale()
 	return ui_options.get("other/localization")
 end
 
-function build_info(soundname, npc)
-	local is_monster =  get_config("enable_mutant_subs") and npc:is_monster() or false
-	local sect       =  npc:section() or npc:name()
-	local name       =  is_monster and get_mutant_name(sect) or IsStalker(npc) and npc:character_name()
-	local icon       =  is_monster and get_mutant_icon(sect) or IsStalker(npc) and npc:character_icon()
-	local faction    =  is_monster and default_mutant_name   or IsStalker(npc) and npc:character_community() --IsStalker(npc) and npc:character_community() or "monster"
 
-	local info = {
-		["speaker_id"] = npc:id(),
-		["speaker_name"] = is_monster and name or gts(name) or default_name,
-		["speaker_icon"] = icon or default_icon,
-		["speaker_faction"] = faction,
-		["subtitle"] =  soundname_to_subtitle(soundname),
-		["locale"] = get_locale(),
-		["duration"] = get_sound_duration(soundname) or 3,
-		["xml_string_id"] = soundname_to_subtitle(soundname, true),
-		["distance"] = round_idp(dist_to_pos(npc), 2),
-	}
-	return info
-end
 
 function set_hearing_distance(obj)
 	set_debug_level("dl_all")
