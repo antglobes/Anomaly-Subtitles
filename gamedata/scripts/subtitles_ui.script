@@ -12,6 +12,7 @@ MAX_HEAR_DIST = 35
 -- Variables
 HUD = nil
 clr_cache = {}
+DESPAWNED_NPCS = {}
 
 class "UICaption"
 function UICaption:__init(parent, npc_id)
@@ -87,7 +88,7 @@ end
 
 function UICaption:FadeCaption(tg)
     local tb_clr = self.caption:GetTextColor()
-    local decrease = table.remove(self.active_info["decreases"])
+    local decrease = table.remove(self.active_info["decreases"], 1)
     local opacity_reduction = self.active_info["caption_opacity"] - decrease
     local new_opacity = clamp(opacity_reduction, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
     self.caption:SetTextColor(change_alpha(tb_clr, new_opacity))
@@ -204,7 +205,7 @@ end
 function HUDSubtitles:Update()
     CUIScriptWnd.Update(self)
     
-    local show_caption = not (main_hud_shown() or axr_main.binoc_is_zoomed or axr_main.scoped_weapon_is_zoomed) or true
+    local show_caption = not main_hud_shown()
     local tg = time_global()
 
     for id, _ in pairs(subtitles.QUEUED_SUBTITLES) do
@@ -215,7 +216,13 @@ function HUDSubtitles:Update()
     end
 
     for id, caption in pairs(self.subtitles) do
-        caption:Update(show_caption)
+        if contains(DESPAWNED_NPCS, id, true) then
+            printf("removing despawned npc: %s", id)
+            self.subtitles[id] = nil
+            DESPAWNED_NPCS[id] = nil
+        else
+            caption:Update(show_caption)
+        end
     end
 end
 
@@ -250,9 +257,18 @@ function on_GUI_show()
 	hud_update()
 end
 
+function collect_despawned_npcs(npc)
+    printf("despawning: %s", npc:id())
+    local id = npc:id()
+    if not contains(DESPAWNED_NPCS, id, true) then
+        DESPAWNED_NPCS[id] = true
+    end
+end 
+
 function on_game_start()
     RegisterScriptCallback("GUI_on_show",on_GUI_show)
 	RegisterScriptCallback("GUI_on_hide",on_GUI_show)
 	RegisterScriptCallback("actor_on_first_update",on_first_update)
 	RegisterScriptCallback("actor_on_net_destroy",on_net_destroy)
+    RegisterScriptCallback("npc_on_net_destroy", collect_despawned_npcs)
 end
