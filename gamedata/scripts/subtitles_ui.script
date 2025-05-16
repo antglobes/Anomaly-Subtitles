@@ -1,0 +1,258 @@
+-- Imports
+contains = ag_tables.contains
+print_table = ag_tables.print_table
+get_unknown_object = ag_game_objects.get_unknown_object
+
+-- Constants
+MIN_CAPTION_OPACITY = 0
+MAX_CAPTION_OPACITY = 255
+FADE_TIME = 2
+MAX_HEAR_DIST = 35
+
+-- Variables
+HUD = nil
+clr_cache = {}
+
+class "UICaption"
+function UICaption:__init(parent, npc_id)
+    self.parent = parent
+    self.npc_id = npc_id
+
+    self.active_info = {}
+    self.hearing_distance = MAX_HEAR_DIST
+
+    self.caption = self.parent.xml:InitTextWnd("caption", self.parent)    
+    self:ApplyScreenRatio(self.caption)
+end
+
+function UICaption:__finalize()
+    self.caption:Show(false)
+end
+
+function UICaption:Update(show_caption)
+    local tg = time_global()
+
+    local pos = self:GetScreenPosition()
+    -- printf("Show caption: %s, valid screen pos?: %s", show_caption, self:ScreenPosValid(pos))
+    if show_caption and self:ScreenPosValid(pos) then
+        if is_empty(self.active_info) and is_not_empty(subtitles.QUEUED_SUBTITLES[self.npc_id]) then              
+            self.active_info = table.remove(subtitles.QUEUED_SUBTITLES[self.npc_id], 1)
+            printf("init active info with %s", print_table(self.active_info))
+            self:AddTokensToCaption(tg)
+
+        elseif is_not_empty(self.active_info) then
+            
+            -- Stage 1: Add/Update Caption until Sound Duration Reached
+            if tg <= self.active_info["show_time"] and tg <= self.active_info["sound_duration"] 
+                and tg >= self.active_info["caption_tmr"] and is_not_empty(self.active_info["tokens"]) then
+                self:AddTokensToCaption(tg)
+            end
+
+            -- Stage 2: Once Sound Duration Reached Fade Caption until Show Time Reached
+            if tg < self.active_info["show_time"] and tg >= self.active_info["sound_duration"]
+                and tg >= self.active_info["fade_tmr"] then
+                self:FadeCaption(tg)
+            end
+
+            -- Stage 3: Both Show Time and Sound Duration has been reached, Move to Next
+            if tg >= self.active_info["show_time"] and tg >= self.active_info["sound_duration"] then
+                printf("hiding caption for %s at %s", self.npc_id, self.active_info["show_time"])
+                self.active_info = {}
+                self.caption:Show(false)
+                self.caption:SetText("")
+                return
+            end
+        end
+
+        if self:Validate(self.active_info) then
+            self.caption:SetWndPos(pos)
+            self.caption:Show(true)
+        else
+            self.caption:Show(false)
+        end
+    else
+        self.caption:Show(false)
+    end
+end
+
+function UICaption:AddTokensToCaption(tg)
+    if is_empty(self.active_info) then return end
+    if is_empty(self.active_info["tokens"]) then return end
+    local sub_tkn = table.remove(self.active_info["tokens"], 1)
+    local subtitle = self.caption:GetText() or ""
+    self.caption:SetText(strformat("%s %s", subtitle, sub_tkn))
+    self.active_info["caption_tmr"] = tg + (self.active_info["length"] / self.active_info["token_size"])
+    --printf("Updating tokens to caption: subtitle %s, token: %s, tmr: %s", subtitle, sub_tkn, self.active_info["caption_tmr"])
+end
+
+function UICaption:FadeCaption(tg)
+    local tb_clr = self.caption:GetTextColor()
+    local decrease = table.remove(self.active_info["decreases"])
+    local opacity_reduction = self.active_info["caption_opacity"] - decrease
+    local new_opacity = clamp(opacity_reduction, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
+    self.caption:SetTextColor(change_alpha(tb_clr, new_opacity))
+    self.active_info["caption_opacity"] = new_opacity
+    self.active_info["fade_tmr"] = tg + (FADE_TIME / self.active_info["decreases_num"]) * 1000
+    printf("fading caption from %s to %s", self.active_info["caption_opacity"], new_opacity)
+end
+
+function UICaption:Validate(data)
+
+    if not data then
+        printf("no data")
+        return false
+    end
+
+    local npc = get_unknown_object({id=data.npc_id}, "game")
+    if not npc then
+        printf("no npc")
+        return false
+    end
+    
+    if not npc:alive() and not contains(subtitles.recent_npc_deaths, npc:id(), true) then
+        printf("object dead")
+        return false
+    end
+
+    local dist = distance_between(npc, db.actor)
+    if round(dist) > self.hearing_distance then
+        -- printf("object out of range: %s", dist)
+        return false
+    end
+
+    -- printf("valid npc")
+    return true
+end
+
+-- From GhenTuong start
+local caption_offset = vector():set(0.0,0.5,0.0)
+local caption_height = 100
+
+function UICaption:GetScreenPosition()
+    local npc = get_unknown_object({id=self.npc_id}, "game")
+    if not npc then
+        return 
+    end
+
+    local hed = npc:bone_position("bip01_head")
+	local pos = vector():add(hed,caption_offset)
+   	local vec_pos = game.world2ui(pos,false,true)
+
+	local vec_hed = game.world2ui(hed,false,true)
+	if (self:ScreenPosValid(vec_pos) and (vec_hed.y - vec_pos.y < caption_height)) then
+		local vec = game.world2ui(hed,false,false)
+		if not (self:ScreenPosValid(vec)) then
+			-- printf("not getting screen pos")
+            return
+		end
+        local screen_pos = vector2():set(vec.x,vec.y - caption_height)
+		-- printf("getting screen pos: %s", vec_to_str(screen_pos))
+        return screen_pos
+	else
+        local screen_pos = game.world2ui(pos,false,false)
+        -- printf("getting screen pos: %s", vec_to_str(screen_pos))
+		return screen_pos
+	end
+end
+
+function UICaption:ScreenPosValid(vec)
+	return vec and (vec.x ~= -9999) and (vec.y ~= 0) and (vec.x <= 1024) and (vec.y <= 768)
+end
+
+function UICaption:ApplyScreenRatio(ele)
+	local r = (1024/768)/(device().width/device().height)
+	ele:SetWndSize(vector2():set(ele:GetWidth() * r,ele:GetHeight()))
+end
+
+function hud_active()
+	if (HUD == nil) then
+		HUD = HUDSubtitles()
+		get_hud():AddDialogToRender(HUD)
+	end
+end
+
+function hud_remove()
+	if (HUD) then
+		get_hud():RemoveDialogToRender(HUD)
+		HUD = nil
+	end
+end
+
+function hud_update()
+	if (HUD) then
+		HUD:Update(true)
+	end
+end
+
+-- From GhenTuong end
+
+class "HUDSubtitles" (CUIScriptWnd)
+function HUDSubtitles:__init() super()
+    printf("init hud subtitles")
+    self.xml = CScriptXmlInit()
+    self.xml:ParseFile("ui_marker_hud_subtitles.xml")
+    self.ratio = (1024 / 768) / (device().width / device().height)
+    self.subtitles = {}
+end
+
+function HUDSubtitles:__finalize()
+    for id, _ in pairs(self.subtitles) do
+        self.subtitles[id] = nil
+    end
+end
+
+function HUDSubtitles:Update()
+    CUIScriptWnd.Update(self)
+    
+    local show_caption = not (main_hud_shown() or axr_main.binoc_is_zoomed or axr_main.scoped_weapon_is_zoomed) or true
+    local tg = time_global()
+
+    for id, _ in pairs(subtitles.QUEUED_SUBTITLES) do
+        if not contains(self.subtitles, id, true) then
+            printf("adding new caption for: %s", id)
+            self.subtitles[id] = UICaption(self, id)
+        end
+    end
+
+    for id, caption in pairs(self.subtitles) do
+        caption:Update(show_caption)
+    end
+end
+
+-- Utils
+function change_alpha(clr, a)
+    if not clr and a ~= nil then return end
+
+    if not clr_cache[clr .. "_" .. a] then
+        local b = bit.band(clr, 255)
+        local g = bit.band(bit.rshift(clr, 8), 255)
+        local r = bit.band(bit.rshift(clr, 16), 255)
+        clr_cache[clr .. "_" .. a] = GetARGB(a, r, g, b)
+    end
+
+    return clr_cache[clr .. "_" .. a]
+end
+
+-- Callbacks
+
+function on_first_update()
+    printf("adding hud")
+	hud_active()
+end
+
+function on_net_destroy()
+    printf("removing hud")
+	hud_remove()
+end
+
+function on_GUI_show()
+    printf("hide/showing hud")
+	hud_update()
+end
+
+function on_game_start()
+    RegisterScriptCallback("GUI_on_show",on_GUI_show)
+	RegisterScriptCallback("GUI_on_hide",on_GUI_show)
+	RegisterScriptCallback("actor_on_first_update",on_first_update)
+	RegisterScriptCallback("actor_on_net_destroy",on_net_destroy)
+end

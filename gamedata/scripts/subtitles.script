@@ -1,780 +1,380 @@
---[[-------------
-Author(s): AntGlobes, Vodoxleb
-Purpose: Subtitles Manager/Controller
-Last Modified: 14/12/24
-]]---------------
-
-
 -- Imports
-gts = game.translate_string
-sound_duration = subtitles_utils.sound_duration
-get_config = subtitles_mcm.get_config
-factions = subtitles_utils.factions
-slashes_to_underscores = subtitles_utils.slashes_to_underscores
-locale = subtitles_utils.locale
-split_subtitle = subtitles_utils.split_subtitle
-mutants = subtitles_utils.mutants
-remove_digits = subtitles_utils.remove_digits
-extract_str = subtitles_utils.extract_str
-find_suffix_num = subtitles_utils.find_suffix_num
-has_translation = subtitles_utils.has_translation
-get_translation = subtitles_utils.get_translation
-subs_to_exclude = subtitles_utils.subs_to_exclude
-is_actor_talking = subtitles_utils.is_actor_talking
-is_ui_open = subtitles_utils.is_ui_open
-contains = subtitles_utils.contains
-dist_to_pos = subtitles_utils.dist_to_pos
-news_manager_icons = news_manager.tips_icons
-set_debug_level = subtitles_utils.set_debug_level
-filter_debug_msg = subtitles_utils.filter_debug_msg
-get_mutant_section = subtitles_utils.get_mutant_section
-remove_end_digits = subtitles_utils.remove_end_digits
-remove_trailing_underscore = subtitles_utils.remove_trailing_underscore
-get_unknown_object = subtitles_utils.get_unknown_object
-get_sect_list = subtitles_utils.get_sect_list
-get_actor_equipment = subtitles.get_actor_equipment
-print_table = subtitles_utils.print_table
-geo_ray = demonized_geometry_ray.geometry_ray
-vis_ray = demonized_geometry_ray.VisualizeRay
-lerp = demonized_geometry_ray.lerp
-collect_xml_tags = subtitles_utils.collect_xml_tags
-subtitle_delay = subtitles_utils.subtitle_delay
-dir_from_pos = subtitles_utils.dir_from_pos
-special_character_faction = subtitles_utils.special_character_faction
-exclude_str = subtitles_utils.exclude_str
-truncate_by_puncation = subtitles_utils.truncate_by_puncation
-table.slice = subtitles_utils.table_slice
-subtitle_patterns = subtitles_utils.subtitle_patterns
-mutant_patterns = subtitles_utils.mutant_patterns
-faction_to_name = subtitles_utils.faction_to_name
+split = ag_strings.split
+table_slice = ag_tables.table_slice
+table_extend = ag_tables.table_extend
+contains = ag_tables.contains
+get_unknown_object = ag_game_objects.get_unknown_object
+dist_to_pos = ag_game_objects.dist_to_pos
+gts = ag_strings.get_translation
+print_table = ag_tables.print_table
 
--- Monkey Patches
-base_set_sound_play = xr_sound.set_sound_play
-base_news_snd = dynamic_news_helper.news_snd
-
--- Constants
-as_version = "v0.10.1"
-as_authors = "Antglobes & VodoXleb"
-as_last_update = "14-12-24"
-SUBTITLE_PREFIX = "as_sub_%s"
-HUAMN_SUBTITLE_PREFIX = "characters_voice_human_%s"
-default_name = "st_noise"
-default_mutant_name = "monster"
-default_icon = "ui_iconsTotal_grouping"
-CHAR_LIMIT = 100
-max_hear_dist = 180
-SUSPEND_SUBS = false
-setup_completed = false
-subtitle_info_tbl = {}
-subtitle_info_tbl.hear_equip = {}
-subtitle_info_tbl.item_in_slot = {}
-subtitle_info_tbl.recent_npc_deaths = {}
-icon_texture_tbl = {}
-icon_texture_files = {"ui_as_actor_portraits", "ui_as_npc_monster"}
-ini_news_tips = ini_file_ex("plugins\\news_tips_icons.ltx") -- Anomaly-Subtitles\gamedata\configs\plugins\mod_news_tips_icons_as.ltx
-ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
+-- Utilities
+get_end_digits = subtitles_utils.get_end_digits
+in_snd_dir = subtitles_utils.in_snd_dir
+path_to_xml = subtitles_utils.path_to_xml
+get_npc_name = subtitles_utils.get_npc_name
 
 -- Tables
-mcm_prefix = {"bc_", "fc_", "fk_", "fa_"}
+log_file_cache = {
+    normal = 0,
+    cache = 0,
+    split = 0,
+    norm_walkback = 0,
+    fight = 0,
+    fight_walkback = 0,
+    invalid = 0,
+}
+priority_tbl = {
+    [1] = { -- Indicates npc is on high alert, fighting, hurt or in distress
+        "battle", "attack", "fight", "enemy", "captured", "defence", 
+        "backup", "cover_fire", "death",  "fire", "hit_fired", 
+        "grenade",  "lost",  "threat", "wounded",  "kill", "thanx", 
+        "breath",  "meet", "hit"
+    },
+    [2] = { -- Indicates npc is on low alert, worried, or esclating
+        "spotted", "wait", "check", "help", "detour", "friendly_fire",
+        "ready", "relax", "search", "tolls", "medkit", "panic", "dropweapon",
+        "back_off", "hide_weapon", "stop"
+    },
+    [3] = { -- Indicates npc is moving
+        "run", "walk", "sneak"
+    },
+    [4] = { -- Indicates npc is in regular dialog
+        "reply", "reaction", "joke", "music", "laughter", "guitar",
+        "harmonica", "idle", "hello", "buy", "sell", "story"
+    },
+    [5] = { -- Misc lines
+        "rising", "intro", "abuse", "no", "sleep", "use_no"
+    }
+}
+exclude_subs = {
+    "",
+    "nil",
+    "Silent_Subtitle",
+    "Missing_Subtitle",
+    "No translation",
+    "No",
+    "translation"
+}
 
--- DEBUGGING
-local dbg_lvl = "dl_dev"
+-- Constants
+WORDS_PER_SECOND = 3 -- avg words per mintue in russian = 184. 184/60 = 3.067. so ~3 words a mintue
+MIN_CAPTION_OPACITY = 0
+MAX_CAPTION_OPACITY = 255
+FADE_TIME = 1
+MAX_HEAR_DIST = 35
 
--- DEBUG Print
-function pr(str, ...)
-	-- filter out messages by debug level (Avoid console spam)
-	if not filter_debug_msg(dbg_lvl) then return end
-	subtitles_utils.dbg_pr("Subtitles|Main: %s", str, ...)
+-- Variables
+file_cache = {}
+clr_cache = {}
+recent_npc_deaths = {}
+HUD = nil
+QUEUED_SUBTITLES = {}
+
+
+function on_phrase_callback(sound_name, npc)
+    local name = get_npc_name(npc)
+    --printf("%s is playing: %s", name, sound_name)
+    local parsed_file = parse_sound_file(sound_name)
+    subtitle_them(parsed_file, npc)
 end
 
-function set_debug_level(new_dbg_level)
-	dbg_lvl = new_dbg_level
-end
-
-function is_subtitles_suspended()
-	return SUSPEND_SUBS
-end
-
-function suspend_subtitles()
-	SUSPEND_SUBS = true
-end
-
-function resume_subtitles()
-	SUSPEND_SUBS = false
-end
-
--- Sound/Sound Path Detction 
-
---- Subtitle Callback: Build subtitle info and add to queue
----@param soundname string
----@param npc game_object
-function subtitle_him(soundname, npc)
-	if not subs_enabled then
-		return
-	end
-	
-	set_debug_level("dl_all")
-	if not (IsStalker(npc) ) then return end
-	--build message according to distance and phrase
-	local npc_dist = round_idp(npc:position():distance_to(db.actor:position()), 2)
-
-	if (npc_dist <= hear_dist) then
-		local info = build_info(soundname, npc)
-		if not verify_subtitle(info) then return end
-		if not calc_hear_chance(npc) then return end
-		process_info(info)
-	end
-end
-
-function xr_sound.set_sound_play(npc_id, sound, faction, point)	
-	local npc = get_unknown_object({id=npc_id}, "game")
-	if npc and npc_id ~= AC_ID then
-		local soundname = ini_script_sound:r_string_ex(sound, "path") or sound
-		if soundname ~= nil then
-			subtitle_him(soundname, npc)	
-		end
-	end
-	base_set_sound_play(npc_id, sound, faction, point)
-end
-
--- Subtitle Controllers
-
---- Validate contents of info table
----@param info table
-function verify_subtitle(info)
-	local verified = true
-	local reason = ""
-
-	for k, v in pairs(info) do
-		if k == "speaker_name" then
-			if type(v) ~= "string" then
-				reason = strformat("Invalid Speaker name: %s", v)
-				verified = false
-			end
-		elseif k == "speaker_icon" then
-			if v == nil  then
-				reason = strformat("Invalid Speaker Icon: %s is nil", v)
-				verified = false
-			
-			elseif not contains(icon_texture_tbl, v) then
-				reason = strformat("Invalid Speaker Icon: %s is not found in icon texture table", v)
-				verified = false
-			end
-			
-		elseif k == "speaker_faction" then
-			if v == nil then
-				reason = strformat("Invalid Speaker Faction: %s", v)
-				verified = false
-			end
-		elseif k == "subtitle" then
-			if type(v) ~= "string" or not v or v == 'nil' or #{string.find(v, "as_sub_")} > 0 or contains(subs_to_exclude, v)  then
-				reason = strformat("Invalid Subtitle: %s", v)
-				verified = false
-			end
-		--elseif k == "locale" then
-			
-		elseif k == "duration" then
-			if type(v) ~= "number" or v < 0 then
-				reason = strformat("Invalid Duration: %s", v)
-				verified = false
-			end
-
-		elseif k == "xml_string_id" then
-			if type(v) ~= "string" or not has_translation(v) then
-				reason = strformat("Invalid xml_string_id: %s", v)
-				verified = false
-			end
-		end
-	end
-
-	if not verified then	
-		set_debug_level("dl_all")
-		pr(reason)	
-		subtitles_utils.collect_invalid_subs(info["xml_string_id"], reason)
-	end
-	return verified 
-end
-
---- Determine which display system to show subtitles in
----@param info table
-function display_subtitles(info)
-	if not db.actor or (not info["subtitle"] or info["subtitle"] == "nil") then return end
-	local faction = info["speaker_faction"]
-	local speaker = info["speaker_name"]
-	local subtitle = info["subtitle"]
-	local timeout = info["timeout"] or 0.1
-
-	local header = strformat("%s: %s", faction_to_name[faction], speaker)
-	local msg = subtitle
-	local sender = get_speaker_icon(info)
-
-	set_debug_level("dl_player")
-    pr('"%s" from %s faction said "%s" for %s seconds', speaker, faction, subtitle, info["duration"])
-
-	db.actor:give_game_news(header, msg, sender, timeout*1000, info["duration"]*1000)
-	--dynamic_news_helper.send_tip(msg, header, timeout*1000, info["duration"]*1000, sender)
-	db.actor:give_info_portion(info["xml_string_id"])	
-	if debug_enabled then set_debug_level("dl_all") print_info(info) end
-end
-
-function build_info(soundname, npc)
-	local is_monster =  get_config("enable_mutant_subs") and npc:is_monster() or false
-	local sect       =  npc:section() or npc:name()
-	local name       =  is_monster and get_mutant_name(sect) or IsStalker(npc) and npc:character_name()
-	local icon       =  is_monster and get_mutant_icon(sect) or IsStalker(npc) and npc:character_icon()
-	local faction    =  is_monster and default_mutant_name   or IsStalker(npc) and npc:character_community() --IsStalker(npc) and npc:character_community() or "monster"
-
-	local info = {
-		["speaker_id"] = npc:id(),
-		["speaker_name"] = is_monster and name or gts(name) or default_name,
-		["speaker_icon"] = icon or default_icon,
-		["speaker_faction"] = faction,
-		["subtitle"] =  soundname_to_subtitle(soundname),
-		["locale"] = get_locale(),
-		["duration"] = get_sound_duration(soundname) or 3,
-		["xml_string_id"] = soundname_to_subtitle(soundname, true),
-		["distance"] = round_idp(dist_to_pos(npc), 2),
-	}
-	return info
-end
-
-function process_info(info)	
-	-- processing only if no dialog is currently open 
-	if is_subtitles_suspended() then
-		if not is_actor_talking() or not is_ui_open() then
-			resume_subtitles()
-		end
-	else
-		-- Prevent from processing...
-		-- if an inventory/dialog screen is open
-		if is_actor_talking() or is_ui_open() then
-			suspend_subtitles()
-			return
-		end
-		
-		set_debug_level("dl_all")
-		-- queue timer
-		
-		--if not verify_subtitle(info) then return end
-		if not info then return end		
-		-- Check if npc is alive 
-		local npc = get_unknown_object({id=info["speaker_id"]}, "game")
-		if npc then
-			-- If Player is moving away from the speaker but is not within distance to hear it don't display sub 
-			local curr_dist = dist_to_pos(npc)
-			local og_dist = info["distance"]
-			if curr_dist > og_dist and (curr_dist - og_dist) > hear_dist then
-				pr("Moving Away from: %s, Current Distance: %s, Original Distance: %s", IsStalker(npc) and npc:character_name() or npc:section(), curr_dist, og_dist)
-				return
-			end
-		end
-
-		local duration = info["duration"]
-		local new_infos = shorten(info)
-		if #new_infos > 1 then
-			set_debug_level("dl_dev")
-			local delays = subtitle_delay(duration, #new_infos)
-			local display_end = (delays[#new_infos] * 1000) + time_global()
-			pr("Started Displaying at: %s, Estimated Display end: %s, Total Subtitle Duration: %s", time_global(), display_end, duration)
-			for idx, info in pairs(new_infos) do
-				pr("Displaying %s's Shortened Subtitle in %s seconds, Expected at: %s", idx, delays[idx], (delays[idx] * 1000) + time_global())
-				info.timeout = (duration/#new_infos) * ((#delays + 1) - idx) --delays[(#delays + 1) - idx]
-				info.duration = duration - delays[idx]
-				CreateTimeEvent("subtitles_queue"..math.random(1,1000), "bulk_speaker"..math.random(1,1000), delays[idx], 
-					function(info)
-						process_info(info)
-						return true
-					end, info)				
-			end
-			return
-		end
-		new_infos = info
-		display_subtitles(info)
-		return
-	end
-end
-
--- Soundname Manipulation
-
-function soundname_to_path(soundname)
-	return soundname:gsub('/','\\')
-end
-
-function normalize_soundname(soundname)
-	local nml_sm = slashes_to_underscores(soundname)
-    for _, pattern in pairs(subtitle_patterns) do        
-        nml_sm = nml_sm:gsub(slashes_to_underscores(pattern), '')
-	end
-
-	if string.find(nml_sm, "[_]$") then
-		nml_sm = remove_trailing_underscore(nml_sm, "")		
-	end
-	return nml_sm
-end
-
-function parse_special_soundname(soundname)
-	set_debug_level("dl_all")
-	if not get_translation(soundname) then
-		--pr("parsing special soundname: %s", soundname)
-		if soundname:find("story_story") then
-			-- Expand story1_ to story_1
-			--soundname = soundname:gsub("(%d+)(_)", "_%1%2")
-			-- Replace multiple ending digits to a single digit e.g. 11 to 1
-			soundname = soundname:gsub("(%d)(%d+)", "%1")
-		
-		elseif soundname:find("story_reactions") then
-			if not soundname:find("[%d+$]") then
-				soundname = soundname .. "_" .. math.random(1, 5)	
-			end
-		
-		elseif soundname:find("human_music") then
-			-- Remove Ending digit and underscore
-			soundname = soundname:gsub("(_*%d)", "")
-
-			-- Give proper subtitle prefix
-			if soundname:find("as_sub") and not soundname:find("characters_voice") then
-				soundname = soundname:gsub("(as_sub)", "%1_characters_voice")
-			end
-
-		elseif soundname:find("talk_intros") then
-			if soundname:find("human") then
-				soundname = soundname:gsub("(_%d)(_%d)", "%2")
-			end
-
-		elseif soundname:find("scenario_marsh") then
-			if soundname:find("as_sub") and not soundname:find("characters_voice") then
-				soundname = soundname:gsub("(as_sub)", "%1_characters_voice")
-			end
-			if not (soundname:find("doctor") or soundname:find("tech") or soundname:find("barman"))  then
-				soundname = soundname .. "_" .. math.random(1, 3)
-			end
-
-		elseif soundname:find("fight") then
-			if soundname:find("death_death") then
-				soundname = soundname:gsub("(%d)(%d+)", "%1")
-			
-			elseif soundname:find("searching_enemy") or soundname:find("fire_fire") then
-				soundname = soundname:gsub("(%d)(%d+)", "%1")
-
-			elseif soundname:find("fight_threat") then
-				soundname = soundname:gsub("(%d)(%d+)", "%2")
-			end
-		end
-	end
-	return soundname
-end
-
-function soundname_to_subtitle(soundname, rtn_xml_id)
-	pr("soundname: %s", soundname)
-	local xml_id = strformat(SUBTITLE_PREFIX, normalize_soundname(soundname))
-	pr("parsed xml id: %s", xml_id)
-	xml_id = parse_special_soundname(xml_id)
-	if string.find(parsed_xml_id, "monsters") then
-		parsed_xml_id = remove_end_digits(parsed_xml_id, "")
-		parsed_xml_id = remove_trailing_underscore(parsed_xml_id, "")
-	end
-	local subtitle = get_translation(xml_id)
-	pr("parsed xml id: %s", xml_id)
-	pr("subtitle: %s\n", subtitle)
-	return rtn_xml_id and xml_id or subtitle
-end
-
-
-function truncate_subtitle(info)
-	local n = 1
-	local infos = {}
-	local sub_tokens = truncate_by_puncation(info["subtitle"], 80)
-
-	local group_subs = false
-	for i=1, #sub_tokens do
-		if #sub_tokens[i] >= CHAR_LIMIT then
-			group_subs = true
-		end
-	end
-	
-	for i=1, #sub_tokens do
-		if sub_tokens[i] then
-			local subtitle = sub_tokens[i]
-			-- Group Sub Tokens 
-			if group_subs and i ~= #sub_tokens and (i + 1) <= #sub_tokens then
-				subtitle = subtitle .. sub_tokens[i + 1]
-				sub_tokens[i + 1] = nil
-			end
-
-			infos[n] = {
-				speaker_id = info["speaker_id"],
-				speaker_name = info["speaker_name"],
-				speaker_icon = info["speaker_icon"],
-				speaker_faction = info["speaker_faction"],
-				subtitle = subtitle,
-				locale = info["locale"],
-				duration = info["duration"],
-				xml_string_id = info["xml_string_id"],
-				distance = info["distance"],
-			}
-			n = n + 1
-		end
-	end
-	return infos
-end
-
-function shorten(info)
-	if info["subtitle"] and info["subtitle"] ~= 'nil' and #info["subtitle"] > CHAR_LIMIT then
-		return truncate_subtitle(info)
-	end
-	return info
-end
-
--- Subtitle Info Services
-
-function sort_mutant_sect_to_generic()
-	pr("Sorting Mutant Sections")
-	generic_mutant_sect = {}
-	local mutant_sections = get_mutant_section()
-	--pr("Mutant Patterns:\n %s", utils_data.print_table(mutant_patterns, nil, true))
-	--pr("Mutant Sections:\n %s", utils_data.print_table(mutant_sections, nil, true))
-	for _, mutant_name in pairs(mutant_patterns) do
-		for _, sect in pairs(mutant_sections) do
-			if string.find(sect, mutant_name) then
-				generic_mutant_sect[sect] = mutant_name
-			end
-		end
-	end
-	--pr("Mutant Sections:\n %s", utils_data.print_table(generic_mutant_sect, nil, true))
-end
-
-function get_mutant_name(sect)
-	set_debug_level("dl_all")
-	if not sect then return end
-	--local no_digits = remove_end_digits(sect, '')
-	--local clean_sect = remove_trailing_underscore(no_digits, '')
-	return generic_mutant_sect[sect]
-end
-
-function get_mutant_icon(sect)
-	set_debug_level("dl_dev")
-	return ini_sys:r_string_ex(sect, "icon")
-end
-
-function get_speaker_icon(info)
-	set_debug_level("dl_dev")
-	speaker_icon = info["speaker_icon"]
-	if get_config("enable_speaker_icon") and get_config("use_localization") then
-		manual_loc = string.find(info["locale"], "eng") and "eng_uk" or info["locale"]
-		speaker_icon = ini_news_tips:r_value("news_tips_icons", info["locale"]) or "ui_icon_news_tip_subtitle_".. manual_loc
-	elseif get_config("enable_speaker_icon") then
-		return default_icon
-	end
-	return speaker_icon
-end
-
-function get_sound_duration(soundname)
-	local mcm_option = get_config("sub_duration")
-	if mcm_option  == "true_duration" then
-		return sound_duration[slashes_to_underscores(soundname)]
-	end
-	local reading_speed = {
-		["slow_reader"] = 7.0,
-		["ok_reader"] = 3.5,
-		["fast_reader"] = 1.25,}
-	return reading_speed[mcm_option]	
-end
-
-function get_locale()
-	return ui_options.get("other/localization")
-end
-
-function build_info(soundname, npc)
-	local is_monster =  IsMonster(npc) or false
-	local sect       =  npc:section() or npc:name()
-	local name       =  is_monster and get_mutant_name(sect) or IsStalker(npc) and npc:character_name()
-	local icon       =  is_monster and get_mutant_icon(sect) or IsStalker(npc) and npc:character_icon()
-	local faction    =  is_monster and default_mutant_name   or IsStalker(npc) and npc:character_community() --IsStalker(npc) and npc:character_community() or "monster"
-
-	local info = {
-		["speaker_id"] = npc:id(),
-		["speaker_name"] = is_monster and name or gts(name) or default_name,
-		["speaker_icon"] = icon or default_icon,
-		["speaker_faction"] = faction,
-		["subtitle"] =  soundname_to_subtitle(soundname),
-		["locale"] = get_locale(),
-		["duration"] = get_sound_duration(soundname) or 3,
-		["xml_string_id"] = soundname_to_subtitle(soundname, true),
-		["distance"] = round_idp(dist_to_pos(npc), 2),
-	}
-	return info
-end
-
-function set_hearing_distance(obj)
-	set_debug_level("dl_all")
-	if not setup_completed then return end
-	-- get sect list of player's equipment
-	-- filter by equipment that would go on the head
-	-- check each equipment against hearing effect multiplier#
-	pr("Getting Hearing Distance for %s", obj:section())
-	local helmet_slot_id = 12
-	local device_slot_id = 9
-	local no_equip = -1
-	local sect = obj:section()
-	local helm = db.actor:item_in_slot(helmet_slot_id) or no_equip
-	local device = db.actor:item_in_slot(device_slot_id) or no_equip
-	
-
-	--if obj:section() ~= helm:section() or obj:section() ~= device:section() then return end
-	if obj and (IsHeadgear(obj)) then -- or IsItem("device", obj:section())) then
-		--if obj and (helm and obj:id() ~= helm:id()) or (device and obj:id() ~= device:id()) then return end
-		--if helm ~= no_equip and sect == helm:section() or device ~= no_equip and sect == device:section() then return end
-		pr("Current Hearing Distance: %sm", hear_dist)
-		--pr("Helm Equipped: %s", helm ~= no_equip and helm:section() or "no equip")
-		subtitle_info_tbl.hear_equip.sects = subtitle_info_tbl.hear_equip.sects or {sect}
-		subtitle_info_tbl.hear_equip.total_multi = subtitle_info_tbl.hear_equip.total_multi or 1
-
-		local total_multi = subtitle_info_tbl.hear_equip.total_multi
-		local has_sect, entry = contains(subtitles_utils.equipment_tbl, sect, true, true)
-		
-		if has_sect then
-			pr("Equipment Table Details for %s: \n%s", sect, utils_data.print_table(entry, nil, true))
-			total_multi = total_multi + (entry.multiplier * obj:condition())
-			subtitle_info_tbl.hear_equip.total_multi = total_multi
-		end
-		
-		local new_hear_dist = round_idp(min_hear_dist * total_multi, 1)
-		local old_hear_dist = hear_dist
-		hear_dist = new_hear_dist <= 0 and min_hear_dist or new_hear_dist < max_hear_dist and new_hear_dist or max_hear_dist
-		
-		--if not contains(subtitle_info_tbl.hear_equip.sects, sect) then table.insert(subtitle_info_tbl.hear_equip.sects, sect) end
-		--pr("Hear Multi: %s", total_multi)
-		pr("Setting Hearing Distance from %s to %s", old_hear_dist, hear_dist)
-
-		if not contains(subtitle_info_tbl.item_in_slot, sect) then table.insert(subtitle_info_tbl.item_in_slot, sect) end
-		return
-	end
-	--pr("%s is not headgear or device", sect)
-end
-
-function reset_hearing_distance(obj, to_ruck)
-	set_debug_level("dl_all")
-	-- pr("%s | %s in slot?: %s", to_ruck and "Moving to ruck" or "Dropping", obj:section(), contains(subtitle_info_tbl.item_in_slot, obj:section()) and "true" or "false")
-	if not is_ui_open() then return end
-	if obj and not (IsHeadgear(obj)) then return end -- or IsItem("device", obj:section())) then return end
-	if not to_ruck and not contains(subtitle_info_tbl.item_in_slot, obj:section()) then return end
-
-	local sect = obj:section()
-	local total_multi = subtitle_info_tbl.hear_equip.total_multi or 1
-	local old_total_multi = total_multi
-	local old_hear_dist = hear_dist
-
-	if contains(subtitle_info_tbl.item_in_slot, sect) then
-		for idx, section in pairs(subtitle_info_tbl.item_in_slot) do
-			if section == sect then
-				subtitle_info_tbl.item_in_slot[idx] = nil
-				pr("Removing %s from slot", section)
-			end
-		end
-	end
-	
-	local has_sect, entry = contains(subtitles_utils.equipment_tbl, sect, true, true)
-	if has_sect then
-		pr("Equipment Table Details for %s: \n%s", sect, utils_data.print_table(entry, nil, true))
-		total_multi = total_multi - (entry.multiplier * obj:condition())
-		subtitle_info_tbl.hear_equip.total_multi = total_multi
-	end
-	pr("Resetting Hear Multi from %s to %s", old_total_multi, total_multi)
-
-	local new_hear_dist = round_idp(min_hear_dist * total_multi, 1)
-	hear_dist = new_hear_dist <= 0 and min_hear_dist or new_hear_dist
-	pr("Reseting Hearing Distance from %s to %s", old_hear_dist, hear_dist)
-
-	local _, idx = contains(subtitle_info_tbl.hear_equip.sects, sect, nil, nil, true)
-	if idx then table.remove(subtitle_info_tbl.hear_equip.sects, idx) end
-end
-
-
-function calc_hear_chance(npc, display_time)
-	set_debug_level("dl_dev")
-	local start_pos = db.actor:position()
-	local end_pos = npc:position()
-	local dist_to_head = 1.75
-	local info = shoot_ray({
-		pos = vector():set(start_pos.x, start_pos.y + dist_to_head, start_pos.z), 
-		dir = dir_from_pos(end_pos, start_pos),
-		range = dist_to_pos(db.actor, end_pos),
-		vis = false,
-		contact = 0.1,
-		flags = 2 + 8,
-		ignore_actor = true
-	})
-	if is_empty(info["material"]) then return true end
-	if string.find(info["material"].name, "fake") then return true end
-	return (round(info["material"].of * 100)) ~= 0
-end
-
--- Dev Debugging
-
---- @author demonized
-function display_ray(pos, dir, display_time)
-	local display_time = display_time or 10000
-
-	local ray = geo_ray({
-        ray_range = 1000,
-        visualize = false,
-        flags = 1+2,
-        ignore_object = db.actor,
-    })
-
-    -- Get player's camera position and direction in world space
-    local pos0 = pos and vector():set(pos) or device().cam_pos
-    local angle1 = dir and vector():set(dir) or device().cam_dir
-
-    -- Generate two positions orthogonal to camera direction and each other
-    local pos01 = vector():set(0, 1, 0)
-    pos01 = pos01:sub(vector():set(angle1):mul(pos01:dotproduct(angle1)))
-    pos01:normalize()
-
-    local pos02 = vector_cross(angle1, pos01)
-
-    pos01 = pos01:mul(0.01)
-    pos02 = pos02:mul(0.01)
-
-    pos01 = pos01:add(pos0)
-    pos02 = pos02:add(pos0)
-
-    -- Get positions of intersections of rays around pos0
-    local res = ray:get(pos0, angle1)
-    local pos1 = res.position
-    local pos2 = ray:get(pos01, angle1).position
-    local pos3 = ray:get(pos02, angle1).position
-
-    if not res.success then
-        -- print_tip("cant get normal by pos %s, dir %s", pos0, angle1)
-        return
+function parse_sound_file(file)
+    if is_not_empty(file_cache) and contains(file_cache, file, true) and in_snd_dir(file_cache[file]) then
+        local cached_filename = file_cache[file]
+        -- printf("Using %s cached file for %s\n", file, cached_filename)
+        return cached_filename
     end
 
-	vis_ray(pos0, pos1, nil, display_time)
-	vis_ray(pos01, pos2, nil, display_time)
-	vis_ray(pos02, pos3, nil, display_time)
+    if in_snd_dir(file) then
+        -- printf("Path exists in sounds dir: %s\n", file and true or false)
+        file_cache[file] = file
+        log_file_cache.normal = log_file_cache.normal + 1
+        return file
 
-	 -- Get vectors from intersection points from pos1
-	 local vec2 = vec_sub(pos1, pos2)
-	 local vec3 = vec_sub(pos1, pos3)
- 
-	 -- Find normal vector of surface by taking cross product of intersection vectors
-	 local cross = (vector_cross(vec2, vec3)):normalize()   
- 
-	 -- If the direction and normal vectors heading in similar direction - invert normal
-	 local deg = angle1:dotproduct(cross)
-	 if deg > 0 then
-		 cross:invert()
-	 end
+    elseif not in_snd_dir(file) then
 
-	return dist_to_pos(db.actor, vector():set(pos1):add(cross))
+        -- Split the end digit. Engine adds an extra digit idk why
+        local end_digit = "1"
+        for mtch in file:gmatch("_%d+") do
+            end_digit = mtch:gsub("_", "")
+        end
+        local filename_prefix = file:gsub(end_digit, "")
+        for i=1, end_digit:len() do
+            local new_file = filename_prefix .. end_digit:sub(i, i)
+            if in_snd_dir(new_file) then
+                -- printf("After Spliting: %s, found: %s\n", file, new_file)
+                log_file_cache.split = log_file_cache.split + 1
+                file_cache[file] = new_file
+                return new_file
+            end
+        end
+
+        -- Try to walk back end_digit 
+        local end_digits = get_end_digits(file)
+        for i=1, #end_digits do
+            local end_digit = end_digits[#end_digits + 1 - i]
+            local end_digit_num = tonumber(end_digit)
+
+            if end_digit_num > 0 then
+                -- printf("Walking back end digit on soundname from %s to 1\n", end_digit_num)
+                for l=1, end_digit_num do
+                    local prefix = file:gsub("%d+$", "")
+                    local new_file = prefix .. tostring(end_digit_num + 1 - l)
+                    -- printf("Trying path: %s", new_file)
+                    if in_snd_dir(new_file) then
+                        -- printf("Walked back end digit on soundname and found: %s\n", new_file)
+                        file_cache[file] = new_file
+                        log_file_cache.norm_walkback = log_file_cache.norm_walkback + 1
+                        return new_file
+                    end
+                end
+            end
+        end
+        
+        -- Engine also jumbles up fight paths, feel like it's used as a queue in string form
+        -- the last part that includes fight should be partnered with the inital sound prefix
+        -- Example str: characters_voice\human\csky_1\fight\attack\attack_,fight\attack\attack_one_,fight\fire\fire_7
+        
+        local start, fin = file:find("fight")
+        if start then
+            -- printf("Parsing weird fight string: %s", file)
+            local prefix = file:sub(0, start - 1)
+            local fight_str = file:sub(start, file:len())
+            
+            local end_digits = ""
+            local tkns = {}
+            for a, b in pairs(split(fight_str, ",")) do
+                tkns[#tkns + 1] = b:gsub("%d+$", "")
+            end
+            
+            local end_digits = get_end_digits(file)
+
+            for i=1, #tkns do
+                for j=1, #end_digits do
+                    local fight_tkn = tkns[#tkns + 1 - i]
+                    local end_digit = end_digits[#end_digits + 1 - j]
+                    local fight_file = prefix .. fight_tkn .. end_digit
+
+                    -- printf("Trying path: %s", fight_file)
+                    if in_snd_dir(fight_file) then
+                        -- printf("Found Weird Fight String: %s\n", fight_file)
+                        log_file_cache.fight = log_file_cache.fight + 1
+                        file_cache[file] = fight_file
+                        return fight_file
+                    else
+                        local end_digit_num = tonumber(end_digit)
+                        if end_digit_num > 0 then
+                            -- printf("Walking back end digit from %s to 1", end_digit_num)
+                            for l=1, end_digit_num do
+                                fight_file = prefix .. fight_tkn .. tostring(end_digit_num + 1 - l)
+                                if in_snd_dir(fight_file) then
+                                    -- printf("Walked back end digit and found: %s\n", fight_file)
+                                    file_cache[file] = fight_file
+                                    log_file_cache.fight_walkback = log_file_cache.fight_walkback + 1
+                                    return fight_file
+                                end
+                            end
+                        end
+                    
+                    end
+                end
+            end
+        end
+        -- printf("Invalid path: %s\n", file)
+        log_file_cache.invalid = log_file_cache.invalid + 1
+    end
 end
 
+function subtitle_them(path, npc)
+    if not path or not npc then return end
+    if not db.actor then return end
 
-function shoot_ray(args)
-	local ray = geo_ray({
-		ray_range = args.range,
-		visualize= args.vis,
-		contact_range= args.contact,
-		flag=args.flags,
-		ignore_object=args.ignore_actor and db.actor or args.ignore_obj ~= nil and args.ignore_obj or false
-	})
-	local res = ray:get(args.pos or device().cam_pos, args.dir or device().cam_dir)
-	local info = {contact_pos=res.position, contact_normal=demonized_geometry_ray.get_surface_normal(res.position)}
-	local material_info = material_info(res)	
-	return {ray=info, material=material_info}
+    -- if not validate_npc(npc) then return end
+    
+    local npc_id = npc:id()
+    if npc_id == AC_ID then return end
+    local name = get_npc_name(npc)
+    local xml_id = path_to_xml(path)
+    local xml_text = gts(xml_id)
+    local snd = sound_object(path)
+    local length = snd:length()
+
+    local subtitle_info = {
+        xml_id = xml_id,
+        xml_text = xml_text,
+        length = length,
+        path = path,
+        npc_id = npc_id,
+        tokens = xml_to_tokens(xml_text),
+        sound_duration = length + time_global(),
+        show_time = length + (FADE_TIME * 1000) + time_global(),
+        id = strformat("%s_%s", npc_id, xml_id),
+        caption_tmr = 0,
+        fade_tmr = 0,
+        caption_opacity = MAX_CAPTION_OPACITY,
+    }
+    subtitle_info.token_size = #subtitle_info.tokens
+    subtitle_info.decreases = calc_decreases(MAX_CAPTION_OPACITY)
+    subtitle_info.decreases_num = #subtitle_info.decreases
+    
+    if not validate_subtitle(subtitle_info) then return end
+    queue_subtitle(subtitle_info, npc)
 end
 
-function material_info(res)
-	set_debug_level("dl_all")
-	if not res.result.material_name then return {} end
-	local info = {
-		name = res.result.material_name,
-		of = res.result.material_snd_occlusion_factor,
-		df = res.result.material_density_factor
-	}
-	--pr("Material Name: %s, Occlusion Fac: %s, Density Fac: %s", info.name, info.of, info.df)
-	return info
+function validate_npc(npc)
+    if not npc then
+        return false
+    end
+
+    if not npc then
+        printf("no npc")
+        return false
+    end
+    
+    if not npc:alive() and not contains(recent_npc_deaths, npc:id(), true) then
+        printf("npc dead")
+        return false
+    end
+
+    local dist = dist_to_pos(npc)
+    if round(dist) > MAX_HEAR_DIST then
+        -- printf("npc out of range: %s", dist)
+        return false
+    end
+
+    return true
 end
 
-function info_binos(obj)
-	if obj:section() ~= "wpn_binoc_inv" then return end	
-	local info = shoot_ray({range=hear_dist, vis=true, contact=0.1, flags=2 + 4 + 8, ignore_actor=true})
-	pr("Info Bincos: %s", utils_data.print_table(info, nil, true))
+function validate_subtitle(info)
+    if info.xml_text == info.xml_id then
+        printf("No xml text found for %s", info.xml_id)    
+        return false
+    end
+
+    if contains(exclude_subs, info.xml_text) then 
+        printf("Invalid subtitle: %s", info.xml_id)
+        return false
+    end
+
+    return true
 end
 
-function enable_dev_tools(name)
-	if not debug_enabled then return end
-	if name == "UIZoom" then
-		info_binos(db.actor:active_item())
-	end
+function queue_subtitle(info)
+    local id = info.npc_id
+    if not contains(QUEUED_SUBTITLES, id, true) then
+        QUEUED_SUBTITLES[id] = {}
+        printf("init subs: %s", id)
+    end
+    printf("queuing subs for: %s", id)
+    QUEUED_SUBTITLES[id][#QUEUED_SUBTITLES[id] + 1] = info
 end
 
-function print_info(info)
-	info_str = strformat("Speaker Name: '%s', Speaker Faction: '%s', Subtitle: '%s', Locale: '%s', Duration: '%s', XML String id: '%s, Distance: '%s", 
-	info["speaker_name"], info["speaker_faction"], info["subtitle"], info["locale"], info["duration"], info["xml_string_id"], info["distance"])
-	pr("Subtitle Info: %s", info_str)
+function xml_to_tokens(xml_text, sep)
+    local words = get_word_tokens(xml_text, sep)
+    local sub_tokens = get_sub_tokens(words)
+    return sub_tokens
 end
 
--- Callbacks
-function anomaly_subtitles_info()
-	printf("--------Anomaly Subtitles--------")
-	printf("Version: %s", as_version)
-	printf("Author(s): %s", as_authors)
-	printf("Last Updated: %s", as_last_update)
-	printf("---------------------------------")
+function get_word_tokens(text, sep)
+    sep = sep and sep or "%s"
+    local words = {}
+    local ending_mark = "[%.?!,]$"
+    local line_break = "\n"
+    for idx, tkn in pairs(split(text, sep)) do
+        if tkn:find(ending_mark) then
+            for mtch in tkn:gmatch(ending_mark) do
+                local end_char = mtch .. "$"
+                local rpl = mtch .. line_break
+                words[#words + 1] = tkn:gsub(end_char, rpl)
+            end
+        else
+            words[#words + 1] = tkn
+        end
+    end
+    return words
 end
 
-function collect_icon_textures()	
-	for idx, file in pairs(icon_texture_files) do
-		pr("Collecting Icon Textures from: %s", file)
-		local icon_textures = collect_xml_tags(subtitles_utils.get_path("ui\\"..file..".xml"))
-		copy_table(icon_texture_tbl, icon_textures)
-		set_debug_level("dl_all")
-		--pr("Icons Found in %s:\n %s", file, utils_data.print_table(icon_textures, nil, true))
-	end
-	pr("Found Icon Textures in:\n %s", utils_data.print_table(icon_texture_tbl, nil, true))
+function get_sub_tokens(words)
+    local tokens = {}
+    --printf("words: %s", print_table(words))
+    if #words % WORDS_PER_SECOND == 0 then
+        --printf("is divisble by %s", WORDS_PER_SECOND)
+        local j = 1
+        for i=1, #words / WORDS_PER_SECOND do
+           tokens[#tokens + 1] = string.format("%s %s %s", words[j], words[j + 1], words[j + 2])
+           j = j + WORDS_PER_SECOND
+        end
+        --printf("tokens: %s", print_table(tokens))
+        return tokens
+    elseif #words > WORDS_PER_SECOND then
+        -- printf("word count: %s", #words)
+        local new_word_count = #words
+        for i=1, new_word_count do
+            new_word_count = new_word_count - 1
+            if new_word_count % WORDS_PER_SECOND == 0 then
+                break
+            end
+        end
+        -- printf("new word count: %s", new_word_count)
+        -- printf("getting main tokens")
+        tokens = get_sub_tokens(table_slice(words, 1, new_word_count))
+        -- printf("getting the remainder")
+        tokens[#tokens + 1] = table.concat(table_slice(words, new_word_count + 1, #words), " ")
+        tokens[#tokens] = tokens[#tokens]:gsub("%s$", "")
+        -- printf("tokens: %s", print_table(tokens))
+        return tokens
+    else
+        return words
+    end
 end
 
-function setup()
-	if setup_completed then return end
-	anomaly_subtitles_info()
-	sort_mutant_sect_to_generic()
-	collect_icon_textures()
-	on_option_change()
-	setup_completed = true
+function calc_decreases(opacity)
+    -- printf("calc decreases")
+    local decreases = {}
+    for i=1, FADE_TIME do
+        local decrease = (opacity/FADE_TIME)
+        decreases[i] = decrease
+    end
+    return decreases
 end
 
-function on_save(mdata)
-	local save_tbl = {}
-	copy_table(save_tbl, subtitle_info_tbl)
-	mdata.subtitle_info_tbl = subtitle_info_tbl
+-- NPC Deaths
+
+function init_npc_death(id)
+    if not contains(recent_npc_deaths, id, true) then
+        recent_npc_deaths[id] = time_global() + 1500
+    end
 end
 
-function on_load(mdata)
-	local load_tbl = mdata.subtitle_info_tbl or {}
-	copy_table(subtitle_info_tbl, load_tbl)
+function remove_npc_death(id)
+    if contains(recent_npc_deaths, id, true) then
+        recent_npc_deaths[id] = nil
+    end
 end
 
-function on_option_change()
-	set_debug_level("dl_player")
-	pr("Loading MCM Options")
-	subs_enabled = get_config("enable_subs")
-	min_hear_dist = get_config("hear_dist")
-	hear_cooldown = get_config("hear_cooldown")
-	hear_dist = min_hear_dist <= 35 and min_hear_dist or 25
-	debug_enabled = get_config("enable_debug")
+function update_recent_npc_deaths()
+    if is_empty(recent_npc_deaths) then return end
+    local tg = time_global()
+    for id, remove_time in pairs(recent_npc_deaths) do
+        if tg >= remove_time then
+            remove_npc_death(id)
+        end
+    end
+end
+
+function npc_on_death_callback(npc, killer)
+    init_npc_death(npc:id())
+end
+
+function print_file_count()
+    printf("printing file cache count, total: %s", size_table(log_file_cache))
+    printf("%s", utils_data.print_table(log_file_cache, nil, true))
 end
 
 function on_game_start()
-	RegisterScriptCallback("on_phrase_callback", subtitle_him)
-	RegisterScriptCallback("on_option_change", on_option_change)
-	RegisterScriptCallback("actor_on_first_update", setup)
-	RegisterScriptCallback("actor_item_to_slot", set_hearing_distance)
-	RegisterScriptCallback("actor_on_item_drop", function(obj) reset_hearing_distance(obj) end)
-	RegisterScriptCallback("actor_item_to_ruck", function(obj) reset_hearing_distance(obj, true) end)
-	RegisterScriptCallback("GUI_on_show", enable_dev_tools)
-	RegisterScriptCallback("save_state", on_save)
-	RegisterScriptCallback("load_state", on_load)
-	-- on_option_change()
+    RegisterScriptCallback("on_phrase_callback", on_phrase_callback)
+    RegisterScriptCallback("actor_on_net_destroy", print_file_count)
+    RegisterScriptCallback("npc_on_death_callback", npc_on_death_callback)
+    RegisterScriptCallback("actor_on_update", update_recent_npc_deaths)
 end
