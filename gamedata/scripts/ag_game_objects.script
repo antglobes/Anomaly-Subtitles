@@ -366,6 +366,18 @@ end
 
 -- Getters
 
+function get_direction(pos_1, pos_2)
+    local dx = pos_2.x - pos_1.x
+    local dy = pos_2.y - pos_1.y
+    local dz = pos_2.z - pos_1.z
+    local length = math.sqrt(math.pow(dx, 2)) + math.sqrt(math.pow(dy, 2)) + math.sqrt(math.pow(dz, 2))
+    local nx = dx/length
+    local ny = dy/length
+    local nz = dz/length
+    local norm_dir = vector():set(nx, ny, nz)
+    return norm_dir
+end
+
 --- Authored by NLTP_ASHES 17/02/24 Anomaly Discord
 function get_unknown_object(obj, result_obj_type)
     if result_obj_type == "server" then

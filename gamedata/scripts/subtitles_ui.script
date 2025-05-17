@@ -3,6 +3,8 @@ contains = ag_tables.contains
 print_table = ag_tables.print_table
 get_unknown_object = ag_game_objects.get_unknown_object
 dist_to_pos = ag_game_objects.dist_to_pos
+geo_ray = demonized_geometry_ray.geometry_ray
+get_direction = ag_game_objects.get_direction
 
 -- Utils
 get_npc_faction = subtitles_utils.get_npc_faction
@@ -40,6 +42,9 @@ function UICaption:__init(parent, npc_id)
     self.caption = self.parent.xml:InitTextWnd("caption", self.parent)  
     self.max_w = self.caption:GetWidth()
     self.max_h = self.caption:GetHeight()
+
+    self.last_position = db.actor:position()
+    self.last_material = nil
     
     self:ApplyScreenRatio(self.caption)
 end
@@ -162,6 +167,27 @@ function UICaption:Validate(data)
     local dist = distance_between(npc, db.actor)
     if round(dist) > self.hearing_distance then
         -- pr("object out of range: %s", dist)
+        return false
+    end
+    
+    local actor_pos = db.actor:bone_position("bip01_head") or db.actor:position()
+    if not demonized_geometry_ray.vec_similar(actor_pos, self.last_position, 1) then
+        local ray = geo_ray({
+            ray_range = dist,
+            visualize = subtitles_mcm.get_config("enable_debug") and dbg_lvl == "all",
+            flags = 1 + 2 + 4,
+        })
+
+        local npc_pos = npc:bone_position("bip01_head") or npc:position():add(0, 1.7, 0)
+        local dir_between = get_direction(npc_pos, actor_pos)
+        local result = ray:get(npc_pos, dir_between).result
+
+        self.last_position = actor_pos
+        self.last_material = result.material_name
+        pr("result: %s", result.material_name)
+    end
+
+    if self.last_material then
         return false
     end
 
