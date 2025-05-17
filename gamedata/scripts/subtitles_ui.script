@@ -136,10 +136,9 @@ function UICaption:SetCaptionVec(pos)
     scale = clamp(scale, 0.45, 1)
     self.caption:SetWndSize(vector2():set(self.max_w * scale, self.max_h * scale))
 
-    local add_x = self.caption:GetWidth() / 2
     local add_y = warfare.lerp(0, 100, scale)
     -- pr("scale %s, dist: %s", scale, dist)
-    self.caption:SetWndPos(vector2():set(pos.x - add_x, pos.y - add_y))
+    self.caption:SetWndPos(vector2():set(pos.x, pos.y - add_y))
 end
 
 function UICaption:Validate(data)
