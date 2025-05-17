@@ -10,7 +10,7 @@
         <text>Subtitles</text>
     </string>
 	<string id="ui_mcm_subtitles_hear_dist">
-        <text>Minimum Hearing Distance (Meters)</text>
+        <text>Maximum Hearing Distance (Meters)</text>
     </string>
 	<string id="ui_mcm_subtitles_hear_chance">
         <text>Subtitle Chance</text>
@@ -42,7 +42,42 @@
     <string id="ui_mcm_subtitles_font_alignment">
         <text>Font Aligment</text>
     </string>
+    <string id="ui_mcm_subtitles_enable_faction_clr">
+        <text>Enable Faction Colour</text>
+    </string>
+    <string id="ui_mcm_subtitles_colour_blind_type">
+        <text>Type of Colour Blindless</text>
+    </string>
     <!-- List Options -->
+    <!-- Colour blind types -->
+    <string id="ui_mcm_lst_normal">
+        <text>Normal</text>
+    </string>
+    <string id="ui_mcm_lst_achromatopsia">
+        <text>Achromatopsia</text>
+    </string>
+    <string id="ui_mcm_lst_achromatomaly">
+        <text>Achromatomaly</text>
+    </string>
+    <string id="ui_mcm_lst_deuteranopia">
+        <text>Deuteranopia</text>
+    </string>
+    <string id="ui_mcm_lst_deuteranomaly">
+        <text>Deuteranomaly</text>
+    </string>
+    <string id="ui_mcm_lst_protanopia">
+        <text>Protanopia</text>
+    </string>
+    <string id="ui_mcm_lst_protanomaly">
+        <text>Protanomaly</text>
+    </string>
+    <string id="ui_mcm_lst_tritanopia">
+        <text>Tritanopia</text>
+    </string>
+    <string id="ui_mcm_lst_tritanomaly">
+        <text>Tritanomaly</text>
+    </string>
+
     <string id="ui_mcm_lst_bc_white">
         <text>White</text>
     </string>
@@ -143,13 +178,13 @@
     </string>
 
     <!-- Debugging Messages Level-->
-    <string id="ui_mcm_lst_dl_player">
+    <string id="ui_mcm_lst_player">
         <text>Player</text>
     </string>
-     <string id="ui_mcm_lst_dl_dev">
+     <string id="ui_mcm_lst_dev">
         <text>Developer</text>
     </string>
-     <string id="ui_mcm_lst_dl_all">
+     <string id="ui_mcm_lst_all">
         <text>All</text>
     </string>
 

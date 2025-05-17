@@ -4,6 +4,12 @@ Purpose: Utils
 Last Modified: 14/12/24
 ]]---------------
 
+-- Imports
+contains = ag_tables.contains
+
+-- Constants
+DBG_LVL = "player"
+
 function get_end_digits(str)
     local digit_str = str:sub(str:find("%d+$"))
 
@@ -40,4 +46,70 @@ end
 function get_bone_pos(obj, bname)
     local bid = obj:get_bone_id(bname)
     return bid ~= 65535 and obj:bone_position(bname) or obj:position()
+end
+
+special_character_faction = {
+    -- Cordon
+    ["Loris"] = "stalker",
+    ["Sidorovich"] = "stalker",
+    -- Garbage
+    ["Butcher"] = "stalker",
+    -- Rostok
+    ["Barkeep"] = "stalker",
+    ["Snitch"] = "stalker",
+    ["Arnie"] = "stalker",
+    -- Red Forest
+    ["Forester"] = "stalker",
+    -- Jupiter
+    ["Hawaiian"] = "stalker",
+    ["Ashot"] = "freedom",
+    -- Zaton
+    ["Nimble"] = "stalker",
+    ["Beard"] = "stalker",
+    ["Owl"] = "stalker",
+    -- Great Swamps
+    ["Professor Kalancha"] = "csky",
+    -- Misc
+    ['Senior Sergeant Grebenko'] = "dolg",
+}
+
+function get_npc_faction(npc)
+    if IsMonster(npc) then
+        return "monster"
+    end
+
+    local name = get_npc_name(npc)
+    if contains(special_character_faction, name, true) then
+        return special_character_faction[name]
+    end
+
+    return npc:character_community()
+end
+
+-- MCM
+function set_debug_level(new_dbg_level)
+	DBG_LVL = new_dbg_level
+end
+
+function mcm_debug_level()
+	return DBG_LVL or "player"
+end
+
+function filter_debug_msg(debug_level)
+	local mcm_dbg_lvl = mcm_debug_level()
+	local accepted_debug_msgs = {
+		["player"] = {"player"},
+		["dev"]    = {"player", "dev"},
+		["all"]    = {"player", "dev", "all"}
+	}
+	return contains(accepted_debug_msgs[mcm_dbg_lvl], debug_level)
+end
+
+function dbg_pr(header, str, ...)
+    if not filter_debug_msg(DBG_LVL) then return end
+    ag_logging.dbg_pr(header, str, ...)
+end
+
+function on_option_change(options)
+    DBG_LVL = options["debug_level"]
 end

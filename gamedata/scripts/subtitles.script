@@ -13,6 +13,8 @@ get_end_digits = subtitles_utils.get_end_digits
 in_snd_dir = subtitles_utils.in_snd_dir
 path_to_xml = subtitles_utils.path_to_xml
 get_npc_name = subtitles_utils.get_npc_name
+set_debug_level =  subtitles_utils.set_debug_level
+filter_debug_msg = subtitles_utils.filter_debug_msg
 
 -- Tables
 log_file_cache = {
@@ -59,9 +61,11 @@ exclude_subs = {
 
 -- Constants
 WORDS_PER_SECOND = 3 -- avg words per mintue in russian = 184. 184/60 = 3.067. so ~3 words a mintue
+
+-- MCM
 MIN_CAPTION_OPACITY = 0
 MAX_CAPTION_OPACITY = 255
-FADE_TIME = 1
+FADE_TIME = 2
 MAX_HEAR_DIST = 35
 
 -- Variables
@@ -70,11 +74,18 @@ clr_cache = {}
 recent_npc_deaths = {}
 HUD = nil
 QUEUED_SUBTITLES = {}
+local dbg_lvl = "player"
 
+-- Debugging
+function pr(str, ...)
+    if not filter_debug_msg(dbg_lvl) then return end
+    subtitles_utils.dbg_pr("[AS|MAIN]: %s", str, ...)
+end
 
+-- Main Funcs
 function on_phrase_callback(sound_name, npc)
     local name = get_npc_name(npc)
-    --printf("%s is playing: %s", name, sound_name)
+    --pr("%s is playing: %s", name, sound_name)
     local parsed_file = parse_sound_file(sound_name)
     subtitle_them(parsed_file, npc)
 end
@@ -82,12 +93,12 @@ end
 function parse_sound_file(file)
     if is_not_empty(file_cache) and contains(file_cache, file, true) and in_snd_dir(file_cache[file]) then
         local cached_filename = file_cache[file]
-        -- printf("Using %s cached file for %s\n", file, cached_filename)
+        -- pr("Using %s cached file for %s\n", file, cached_filename)
         return cached_filename
     end
 
     if in_snd_dir(file) then
-        -- printf("Path exists in sounds dir: %s\n", file and true or false)
+        -- pr("Path exists in sounds dir: %s\n", file and true or false)
         file_cache[file] = file
         log_file_cache.normal = log_file_cache.normal + 1
         return file
@@ -103,7 +114,7 @@ function parse_sound_file(file)
         for i=1, end_digit:len() do
             local new_file = filename_prefix .. end_digit:sub(i, i)
             if in_snd_dir(new_file) then
-                -- printf("After Spliting: %s, found: %s\n", file, new_file)
+                -- pr("After Spliting: %s, found: %s\n", file, new_file)
                 log_file_cache.split = log_file_cache.split + 1
                 file_cache[file] = new_file
                 return new_file
@@ -117,13 +128,13 @@ function parse_sound_file(file)
             local end_digit_num = tonumber(end_digit)
 
             if end_digit_num > 0 then
-                -- printf("Walking back end digit on soundname from %s to 1\n", end_digit_num)
+                -- pr("Walking back end digit on soundname from %s to 1\n", end_digit_num)
                 for l=1, end_digit_num do
                     local prefix = file:gsub("%d+$", "")
                     local new_file = prefix .. tostring(end_digit_num + 1 - l)
-                    -- printf("Trying path: %s", new_file)
+                    -- pr("Trying path: %s", new_file)
                     if in_snd_dir(new_file) then
-                        -- printf("Walked back end digit on soundname and found: %s\n", new_file)
+                        -- pr("Walked back end digit on soundname and found: %s\n", new_file)
                         file_cache[file] = new_file
                         log_file_cache.norm_walkback = log_file_cache.norm_walkback + 1
                         return new_file
@@ -138,7 +149,7 @@ function parse_sound_file(file)
         
         local start, fin = file:find("fight")
         if start then
-            -- printf("Parsing weird fight string: %s", file)
+            -- pr("Parsing weird fight string: %s", file)
             local prefix = file:sub(0, start - 1)
             local fight_str = file:sub(start, file:len())
             
@@ -156,20 +167,20 @@ function parse_sound_file(file)
                     local end_digit = end_digits[#end_digits + 1 - j]
                     local fight_file = prefix .. fight_tkn .. end_digit
 
-                    -- printf("Trying path: %s", fight_file)
+                    -- pr("Trying path: %s", fight_file)
                     if in_snd_dir(fight_file) then
-                        -- printf("Found Weird Fight String: %s\n", fight_file)
+                        -- pr("Found Weird Fight String: %s\n", fight_file)
                         log_file_cache.fight = log_file_cache.fight + 1
                         file_cache[file] = fight_file
                         return fight_file
                     else
                         local end_digit_num = tonumber(end_digit)
                         if end_digit_num > 0 then
-                            -- printf("Walking back end digit from %s to 1", end_digit_num)
+                            -- pr("Walking back end digit from %s to 1", end_digit_num)
                             for l=1, end_digit_num do
                                 fight_file = prefix .. fight_tkn .. tostring(end_digit_num + 1 - l)
                                 if in_snd_dir(fight_file) then
-                                    -- printf("Walked back end digit and found: %s\n", fight_file)
+                                    -- pr("Walked back end digit and found: %s\n", fight_file)
                                     file_cache[file] = fight_file
                                     log_file_cache.fight_walkback = log_file_cache.fight_walkback + 1
                                     return fight_file
@@ -181,7 +192,7 @@ function parse_sound_file(file)
                 end
             end
         end
-        -- printf("Invalid path: %s\n", file)
+        -- pr("Invalid path: %s\n", file)
         log_file_cache.invalid = log_file_cache.invalid + 1
     end
 end
@@ -223,23 +234,24 @@ function subtitle_them(path, npc)
 end
 
 function validate_npc(npc)
+    set_debug_level("all")
     if not npc then
         return false
     end
 
     if not npc then
-        printf("no npc")
+        pr("no npc")
         return false
     end
     
     if not npc:alive() and not contains(recent_npc_deaths, npc:id(), true) then
-        printf("npc dead")
+        pr("npc dead")
         return false
     end
 
     local dist = dist_to_pos(npc)
     if round(dist) > MAX_HEAR_DIST then
-        -- printf("npc out of range: %s", dist)
+        -- pr("npc out of range: %s", dist)
         return false
     end
 
@@ -247,13 +259,14 @@ function validate_npc(npc)
 end
 
 function validate_subtitle(info)
+    set_debug_level("all")
     if info.xml_text == info.xml_id then
-        printf("No xml text found for %s", info.xml_id)    
+        pr("No xml text found for %s", info.xml_id)    
         return false
     end
 
     if contains(exclude_subs, info.xml_text) then 
-        printf("Invalid subtitle: %s", info.xml_id)
+        pr("Invalid subtitle: %s", info.xml_id)
         return false
     end
 
@@ -261,12 +274,13 @@ function validate_subtitle(info)
 end
 
 function queue_subtitle(info)
+    set_debug_level("dev")
     local id = info.npc_id
     if not contains(QUEUED_SUBTITLES, id, true) then
         QUEUED_SUBTITLES[id] = {}
-        printf("init subs: %s", id)
+        pr("init subs: %s", id)
     end
-    printf("queuing subs for: %s", id)
+    pr("queuing subs for: %s", id)
     QUEUED_SUBTITLES[id][#QUEUED_SUBTITLES[id] + 1] = info
 end
 
@@ -297,18 +311,18 @@ end
 
 function get_sub_tokens(words)
     local tokens = {}
-    --printf("words: %s", print_table(words))
+    --pr("words: %s", print_table(words))
     if #words % WORDS_PER_SECOND == 0 then
-        --printf("is divisble by %s", WORDS_PER_SECOND)
+        --pr("is divisble by %s", WORDS_PER_SECOND)
         local j = 1
         for i=1, #words / WORDS_PER_SECOND do
            tokens[#tokens + 1] = string.format("%s %s %s", words[j], words[j + 1], words[j + 2])
            j = j + WORDS_PER_SECOND
         end
-        --printf("tokens: %s", print_table(tokens))
+        --pr("tokens: %s", print_table(tokens))
         return tokens
     elseif #words > WORDS_PER_SECOND then
-        -- printf("word count: %s", #words)
+        -- pr("word count: %s", #words)
         local new_word_count = #words
         for i=1, new_word_count do
             new_word_count = new_word_count - 1
@@ -316,13 +330,13 @@ function get_sub_tokens(words)
                 break
             end
         end
-        -- printf("new word count: %s", new_word_count)
-        -- printf("getting main tokens")
+        -- pr("new word count: %s", new_word_count)
+        -- pr("getting main tokens")
         tokens = get_sub_tokens(table_slice(words, 1, new_word_count))
-        -- printf("getting the remainder")
+        -- pr("getting the remainder")
         tokens[#tokens + 1] = table.concat(table_slice(words, new_word_count + 1, #words), " ")
         tokens[#tokens] = tokens[#tokens]:gsub("%s$", "")
-        -- printf("tokens: %s", print_table(tokens))
+        -- pr("tokens: %s", print_table(tokens))
         return tokens
     else
         return words
@@ -330,7 +344,7 @@ function get_sub_tokens(words)
 end
 
 function calc_decreases(opacity)
-    -- printf("calc decreases")
+    -- pr("calc decreases")
     local decreases = {}
     for i=1, FADE_TIME do
         local decrease = (opacity/FADE_TIME)
@@ -368,8 +382,17 @@ function npc_on_death_callback(npc, killer)
 end
 
 function print_file_count()
-    printf("printing file cache count, total: %s", size_table(log_file_cache))
-    printf("%s", utils_data.print_table(log_file_cache, nil, true))
+    set_debug_level("all")
+    pr("printing file cache count, total: %s", size_table(log_file_cache))
+    pr("%s", utils_data.print_table(log_file_cache, nil, true))
+end
+
+function on_option_change(options)
+    -- FADE_TIME           = options["fade_time"]
+    MAX_HEAR_DIST       = options["hear_dist"]
+    -- WORDS_PER_SECOND    = options["words_per_second"]
+    -- MIN_CAPTION_OPACITY = options["min_caption_opacity"]
+    -- MAX_CAPTION_OPACITY = options["max_caption_opacity"]
 end
 
 function on_game_start()
@@ -377,4 +400,5 @@ function on_game_start()
     RegisterScriptCallback("actor_on_net_destroy", print_file_count)
     RegisterScriptCallback("npc_on_death_callback", npc_on_death_callback)
     RegisterScriptCallback("actor_on_update", update_recent_npc_deaths)
+    RegisterScriptCallback("as_on_option_change", on_option_change)
 end

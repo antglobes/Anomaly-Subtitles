@@ -6,19 +6,22 @@ Last Modified: 20/10/24
 
 -- If you don't use MCM, change your defaults from here.
 
+AddScriptCallback("as_on_option_change")
+
+print_table = ag_tables.print_table
+
 defaults = {
-	["companion_setting"] = 60,
-	["companion_chance"] = 60,
-	["enable_subs"] = true,
-	["hear_dist"] = 25,
-	["hear_chance"] = 100,
-	["hear_cooldown"] = 0,
-	["enable_debug"] = false,
-	["sub_duration"] = "true_duration",
-	["enable_speaker_icon"] = true,
-	["use_localization"] = false,
-	["enable_mutant_subs"] = false,
+	enable_subs = true,
+	hear_dist = 35,
+	enable_debug = false,
+	debug_level = "player",
+	enable_faction_clr = false,
+	colour_blind_type = "normal"
 }
+
+function pr(str, ...)
+	subtitles_utils.dbg_pr("[AS|MCM]: %s", str, ...)
+end
 
 function get_config(key)
     if ui_mcm then return ui_mcm.get("subtitles/"..key) else return defaults[key] end
@@ -28,39 +31,59 @@ function debugging_enabled()
 	return get_config("enable_debug")
 end
 
-function speaker_icon_enabled()
-	return get_config("enable_speaker_icon")
+function faction_clr_enabled()
+	return get_config("enable_faction_clr")
 end
 
 function on_mcm_load()
-    op = { id= "subtitles",sh=true ,gr={
-			{id = "title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_subtitles_title",size= {512,50},spacing= 20 },
-			{id = "hear_dist", type = "track", val = 2, min=1,max=35,step=1, def = 25},
-			{id = "hear_chance", type = "track", val = 2, min=0,max=100,step=1, def = 100},
-			{id = "hear_cooldown", type = "track", val = 2, min=0,max=10,step=1, def = 0},						
-			{id="sub_duration", type="radio_v", val=0, def="true_duration", 
+    return { 
+		id="subtitles",sh=true ,gr={
+			{id="title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_subtitles_title",size= {512,50},spacing= 20 },
+			{id="hear_dist", type = "track", val = 2, min=1,max=35,step=1, def = 25},
+			{id="divider", type="line"},
+
+			{id="title", type="title", text="ui_mcm_subtitles_title_accessiblity"},
+			{id="enable_faction_clr", type="check", val=1, def=false},
+			{id="colour_blind_type", type="list", val=0, def="normal", precondition={faction_clr_enabled},
 				content={
-					{"true_duration", "true_duration"},
-					{"slow_reader", "slow_reader"},
-					{"ok_reader", "ok_reader"},
-					{"fast_reader", "fast_reader"}
+					{"normal", "normal"},
+					{"achromatopsia", "achromatopsia"},
+					{"achromatomaly", "achromatomaly"},
+					{"deuteranopia", "deuteranopia"},
+					{"deuteranomaly", "deuteranomaly"},
+					{"protanopia", "protanopia"},
+					{"protanomaly", "protanomaly"},
+					{"tritanopia", "tritanopia"},
+					{"tritanomaly", "tritanomaly"},
 				}
 			},
+
 			{id="divider", type="line"},
 			{id="title_additional", type="title", text="ui_mcm_subtitles_title_additional"},
-			{id ="enable_subs", type = "check", val = 1, def = true},
-			{id="enable_mutant_subs", type = "check", val = 1, def = false},
-			{id="enable_speaker_icon", type="check", val=1, def=true},			
-			{id="use_localization", type="check", val=1, def=false, precondition={speaker_icon_enabled}},
+			{id="enable_subs", type = "check", val = 1, def = true},
 			{id="enable_debug", type="check", val=1, def=false},
-			{id="debug_level", type="list", val=0, def="dl_player", precondition={debugging_enabled},
+			{id="debug_level", type="list", val=0, def="player", precondition={debugging_enabled},
 				content={
-					{"dl_player", "dl_player"},
-					{"dl_dev", "dl_dev"},
-					{"dl_all", "dl_all"}
+					{"player", "player"},
+					{"dev", "dev"},
+					{"all", "all"}
 				}
 			}
 		}
     }
-    return op
+end
+
+function on_option_change()
+    pr("Loading AS Options:")
+    local options = {}
+    for k, _ in pairs(defaults) do
+        options[k] = get_config(k)
+    end
+    SendScriptCallback("as_on_option_change", options)
+    pr("%s", print_table(options))
+end
+
+function on_game_start()
+    RegisterScriptCallback("on_option_change", on_option_change)
+    RegisterScriptCallback("actor_on_first_update", on_option_change)
 end

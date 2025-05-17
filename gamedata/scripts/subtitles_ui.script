@@ -2,17 +2,32 @@
 contains = ag_tables.contains
 print_table = ag_tables.print_table
 get_unknown_object = ag_game_objects.get_unknown_object
+dist_to_pos = ag_game_objects.dist_to_pos
 
--- Constants
+-- Utils
+get_npc_faction = subtitles_utils.get_npc_faction
+set_debug_level =  subtitles_utils.set_debug_level
+filter_debug_msg = subtitles_utils.filter_debug_msg
+
+-- MCM
 MIN_CAPTION_OPACITY = 0
 MAX_CAPTION_OPACITY = 255
 FADE_TIME = 2
 MAX_HEAR_DIST = 35
+COLOUR_BLIND_TYPE = "normal"
+ENABLE_FACTION_CLR = false
 
 -- Variables
 HUD = nil
 clr_cache = {}
 DESPAWNED_NPCS = {}
+local dbg_lvl = "player"
+
+-- Debugging
+function pr(str, ...)
+    if not filter_debug_msg(dbg_lvl) then return end
+    subtitles_utils.dbg_pr("[AS|UI]: %s", str, ...)
+end
 
 class "UICaption"
 function UICaption:__init(parent, npc_id)
@@ -22,7 +37,10 @@ function UICaption:__init(parent, npc_id)
     self.active_info = {}
     self.hearing_distance = MAX_HEAR_DIST
 
-    self.caption = self.parent.xml:InitTextWnd("caption", self.parent)    
+    self.caption = self.parent.xml:InitTextWnd("caption", self.parent)  
+    self.max_w = self.caption:GetWidth()
+    self.max_h = self.caption:GetHeight()
+    
     self:ApplyScreenRatio(self.caption)
 end
 
@@ -32,13 +50,14 @@ end
 
 function UICaption:Update(show_caption)
     local tg = time_global()
+    set_debug_level("all")
 
     local pos = self:GetScreenPosition()
-    -- printf("Show caption: %s, valid screen pos?: %s", show_caption, self:ScreenPosValid(pos))
+    -- pr("Show caption: %s, valid screen pos?: %s", show_caption, self:ScreenPosValid(pos))
     if show_caption and self:ScreenPosValid(pos) then
         if is_empty(self.active_info) and is_not_empty(subtitles.QUEUED_SUBTITLES[self.npc_id]) then              
             self.active_info = table.remove(subtitles.QUEUED_SUBTITLES[self.npc_id], 1)
-            printf("init active info with %s", print_table(self.active_info))
+            pr("init active info with %s", print_table(self.active_info))
             self:AddTokensToCaption(tg)
 
         elseif is_not_empty(self.active_info) then
@@ -57,7 +76,7 @@ function UICaption:Update(show_caption)
 
             -- Stage 3: Both Show Time and Sound Duration has been reached, Move to Next
             if tg >= self.active_info["show_time"] and tg >= self.active_info["sound_duration"] then
-                printf("hiding caption for %s at %s", self.npc_id, self.active_info["show_time"])
+                pr("hiding caption for %s at %s", self.npc_id, self.active_info["show_time"])
                 self.active_info = {}
                 self.caption:Show(false)
                 self.caption:SetText("")
@@ -66,8 +85,10 @@ function UICaption:Update(show_caption)
         end
 
         if self:Validate(self.active_info) then
-            self.caption:SetWndPos(pos)
             self.caption:Show(true)
+            self:SetCaptionText()
+            self:SetCaptionVec(pos)
+           
         else
             self.caption:Show(false)
         end
@@ -83,10 +104,11 @@ function UICaption:AddTokensToCaption(tg)
     local subtitle = self.caption:GetText() or ""
     self.caption:SetText(strformat("%s %s", subtitle, sub_tkn))
     self.active_info["caption_tmr"] = tg + (self.active_info["length"] / self.active_info["token_size"])
-    --printf("Updating tokens to caption: subtitle %s, token: %s, tmr: %s", subtitle, sub_tkn, self.active_info["caption_tmr"])
+    --pr("Updating tokens to caption: subtitle %s, token: %s, tmr: %s", subtitle, sub_tkn, self.active_info["caption_tmr"])
 end
 
 function UICaption:FadeCaption(tg)
+    set_debug_level("all")
     local tb_clr = self.caption:GetTextColor()
     local decrease = table.remove(self.active_info["decreases"], 1)
     local opacity_reduction = self.active_info["caption_opacity"] - decrease
@@ -94,34 +116,57 @@ function UICaption:FadeCaption(tg)
     self.caption:SetTextColor(change_alpha(tb_clr, new_opacity))
     self.active_info["caption_opacity"] = new_opacity
     self.active_info["fade_tmr"] = tg + (FADE_TIME / self.active_info["decreases_num"]) * 1000
-    printf("fading caption from %s to %s", self.active_info["caption_opacity"], new_opacity)
+    pr("fading caption from %s to %s", self.active_info["caption_opacity"], new_opacity)
+end
+
+function UICaption:SetCaptionText()
+    if not ENABLE_FACTION_CLR then return end
+    local npc = get_unknown_object({id=self.npc_id}, "game")
+    local argb = get_faction_clr(npc, self.active_info["caption_opacity"], COLOUR_BLIND_TYPE)
+    ---pr("ARBG: %s", float2argb(argb, true))
+    self.caption:SetTextColor(argb)
+end
+
+function UICaption:SetCaptionVec(pos)
+    local npc = get_unknown_object({id=self.npc_id}, "game")
+    local bone_pos =  npc:bone_position("bip01_head")
+
+    local dist = dist_to_pos(db.actor, bone_pos)
+    local scale = get_angular_dist(dist) / get_angular_dist(5)
+    scale = clamp(scale, 0.45, 1)
+    self.caption:SetWndSize(vector2():set(self.max_w * scale, self.max_h * scale))
+
+    local add_x = self.caption:GetWidth() / 2
+    local add_y = warfare.lerp(0, 100, scale)
+    -- pr("scale %s, dist: %s", scale, dist)
+    self.caption:SetWndPos(vector2():set(pos.x - add_x, pos.y - add_y))
 end
 
 function UICaption:Validate(data)
-
+    set_debug_level("all")
     if not data then
-        printf("no data")
+        pr("no data")
         return false
     end
 
     local npc = get_unknown_object({id=data.npc_id}, "game")
     if not npc then
-        printf("no npc")
+        -- pr("no npc")
         return false
     end
     
     if not npc:alive() and not contains(subtitles.recent_npc_deaths, npc:id(), true) then
-        printf("object dead")
+        -- pr("object dead")
         return false
     end
 
     local dist = distance_between(npc, db.actor)
     if round(dist) > self.hearing_distance then
-        -- printf("object out of range: %s", dist)
+        -- pr("object out of range: %s", dist)
         return false
     end
 
-    -- printf("valid npc")
+    -- pr("valid npc")
     return true
 end
 
@@ -143,15 +188,15 @@ function UICaption:GetScreenPosition()
 	if (self:ScreenPosValid(vec_pos) and (vec_hed.y - vec_pos.y < caption_height)) then
 		local vec = game.world2ui(hed,false,false)
 		if not (self:ScreenPosValid(vec)) then
-			-- printf("not getting screen pos")
+			-- pr("not getting screen pos")
             return
 		end
         local screen_pos = vector2():set(vec.x,vec.y - caption_height)
-		-- printf("getting screen pos: %s", vec_to_str(screen_pos))
+		-- pr("getting screen pos: %s", vec_to_str(screen_pos))
         return screen_pos
 	else
         local screen_pos = game.world2ui(pos,false,false)
-        -- printf("getting screen pos: %s", vec_to_str(screen_pos))
+        -- pr("getting screen pos: %s", vec_to_str(screen_pos))
 		return screen_pos
 	end
 end
@@ -189,7 +234,8 @@ end
 
 class "HUDSubtitles" (CUIScriptWnd)
 function HUDSubtitles:__init() super()
-    printf("init hud subtitles")
+    set_debug_level("dev")
+    pr("init hud subtitles")
     self.xml = CScriptXmlInit()
     self.xml:ParseFile("ui_marker_hud_subtitles.xml")
     self.ratio = (1024 / 768) / (device().width / device().height)
@@ -204,20 +250,20 @@ end
 
 function HUDSubtitles:Update()
     CUIScriptWnd.Update(self)
-    
-    local show_caption = not main_hud_shown()
+    set_debug_level("dev")
+    local show_caption = main_hud_shown()
     local tg = time_global()
 
     for id, _ in pairs(subtitles.QUEUED_SUBTITLES) do
         if not contains(self.subtitles, id, true) then
-            printf("adding new caption for: %s", id)
+            pr("adding new caption for: %s", id)
             self.subtitles[id] = UICaption(self, id)
         end
     end
 
     for id, caption in pairs(self.subtitles) do
         if contains(DESPAWNED_NPCS, id, true) then
-            printf("removing despawned npc: %s", id)
+            pr("removing despawned npc: %s", id)
             self.subtitles[id] = nil
             DESPAWNED_NPCS[id] = nil
         else
@@ -240,30 +286,72 @@ function change_alpha(clr, a)
     return clr_cache[clr .. "_" .. a]
 end
 
+function float2argb(clr, as_table)
+    local argb = {
+        [1] = bit.band(bit.rshift(clr, 24), 255),
+        [2] = bit.band(bit.rshift(clr, 16), 255),
+        [3] = bit.band(bit.rshift(clr, 8), 255),
+        [4] = bit.band(clr, 255)
+    }
+    if as_table then
+        return argb
+    end
+    return GetARGB(argb[1], argb[2], argb[3], argb[4])
+end
+
+function get_faction_clr(npc, opacity, colourblind_type, as_table)
+    local faction = get_npc_faction(npc) or "default"
+    local clr_tbl = ag_colours.faction_to_colour[faction]
+    colourblind_type = not colourblind_type and "normal" or colourblind_type
+    local r, g, b = ag_colours.get_colourblind_rgb(colourblind_type, clr_tbl[1], clr_tbl[2], clr_tbl[3])
+    if as_table then
+        return {opacity, r, g, b}
+    end
+    return GetARGB(opacity, r, g, b)
+end
+
+function get_angular_dist(dist)
+    return 2 * math.atan(1.8 / (2 * dist))
+end
+
 -- Callbacks
 
 function on_first_update()
-    printf("adding hud")
+    set_debug_level("all")
+    pr("adding hud")
 	hud_active()
 end
 
 function on_net_destroy()
-    printf("removing hud")
+    set_debug_level("all")
+    pr("removing hud")
 	hud_remove()
 end
 
 function on_GUI_show()
-    printf("hide/showing hud")
+    set_debug_level("all")
+    pr("hide/showing hud")
 	hud_update()
 end
 
 function collect_despawned_npcs(npc)
-    printf("despawning: %s", npc:id())
+    set_debug_level("all")
+    pr("despawning: %s", npc:id())
     local id = npc:id()
     if not contains(DESPAWNED_NPCS, id, true) then
         DESPAWNED_NPCS[id] = true
     end
 end 
+
+function on_option_change(options)
+    -- FADE_TIME           = options["fade_time"]
+    MAX_HEAR_DIST       = options["hear_dist"]
+    -- MIN_CAPTION_OPACITY = options["min_caption_opacity"]
+    -- MAX_CAPTION_OPACITY = options["max_caption_opacity"]
+    COLOUR_BLIND_TYPE   = options["colour_blind_type"]
+    ENABLE_FACTION_CLR  = options["enable_faction_clr"]
+end
+
 
 function on_game_start()
     RegisterScriptCallback("GUI_on_show",on_GUI_show)
@@ -271,4 +359,5 @@ function on_game_start()
 	RegisterScriptCallback("actor_on_first_update",on_first_update)
 	RegisterScriptCallback("actor_on_net_destroy",on_net_destroy)
     RegisterScriptCallback("npc_on_net_destroy", collect_despawned_npcs)
+    RegisterScriptCallback("as_on_option_change", on_option_change)
 end
