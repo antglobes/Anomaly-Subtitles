@@ -6,6 +6,7 @@ Last Modified: 14/12/24
 
 -- Imports
 contains = ag_tables.contains
+split = ag_strings.split
 
 -- Constants
 DBG_LVL = "player"
@@ -50,7 +51,10 @@ end
 
 function str2ARGB(colour, as_table)
     local argb = str_explode(colour, ",") or {}
-    if as_table then
+    if as_table then 
+        for idx, val in pairs(argb) do
+            argb[idx] = tonumber(val)
+        end
         return argb
     end
     return GetARGB(unpack(argb))
@@ -81,6 +85,22 @@ special_character_faction = {
     ['Senior Sergeant Grebenko'] = "dolg",
 }
 
+communities = {
+    "stalker",
+    "csky",
+    "bandit",
+    "army", 
+    "killer",
+    "monolith",
+    "ecolog",
+    "dolg", 
+    "freedom",
+    "greh",
+    "renegade",
+    "isg",
+    "monster",
+}
+
 function get_npc_faction(npc)
     if IsMonster(npc) then
         return "monster"
@@ -91,7 +111,24 @@ function get_npc_faction(npc)
         return special_character_faction[name]
     end
 
-    return npc:character_community()
+    local faction = npc:character_community()
+    if faction == "zombied" then
+        local visual = npc:get_visual_name()
+        local path_tkns = split(visual, "\\")
+        local path_tkn = path_tkns[#path_tkns]
+        local filename_tkns = split(path_tkn, "_")
+        local faction_found = false
+        for i=1, #filename_tkns do
+            for _, community in pairs(communities) do
+                local filename_tkn = filename_tkns[#filename_tkns + 1 - i]
+                if not faction_found and filename_tkn:find(community) then
+                    faction_found = true
+                    faction = community     
+                end
+            end
+        end
+    end
+    return faction 
 end
 
 -- MCM

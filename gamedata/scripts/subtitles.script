@@ -67,6 +67,7 @@ MIN_CAPTION_OPACITY = 0
 MAX_CAPTION_OPACITY = 255
 FADE_TIME = 2
 MAX_HEAR_DIST = 35
+ENABLE_SUBS = true
 
 -- Variables
 file_cache = {}
@@ -84,6 +85,7 @@ end
 
 -- Main Funcs
 function on_phrase_callback(sound_name, npc)
+    if not ENABLE_SUBS then return end
     local name = get_npc_name(npc)
     --pr("%s is playing: %s", name, sound_name)
     local parsed_file = parse_sound_file(sound_name)
@@ -393,6 +395,7 @@ function on_option_change(options)
     -- WORDS_PER_SECOND    = options["words_per_second"]
     -- MIN_CAPTION_OPACITY = options["min_caption_opacity"]
     -- MAX_CAPTION_OPACITY = options["max_caption_opacity"]
+    ENABLE_SUBS         = options["enable_subs"]
 end
 
 function on_game_start()

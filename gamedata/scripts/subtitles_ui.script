@@ -16,7 +16,7 @@ str2ARGB = subtitles_utils.str2ARGB
 MIN_CAPTION_OPACITY = 0
 MAX_CAPTION_OPACITY = 255
 FADE_TIME = 2
-MAX_HEAR_DIST = 35
+max_cap_hEAR_DIST = 35
 COLOUR_BLIND_TYPE = "normal"
 ENABLE_FACTION_CLR = false
 ENABLE_BACKGROUND = true
@@ -40,16 +40,20 @@ function UICaption:__init(parent, npc_id)
     self.npc_id = npc_id
 
     self.active_info = {}
-    self.hearing_distance = MAX_HEAR_DIST
+    self.hearing_distance = max_cap_hEAR_DIST
 
     self.bg = self.parent.xml:InitStatic("background", self.parent)
     self.caption = self.parent.xml:InitTextWnd("caption", self.parent)
     
-    self.max_w = self.caption:GetWidth()
-    self.max_h = self.caption:GetHeight()
+    self.max_cap_w = self.caption:GetWidth()
+    self.max_cap_h = self.caption:GetHeight()
+    self.max_bg_w =  self.bg:GetWidth()
+    self.max_bg_h =  self.bg:GetHeight()
 
     self.last_position = db.actor:position()
     self.last_material = nil
+
+    self.scale = 1
     
     self:ApplyScreenRatio(self.caption)
 end
@@ -92,6 +96,7 @@ function UICaption:Update(show_caption)
                 self.bg:Show(false)
                 self.caption:Show(false)
                 self.caption:SetText("")
+                self.bg:SetWndSize(vector2():set(self.max_bg_w, self.max_bg_h))
                 return
             end
         end
@@ -120,21 +125,25 @@ function UICaption:AddTokensToCaption(tg)
     self.caption:SetText(strformat("%s %s", subtitle, sub_tkn))
     self.active_info["caption_tmr"] = tg + (self.active_info["length"] / self.active_info["token_size"])
     --pr("Updating tokens to caption: subtitle %s, token: %s, tmr: %s", subtitle, sub_tkn, self.active_info["caption_tmr"])
+    local bg_height = self.bg:GetHeight()
+    local bg_size = vector2():set(self.bg:GetWidth(),(bg_height + 3))
+    self.bg:SetWndSize(bg_size)
 end
 
 function UICaption:FadeCaption(tg)
     set_debug_level("all")
-    local cap_clr = self.caption:GetTextColor()
     local decrease = table.remove(self.active_info["decreases"], 1)
-    local opacity_reduction = self.active_info["caption_opacity"] - decrease
-    local cap_opacity = clamp(opacity_reduction, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
-    self.caption:SetTextColor(change_alpha(cap_clr, cap_opacity))
 
     local bg_clr = self.bg:GetTextureColor()
     local argb = float2argb(bg_clr, true)
     local bg_opacity_reduction = argb[1] - decrease
     local bg_opacity = clamp(bg_opacity_reduction, 0, argb[1])
     self.bg:SetTextureColor(change_alpha(bg_clr, bg_opacity))
+
+    local cap_clr = self.caption:GetTextColor()
+    local opacity_reduction = self.active_info["caption_opacity"] - decrease
+    local cap_opacity = clamp(opacity_reduction, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
+    self.caption:SetTextColor(change_alpha(cap_clr, cap_opacity))
 
     self.active_info["caption_opacity"] = cap_opacity
     self.active_info["fade_tmr"] = tg + (FADE_TIME / self.active_info["decreases_num"]) * 1000
@@ -150,10 +159,13 @@ function UICaption:SetCaptionClr()
     end
     -- pr("ARBG: %s", print_table(float2argb(argb, true)))
     self.caption:SetTextColor(argb)
-
+    
     local clr_tbl = str2ARGB(BACKGROUND_CLR, true)
+    pr("init bg ARBG: %s", print_table(clr_tbl))
     local opacity = ENABLE_BACKGROUND and clr_tbl[1] or 0
-    local bg_argb = get_colourblind_clr(clr_tbl, opacity, COLOUR_BLIND_TYPE)
+    local bg_argb_tbl = {clr_tbl[2], clr_tbl[3], clr_tbl[4]}
+    local bg_argb = get_colourblind_clr(bg_argb_tbl, opacity, COLOUR_BLIND_TYPE)
+    pr("changed bg ARBG: %s", print_table(float2argb(bg_argb, true)))
     self.bg:SetTextureColor(bg_argb)
 end
 
@@ -164,9 +176,10 @@ function UICaption:SetCaptionVec(pos)
     local dist = dist_to_pos(db.actor, bone_pos)
     local scale = get_angular_dist(dist) / get_angular_dist(5)
     scale = clamp(scale, 0.45, 1)
-    -- self.caption:SetWndSize(vector2():set(self.max_w * scale, self.max_h * scale))
-    self.bg:SetWndSize(vector2():set(self.max_w * scale, self.max_h * scale))
-    self.caption:SetWndSize(vector2():set(self.max_w * scale, self.max_h * scale))
+    -- self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
+    -- self.bg:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
+    self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
+    self.scale = scale
 
     local add_y = warfare.lerp(0, 100, scale)
     -- pr("scale %s, dist: %s", scale, dist)
@@ -361,6 +374,7 @@ end
 
 function get_colourblind_clr(clr_tbl, opacity, colourblind_type, as_table)
     local r, g, b = ag_colours.get_colourblind_rgb(colourblind_type, clr_tbl[1], clr_tbl[2], clr_tbl[3])
+    pr("For cb type: %s,  from: %s getting cb safe clr %s", colourblind_type, print_table(clr_tbl), print_table{r, g, b})
     if as_table then
         return {opacity, r, g, b}
     end
@@ -402,7 +416,7 @@ end
 
 function on_option_change(options)
     -- FADE_TIME           = options["fade_time"]
-    MAX_HEAR_DIST          = options["hear_dist"]
+    max_cap_hEAR_DIST          = options["hear_dist"]
     -- MIN_CAPTION_OPACITY = options["min_caption_opacity"]
     -- MAX_CAPTION_OPACITY = options["max_caption_opacity"]
     COLOUR_BLIND_TYPE      = options["colour_blind_type"]
