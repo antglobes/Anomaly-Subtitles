@@ -10,6 +10,7 @@ get_direction = ag_game_objects.get_direction
 get_npc_faction = subtitles_utils.get_npc_faction
 set_debug_level =  subtitles_utils.set_debug_level
 filter_debug_msg = subtitles_utils.filter_debug_msg
+str2ARGB = subtitles_utils.str2ARGB
 
 -- MCM
 MIN_CAPTION_OPACITY = 0
@@ -18,6 +19,8 @@ FADE_TIME = 2
 MAX_HEAR_DIST = 35
 COLOUR_BLIND_TYPE = "normal"
 ENABLE_FACTION_CLR = false
+ENABLE_BACKGROUND = true
+BACKGROUND_CLR = "80,255,255,255"
 
 -- Variables
 HUD = nil
@@ -39,7 +42,9 @@ function UICaption:__init(parent, npc_id)
     self.active_info = {}
     self.hearing_distance = MAX_HEAR_DIST
 
-    self.caption = self.parent.xml:InitTextWnd("caption", self.parent)  
+    self.bg = self.parent.xml:InitStatic("background", self.parent)
+    self.caption = self.parent.xml:InitTextWnd("caption", self.parent)
+    
     self.max_w = self.caption:GetWidth()
     self.max_h = self.caption:GetHeight()
 
@@ -50,6 +55,7 @@ function UICaption:__init(parent, npc_id)
 end
 
 function UICaption:__finalize()
+    self.bg:Show(false)
     self.caption:Show(false)
 end
 
@@ -83,6 +89,7 @@ function UICaption:Update(show_caption)
             if tg >= self.active_info["show_time"] and tg >= self.active_info["sound_duration"] then
                 pr("hiding caption for %s at %s", self.npc_id, self.active_info["show_time"])
                 self.active_info = {}
+                self.bg:Show(false)
                 self.caption:Show(false)
                 self.caption:SetText("")
                 return
@@ -90,14 +97,17 @@ function UICaption:Update(show_caption)
         end
 
         if self:Validate(self.active_info) then
+            self.bg:Show(true)
             self.caption:Show(true)
-            self:SetCaptionText()
+            self:SetCaptionClr()
             self:SetCaptionVec(pos)
            
         else
+            self.bg:Show(false)
             self.caption:Show(false)
         end
     else
+        self.bg:Show(false)
         self.caption:Show(false)
     end
 end
@@ -114,22 +124,37 @@ end
 
 function UICaption:FadeCaption(tg)
     set_debug_level("all")
-    local tb_clr = self.caption:GetTextColor()
+    local cap_clr = self.caption:GetTextColor()
     local decrease = table.remove(self.active_info["decreases"], 1)
     local opacity_reduction = self.active_info["caption_opacity"] - decrease
-    local new_opacity = clamp(opacity_reduction, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
-    self.caption:SetTextColor(change_alpha(tb_clr, new_opacity))
-    self.active_info["caption_opacity"] = new_opacity
+    local cap_opacity = clamp(opacity_reduction, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
+    self.caption:SetTextColor(change_alpha(cap_clr, cap_opacity))
+
+    local bg_clr = self.bg:GetTextureColor()
+    local argb = float2argb(bg_clr, true)
+    local bg_opacity_reduction = argb[1] - decrease
+    local bg_opacity = clamp(bg_opacity_reduction, 0, argb[1])
+    self.bg:SetTextureColor(change_alpha(bg_clr, bg_opacity))
+
+    self.active_info["caption_opacity"] = cap_opacity
     self.active_info["fade_tmr"] = tg + (FADE_TIME / self.active_info["decreases_num"]) * 1000
-    pr("fading caption from %s to %s", self.active_info["caption_opacity"], new_opacity)
+    pr("fading caption from %s to %s", self.active_info["caption_opacity"], cap_opacity)
 end
 
-function UICaption:SetCaptionText()
-    if not ENABLE_FACTION_CLR then return end
-    local npc = get_unknown_object({id=self.npc_id}, "game")
-    local argb = get_faction_clr(npc, self.active_info["caption_opacity"], COLOUR_BLIND_TYPE)
-    ---pr("ARBG: %s", float2argb(argb, true))
+function UICaption:SetCaptionClr()
+    local argb = GetARGB(self.active_info["caption_opacity"], 255, 255, 255)
+    if ENABLE_FACTION_CLR then
+        local npc = get_unknown_object({id=self.npc_id}, "game")
+        argb = get_faction_clr(npc, self.active_info["caption_opacity"], COLOUR_BLIND_TYPE)
+        ---pr("ARBG: %s", float2argb(argb, true))
+    end
+    -- pr("ARBG: %s", print_table(float2argb(argb, true)))
     self.caption:SetTextColor(argb)
+
+    local clr_tbl = str2ARGB(BACKGROUND_CLR, true)
+    local opacity = ENABLE_BACKGROUND and clr_tbl[1] or 0
+    local bg_argb = get_colourblind_clr(clr_tbl, opacity, COLOUR_BLIND_TYPE)
+    self.bg:SetTextureColor(bg_argb)
 end
 
 function UICaption:SetCaptionVec(pos)
@@ -139,10 +164,13 @@ function UICaption:SetCaptionVec(pos)
     local dist = dist_to_pos(db.actor, bone_pos)
     local scale = get_angular_dist(dist) / get_angular_dist(5)
     scale = clamp(scale, 0.45, 1)
+    -- self.caption:SetWndSize(vector2():set(self.max_w * scale, self.max_h * scale))
+    self.bg:SetWndSize(vector2():set(self.max_w * scale, self.max_h * scale))
     self.caption:SetWndSize(vector2():set(self.max_w * scale, self.max_h * scale))
 
     local add_y = warfare.lerp(0, 100, scale)
     -- pr("scale %s, dist: %s", scale, dist)
+    self.bg:SetWndPos(vector2():set(pos.x, pos.y - add_y))
     self.caption:SetWndPos(vector2():set(pos.x, pos.y - add_y))
 end
 
@@ -328,6 +356,10 @@ function get_faction_clr(npc, opacity, colourblind_type, as_table)
     local faction = get_npc_faction(npc) or "default"
     local clr_tbl = ag_colours.faction_to_colour[faction]
     colourblind_type = not colourblind_type and "normal" or colourblind_type
+    return get_colourblind_clr(clr_tbl, opacity, colourblind_type, as_table)
+end
+
+function get_colourblind_clr(clr_tbl, opacity, colourblind_type, as_table)
     local r, g, b = ag_colours.get_colourblind_rgb(colourblind_type, clr_tbl[1], clr_tbl[2], clr_tbl[3])
     if as_table then
         return {opacity, r, g, b}
@@ -370,11 +402,17 @@ end
 
 function on_option_change(options)
     -- FADE_TIME           = options["fade_time"]
-    MAX_HEAR_DIST       = options["hear_dist"]
+    MAX_HEAR_DIST          = options["hear_dist"]
     -- MIN_CAPTION_OPACITY = options["min_caption_opacity"]
     -- MAX_CAPTION_OPACITY = options["max_caption_opacity"]
-    COLOUR_BLIND_TYPE   = options["colour_blind_type"]
-    ENABLE_FACTION_CLR  = options["enable_faction_clr"]
+    COLOUR_BLIND_TYPE      = options["colour_blind_type"]
+    ENABLE_FACTION_CLR     = options["enable_faction_clr"]
+    ENABLE_BACKGROUND      = options["enable_background"]
+    BACKGROUND_CLR         = options["background_colour"]
+
+    if not ENABLE_FACTION_CLR then
+        COLOUR_BLIND_TYPE = "normal"
+    end
 end
 
 

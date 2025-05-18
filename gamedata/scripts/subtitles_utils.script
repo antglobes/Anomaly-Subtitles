@@ -48,6 +48,14 @@ function get_bone_pos(obj, bname)
     return bid ~= 65535 and obj:bone_position(bname) or obj:position()
 end
 
+function str2ARGB(colour, as_table)
+    local argb = str_explode(colour, ",") or {}
+    if as_table then
+        return argb
+    end
+    return GetARGB(unpack(argb))
+end
+
 special_character_faction = {
     -- Cordon
     ["Loris"] = "stalker",

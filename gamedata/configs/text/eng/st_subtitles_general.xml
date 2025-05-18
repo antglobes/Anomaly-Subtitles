@@ -24,11 +24,11 @@
     <string id="ui_mcm_subtitles_title_accessibility">
         <text>Accessibility Options</text>
     </string>
+    <string id="ui_mcm_subtitles_enable_background">
+        <text>Enable Background</text>
+    </string>
     <string id="ui_mcm_subtitles_background_colour">
         <text>Background Colour</text>
-    </string>
-    <string id="ui_mcm_subtitles_background_opacity">
-        <text>Background Opacity</text>
     </string>
     <string id="ui_mcm_subtitles_font_colour">
         <text>Font Colour</text>
@@ -78,48 +78,6 @@
         <text>Tritanomaly</text>
     </string>
 
-    <string id="ui_mcm_lst_bc_white">
-        <text>White</text>
-    </string>
-    <string id="ui_mcm_lst_bc_black">
-        <text>Black</text>
-    </string>
-    <string id="ui_mcm_lst_bc_red">
-        <text>Red</text>
-    </string>
-    <string id="ui_mcm_lst_bc_blue">
-        <text>Blue</text>
-    </string>
-    <string id="ui_mcm_lst_bc_yellow">
-        <text>Yellow</text>
-    </string>
-    <string id="ui_mcm_lst_bc_green">
-        <text>Green</text>
-    </string>
-    <string id="ui_mcm_lst_bc_magenta">
-        <text>Magenta</text>
-    </string>
-    <string id="ui_mcm_lst_fc_white">
-        <text>White</text>
-    </string>
-    <string id="ui_mcm_lst_fc_black">
-        <text>Black</text>
-    </string>
-    <string id="ui_mcm_lst_fc_red">
-        <text>Red</text>
-    </string>
-    <string id="ui_mcm_lst_fc_blue">
-        <text>Blue</text>
-    </string>
-    <string id="ui_mcm_lst_fc_yellow">
-        <text>Yellow</text>
-    </string>
-    <string id="ui_mcm_lst_fc_green">
-        <text>Green</text>
-    </string>
-    <string id="ui_mcm_lst_fc_magenta">
-        <text>Magenta</text>
-    </string>
     <string id="ui_mcm_lst_fk_med">
         <text>Medium</text>
     </string>

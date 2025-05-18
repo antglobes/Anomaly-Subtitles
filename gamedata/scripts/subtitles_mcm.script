@@ -16,7 +16,9 @@ defaults = {
 	enable_debug = false,
 	debug_level = "player",
 	enable_faction_clr = false,
-	colour_blind_type = "normal"
+	colour_blind_type = "normal",
+	enable_background = true,
+	background_colour = "80,255,255,255",
 }
 
 function pr(str, ...)
@@ -35,6 +37,10 @@ function faction_clr_enabled()
 	return get_config("enable_faction_clr")
 end
 
+function background_enabled()
+	return get_config("enable_background")
+end
+
 function on_mcm_load()
     return { 
 		id="subtitles",sh=true ,gr={
@@ -44,6 +50,18 @@ function on_mcm_load()
 			
 			{id="divider", type="line"},
 			{id="title_accessibility", type="title", text="ui_mcm_subtitles_title_accessibility"},
+			{id="enable_background", type="check", val=1, def=true},
+			{id="background_colour", type="input", val=0, def="80,255,255,255", precondition={background_enabled},
+				ui_hook_functor={ui_mcm_argb_input.init_mcm_argb_control},
+				ui_snd_path="catspaw\\paw_blip",
+				preview_tex="ui_as_background",
+				preview_x=100,
+				preview_y=10,
+				preview_w=250,
+				preview_h=20,
+				-- hint=gts("ui_mcm_subtitles_background_colour_hint")
+			},
+
 			{id="enable_faction_clr", type="check", val=1, def=false},
 			{id="colour_blind_type", type="list", val=0, def="normal", precondition={faction_clr_enabled},
 				content={
