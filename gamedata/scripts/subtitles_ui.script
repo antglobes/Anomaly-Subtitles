@@ -55,6 +55,7 @@ function UICaption:__init(parent, npc_id)
 
     self.last_position = db.actor:position()
     self.last_material = nil
+    self.last_position_npc = vector():set(0, 0, 0)
 
     self.scale = 1
     
@@ -202,7 +203,7 @@ function UICaption:SetCaptionVec(pos)
     self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
     self.scale = scale
 
-    local add_y = warfare.lerp(0, 100, scale)
+    local add_y = warfare.lerp(0, self.hearing_distance, scale)
     -- pr("scale %s, dist: %s", scale, dist)
     self.bg:SetWndPos(vector2():set(pos.x, pos.y - add_y))
     self.caption:SetWndPos(vector2():set(pos.x, pos.y - add_y))
@@ -233,7 +234,10 @@ function UICaption:Validate(data)
     end
     
     local actor_pos = db.actor:bone_position("bip01_head") or db.actor:position()
-    if not demonized_geometry_ray.vec_similar(actor_pos, self.last_position, 1) then
+    if 
+        not demonized_geometry_ray.vec_similar(actor_pos, self.last_position, 1) 
+        or not demonized_geometry_ray.vec_similar(npc:position(), self.last_position_npc, 1)
+    then
         local ray = geo_ray({
             ray_range = dist,
             visualize = subtitles_mcm.get_config("enable_debug") and dbg_lvl == "all",
@@ -245,6 +249,7 @@ function UICaption:Validate(data)
         local result = ray:get(npc_pos, dir_between).result
 
         self.last_position = actor_pos
+        self.last_position_npc = npc_pos
         self.last_material = result.material_name
     end
 
@@ -257,7 +262,7 @@ function UICaption:Validate(data)
 end
 
 -- From GhenTuong start
-local caption_offset = vector():set(0.0,0.5,0.0)
+local caption_offset = vector():set(0.0,0.1,0.0)
 local caption_height = 100
 
 function UICaption:GetScreenPosition()
@@ -266,7 +271,7 @@ function UICaption:GetScreenPosition()
         return 
     end
 
-    local hed = npc:bone_position("bip01_head")
+    local hed = npc:bone_position("bip01_neck")
 	local pos = vector():add(hed,caption_offset)
    	local vec_pos = game.world2ui(pos,false,true)
 
