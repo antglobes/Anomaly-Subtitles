@@ -1,27 +1,33 @@
 # Anomaly Subtitles
 
 - Translation/Transcription of all voicelines and mutant sounds from Russian to English
-- Co-author **VodoXleb**
+- Co-authors: **VodoXleb, Lin (@synthcalibur), tehanow**
 
 ## Disclaimer
 
 - The Majority of the subtitles are machine translated, since this is in Beta state until we can check the accuracy of translations,  some are missing, others don't make complete sense.
 - If you want to help our read the "Helping with Translations" Section.
-- Factions Not Yet Translated  Greh (Sin).
+- Undergoing complete re-translation.
 
 ## Displaying Subtitles
 
 - Using an engine patch, there is now a callback "on_phrase_callback" that whenever an npc makes a sound
   the path-name and the npc game object, from that depending on the MCM option the subtitle is displayed
-  via the news manager ~~or a customisable HUD~~ with a few options for accessibility
-- xr_sound is also monkey-patched and subtitle info is gathered similar to the prior process.
-- If using localisation mcm options and the flag you want isn't showing replace "eng" with any field in gamedata\configs\plugins\mod_news_tips_icons_as.ltx.
+  via ~~the news manager~~ a customisable HUD with a few options for accessibility
+- ~~xr_sound is also monkey-patched and subtitle info is gathered similar to the prior process~~.
 
-## How it's built
+## How it's works
 
-- 7 Variables are used to build a table used to assit with how long it's shown, the contents of the subtitle, who said the subtitle, an icon to identify the speaker, the localisation (if needed) and the speakers faction.
-- Speaker Name, Speaker Icon, Speaker Faction, Subtitle, Locale, Duration, Distance, xml_id
-- If your addon itself or other addons that you have in M02, includes icons that are assigned to the npc's character description file and you are wanting to add them; you just need to append the table "icon_textures_files" with the corresponding "configs\ui\ui_<addon_name>_.xml" name without the suffix or parent folders include.
+- The engine callback `on_phrase_callback` spits out a path to a sound file and a game object of the npc that is playing a sound using that sound file
+- Since the path often doesn't point to an actual sound file but rather a sound_file and an incorrect id or just a chain of subdirectiories.
+- We parse the path turning it into a readable path and providing a similar alternative if the orginal can't be found in the sounds directory.
+- Then the path is turned into a xml id, from which various info is grabbed
+- This is validated and added to a queue for that npc if it's valid
+- The Subtitles HUD, adds a Caption UI per npc that stays active until the npc is despawned
+- The Caption UI gets the first subtitle info from the queue assigned to that npc
+- Subtitle tokens are added to the caption box every second until fade time has been reached
+- Both caption box and background (if enabled) are faded until total display time is reached
+- UI is Reset when display time has ended
   
 ## Adding your own Subtitles
 
@@ -34,12 +40,12 @@
 
 - If you check the [github](https://github.com/antglobes/Anomaly-Subtitles) for this addon, under the transcriptions folder should be a copy of each file's transcription in russian.
 - Since we don't have the full ability nor the time to dedicate to manual transcription and translation of each and every voice sound file, the majority of the ones present in this addon have been machine translated.
-- If you want access to the script that is used to translate/transcribe .ogg files and write the outputs to xml, please dm me on discord @antglobes
+- If you want access to the script that is used to translate/transcribe .ogg files and write the outputs to xml, please dm me on discord @antglobes, you can see an example [here](https://discord.com/channels/912320241713958912/1237842568067416165/1370775389869309978)
 - If you feel like you can help out and check the accuracy of the transcriptions/provide relplacements for the nonsensical or incorrect ones please dm or make an issue stating so on the github repo.
 
 ## Subtitles for own mod/addon
 
-- If you want subtitles for your mod please raise an issue on the github and ~~fill out the form~~ or dm me with a link to your mod via moddb dms and i'll send you what details i'll need from you.
+- If you want subtitles for your mod that affects npc voicelines, please raise an issue on the github and ~~fill out the form~~ or dm me with a link to your mod via moddb dms and i'll send you what details i'll need from you.
 
 ## Installation
 
@@ -71,7 +77,7 @@
 
 ## Credits
 
-- Lucy, xcvb, mrdemonized, SimplyLeo (Vinci), Meeps (meepysama).
+- Lucy, xcvb, mrdemonized, SimplyLeo (Vinci), Meeps (meepysama), GhenToung, Catspaw
   
 ## Known Issues
 
@@ -91,6 +97,7 @@
 - v0.6.1 (Fixed v0.10.0) HUD(UI) HUD blocks other subtitles being shown, Scrapped Completely.
 - v0.10.0 (Fixed v0.10.1) CTD when attemptting to display nil subtitles
 - v0.10.1 (Fixed v0.10.2) Fail to load due to nil table index
+- v0.10.2 (~Testing in v0.11.0) Subtitles not showing up at all and causing a CTD.
 
 ## Changelog
 
@@ -115,3 +122,4 @@
 - v0.10.0-alpha Bulk Remove Dead NPC Subtitles, Active Hear Distance Check, Rework: Displaying Shorten Subtitles via News Manager; Material Ray Direction via Position, MCM Option: Enable Mutant Subtitles.
 - v0.10.0 Scrapped Custom UI, Fix for subtitle timing, Using just news manager for UI, Removed MCM Options.
 - v0.10.1 Group Sub Tokens to increase time shown on screen, More Subtitles for 100 Rads located NPCs.
+- v0.11.0 Complete Rework, New sound file parsing, per NPC UI with accessibility options.
