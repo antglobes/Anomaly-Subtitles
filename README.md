@@ -97,7 +97,8 @@
 - v0.6.1 (Fixed v0.10.0) HUD(UI) HUD blocks other subtitles being shown, Scrapped Completely.
 - v0.10.0 (Fixed v0.10.1) CTD when attemptting to display nil subtitles
 - v0.10.1 (Fixed v0.10.2) Fail to load due to nil table index
-- v0.10.2 (~Testing in v0.11.0) Subtitles not showing up at all and causing a CTD.
+- v0.10.2 (Fixed v0.11.0) Subtitles not showing up at all and causing a CTD.
+- v0.11.0 (Fixed v0.11.1) Background Size, Subtitle Color being reset when faction clr not enabled
 
 ## Changelog
 
@@ -123,3 +124,4 @@
 - v0.10.0 Scrapped Custom UI, Fix for subtitle timing, Using just news manager for UI, Removed MCM Options.
 - v0.10.1 Group Sub Tokens to increase time shown on screen, More Subtitles for 100 Rads located NPCs.
 - v0.11.0 Complete Rework, New sound file parsing, per NPC UI with accessibility options.
+- v0.11.1 Resized Background, Added Texture Preview for Subtitle, Changed MCM defaults.

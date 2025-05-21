@@ -20,9 +20,9 @@ MAX_CAPTION_HEAR_DIST = 35
 COLOUR_BLIND_TYPE = "normal"
 ENABLE_FACTION_CLR = false
 ENABLE_BACKGROUND = true
-BACKGROUND_CLR = "80,255,255,255"
-SUBTITLE_CLR = "80,255,255,255"
-SUBTITLE_FONT = "letterica16"
+BACKGROUND_CLR = "80,0,0,0" 
+SUBTITLE_CLR = "255,255,255,255"
+SUBTITLE_FONT = "letterica18"
 SUBTITLE_ALIGNMENT = "center"
 
 -- Variables
@@ -201,6 +201,7 @@ function UICaption:SetCaptionVec(pos)
     -- self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
     -- self.bg:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
     self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
+    self.bg:SetWndSize(vector2():set(self.max_bg_w, self.max_bg_h * scale))
     self.scale = scale
 
     local add_y = warfare.lerp(0, self.hearing_distance, scale)
@@ -476,11 +477,6 @@ function on_option_change(options)
     SUBTITLE_CLR           = options["subtitle_colour"]
     SUBTITLE_FONT          = options["subtitle_font"] 
     SUBTITLE_ALIGNMENT     = options["subtitle_alignment"]
-
-    if not ENABLE_FACTION_CLR then
-        COLOUR_BLIND_TYPE = "normal"
-        SUBTITLE_CLR = "80,255,255,255"
-    end
 end
 
 

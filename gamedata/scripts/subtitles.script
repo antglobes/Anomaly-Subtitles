@@ -76,6 +76,7 @@ recent_npc_deaths = {}
 HUD = nil
 QUEUED_SUBTITLES = {}
 local dbg_lvl = "player"
+ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
 
 -- Debugging
 function pr(str, ...)
@@ -405,4 +406,19 @@ function on_game_start()
     RegisterScriptCallback("npc_on_death_callback", npc_on_death_callback)
     RegisterScriptCallback("actor_on_update", update_recent_npc_deaths)
     RegisterScriptCallback("as_on_option_change", on_option_change)
+end
+
+base_set_sound_play = xr_sound.set_sound_play
+function xr_sound.set_sound_play(npc_id, sound, faction, point)	
+	local npc = get_unknown_object({id=npc_id}, "game")
+	if npc and npc_id == AC_ID then
+		local soundname = ini_script_sound:r_string_ex(sound, "path") or sound
+		if soundname ~= nil then
+            pr("xr sound set sound play: %s %s %s %s", npc_id, soundname, faction, vec_to_str(point))
+            return
+            --local parsed_sound_file = parse_sound_file(soundname)
+			-- subtitle_him(parsed_sound_file, npc)	
+		end
+	end
+	base_set_sound_play(npc_id, sound, faction, point)
 end

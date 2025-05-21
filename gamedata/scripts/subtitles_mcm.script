@@ -20,7 +20,7 @@ defaults = {
 	enable_background = false,
 	background_colour = "80,0,0,0",
 	subtitle_colour = "255,255,255,255",
-	subtitle_font = "letterica16",
+	subtitle_font = "letterica18",
 	subtitle_alignment = "center"
 }
 
@@ -64,7 +64,7 @@ function on_mcm_load()
 		id="subtitles",sh=true ,gr={
 			{id="title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_subtitles_title",size= {512,50},spacing= 20 },
 			{id="enable_subs", type = "check", val = 1, def = true},
-			{id="enable_faction_clr", type="check", val=1, def=false, postcondition={reset_subtitle_colour}},
+			{id="enable_faction_clr", type="check", val=1, def=false},
 			{id="enable_background", type="check", val=1, def=false},
 			{id="hear_dist", type = "track", val = 2, min=1,max=35,step=1, def = 25},
 			
@@ -89,14 +89,19 @@ function on_mcm_load()
 				preview_tex="ui_as_background",
 				preview_x=100,
 				preview_y=10,
-				preview_w=450,
+				preview_w=250,
 				preview_h=20,
 			},
 			{id="subtitle_colour",type="input", val=0, def="255,255,255,255", precondition={function() return not faction_clr_enabled() end},
 				ui_hook_functor={ui_mcm_argb_input.init_mcm_argb_control},
 				ui_snd_path="catspaw\\paw_blip",
+				preview_tex="ui_as_sub_color_preview_text",
+				preview_x=100,
+				preview_y=10,
+				preview_w=250,
+				preview_h=20,
 			},
-			{id="subtitle_font", type="list", val=0, def="letterica16", 
+			{id="subtitle_font", type="list", val=0, def="letterica18", 
 				content={
 					{"di","di"},
 					{"small","small"},
