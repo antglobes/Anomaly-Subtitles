@@ -197,7 +197,7 @@ function UICaption:SetCaptionVec(pos)
 
     local dist = dist_to_pos(db.actor, bone_pos)
     local scale = get_angular_dist(dist) / get_angular_dist(5)
-    scale = clamp(scale, 0.45, 1)
+    scale = clamp(scale, 0.45, 0.85)
     -- self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
     -- self.bg:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
     self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
