@@ -226,6 +226,7 @@ function subtitle_them(path, npc)
         caption_tmr = 0,
         fade_tmr = 0,
         caption_opacity = MAX_CAPTION_OPACITY,
+        tokens_added = 0
     }
     subtitle_info.token_size = #subtitle_info.tokens
     subtitle_info.decreases = calc_decreases(MAX_CAPTION_OPACITY)

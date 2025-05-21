@@ -16,11 +16,14 @@ str2ARGB = subtitles_utils.str2ARGB
 MIN_CAPTION_OPACITY = 0
 MAX_CAPTION_OPACITY = 255
 FADE_TIME = 2
-max_cap_hEAR_DIST = 35
+MAX_CAPTION_HEAR_DIST = 35
 COLOUR_BLIND_TYPE = "normal"
 ENABLE_FACTION_CLR = false
 ENABLE_BACKGROUND = true
 BACKGROUND_CLR = "80,255,255,255"
+SUBTITLE_CLR = "80,255,255,255"
+SUBTITLE_FONT = "letterica16"
+SUBTITLE_ALIGNMENT = "center"
 
 -- Variables
 HUD = nil
@@ -40,7 +43,7 @@ function UICaption:__init(parent, npc_id)
     self.npc_id = npc_id
 
     self.active_info = {}
-    self.hearing_distance = max_cap_hEAR_DIST
+    self.hearing_distance = MAX_CAPTION_HEAR_DIST
 
     self.bg = self.parent.xml:InitStatic("background", self.parent)
     self.caption = self.parent.xml:InitTextWnd("caption", self.parent)
@@ -121,9 +124,25 @@ function UICaption:AddTokensToCaption(tg)
     if is_empty(self.active_info) then return end
     if is_empty(self.active_info["tokens"]) then return end
     local sub_tkn = table.remove(self.active_info["tokens"], 1)
-    local subtitle = self.caption:GetText() or ""
-    self.caption:SetText(strformat("%s %s", subtitle, sub_tkn))
+    local subtitle = ""
+    if self.active_info["tokens_added"] < 9 then
+        subtitle = strformat("%s %s", self.caption:GetText(), sub_tkn)
+    else
+        subtitle = sub_tkn
+        self.active_info["tokens_added"] = 0
+    end
+    self.caption:SetText(subtitle)
     self.active_info["caption_tmr"] = tg + (self.active_info["length"] / self.active_info["token_size"])
+    self.active_info["tokens_added"] = self.active_info["tokens_added"] + 1
+
+    -- font
+    local font = mcm2font(SUBTITLE_FONT)
+    self.caption:SetFont(font)
+
+    -- alignment
+    local alignment = mcm2align(SUBTITLE_ALIGNMENT)
+    self.caption:SetTextAlignment(alignment)
+
     --pr("Updating tokens to caption: subtitle %s, token: %s, tmr: %s", subtitle, sub_tkn, self.active_info["caption_tmr"])
     local bg_height = self.bg:GetHeight()
     local bg_size = vector2():set(self.bg:GetWidth(),(bg_height + 3))
@@ -143,11 +162,11 @@ function UICaption:FadeCaption(tg)
     local cap_clr = self.caption:GetTextColor()
     local opacity_reduction = self.active_info["caption_opacity"] - decrease
     local cap_opacity = clamp(opacity_reduction, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
+    pr("fading caption from %s to %s", self.active_info["caption_opacity"], cap_opacity)
     self.caption:SetTextColor(change_alpha(cap_clr, cap_opacity))
 
     self.active_info["caption_opacity"] = cap_opacity
     self.active_info["fade_tmr"] = tg + (FADE_TIME / self.active_info["decreases_num"]) * 1000
-    pr("fading caption from %s to %s", self.active_info["caption_opacity"], cap_opacity)
 end
 
 function UICaption:SetCaptionClr()
@@ -155,17 +174,19 @@ function UICaption:SetCaptionClr()
     if ENABLE_FACTION_CLR then
         local npc = get_unknown_object({id=self.npc_id}, "game")
         argb = get_faction_clr(npc, self.active_info["caption_opacity"], COLOUR_BLIND_TYPE)
-        ---pr("ARBG: %s", float2argb(argb, true))
+    else
+        argb = str2ARGB(SUBTITLE_CLR)
     end
-    -- pr("ARBG: %s", print_table(float2argb(argb, true)))
     self.caption:SetTextColor(argb)
     
-    local clr_tbl = str2ARGB(BACKGROUND_CLR, true)
-    pr("init bg ARBG: %s", print_table(clr_tbl))
-    local opacity = ENABLE_BACKGROUND and clr_tbl[1] or 0
+    local opacity = 0
+    local clr_tbl = {0, 0, 0, 0}
+    if ENABLE_BACKGROUND then
+        clr_tbl = str2ARGB(BACKGROUND_CLR, true)
+        opacity = clr_tbl[1]
+    end
     local bg_argb_tbl = {clr_tbl[2], clr_tbl[3], clr_tbl[4]}
     local bg_argb = get_colourblind_clr(bg_argb_tbl, opacity, COLOUR_BLIND_TYPE)
-    pr("changed bg ARBG: %s", print_table(float2argb(bg_argb, true)))
     self.bg:SetTextureColor(bg_argb)
 end
 
@@ -225,7 +246,6 @@ function UICaption:Validate(data)
 
         self.last_position = actor_pos
         self.last_material = result.material_name
-        pr("result: %s", result.material_name)
     end
 
     if self.last_material then
@@ -374,7 +394,7 @@ end
 
 function get_colourblind_clr(clr_tbl, opacity, colourblind_type, as_table)
     local r, g, b = ag_colours.get_colourblind_rgb(colourblind_type, clr_tbl[1], clr_tbl[2], clr_tbl[3])
-    pr("For cb type: %s,  from: %s getting cb safe clr %s", colourblind_type, print_table(clr_tbl), print_table{r, g, b})
+    -- pr("For cb type: %s,  from: %s getting cb safe clr %s", colourblind_type, print_table(clr_tbl), print_table{r, g, b})
     if as_table then
         return {opacity, r, g, b}
     end
@@ -383,6 +403,31 @@ end
 
 function get_angular_dist(dist)
     return 2 * math.atan(1.8 / (2 * dist))
+end
+
+function mcm2font(key)
+    local fonts = {
+        di           = GetFontDI(),
+        small        = GetFontSmall(),
+        medium       = GetFontMedium(),
+        letterica16  = GetFontLetterica16Russian(),
+        letterica18  = GetFontLetterica18Russian(),
+        letterica25  = GetFontLetterica25(),
+        graffiti19   = GetFontGraffiti19Russian(),
+        graffiti22   = GetFontGraffiti22Russian(),
+        graffiti32   = GetFontGraffiti32Russian(),
+        graffiti50   = GetFontGraffiti50Russian(),
+    }
+    return fonts[key]
+end
+
+function mcm2align(key)
+    local alignments = {
+        left = 0,
+        center = 2,
+        right = 1
+    }
+    return alignments[key]
 end
 
 -- Callbacks
@@ -416,16 +461,20 @@ end
 
 function on_option_change(options)
     -- FADE_TIME           = options["fade_time"]
-    max_cap_hEAR_DIST          = options["hear_dist"]
+    MAX_CAPTION_HEAR_DIST          = options["hear_dist"]
     -- MIN_CAPTION_OPACITY = options["min_caption_opacity"]
     -- MAX_CAPTION_OPACITY = options["max_caption_opacity"]
     COLOUR_BLIND_TYPE      = options["colour_blind_type"]
     ENABLE_FACTION_CLR     = options["enable_faction_clr"]
     ENABLE_BACKGROUND      = options["enable_background"]
     BACKGROUND_CLR         = options["background_colour"]
+    SUBTITLE_CLR           = options["subtitle_colour"]
+    SUBTITLE_FONT          = options["subtitle_font"] 
+    SUBTITLE_ALIGNMENT     = options["subtitle_alignment"]
 
     if not ENABLE_FACTION_CLR then
         COLOUR_BLIND_TYPE = "normal"
+        SUBTITLE_CLR = "80,255,255,255"
     end
 end
 

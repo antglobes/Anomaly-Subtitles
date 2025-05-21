@@ -30,17 +30,14 @@
     <string id="ui_mcm_subtitles_background_colour">
         <text>Background Colour</text>
     </string>
-    <string id="ui_mcm_subtitles_font_colour">
-        <text>Font Colour</text>
+    <string id="ui_mcm_subtitles_subtitle_colour">
+        <text>Subtitle Colour</text>
     </string>
-    <string id="ui_mcm_subtitles_font_opacity">
-        <text>Font Opacity</text>
+    <string id="ui_mcm_subtitles_subtitle_font">
+        <text>Subtitle Font</text>
     </string>
-    <string id="ui_mcm_subtitles_font_kind">
-        <text>Font Kind</text>
-    </string>
-    <string id="ui_mcm_subtitles_font_alignment">
-        <text>Font Aligment</text>
+    <string id="ui_mcm_subtitles_subtitle_alignment">
+        <text>Subtitle Aligment</text>
     </string>
     <string id="ui_mcm_subtitles_enable_faction_clr">
         <text>Enable Faction Colour</text>
@@ -78,61 +75,45 @@
         <text>Tritanomaly</text>
     </string>
 
-    <string id="ui_mcm_lst_fk_med">
-        <text>Medium</text>
-    </string>
-     <string id="ui_mcm_lst_fk_di">
+
+    <string id="ui_mcm_lst_di">
         <text>DI</text>
     </string>
-     <string id="ui_mcm_lst_fk_let16">
-        <text>Letterical 16</text>
+    <string id="ui_mcm_lst_medium">
+        <text>Medium</text>
     </string>
-     <string id="ui_mcm_lst_fk_small">
+     <string id="ui_mcm_lst_small">
         <text>Small</text>
     </string>
-     <string id="ui_mcm_lst_fk_let18">
-        <text>Lettrical 18</text>
+     <string id="ui_mcm_lst_letterica16">
+        <text>Letterica 16</text>
     </string>
-     <string id="ui_mcm_lst_fk_let25">
-        <text>Lettrical 25</text>
+     <string id="ui_mcm_lst_letterica18">
+        <text>Letterica 18</text>
     </string>
-     <string id="ui_mcm_lst_fk_graff19">
+     <string id="ui_mcm_lst_letterica25">
+        <text>Letterica 25</text>
+    </string>
+     <string id="ui_mcm_lst_graffiti19">
         <text>Graffiti 19</text>
     </string>
-     <string id="ui_mcm_lst_fk_graff22">
+     <string id="ui_mcm_lst_graffiti22">
         <text>Graffiti 22</text>
     </string>
-     <string id="ui_mcm_lst_fk_graff32">
+     <string id="ui_mcm_lst_graffiti32">
         <text>Graffiti 32</text>
     </string>
-     <string id="ui_mcm_lst_fk_graff50">
+     <string id="ui_mcm_lst_graffiti50">
         <text>Graffiti 50</text>
     </string>
-    <string id="ui_mcm_lst_fa_l">
+    <string id="ui_mcm_lst_left">
         <text>Left</text>
     </string>
-    <string id="ui_mcm_lst_fa_c">
-        <text>Centre</text>
+    <string id="ui_mcm_lst_center">
+        <text>Center</text>
     </string>
-    <string id="ui_mcm_lst_fa_r">
+    <string id="ui_mcm_lst_right">
         <text>Right</text>
-    </string>
-
-    <!-- Subtitle Reading Speed -->
-    <string id="ui_mcm_subtitles_sub_duration">
-        <text>Subtitle Screen Duration</text>
-    </string>
-    <string id="ui_mcm_lst_true_duration">
-        <text>True Subtitle Duration</text>
-    </string>
-    <string id="ui_mcm_lst_slow_reader">
-        <text>I'm a slow reader</text>
-    </string>
-    <string id="ui_mcm_lst_ok_reader">
-        <text>I can read alright</text>
-    </string>
-    <string id="ui_mcm_lst_fast_reader">
-        <text>I'm a fast reader</text>
     </string>
 
     <!-- Debugging Messages Level-->

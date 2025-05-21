@@ -12,13 +12,16 @@ print_table = ag_tables.print_table
 
 defaults = {
 	enable_subs = true,
-	hear_dist = 35,
+	hear_dist = 25,
 	enable_debug = false,
 	debug_level = "player",
 	enable_faction_clr = false,
 	colour_blind_type = "normal",
-	enable_background = true,
-	background_colour = "80,255,255,255",
+	enable_background = false,
+	background_colour = "80,0,0,0",
+	subtitle_colour = "255,255,255,255",
+	subtitle_font = "letterica16",
+	subtitle_alignment = "center"
 }
 
 function pr(str, ...)
@@ -27,6 +30,17 @@ end
 
 function get_config(key)
     if ui_mcm then return ui_mcm.get("subtitles/"..key) else return defaults[key] end
+end
+
+function set_config(key, val)
+	local mcm_val = get_config(key)
+	if mcm_val ~= val then
+		ui_mcm.set("subtitles/"..key, val)
+	end
+end
+
+function reset_config(key)
+	set_config(key, defaults[key])
 end
 
 function debugging_enabled()
@@ -41,29 +55,22 @@ function background_enabled()
 	return get_config("enable_background")
 end
 
+function reset_subtitle_colour()
+	reset_config("subtitle_colour")
+end
+
 function on_mcm_load()
-    return { 
+    opts = { 
 		id="subtitles",sh=true ,gr={
 			{id="title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_subtitles_title",size= {512,50},spacing= 20 },
 			{id="enable_subs", type = "check", val = 1, def = true},
+			{id="enable_faction_clr", type="check", val=1, def=false, postcondition={reset_subtitle_colour}},
+			{id="enable_background", type="check", val=1, def=false},
 			{id="hear_dist", type = "track", val = 2, min=1,max=35,step=1, def = 25},
 			
 			{id="divider", type="line"},
 			{id="title_accessibility", type="title", text="ui_mcm_subtitles_title_accessibility"},
-			{id="enable_background", type="check", val=1, def=true},
-			{id="background_colour", type="input", val=0, def="80,255,255,255", precondition={background_enabled},
-				ui_hook_functor={ui_mcm_argb_input.init_mcm_argb_control},
-				ui_snd_path="catspaw\\paw_blip",
-				preview_tex="ui_as_background",
-				preview_x=100,
-				preview_y=10,
-				preview_w=250,
-				preview_h=20,
-				-- hint=gts("ui_mcm_subtitles_background_colour_hint")
-			},
-
-			{id="enable_faction_clr", type="check", val=1, def=false},
-			{id="colour_blind_type", type="list", val=0, def="normal", precondition={faction_clr_enabled},
+			{id="colour_blind_type", type="list", val=0, def="normal",
 				content={
 					{"normal", "normal"},
 					{"achromatopsia", "achromatopsia"},
@@ -74,6 +81,40 @@ function on_mcm_load()
 					{"protanomaly", "protanomaly"},
 					{"tritanopia", "tritanopia"},
 					{"tritanomaly", "tritanomaly"},
+				}
+			},
+			{id="background_colour", type="input", val=0, def="80,0,0,0", precondition={background_enabled},
+				ui_hook_functor={ui_mcm_argb_input.init_mcm_argb_control},
+				ui_snd_path="catspaw\\paw_blip",
+				preview_tex="ui_as_background",
+				preview_x=100,
+				preview_y=10,
+				preview_w=450,
+				preview_h=20,
+			},
+			{id="subtitle_colour",type="input", val=0, def="255,255,255,255", precondition={function() return not faction_clr_enabled() end},
+				ui_hook_functor={ui_mcm_argb_input.init_mcm_argb_control},
+				ui_snd_path="catspaw\\paw_blip",
+			},
+			{id="subtitle_font", type="list", val=0, def="letterica16", 
+				content={
+					{"di","di"},
+					{"small","small"},
+					{"medium","medium"},
+					{"letterica16","letterica16"},
+					{"letterica18","letterica18"},
+					{"letterica25","letterica25"},
+					{"graffiti19","graffiti19"},
+					{"graffiti22","graffiti22"},
+					{"graffiti32","graffiti32"},
+					{"graffiti50","graffiti50"},
+				}
+			},
+			{id="subtitle_alignment", type="list", val=0, def="center", 
+				content={
+					{"left", "left"},
+					{"center", "center"},
+					{"right", "right"},
 				}
 			},
 
@@ -89,6 +130,7 @@ function on_mcm_load()
 			}
 		}
     }
+	return opts
 end
 
 function on_option_change()
