@@ -99,6 +99,7 @@
 - v0.10.1 (Fixed v0.10.2) Fail to load due to nil table index
 - v0.10.2 (Fixed v0.11.0) Subtitles not showing up at all and causing a CTD.
 - v0.11.0 (Fixed v0.11.1) Background Size, Subtitle Color being reset when faction clr not enabled
+- v0.11.1 (Fixed v0.11.2) CTD when attempting to generate subtitle for zombified stalker
 
 ## Changelog
 
@@ -125,3 +126,4 @@
 - v0.10.1 Group Sub Tokens to increase time shown on screen, More Subtitles for 100 Rads located NPCs.
 - v0.11.0 Complete Rework, New sound file parsing, per NPC UI with accessibility options.
 - v0.11.1 Resized Background, Added Texture Preview for Subtitle, Changed MCM defaults.
+- v0.11.2 Try all parts of visual string when getting faction for zombied faction.

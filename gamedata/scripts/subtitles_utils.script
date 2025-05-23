@@ -1,15 +1,15 @@
---[[-------------
-Author(s): AntGlobes
-Purpose: Utils
-Last Modified: 14/12/24
-]]---------------
-
 -- Imports
 contains = ag_tables.contains
 split = ag_strings.split
 
 -- Constants
 DBG_LVL = "player"
+as_version = "v0.11.2"
+as_authors = "Antglobes, Vodoxleb, Lin, Tehanow"
+as_last_update = "23-05-25"
+
+-- Variables
+setup_init = false
 
 function get_end_digits(str)
     local digit_str = str:sub(str:find("%d+$"))
@@ -115,20 +115,22 @@ function get_npc_faction(npc)
     if faction == "zombied" then
         local visual = npc:get_visual_name()
         local path_tkns = split(visual, "\\")
-        local path_tkn = path_tkns[#path_tkns]
-        local filename_tkns = split(path_tkn, "_")
         local faction_found = false
-        for i=1, #filename_tkns do
-            for _, community in pairs(communities) do
-                local filename_tkn = filename_tkns[#filename_tkns + 1 - i]
-                if not faction_found and filename_tkn:find(community) then
-                    faction_found = true
-                    faction = community     
+        for i=1, #path_tkns do
+            local file_tkns = split(path_tkns[#path_tkns + 1 - i], "_")
+            for i=1, #file_tkns do
+                for _, community in pairs(communities) do
+                    local file_tkn = file_tkns[#file_tkns + 1 - i]
+                    print(file_tkn, community)
+                    if not faction_found and file_tkn:find(community) then
+                        faction_found = true
+                        faction = community     
+                    end
                 end
             end
         end
     end
-    return faction 
+    return faction ~= "zombied" and faction or "stalker"
 end
 
 -- MCM
@@ -157,4 +159,22 @@ end
 
 function on_option_change(options)
     DBG_LVL = options["debug_level"]
+end
+
+function addon_info()
+	printf("--------Anomaly Subtitles--------")
+	printf("Version: %s", as_version)
+	printf("Author(s): %s", as_authors)
+	printf("Last Updated: %s", as_last_update)
+	printf("---------------------------------")
+end
+
+function setup()
+    if setup_init then return end
+    addon_info()
+    setup_init = true
+end
+
+function on_game_start()
+    RegisterScriptCallback("actor_on_first_update", setup)
 end
