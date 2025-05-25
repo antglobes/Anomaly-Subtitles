@@ -4,17 +4,20 @@ split = ag_strings.split
 
 -- Constants
 DBG_LVL = "player"
-as_version = "v0.11.2"
+as_version = "v0.11.3"
 as_authors = "Antglobes, Vodoxleb, Lin, Tehanow"
-as_last_update = "23-05-25"
+as_last_update = "25-05-25"
 
 -- Variables
 setup_init = false
 
 function get_end_digits(str)
-    local digit_str = str:sub(str:find("%d+$"))
-
     local digits = {}
+
+    local start, fin = str:find("%d+$")
+    if not (start or fin) then return digits end
+    local digit_str = str:sub(start, fin)
+
     for i=1, digit_str:len() do
        digits[#digits + 1] =  digit_str:sub(i, i)
     end

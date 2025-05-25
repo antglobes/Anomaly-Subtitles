@@ -100,6 +100,7 @@
 - v0.10.2 (Fixed v0.11.0) Subtitles not showing up at all and causing a CTD.
 - v0.11.0 (Fixed v0.11.1) Background Size, Subtitle Color being reset when faction clr not enabled
 - v0.11.1 (Fixed v0.11.2) CTD when attempting to generate subtitle for zombified stalker
+- v0.11.2 (Fixed v0.11.3) CTD when attempting to get end digits for sound file
 
 ## Changelog
 
@@ -127,3 +128,4 @@
 - v0.11.0 Complete Rework, New sound file parsing, per NPC UI with accessibility options.
 - v0.11.1 Resized Background, Added Texture Preview for Subtitle, Changed MCM defaults.
 - v0.11.2 Try all parts of visual string when getting faction for zombied faction.
+- v0.11.3 Sanity Check for getting end digits for sound path.
