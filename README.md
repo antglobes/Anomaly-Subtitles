@@ -129,3 +129,4 @@
 - v0.11.1 Resized Background, Added Texture Preview for Subtitle, Changed MCM defaults.
 - v0.11.2 Try all parts of visual string when getting faction for zombied faction.
 - v0.11.3 Sanity Check for getting end digits for sound path.
+- v0.11.4 MCM Option to turn off fight subtitles

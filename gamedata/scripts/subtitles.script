@@ -68,6 +68,7 @@ MAX_CAPTION_OPACITY = 255
 FADE_TIME = 2
 MAX_HEAR_DIST = 35
 ENABLE_SUBS = true
+ENABLE_FIGHT_SUBS = true
 
 -- Variables
 file_cache = {}
@@ -203,8 +204,6 @@ end
 function subtitle_them(path, npc)
     if not path or not npc then return end
     if not db.actor then return end
-
-    -- if not validate_npc(npc) then return end
     
     local npc_id = npc:id()
     if npc_id == AC_ID then return end
@@ -237,31 +236,6 @@ function subtitle_them(path, npc)
     queue_subtitle(subtitle_info, npc)
 end
 
-function validate_npc(npc)
-    set_debug_level("all")
-    if not npc then
-        return false
-    end
-
-    if not npc then
-        pr("no npc")
-        return false
-    end
-    
-    if not npc:alive() and not contains(recent_npc_deaths, npc:id(), true) then
-        pr("npc dead")
-        return false
-    end
-
-    local dist = dist_to_pos(npc)
-    if round(dist) > MAX_HEAR_DIST then
-        -- pr("npc out of range: %s", dist)
-        return false
-    end
-
-    return true
-end
-
 function validate_subtitle(info)
     set_debug_level("all")
     if info.xml_text == info.xml_id then
@@ -273,6 +247,11 @@ function validate_subtitle(info)
         pr("Invalid subtitle: %s", info.xml_id)
         return false
     end
+
+    if not ENABLE_FIGHT_SUBS and info.xml_id:find("fight") then
+        return false
+    end
+    
 
     return true
 end
@@ -398,6 +377,7 @@ function on_option_change(options)
     -- MIN_CAPTION_OPACITY = options["min_caption_opacity"]
     -- MAX_CAPTION_OPACITY = options["max_caption_opacity"]
     ENABLE_SUBS         = options["enable_subs"]
+    ENABLE_FIGHT_SUBS   = options["enable_fight_subs"]
 end
 
 function on_game_start()

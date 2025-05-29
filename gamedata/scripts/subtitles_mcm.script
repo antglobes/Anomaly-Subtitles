@@ -21,7 +21,8 @@ defaults = {
 	background_colour = "80,0,0,0",
 	subtitle_colour = "255,255,255,255",
 	subtitle_font = "letterica18",
-	subtitle_alignment = "center"
+	subtitle_alignment = "center",
+	enable_faction_subs = true,
 }
 
 function pr(str, ...)
@@ -66,7 +67,9 @@ function on_mcm_load()
 			{id="enable_subs", type = "check", val = 1, def = true},
 			{id="enable_faction_clr", type="check", val=1, def=false},
 			{id="enable_background", type="check", val=1, def=false},
+			{id="enable_fight_subs", type="check", val=1, def=true},
 			{id="hear_dist", type = "track", val = 2, min=1,max=35,step=1, def = 25},
+		
 			
 			{id="divider", type="line"},
 			{id="title_accessibility", type="title", text="ui_mcm_subtitles_title_accessibility"},
