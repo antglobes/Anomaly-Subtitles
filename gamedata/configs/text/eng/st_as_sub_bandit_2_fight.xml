@@ -1,482 +1,543 @@
+<!--
+   Locale: English
+   Folder: Characters_voice\human\bandit_1\fight
+-->
+
 <?xml version="1.0" encoding="windows-1251"?>
 <string_table>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_1">
-		<text>Fucking guys! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_10">
-		<text>You're going to die now, you bastard, you understand? </text>
+		<text>Fuck them boys!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_11">
-		<text>I'm gonna rip your arse for fascist signs! </text>
+		<text>Ah, bitches!</text>
 	</string>
+	<!--Here it more like rooster or cock-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_2">
-		<text>Get the cocksucker! </text>
+		<text>Kill the cocks!</text>
 	</string>
+	<!--Only thing to note there is that bsandits use word "bulls"
+	Meaning of it in jargon one or more people that behave provocatively and are looking for fight-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_3">
-		<text>Take it out! </text>
+		<text>Take out the bastards!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_4">
-		<text>YOU'RE DEAD, ZEN! </text>
+		<text>YOU'RE ALL DEAD!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--So here again jargon thing, "Uroem" here does not mean bury like in attack 6,
+	it can have meaning: to hurt or to kill someone, and "Nahren" there I think would mean something like Fucking-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_5">
-		<text>Let's get the fuck out of here! </text>
+		<text>We'll fucking kill you!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_6">
-		<text>We'll bury you with dry land! </text>
+		<text>We'll bury you, bitches!</text>
 	</string>
+	<!--Everything is hard with word "Active", it means ethier someone that working with police or snitches
+	So if you know or can find word that is better in this context maybe there is a room for a change,
+	but other than I only change "Beat" to "Kill"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_7">
-		<text>LOOKING FORWARD! </text>
+		<text>Kill the bastards!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--There is no "Fuck" in the start, bandit is screaming "Ala", that doesn't mean anything, just some sort of battle cry-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_8">
-		<text>ALLEVALLIGANO! </text>
+		<text>ALA! KILL THE ASSHOLES!</text>
 	</string>
+	<!--Meaning of this quote is close to the attack 4, but here it mean something like "you got yourself into bad situation" but harsher
+	So in the end i decided to leave it like this:-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_9">
-		<text>FUCK YOU BASTARDS! </text>
+		<text>YOU'RE FUCKED BASTARDS!</text>
 	</string>
-	<!--Silent-->
+	<!-- Here is used words "unfinished Araps" that can be translated as  "bastards"-->
+	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_10">
+		<text>Now we'll show you, defective bastards!</text>
+	</string>
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_many_1">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
-	<!--Silent-->
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_one_1">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_1">
-		<text>Fucking guys! </text>
+		<text>Fuck 'em boys!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--There is more like "Take this" not "Catch this"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_10">
-		<text>Ta-lu-di-zu-ka! </text>
+		<text>Take this bitch!</text>
 	</string>
+	<!-- Here bandit saying something like "Take this" -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_11">
-		<text>ON YOU, ON YOU! </text>
+		<text>TAKE THIS!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- "HAVAI" is harsh word of eating, something like "Eating like a pig",
+	So I will translate it as "EAT THIS"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_12">
-		<text>NAHAVA, BITCH! </text>
+		<text>HERE EAT THIS BITCH!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- And there unlike script attack 10 and 11, "Catch" is more fitting that "Take"
+	And "That" is unnecessary here-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_13">
-		<text>LAVI, MOTHERFUCKER! </text>
+		<text>Catch, fag!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--Here is used word "Goat" don't know if it unsult in english,
+	but in our language we use it as it, even if it's not that insulting,
+	so I will change not change it here, leave the decision to you-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_14">
-		<text>OVER THE CROWD! </text>
+		<text>Take this, bastard!</text>
 	</string>
+	<!--So this quote can mean "What a bitch" or "That bitch" I will go with the second here-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_15">
-		<text>Bitch! </text>
+		<text>That bitch!</text>
 	</string>
+	<!--After this there is quotes that are same as in attack 3-9, so i will transit change from there-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_2">
-		<text>Get the cocksucker! </text>
+		<text>Take out the cocks!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_3">
-		<text>Take it out! </text>
+		<text>Take out the bastards!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_4">
-		<text>YOU'RE DEAD, ZEN! </text>
+		<text>YOU'RE ALL DEAD!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_5">
-		<text>Let's get the fuck out of here! </text>
+		<text>We'll fucking kill you!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_6">
-		<text>We'll bury you with dry land! </text>
+		<text>We'll bury you, bitches!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_7">
-		<text>LOOKING FORWARD! </text>
+		<text>Kill the bastards!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_8">
-		<text>ALLEVALLIGANO! </text>
+		<text>ALA! KILL THE ASSHOLES!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_9">
-		<text>FUCK YOU BASTARDS! </text>
+		<text>YOU'RE FUCKED BASTARDS!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_backup_backup_1">
-		<text>Ta-lu-di-zu-ka! </text>
+		<text>Run guys!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_backup_backup_2">
-		<text>ON YOU, ON YOU! </text>
+		<text>Let's get out, boys!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_backup_backup_3">
-		<text>NAHAVA, BITCH! </text>
+		<text>Let's get out!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_backup_backup_4">
-		<text>LAVI, MOTHERFUCKER! </text>
+		<text>Don't just stand boys, get out from here!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_cover_fire_cover_fire_1">
-		<text>Ta-lu-di-zu-ka! </text>
+		<text>TAKE THAT, BITCH!</text>
 	</string>
+	<!--Same as script attack 11-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_cover_fire_cover_fire_2">
-		<text>ON YOU, ON YOU! </text>
+		<text>TAKE THIS!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--Same as script attack 12-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_cover_fire_cover_fire_3">
-		<text>NAHAVA, BITCH! </text>
+		<text>HERE EAT THIS, BITCH!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_cover_fire_cover_fire_4">
-		<text>LAVI, MOTHERFUCKER! </text>
+		<text>Catch this, faggot!</text>
 	</string>
+	<!--Same as script attack 14-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_cover_fire_cover_fire_5">
-		<text>OVER THE CROWD! </text>
+		<text>Take that, bastard!</text>
 	</string>
+	<!--Same as script attack 15-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_cover_fire_cover_fire_6">
-		<text>Bitch! </text>
+		<text>That bitch!</text>
 	</string>
-	<!--Silent-->
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_death_anomaly_0">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_death_death_1">
-		<text>MLA! </text>
+		<text>Ahhh, heeeeeeck!</text>
 	</string>
+	<!--Here is after cry of pain bandit starting to say "your", most likely he wants to say "your Mother", 
+	We use it and its variations like you use something like "damn it", so i tink "damn" will be more fiting here-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_death_death_2">
-		<text>Ahhh, that's mine. Aahahahahahahahahahahahahahahahahahaha! </text>
+		<text>Ahhh, damn... ack, ack!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Here not like in the bandit_1, here it is  plural -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_death_death_3">
-		<text>POTPOTTED </text>
+		<text>B-boys!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_death_death_4">
-		<text>MLEAN! </text>
+		<text>Fuuuck!</text>
 	</string>
+	<!--Because here is already been subtitles for coughing, i will add here "Ugh" -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_death_death_5">
-		<text>MLEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR </text>
+		<text>Uuughh...</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_death_death_6">
-		<text>AAAAAH!!! </text>
+		<text>Aah!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_death_death_7">
-		<text>Ow, ow, ow, ow! </text>
+		<text>Uuughhh!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_fight_death_death_8">
+		<text>AAAGH!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_1">
-		<text>Come in from the side! </text>
+		<text>Come in, come in from the side!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- "Kandohai" is means "move" and "Veselee" translates in english language to "More cheerfully"
+	In this context it's used like, "faster", and there is no "Boys" in the quote -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_10">
-		<text>KANDYUHAN HUNG! </text>
+		<text>MOVE FASTER!</text>
 	</string>
+	<!--In this context "Davai" used more like "Come on" -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_2">
-		<text>Two, two! </text>
+		<text>Come on, Come on!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- In here I think "Let's take him warm" is more fitting that "Get him warm"
+	because there used word that translates like "Take"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_3">
-		<text>DILNOMA WO TР вЂњРІР‚вЂњPLING! </text>
+		<text>Let's take him warm!</text>
 	</string>
+	<!--"Мандраж" that used here is closer in meaning to "afraid", that "nervous" in this context-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_4">
-		<text>Don't get monstrous, guys! Go round! </text>
+		<text>Don't be afraid, guys! Go around!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Here is hard to say is it correct Interpretation or not
+	because here in literal translation bandit saying "Now we will them..."
+	I think there is will be fitting "Now we'll show them..." even if there is no "show" in the quote-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_5">
-		<text>SHAMMYR! </text>
+		<text>Now we'll show them...</text>
 	</string>
+	<!--Here context meaning is more of "Kill! Kill him" -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_6">
-		<text>Get him! Get him out! </text>
+		<text>Kill! Kill him!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_7">
-		<text>Come on, chicky-bricky, in the ladies! </text>
+		<text>Come on, CHEEKI-BREEKI, and to the crowns!</text>
 	</string>
+	<!-- Here is most problematic last word, before it bandit saying "Fast, Go around, around that..."
+	Last word can be translated like some insult to someone non-local -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_8">
-		<text>Mayor, go round, go round that husk! </text>
+		<text>Faster, go around, around that scum!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_9">
-		<text>Well, you blew it, boys! </text>
+		<text>Well, let's go, boys!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- There is used word that is name of the county "Honduras", but it really is "Pidoras" with meaning here of "Faggot" or "Gay"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_1">
-		<text>Genduras! </text>
+		<text>Faggots!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--"Frayer", is word that I was unable to find similar in meaning, closest I managed to find it is "whale"
+	But I will try to explain it meaning: A fashionably dressed man not from the criminal world possible target for robbery
+	Maybe you will have better luck that me but for now I will use translation from enemy 1-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_10">
-		<text>FRYR'S DOWN! </text>
+		<text>Faggots incoming!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
-	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_11">
-		<text>AHH, LOOK, WE'RE GONNA GET A COLESLAW </text>
-	</string>
-	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_12">
-		<text>Both of them! Liver's out! </text>
-	</string>
-	<!-- Accuracy Check Needed -->
-	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_13">
-		<text>SHABRA TWA! </text>
-	</string>
-	<!-- Accuracy Check Needed -->
-	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_14">
-		<text>Rhara in the US! </text>
-	</string>
-	<!-- Accuracy Check Needed -->
-	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_15">
-		<text>SCHUHER! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_16">
-		<text>ABOVE! </text>
-	</string>
+	<!--"Atas" it means that there is danger or to be on attention, here is first-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_2">
-		<text>I'LL GIVE MYSELF TO SLEEP! </text>
+		<text>Boys, watch out!</text>
 	</string>
+	<!-- Basically "Get ready yours guns for the battle", "Volina" just means "Gun"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_3">
-		<text>SWEETYVALES! </text>
+		<text>Get ready your guns for battle!</text>
 	</string>
+	<!--Like in previous nothing hard here just a call to take out your weapons-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_4">
-		<text>Guys, get your guns out! </text>
+		<text>Boys, get your weapons out!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--"Atanda" just like "Atas" in the enemy 2-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_5">
-		<text>ATHANDA! </text>
+		<text>Watch out!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Again different word same meaning like in the enemy 5 and 2 -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_6">
-		<text>SHUCHE! </text>
+		<text>Lookout!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--Literal translation of first part will be something like "We've been painted", but the context is "We've been spotted"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_7">
-		<text>WE'VE BEEN SRIZED, MESS! </text>
+		<text>We've been spotted! Lookout!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Here is word "Chushpan" has closest meaning to the word like "wimp" -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_8">
-		<text>SHUSHPAINS! </text>
+		<text>Wimps!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- First word can be just changed into "hush" because it's here to get attention and get everyone to be quiet
+	After that there is something "Hey, rumpus is starting" because second word has meaning:
+	"Raise a fuss" or something like that-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_9">
-		<text>SHAKIBESH WALK! </text>
+		<text>Hey, rumpus is starting!</text>
 	</string>
-	<!--Silent-->
+	<!-- literal will be something like "Look who is rolling his wheels to us",
+	so it can be Interpretated like below-->
+	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_11">
+		<text>Look who is coming to us!</text>
+	</string>
+	<!--"Leaver", I can unly describe this word as: Not a reliable person
+	Don't know how much it fits here. Last word can be as you spotting someone coming out from somewhere
+	where you didn't see him before-->
+	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_12">
+		<text>Opa! Leaver spotted!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_13">
+		<text>There's rowdies, hush, did you hear that!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_14">
+		<text>hush gang!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_15">
+		<text>Lookout!</text>
+	</string>
+	<!-- Meaning of "Atas" can be looked in the enemy 2 -->
+	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_16">
+		<text>Watch out!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_17">
+		<text>Hush, before they gut us!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_enemy_18">
+		<text>Stop laughing! Silence!</text>
+	</string>
+	<!-- silent -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_down_enemy_down_1">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
-	<!--Silent-->
+	<!-- silent -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_hit_enemy_hit_1">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
-	<!--Silent-->
+	<!-- silent -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_cover_fire_cover_fire_1">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_fire_friendly_fire_1">
-		<text>What are you, a cocksucker? </text>
+		<text>What are you doing, moron?</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Everything is okay here -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_fire_friendly_fire_2">
-		<text>The head from Russuk! </text>
+		<text>I'll rip your head off, bitch!</text>
 	</string>
+	<!-- "Hana" is used here to say that you're in the bad situation -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_fire_friendly_fire_3">
-		<text>Hame to you, freak! </text>
+		<text>You're screwed, bastard!</text>
 	</string>
+	<!-- Hard to say what exactly is meant here. Maybe something like
+	"I will fuck you"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_fire_friendly_fire_4">
-		<text>I'll kick your arse, eat! </text>
+		<text>I'll fuck you, understood?!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_fire_friendly_fire_5">
-		<text>You're fucking nuts, aren't you? </text>
+		<text>Have you gone insane completely?</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_grenade_friendly_grenade_1">
-		<text>Bitch, I'm gonna put you in the trees right now! </text>
+		<text>I'm gonna to put you in the coffin right now, bitch!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- First part can be referenced from attack 5, second part I don't really know what it mean like at all
+	but maybe it's something like "bastard" or "faggot"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_grenade_friendly_grenade_2">
-		<text>NAHSIKELDEWY! </text>
+		<text>I'll fucking kill you, faggot!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_grenade_friendly_grenade_3">
-		<text>No, I don't get it! </text>
+		<text>No, I don't fucking get it!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_grenade_friendly_grenade_4">
-		<text>What are you doing? You're gonna, like, kill me or something? </text>
+		<text>Are you going to, like, kill me?</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--Here is second word means "been bitten by the rooster or chiken"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friend_hitted_hit_friend_1">
-		<text>Bratona's got a bite! </text>
+		<text>Brother was bitten!</text>
 	</string>
+	<!-- Easy translatable-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friend_hitted_hit_friend_2">
-		<text>Guys, we're hit! </text>
+		<text>Boys, we have wounded!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
-	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_grenade_friendly_grenade_1">
-		<text>Shocker, guys! </text>
+	<!-- First word can be referenced in enemy 6-->
+	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_1">
+		<text>Lookout, guys!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
-	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_grenade_friendly_grenade_2">
-		<text>GRMNATE! </text>
+	<!-- Just grenade -->
+	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_grenade_grenade_2">
+		<text>GRENADE!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Like grenade 2, but with guys -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_friendly_grenade_friendly_grenade_3">
-		<text>GRENLADO, POZOLE! </text>
+		<text>GRENADE, GUYS!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_ready_1">
-		<text>Eat your lemon, you bastard! </text>
+		<text>Eat lemon, bastard!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_ready_2">
-		<text>She's for you, Grenade! </text>
+		<text>Here is grenade for you!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_ready_3">
-		<text>Eat an apple, bitch! </text>
+		<text>Eat an apple, bitch!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_ready_4">
-		<text>KAWAII GRENADE MOTHERFUCKER! </text>
+		<text>EAT THE GRENADE, MOTHERFUCKER!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_ready_5">
-		<text>BUT A BITCH OF AN APPLE! </text>
+		<text>HAVE AN APPLE BITCH!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_ready_6">
-		<text>I'll grenade you, you bastard! </text>
+		<text>I'll grenade you, bastard!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- "Pendosina" in Russia is used to insult someoen from America or any english native speaker,
+	so I don't really know how to translate it and will leave it as "faggot" -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_ready_7">
-		<text>Lemonchike pindosina! </text>
+		<text>Lemon for you, faggot!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	 <!-- "this" is not been in the original quote -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_ready_1">
-		<text>Ta-lu-di-zu-ka! </text>
+		<text>Catch, bitch!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_grenade_grenade_ready_2">
-		<text>LAVI, MOTHERFUCKER! </text>
+		<text>CATCH, MOTHERFUCKER!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_enemy_hit_enemy_hit_1">
-		<text>Ooh-ooh-ooh! </text>
+		<text>Ah, fu-!</text>
 	</string>
+	<!--No need in correction -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_hit_hit_2">
-		<text>a-a-a-an! </text>
+		<text>Damn it!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_hit_hit_3">
-		<text>Fucking hell! </text>
+		<text>Arrgghh!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_hit_hit_4">
-		<text>Ouch, what are you, a freak? </text>
+		<text>Agghh!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_hit_hit_5">
-		<text>Aye-aye-aye! </text>
+		<text>Aagh!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_hit_hit_6">
-		<text>Ouch! </text>
+		<text>Aggh!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_hit_hit_7">
-		<text>Ouch! </text>
+		<text>They hit, hit me bitches!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_relax_1">
-		<text>Well, get out the vodka, let's remember the freshly dead! </text>
+		<text>Well, get out the vodka, let's remember the freshly dead!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_relax_2">
-		<text>What are we doing? We're done talking! </text>
+		<text>What are we wait? We're done making noise!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Very good translation here, no need for correction -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_relax_3">
-		<text>Harev's poking, the ballyhoo's gone! </text>
+		<text>Stop staring, the action's gone!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_wait_1">
-		<text>Hey! Valyn is early, guys! </text>
+		<text>Hey! It's early to hide guns, guys!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Slight correction in the start of the line -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_wait_2">
-		<text>Are we waiting for more, Spooner? </text>
+		<text>Well let's wait for more losers?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_wait_3">
-		<text>Don't repent, don't repent, guys! </text>
+		<text>Hide, hide, guys!</text>
 	</string>
+	<!-- Again problem with the word "Frayer", here I will use word from wait 3 -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_wait_4">
-		<text>Don't poke, the Freres are coming! </text>
+		<text>Don't stare, the losers can come out now!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Corrected, previous was not bad, but I think this will be better -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_wait_5">
-		<text>ZIRIT WOB! </text>
+		<text>Keep your eyes open!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_wait_6">
-		<text>Quiet! Nobody drew anything! </text>
+		<text>Quiet! Babai's roaming!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_wait_7">
-		<text>What's up? </text>
+		<text>Quiet! Did anyone spotted anything?</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_wait_8">
-		<text>Quiet! Baba's going round! </text>
+		<text>What's there?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_enemy_lost_1">
-		<text>Well, where did you close? </text>
+		<text>Well, where did you hide?</text>
 	</string>
+	<!--In the end slightly changed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_enemy_lost_2">
-		<text>Quiet, boys! On the chicks! </text>
+		<text>Quiet, boys! On tiptoes!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_enemy_lost_3">
-		<text>Duck! Don't duck! We'll find you anyway! </text>
+		<text>Hide-don't hide! We'll find you anyway!</text>
 	</string>
+	<!-- Changed "dead" to "corpse"-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_enemy_lost_4">
-		<text>Bull, you're dead, you understand? </text>
+		<text>Bull, you're corpse, you understand?</text>
 	</string>
+	<!-- No need for coorection -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_1">
-		<text>Vlaz, vlaz! </text>
+		<text>Go out, go out!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_10">
-		<text>Oh, we'll make you some blood! </text>
+		<text>Oh, we'll make you bleed.</text>
 	</string>
+	<!--Changed the start of the line, bandit saying about hearing him
+	And there is no "mate" there is again "Frayer", i will use "loser" here again-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_11">
-		<text>Come on, mate, you're going to quack! </text>
+		<text>Do you hear, loser, you're going to quack!</text>
 	</string>
+	<!--Changed "chop" to the "be cutting" more fitting -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_12">
-		<text>Don't be afraid! We won't cut you! </text>
+		<text>Don't be afraid! We won't be cutting you!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!--Again "Frayer" it's like a stepping stone for me, I think i will not change it here
+	Will just doo slight change in the "cut" part-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_13">
-		<text>Hey, fry, don't get too warm, we'll catch you and cut you for a long time! </text>
+		<text>Hey, pal, don't get too hopeful, we'll catch you and will be cutting you for a long time!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_14">
+		<text>Come on, let's search who's here?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_2">
-		<text>Come out, we'll find you anyway! </text>
+		<text>Come out, we'll find you anyway!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_3">
-		<text>Come out nicely! </text>
+		<text>Come out nicely!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_4">
-		<text>Hey, cocksucker, I need a rubdown! Come out! </text>
+		<text>Hey, cocksucker, need to talk! Come out!</text>
 	</string>
+	<!--Was lost part with finding -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_5">
-		<text>We'll cut it up for Micha! </text>
+		<text>We'll find you and cut to furs!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_6">
-		<text>Freyr, come out, don't worry, we won't hurt you! </text>
+		<text>Loser, come out, we won't touch you!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_7">
-		<text>Listen, we're not gonna hurt you! For real, I'm responsible for what I say! </text>
+		<text>Listen, we're not gonna hurt you! For real, I'm responsible for what I say!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_8">
-		<text>No, are you a man or not? Come out! </text>
+		<text>No, are you a man or not? Come out!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_searching_enemy_search_9">
-		<text>SHOW YOURSELF, FAGGOT! </text>
+		<text>SHOW YOURSELF, FAGGOT!</text>
 	</string>
-	<!--Silent-->
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_threat_threat_close_1">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
-	<!--Silent-->
+	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_threat_threat_distant_1">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Slight change -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_tolls_tolls_1">
-		<text>MOJE BNAS! </text>
+		<text>They are killing us!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Referenced from enemy 6 -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_tolls_tolls_2">
-		<text>SCHUHER! </text>
+		<text>LOOKOUT!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- No need for correction here -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_tolls_tolls_3">
-		<text>Atas, guys! </text>
+		<text>Watch out, guys!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_tolls_tolls_4">
-		<text>The kid's getting shafted! </text>
+		<text>Guys are being killed!</text>
 	</string>
+	<!-- Slight change -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_tolls_tolls_5">
-		<text>Mlave, we're getting shafted on the tour! </text>
+		<text>Fuck, ours is been killed!</text>
 	</string>
 </string_table>
