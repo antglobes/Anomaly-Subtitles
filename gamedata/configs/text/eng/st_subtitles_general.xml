@@ -12,11 +12,8 @@
 	<string id="ui_mcm_subtitles_hear_dist">
         <text>Maximum Hearing Distance (Meters)</text>
     </string>
-	<string id="ui_mcm_subtitles_hear_chance">
-        <text>Subtitle Chance</text>
-    </string>
-	<string id="ui_mcm_subtitles_hear_cooldown">
-        <text>Subtitle Cooldown</text>
+	<string id="ui_mcm_subtitles_enable_fight_subs">
+        <text>Enable Fight Subtitles</text>
     </string>
     
     <!-- Acessibility Options-->

@@ -22,7 +22,7 @@ defaults = {
 	subtitle_colour = "255,255,255,255",
 	subtitle_font = "letterica18",
 	subtitle_alignment = "center",
-	enable_faction_subs = true,
+	enable_fight_subs = true,
 }
 
 function pr(str, ...)

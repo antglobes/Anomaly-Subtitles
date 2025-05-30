@@ -101,6 +101,7 @@
 - v0.11.0 (Fixed v0.11.1) Background Size, Subtitle Color being reset when faction clr not enabled
 - v0.11.1 (Fixed v0.11.2) CTD when attempting to generate subtitle for zombified stalker
 - v0.11.2 (Fixed v0.11.3) CTD when attempting to get end digits for sound file
+- v0.11.4 (Fixed v0.11.4) Syntax Error for MCM Option Enable Fight Subs
 
 ## Changelog
 
@@ -130,3 +131,4 @@
 - v0.11.2 Try all parts of visual string when getting faction for zombied faction.
 - v0.11.3 Sanity Check for getting end digits for sound path.
 - v0.11.4 MCM Option to turn off fight subtitles
+- v0.11.5 MCM Option default and text for fight subtitles
