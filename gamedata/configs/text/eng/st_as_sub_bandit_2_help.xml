@@ -1,65 +1,85 @@
+<!--
+	Locale: English
+	Folder: Characters_voice\human\bandit_2\help
+-->
 <?xml version="1.0" encoding="windows-1251"?>
 <string_table>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_2_help_combat_coming_1">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
 	<!--Silent-->
 	<string id="as_sub_characters_voice_human_bandit_2_help_combat_coming_1_pda">
-		<text>Silent_Subtitle </text>
+		<text>Silent_Subtitle</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_kill_wounded_1">
-		<text>NAHAWAY! </text>
+		<text>Here take this!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_kill_wounded_2">
-		<text>I'm gonna fix you! </text>
+		<text>Now I'm gonna fix you!</text>
 	</string>
+	<!-- Here meaning is something like "have a nice trip (to other world)" -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_kill_wounded_3">
-		<text>Catch a loose cannon! </text>
+		<text>Godspeed, loser!</text>
 	</string>
+	<!-- there is something like "Hang on, bro!" -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_medkit_1">
-		<text>Hang in there, mate, you're gonna be all right! </text>
+		<text>Hang on, mate!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- In the ending of the line there three ways to translate what bandit saing "to expose yourself like this" 
+	or "to get under fire like this", or "to get shot like this" I here will go with the first -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_medkit_2">
-		<text>You're a real loa, bro, you're a real piece of work! </text>
+		<text>You're a loser, bro, to expose yourself like this !</text>
 	</string>
+	<!-- There is one difference with kill_wounded_2, bandit using jargons shortened word that means "Now" Don't know if it change anything -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_medkit_3">
-		<text>Stay down, stay down, I'm gonna get you. </text>
+		<text>Non I'm gonna fix you.</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- Meaning of this line is "I been wounded, boys" so "hole" has come up from the word that bandit used to refer to his injury 
+	I will change it translation to "I've been shot, boys"-->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_1">
-		<text>Hole me, boys! </text>
+		<text>I've been shot, boys!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
+	<!-- "Maslina" is "olives" and more accurately is "black olives"
+	Bandit many times them as metaphor for bullets-->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_2">
-		<text>Oh, shit, I caught a butterfly! </text>
+		<text>I caught a maslina!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_3">
-		<text>Mate, help! </text>
+		<text>Mate, help!</text>
 	</string>
+	<!-- Here bandit screaming "People" not just his gang -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_4">
-		<text>Guys, help me out! </text>
+		<text>Peaple, help me!</text>
 	</string>
+	<!-- Too many "Ah", reduced their quantity -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_5">
-		<text>Ah-ah-ah-ah-ah-ah-ah-ah-ah-ah-ah-ah! </text>
+		<text>Ah-ah-ah!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_6">
-		<text>Ay, humour, humour! </text>
+		<text>Ay!</text>
 	</string>
-	<!-- Accuracy Check Needed -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_7">
-		<text>OOOOBALADAAA </text>
+		<text>Aaaaaah ack!</text>
 	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_8">
+		<text>Aaeh ah!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_9">
+		<text>Aaaaaah ack!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_heavy_help_10">
+		<text>Aaaaaah ack!</text>
+	</string>
+	<!-- Refering that who helped him is "real bro" -->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_thanx_thanx_1">
-		<text>Oooh, that's a real boy! Thanks, bro! </text>
+		<text>Oooh, that's a real guy! Thanks!</text>
 	</string>
+	<!-- "Real topic" I think can mean "Good thing/great thing"-->
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_thanx_thanx_2">
-		<text>Oh, this is a real topic! High five! </text>
+		<text>Oh, this is a real topic! High five!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_help_wounded_thanx_thanx_3">
-		<text>Uh-oh, yeah, thanks, bro! </text>
+		<text>Uh-oh, yeah, thanks, bro!</text>
 	</string>
 </string_table>
