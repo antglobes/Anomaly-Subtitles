@@ -168,6 +168,7 @@ faction_to_colour_opacity = {
     ["isg"]         = function(opacity) return GetARGB(opacity, 184, 102, 135) end,
     ["monster"]     = function(opacity) return GetARGB(opacity, 74, 46, 16) end,
     ["default"]     = function(opacity) return GetARGB(opacity, 250, 250, 250) end,
+    ["trader"]      = function(opacity) return GetARGB(opacity, 0, 0, 0) end,
 }
 
 faction_to_colour = {
@@ -185,4 +186,5 @@ faction_to_colour = {
     ["isg"]         = {184, 102, 135},
     ["monster"]     = {74, 46, 16},
     ["default"]     = {250, 250, 250},
+    ["trader"]      = {0, 0, 0},
 }

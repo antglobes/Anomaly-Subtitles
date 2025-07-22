@@ -4,9 +4,9 @@ split = ag_strings.split
 
 -- Constants
 DBG_LVL = "player"
-as_version = "v0.11.4"
+as_version = "v0.11.6"
 as_authors = "Antglobes, Vodoxleb, Lin, Tehanow"
-as_last_update = "29-05-25"
+as_last_update = "22-07-25"
 
 -- Variables
 setup_init = false
@@ -86,6 +86,7 @@ special_character_faction = {
     ["Professor Kalancha"] = "csky",
     -- Misc
     ['Senior Sergeant Grebenko'] = "dolg",
+    ["Xenotech"] = "stalker",
 }
 
 communities = {
@@ -102,6 +103,13 @@ communities = {
     "renegade",
     "isg",
     "monster",
+    "sin",
+}
+
+exclude_factions = {
+    "zombied",
+    "trader",
+    "nil"
 }
 
 function get_npc_faction(npc)
@@ -133,7 +141,8 @@ function get_npc_faction(npc)
             end
         end
     end
-    return faction ~= "zombied" and faction or "stalker"
+
+    return not contains(exclude_factions, faction) and faction or "stalker"
 end
 
 -- MCM

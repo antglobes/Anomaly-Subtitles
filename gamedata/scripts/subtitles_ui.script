@@ -393,6 +393,7 @@ end
 
 function get_faction_clr(npc, opacity, colourblind_type, as_table)
     local faction = get_npc_faction(npc) or "default"
+    pr("Gettting Color for %s: %s", subtitles_utils.get_npc_name(npc), faction)
     local clr_tbl = ag_colours.faction_to_colour[faction]
     colourblind_type = not colourblind_type and "normal" or colourblind_type
     return get_colourblind_clr(clr_tbl, opacity, colourblind_type, as_table)

@@ -82,7 +82,7 @@ ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
 -- Debugging
 function pr(str, ...)
     if not filter_debug_msg(dbg_lvl) then return end
-    subtitles_utils.dbg_pr("[AS|MAIN]: %s", str, ...)
+    subtitles_utils.dbg_pr("[AS|Main]: %s", str, ...)
 end
 
 -- Main Funcs
