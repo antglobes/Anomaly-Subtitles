@@ -31,6 +31,9 @@ clr_cache = {}
 DESPAWNED_NPCS = {}
 local dbg_lvl = "player"
 
+-- Tables
+incude_materials = {}
+
 -- Debugging
 function pr(str, ...)
     if not filter_debug_msg(dbg_lvl) then return end
@@ -152,42 +155,51 @@ end
 
 function UICaption:FadeCaption(tg)
     set_debug_level("all")
-    local decrease = table.remove(self.active_info["decreases"], 1)
+    if is_empty(self.active_info["decreases"]) then return end
+    local new_opacity = table.remove(self.active_info["decreases"], 1)
+    new_opacity = math.floor(new_opacity)
 
     local bg_clr = self.bg:GetTextureColor()
     local argb = float2argb(bg_clr, true)
-    local bg_opacity_reduction = argb[1] - decrease
-    local bg_opacity = clamp(bg_opacity_reduction, 0, argb[1])
+    local bg_opacity = clamp(new_opacity, 0, argb[1])
     self.bg:SetTextureColor(change_alpha(bg_clr, bg_opacity))
 
     local cap_clr = self.caption:GetTextColor()
-    local opacity_reduction = self.active_info["caption_opacity"] - decrease
-    local cap_opacity = clamp(opacity_reduction, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
+    local cap_opacity = clamp(new_opacity, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
     pr("fading caption from %s to %s", self.active_info["caption_opacity"], cap_opacity)
     self.caption:SetTextColor(change_alpha(cap_clr, cap_opacity))
 
     self.active_info["caption_opacity"] = cap_opacity
-    self.active_info["fade_tmr"] = tg + (FADE_TIME / self.active_info["decreases_num"]) * 1000
+    self.active_info["fade_tmr"] = tg + (FADE_TIME / self.active_info["decreases_num"])
 end
 
 function UICaption:SetCaptionClr()
+    set_debug_level("all")
+    pr("Setting Caption Colour")
     local argb = GetARGB(self.active_info["caption_opacity"], 255, 255, 255)
     if ENABLE_FACTION_CLR then
+        --pr("using faction clr")
         local npc = get_unknown_object({id=self.npc_id}, "game")
         argb = get_faction_clr(npc, self.active_info["caption_opacity"], COLOUR_BLIND_TYPE)
     else
-        argb = str2ARGB(SUBTITLE_CLR)
+        --pr("Using MCM set clr")
+        argb = str2ARGB(SUBTITLE_CLR, true)
+        argb[1] = self.active_info["caption_opacity"]
+        argb = tbl2argb(argb)
     end
+    pr("Caption clr: %s", print_table(float2argb(argb, true)))
     self.caption:SetTextColor(argb)
     
     local opacity = 0
     local clr_tbl = {0, 0, 0, 0}
     if ENABLE_BACKGROUND then
+        --pr("using MCM set background")
         clr_tbl = str2ARGB(BACKGROUND_CLR, true)
-        opacity = clr_tbl[1]
+        opacity = self.active_info["caption_opacity"]
     end
     local bg_argb_tbl = {clr_tbl[2], clr_tbl[3], clr_tbl[4]}
     local bg_argb = get_colourblind_clr(bg_argb_tbl, opacity, COLOUR_BLIND_TYPE)
+    pr("Bg clr: %s", print_table(float2argb(bg_argb, true)))
     self.bg:SetTextureColor(bg_argb)
 end
 
@@ -254,7 +266,11 @@ function UICaption:Validate(data)
         self.last_material = result.material_name
     end
 
-    if self.last_material then
+    if 
+        self.last_material and not contains(incude_materials, self.last_material) 
+        or self.last_material 
+    then --TODO add exception for bar 
+        pr("Ray cast between actor and %s has hit %s", subtitles_utils.get_npc_name(npc), self.last_material)
         return false
     end
 
@@ -343,7 +359,7 @@ end
 function HUDSubtitles:Update()
     CUIScriptWnd.Update(self)
     set_debug_level("dev")
-    local show_caption = main_hud_shown()
+    local show_caption = main_hud_shown() --TODO Hide when pda shown
     local tg = time_global()
 
     for id, _ in pairs(subtitles.QUEUED_SUBTITLES) do
@@ -388,12 +404,16 @@ function float2argb(clr, as_table)
     if as_table then
         return argb
     end
-    return GetARGB(argb[1], argb[2], argb[3], argb[4])
+    return tbl2argb(argb)
+end
+
+function tbl2argb(colour)
+    return GetARGB(colour[1], colour[2], colour[3], colour[4])
 end
 
 function get_faction_clr(npc, opacity, colourblind_type, as_table)
     local faction = get_npc_faction(npc) or "default"
-    pr("Gettting Color for %s: %s", subtitles_utils.get_npc_name(npc), faction)
+    --pr("Gettting Color for %s: %s", subtitles_utils.get_npc_name(npc), faction)
     local clr_tbl = ag_colours.faction_to_colour[faction]
     colourblind_type = not colourblind_type and "normal" or colourblind_type
     return get_colourblind_clr(clr_tbl, opacity, colourblind_type, as_table)

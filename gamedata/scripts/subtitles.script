@@ -88,7 +88,7 @@ end
 -- Main Funcs
 function on_phrase_callback(sound_name, npc)
     if not ENABLE_SUBS then return end
-    local name = get_npc_name(npc)
+    --local name = get_npc_name(npc)
     --pr("%s is playing: %s", name, sound_name)
     local parsed_file = parse_sound_file(sound_name)
     subtitle_them(parsed_file, npc)
@@ -207,7 +207,7 @@ function subtitle_them(path, npc)
     
     local npc_id = npc:id()
     if npc_id == AC_ID then return end
-    local name = get_npc_name(npc)
+    --local name = get_npc_name(npc)
     local xml_id = path_to_xml(path)
     local xml_text = gts(xml_id)
     local snd = sound_object(path)
@@ -226,10 +226,10 @@ function subtitle_them(path, npc)
         caption_tmr = 0,
         fade_tmr = 0,
         caption_opacity = MAX_CAPTION_OPACITY,
-        tokens_added = 0
+        tokens_added = 0,
+        decreases = calc_decreases(MAX_CAPTION_OPACITY)
     }
     subtitle_info.token_size = #subtitle_info.tokens
-    subtitle_info.decreases = calc_decreases(MAX_CAPTION_OPACITY)
     subtitle_info.decreases_num = #subtitle_info.decreases
     
     if not validate_subtitle(subtitle_info) then return end
@@ -329,9 +329,15 @@ end
 function calc_decreases(opacity)
     -- pr("calc decreases")
     local decreases = {}
-    for i=1, FADE_TIME do
-        local decrease = (opacity/FADE_TIME)
-        decreases[i] = decrease
+    for i=1, FADE_TIME * 1000 do
+        if opacity <= 0 then break end
+        local norm_opacity = opacity / 255
+        local ms_opacity = norm_opacity * 1000
+        local decreased_opacity = ms_opacity - i
+        local new_opacity = (decreased_opacity / 1000) * 255
+        -- pr("Original Opacity: %s, Norm opacity: %s, Ms Opacity: %s, Decreased Opacity: %s, New_opacity: %s\n", opacity, norm_opacity, ms_opacity, decreased_opacity, new_opacity)
+        decreases[i] = new_opacity
+        opacity = new_opacity
     end
     return decreases
 end
@@ -366,8 +372,7 @@ end
 
 function print_file_count()
     set_debug_level("all")
-    pr("printing file cache count, total: %s", size_table(log_file_cache))
-    pr("%s", utils_data.print_table(log_file_cache, nil, true))
+    pr("printing file cache count, total: %s\n %s", size_table(log_file_cache), print_table(log_file_cache))
 end
 
 function on_option_change(options)

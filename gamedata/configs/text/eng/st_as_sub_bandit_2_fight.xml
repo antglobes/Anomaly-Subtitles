@@ -11,14 +11,15 @@
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_11">
 		<text>Ah, bitches!</text>
 	</string>
-	<!--Here it more like rooster or cock-->
+	<!-- Here it more like rooster or cock | maybe changing cock to dick would make more sense in entirety of text? -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_2">
-		<text>Kill these dicks!</text> // maybe changing cock to dick would make more sense in entirety of text?
+		<text>Kill these dicks!</text>  
 	</string>
 	<!--Only thing to note there is that bsandits use word "bulls"
 	Meaning of it in jargon one or more people that behave provocatively and are looking for fight-->
+	<!-- i feel as if brute is too fancy -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_3">
-		<text>Take out these brutes!</text> // i feel as if brute is too fancy
+		<text>Take out these brutes!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_4">
 		<text>YOU'RE ALL DEAD!</text>
@@ -33,7 +34,8 @@
 	</string>
 	<!--Everything is hard with word "Active", it means ethier someone that working with police or snitches
 	So if you know or can find word that is better in this context maybe there is a room for a change,
-	but other than I only change "Beat" to "Kill"--> // active can mean 'lawful, 'goody-two-shoes',
+	but other than I only change "Beat" to "Kill"--> 
+	<!-- // active can mean 'lawful, 'goody-two-shoes', -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_7">
 		<text>Kill these bastards!</text>
 	</string>
@@ -47,8 +49,9 @@
 		<text>YOU'RE FUCKED, BASTARDS!</text>
 	</string>
 	<!-- Here is used words "unfinished Araps" that can be translated as  "bastards"-->
+	<!-- // unclear on if I want to interpret 'defective' as 'stupid' or 'unfinished,' i go towards the former to fit rough bandit tone -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_10">
-		<text>Now we'll show you, retarded bastards!</text> // unclear on if I want to interpret 'defective' as 'stupid' or 'unfinished,' i go towards the former to fit rough bandit tone
+		<text>Now we'll show you, retarded bastards!</text> 
 	</string>
 	<!-- Silent -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_attack_many_1">
@@ -82,8 +85,9 @@
 	<!--Here is used word "Goat" don't know if it unsult in english,
 	but in our language we use it as it, even if it's not that insulting,
 	so I will change not change it here, leave the decision to you-->
+	<!-- // I want to interpet 'goat' as a dumb animal, like 'sheep' -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_14">
-		<text>Take this, Sheep!</text> // I want to interpet 'goat' as a dumb animal, like 'sheep'
+		<text>Take this, Sheep!</text> 
 	</string>
 	<!--So this quote can mean "What a bitch" or "That bitch" I will go with the second here-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_attack_script_attack_15">
@@ -194,8 +198,9 @@
 	</string>
 	<!-- In here I think "Let's take him warm" is more fitting that "Get him warm"
 	because there used word that translates like "Take"-->
+	<!-- // i want to interpret 'get him warm' as 'get it while its hot' (means get whatever that thing is while its fresh) -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_3">
-		<text>Let's take him while he's fresh!</text> // i want to interpret 'get him warm' as 'get it while its hot' (means get whatever that thing is while its fresh)
+		<text>Let's take him while he's fresh!</text> 
 	</string>
 	<!--"Ìàíäðàæ" that used here is closer in meaning to "afraid", that "nervous" in this context-->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_detour_detour_4">
@@ -410,8 +415,9 @@
 	<string id="as_sub_characters_voice_human_bandit_2_fight_hit_hit_6">
 		<text>Aggh!</text>
 	</string>
+	<!-- // wanted to add emphasis on suprrise of being hurt -->
 	<string id="as_sub_characters_voice_human_bandit_2_fight_hit_hit_7">
-		<text>They hit... they hit me, bitches!!</text> // wanted to add emphasis on suprrise of being hurt
+		<text>They hit... they hit me, bitches!!</text> 
 	</string>
 	<string id="as_sub_characters_voice_human_bandit_2_fight_post_combat_wait_relax_1">
 		<text>Well? Get out the vodka, let's remember the dead!</text>
@@ -540,3 +546,4 @@
 	<string id="as_sub_characters_voice_human_bandit_2_fight_tolls_tolls_5">
 		<text>Fuck, we're getting killed!</text>
 	</string>
+</string_table>
