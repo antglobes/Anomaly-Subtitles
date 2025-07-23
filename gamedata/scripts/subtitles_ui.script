@@ -32,7 +32,9 @@ DESPAWNED_NPCS = {}
 local dbg_lvl = "player"
 
 -- Tables
-incude_materials = {}
+incude_materials = {
+    "materials\\fake",
+}
 
 -- Debugging
 function pr(str, ...)
@@ -111,9 +113,8 @@ function UICaption:Update(show_caption)
         if self:Validate(self.active_info) then
             self.bg:Show(true)
             self.caption:Show(true)
-            self:SetCaptionClr()
-            self:SetCaptionVec(pos)
-           
+            self:SetCaptionClr()    
+            self:SetCaptionVec(pos)       
         else
             self.bg:Show(false)
             self.caption:Show(false)
@@ -204,22 +205,43 @@ function UICaption:SetCaptionClr()
 end
 
 function UICaption:SetCaptionVec(pos)
+    self:SetCaptionPos(pos)
+    self:SetCaptionScale()
+    --if not demonized_geometry_ray.vec_similar(curr_pos, pos, 0.01) then
+    -- (self.active_info["show_time"] - self.active_info["sound_duration"]) - FADE_TIME * 1000
+end
+
+function UICaption:SetCaptionPos(pos)
+    local curr_pos = self.caption:GetWndPos()
+    for i=0, 1, 0.02  do
+        local pos_x = warfare.lerp(curr_pos.x, pos.x, i / device().time_delta)
+        self.caption:SetWndPos(vector2():set(pos_x, pos.y))
+    end
+end
+
+function UICaption:SetCaptionScale()
     local npc = get_unknown_object({id=self.npc_id}, "game")
-    local bone_pos =  npc:bone_position("bip01_head")
+    local npc_pos = npc:bone_position("bip01_head") or npc:position():add(0, 1.7, 0)
+    local actor_pos = db.actor:bone_position("bip01_head") or db.actor:position()
+    if
+        ( self.last_position and not demonized_geometry_ray.vec_similar(actor_pos, self.last_position, 1))
+        or (self.last_position_npc and not demonized_geometry_ray.vec_similar(npc:position(), self.last_position_npc, 1))
+    then
+        local pos = self.caption:GetWndPos()
+        local dist = dist_to_pos(db.actor, npc_pos)
+        local scale = get_angular_dist(dist) / get_angular_dist(5)
+        scale = clamp(scale, 0.45, 0.85)
+        -- self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
+        -- self.bg:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
+        self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
+        self.bg:SetWndSize(vector2():set(self.max_bg_w, self.max_bg_h * scale))
+        self.scale = scale
 
-    local dist = dist_to_pos(db.actor, bone_pos)
-    local scale = get_angular_dist(dist) / get_angular_dist(5)
-    scale = clamp(scale, 0.45, 0.85)
-    -- self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
-    -- self.bg:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
-    self.caption:SetWndSize(vector2():set(self.max_cap_w * scale, self.max_cap_h * scale))
-    self.bg:SetWndSize(vector2():set(self.max_bg_w, self.max_bg_h * scale))
-    self.scale = scale
-
-    local add_y = warfare.lerp(0, self.hearing_distance, scale)
-    -- pr("scale %s, dist: %s", scale, dist)
-    self.bg:SetWndPos(vector2():set(pos.x, pos.y - add_y))
-    self.caption:SetWndPos(vector2():set(pos.x, pos.y - add_y))
+        local add_y = warfare.lerp(0, self.hearing_distance, scale)
+        -- pr("scale %s, dist: %s", scale, dist)
+        self.bg:SetWndPos(vector2():set(pos.x, pos.y - add_y))
+        self.caption:SetWndPos(vector2():set(pos.x, pos.y - add_y))
+    end
 end
 
 function UICaption:Validate(data)
@@ -267,8 +289,11 @@ function UICaption:Validate(data)
     end
 
     if 
-        self.last_material and not contains(incude_materials, self.last_material) 
-        or self.last_material 
+        self.last_material and
+        ( 
+            not contains(incude_materials, self.last_material)
+            or (self.last_material == "materials\\bush" and dist > self.hearing_distance / 2)
+        )
     then --TODO add exception for bar 
         pr("Ray cast between actor and %s has hit %s", subtitles_utils.get_npc_name(npc), self.last_material)
         return false
