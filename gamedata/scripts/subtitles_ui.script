@@ -294,8 +294,8 @@ function UICaption:Validate(data)
             (self.last_material == "materials\\bush" and dist > self.hearing_distance / 2) 
             or not contains(include_materials, self.last_material)
         )
-    then --TODO add exception for bar 
-        pr("Ray cast between actor and %s has hit %s", subtitles_utils.get_npc_name(npc), self.last_material)
+    then 
+        -- pr("Ray cast between actor and %s has hit %s", subtitles_utils.get_npc_name(npc), self.last_material)
         return false
     end
 
@@ -384,7 +384,7 @@ end
 function HUDSubtitles:Update()
     CUIScriptWnd.Update(self)
     set_debug_level("dev")
-    local show_caption = main_hud_shown() --TODO Hide when pda shown
+    local show_caption = main_hud_shown() 
     local tg = time_global()
 
     for id, _ in pairs(subtitles.QUEUED_SUBTITLES) do

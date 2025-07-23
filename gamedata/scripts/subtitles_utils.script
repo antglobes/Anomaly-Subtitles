@@ -4,9 +4,9 @@ split = ag_strings.split
 
 -- Constants
 DBG_LVL = "player"
-as_version = "v0.11.6"
+as_version = "v0.12.2"
 as_authors = "Antglobes, Vodoxleb, Lin, Tehanow"
-as_last_update = "22-07-25"
+as_last_update = "23-07-25"
 
 -- Variables
 setup_init = false

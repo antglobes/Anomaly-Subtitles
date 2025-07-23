@@ -134,3 +134,6 @@
 - v0.11.4 MCM Option to turn off fight subtitles
 - v0.11.5 MCM Option default and text for fight subtitles
 - v0.11.6 Sanity Check for non-playable faction when getting faction colour
+- v0.12.0 Smooth Caption Fading
+- v0.12.1 Lerp Caption Position and Exception for obstruction ray cast
+- v0.12.2 Reprioritisment of obstruction ray cast conditions
