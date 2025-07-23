@@ -32,7 +32,7 @@ DESPAWNED_NPCS = {}
 local dbg_lvl = "player"
 
 -- Tables
-incude_materials = {
+include_materials = {
     "materials\\fake",
 }
 
@@ -290,9 +290,9 @@ function UICaption:Validate(data)
 
     if 
         self.last_material and
-        ( 
-            not contains(incude_materials, self.last_material)
-            or (self.last_material == "materials\\bush" and dist > self.hearing_distance / 2)
+        (
+            (self.last_material == "materials\\bush" and dist > self.hearing_distance / 2) 
+            or not contains(include_materials, self.last_material)
         )
     then --TODO add exception for bar 
         pr("Ray cast between actor and %s has hit %s", subtitles_utils.get_npc_name(npc), self.last_material)
