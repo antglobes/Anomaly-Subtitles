@@ -1,110 +1,99 @@
--- Imports
-contains = ag_tables.contains
-split = ag_strings.split
+-- Library Imports
+ag_utils.import(this, {ag_strings, ag_tables, ag_npc})
+
+-- Script Imports
+get_config = subtitles_mcm.get_config
 
 -- Constants
-DBG_LVL = "player"
-as_version = "v0.12.2"
-as_authors = "Antglobes, Vodoxleb, Lin, Tehanow"
-as_last_update = "23-07-25"
+LOG_HEADER = "[AS|Utils]"
+SND_FILES = {}
 
--- Variables
-setup_init = false
+-- Locals
+local dbg_pr = nil
 
-function get_end_digits(str)
-    local digits = {}
-
-    local start, fin = str:find("%d+$")
-    if not (start or fin) then return digits end
-    local digit_str = str:sub(start, fin)
-
-    for i=1, digit_str:len() do
-       digits[#digits + 1] =  digit_str:sub(i, i)
+-- DEBUGGING
+function setup_log(level, header, enabled)
+    if not dbg_pr then
+        dbg_pr = ag_logging.new({
+            level=level,
+            header=header,
+            enabled=enabled
+        })
+    else
+        dbg_pr:SetLevel(level)
+        dbg_pr:Enable(enabled)
     end
-    return digits
+end
+
+function dbg(level, fmt, ...)
+    if not dbg_pr then
+        setup_log(get_config("debug_level"), LOG_HEADER, get_config("enable_debug"))    
+    end
+    dbg_pr:Log(level, fmt, ...)
 end
 
 function in_snd_dir(filename)
     if not filename then return end
     if not filename:find(".ogg$") then filename = filename .. ".ogg" end
-    return getFS():exist("$game_sounds$", filename)
+    return contains(SND_FILES, filename, true)
+    -- return getFS():exist("$game_sounds$", filename)
 end
 
 function path_to_xml(path)
-    local string_id = strformat("as_sub_%s", path:gsub("\\", "_"))
-    return string_id
+    return strformat("as_sub_%s", path:gsub("\\", "_"))
 end
 
-function get_npc_name(npc)
-	return IsStalker(npc) and npc:character_name() or ini_sys:r_string_ex(npc:section(), "species")
-end
-
-function cache_sound_files()
-    local files = getFS():file_list_open_ex("$game_sounds$",bit_or(FS.FS_ListFiles,FS.FS_RootOnly),"*.ogg")
-    local size = files:Size()
-    for i=0, size-1 do
-        printf("Filename: %s", files:GetAt(i):NameFull())
-    end
-end
-
-function get_bone_pos(obj, bname)
-    local bid = obj:get_bone_id(bname)
-    return bid ~= 65535 and obj:bone_position(bname) or obj:position()
-end
-
-function str2ARGB(colour, as_table)
-    local argb = str_explode(colour, ",") or {}
-    if as_table then 
-        for idx, val in pairs(argb) do
-            argb[idx] = tonumber(val)
+function collect_sound_files()
+    local tmp = {}
+    for idx, folder_name in iterate_folders("$game_sounds$") do
+        local files = getFS():file_list_open("$game_sounds$", folder_name, bit_or(FS.FS_ListFiles,FS.FS_RootOnly))
+        local file_count = files and files:Size() or 0
+        if file_count > 0 then
+            for i=0, file_count - 1 do
+                local fname = files:GetAt(i)
+                local fpath = strformat("%s%s", folder_name, fname)
+                -- dbg("dev","Filename: %s", fname)
+                -- dbg("dev", "Filepath: %s", fpath)
+                tmp[fpath] = true
+            end
         end
-        return argb
     end
-    return GetARGB(unpack(argb))
+    SND_FILES = tmp
 end
 
-special_character_faction = {
-    -- Cordon
-    ["Loris"] = "stalker",
-    ["Sidorovich"] = "stalker",
-    -- Garbage
-    ["Butcher"] = "stalker",
-    -- Rostok
-    ["Barkeep"] = "stalker",
-    ["Snitch"] = "stalker",
-    ["Arnie"] = "stalker",
-    -- Red Forest
-    ["Forester"] = "stalker",
-    -- Jupiter
-    ["Hawaiian"] = "stalker",
-    ["Ashot"] = "freedom",
-    -- Zaton
-    ["Nimble"] = "stalker",
-    ["Beard"] = "stalker",
-    ["Owl"] = "stalker",
-    -- Great Swamps
-    ["Professor Kalancha"] = "csky",
-    -- Misc
-    ['Senior Sergeant Grebenko'] = "dolg",
-    ["Xenotech"] = "stalker",
-}
+function iterate_folders(root, path)
+    path = not path and "" or path
+    local folders = collect_folders(root, path)
+    local i = 0
+    return function()
+        i = i + 1
+        if folders[i] then
+            return i, folders[i]
+        end
+    end
+end
 
-communities = {
-    "stalker",
-    "csky",
-    "bandit",
-    "army", 
-    "killer",
-    "monolith",
-    "ecolog",
-    "dolg", 
-    "freedom",
-    "greh",
-    "renegade",
-    "isg",
-    "monster",
-    "sin",
-}
+function collect_folders(root, path, tmp)
+    path = not path and "" or path
+    -- dbg("dev", "collecting folder from: %s", root .. [[\]] .. path)
+    tmp = tmp or {}
+    local folder_list = getFS():file_list_open(root, path, bit_or(FS.FS_ListFolders, FS.FS_RootOnly))
+    -- dbg("dev", "folder list: %s", folder_list ~= nil)
+    local folder_list_count = folder_list and folder_list:Size() or 0
+    if folder_list_count <= 0 then return tmp end
+    -- dbg("dev", "folder count: %s", folder_list_count)
+    for i=0, folder_list_count - 1 do
+        local folder_name = folder_list:GetAt(i)
+        local folder_path = strformat("%s%s", path, folder_name)
+        folder_path = folder_path:gsub("^\\", "")
+        -- dbg("dev", "folder| name: %s, path: %s", folder_name, folder_path)
+        tmp[#tmp + 1] = folder_path
+        if getFS():exist(root, folder_path) then 
+            collect_folders(root, folder_path, tmp) 
+        end
+    end
+    return tmp
+end
 
 exclude_factions = {
     "zombied",
@@ -113,80 +102,17 @@ exclude_factions = {
 }
 
 function get_npc_faction(npc)
-    if IsMonster(npc) then
-        return "monster"
-    end
-
-    local name = get_npc_name(npc)
-    if contains(special_character_faction, name, true) then
-        return special_character_faction[name]
-    end
-
-    local faction = npc:character_community()
-    if faction == "zombied" then
-        local visual = npc:get_visual_name()
-        local path_tkns = split(visual, "\\")
-        local faction_found = false
-        for i=1, #path_tkns do
-            local file_tkns = split(path_tkns[#path_tkns + 1 - i], "_")
-            for i=1, #file_tkns do
-                for _, community in pairs(communities) do
-                    local file_tkn = file_tkns[#file_tkns + 1 - i]
-                    print(file_tkn, community)
-                    if not faction_found and file_tkn:find(community) then
-                        faction_found = true
-                        faction = community     
-                    end
-                end
-            end
-        end
-    end
-
-    return not contains(exclude_factions, faction) and faction or "stalker"
-end
-
--- MCM
-function set_debug_level(new_dbg_level)
-	DBG_LVL = new_dbg_level
-end
-
-function mcm_debug_level()
-	return DBG_LVL or "player"
-end
-
-function filter_debug_msg(debug_level)
-	local mcm_dbg_lvl = mcm_debug_level()
-	local accepted_debug_msgs = {
-		["player"] = {"player"},
-		["dev"]    = {"player", "dev"},
-		["all"]    = {"player", "dev", "all"}
-	}
-	return contains(accepted_debug_msgs[mcm_dbg_lvl], debug_level)
-end
-
-function dbg_pr(header, str, ...)
-    if not filter_debug_msg(DBG_LVL) then return end
-    ag_logging.dbg_pr(header, str, ...)
+    local comm = get_community(npc)
+    return not contains(exclude_factions, comm) and comm
 end
 
 function on_option_change(options)
-    DBG_LVL = options["debug_level"]
-end
-
-function addon_info()
-	printf("--------Anomaly Subtitles--------")
-	printf("Version: %s", as_version)
-	printf("Author(s): %s", as_authors)
-	printf("Last Updated: %s", as_last_update)
-	printf("---------------------------------")
-end
-
-function setup()
-    if setup_init then return end
-    addon_info()
-    setup_init = true
+    setup_log(options["debug_level"], LOG_HEADER, options["enable_debug"])
+    dbg("debug", "Received options")
 end
 
 function on_game_start()
+    RegisterScriptCallback("on_game_load", collect_sound_files)
     RegisterScriptCallback("actor_on_first_update", setup)
+    RegisterScriptCallback("as_on_option_change", on_option_change)
 end
