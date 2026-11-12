@@ -8,25 +8,55 @@ Last Modified: 20/10/24
 
 AddScriptCallback("as_on_option_change")
 
-print_table = ag_tables.print_table
-
 defaults = {
 	enable_subs = true,
 	hear_dist = 25,
 	enable_debug = false,
-	debug_level = "player",
+	debug_level = 1,
 	enable_faction_clr = false,
-	colour_blind_type = "normal",
+	colour_blind_type = 1,
 	enable_background = false,
 	background_colour = "80,0,0,0",
 	subtitle_colour = "255,255,255,255",
 	subtitle_font = "letterica18",
 	subtitle_alignment = "center",
 	enable_fight_subs = true,
+	censor_type = 0,
+	caption_offset = 0.1,
 }
 
-function pr(str, ...)
-	subtitles_utils.dbg_pr("[AS|MCM]: %s", str, ...)
+-- Constants
+LOG_HEADER = "[AS|MCM]"
+AS_VERSION = "v0.12.2"
+AS_AUTHORS = "Antglobes, Vodoxleb, Lin, Tehanow"
+AS_LAST_UPDATE = "23-07-25"
+
+-- Globals
+setup_init = false
+
+-- Locals
+local dbg_pr = nil
+
+-- DEBUGGING
+function setup_log(level, header, enabled)
+    if not dbg_pr then
+        dbg_pr = ag_logging.new({
+            level=level,
+            header=header,
+            enabled=enabled
+        })
+    else
+        dbg_pr:SetLevel(level)
+        dbg_pr:Enable(enabled)
+    end
+end
+
+function dbg(level, fmt, ...)
+    if not dbg_pr then
+        setup_log(get_config("debug_level"), LOG_HEADER, get_config("enable_debug"))    
+    
+    end
+    dbg_pr:Log(level, fmt, ...)
 end
 
 function get_config(key)
@@ -60,31 +90,66 @@ function reset_subtitle_colour()
 	reset_config("subtitle_colour")
 end
 
+function mcm2font(key)
+    local fonts = {
+        di           = GetFontDI(),
+        small        = GetFontSmall(),
+        medium       = GetFontMedium(),
+        letterica16  = GetFontLetterica16Russian(),
+        letterica18  = GetFontLetterica18Russian(),
+        letterica25  = GetFontLetterica25(),
+        graffiti19   = GetFontGraffiti19Russian(),
+        graffiti22   = GetFontGraffiti22Russian(),
+        graffiti32   = GetFontGraffiti32Russian(),
+        graffiti50   = GetFontGraffiti50Russian(),
+    }
+    return fonts[key]
+end
+
+function mcm2align(key)
+    local alignments = {
+        left = 0,
+        center = 2,
+        right = 1
+    }
+    return alignments[key]
+end
+
 function on_mcm_load()
-    opts = { 
-		id="subtitles",sh=true ,gr={
+    return { 
+		id="subtitles",
+		sh=true,
+		gr={
 			{id="title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_subtitles_title",size= {512,50},spacing= 20 },
 			{id="enable_subs", type = "check", val = 1, def = true},
 			{id="enable_faction_clr", type="check", val=1, def=false},
 			{id="enable_background", type="check", val=1, def=false},
 			{id="enable_fight_subs", type="check", val=1, def=true},
+			{id="censor_type", type="list", val=2, def=1,
+				content={
+					{1,"none"},
+					{2,"light"},
+					{3,"medium"},
+					{4,"heavy"},
+				}
+			},
 			{id="hear_dist", type = "track", val = 2, min=1,max=35,step=1, def = 25},
-		
+			{id="caption_offset", type="track", val=2, min=0, max=1, step=0.1, def=0.1},
 			
 			{id="divider", type="line"},
 			{id="title_accessibility", type="title", text="ui_mcm_subtitles_title_accessibility"},
-			{id="colour_blind_type", type="list", val=0, def="normal",
+			{id="colour_blind_type", type="list", val=2, def=1,
 				content={
-					{"normal", "normal"},
-					{"achromatopsia", "achromatopsia"},
-					{"achromatomaly", "achromatomaly"},
-					{"deuteranopia", "deuteranopia"},
-					{"deuteranomaly", "deuteranomaly"},
-					{"protanopia", "protanopia"},
-					{"protanomaly", "protanomaly"},
-					{"tritanopia", "tritanopia"},
-					{"tritanomaly", "tritanomaly"},
-				}
+                            {1, "normal"},
+                            {2, "achromatopsia"},
+                            {3, "achromatomaly"},
+                            {4, "deuteranopia"},
+                            {5, "deuteranomaly"},
+                            {6, "protanopia"},
+                            {7, "protanomaly"},
+                            {8, "tritanopia"},
+                            {9, "tritanomaly"},
+                        }
 			},
 			{id="background_colour", type="input", val=0, def="80,0,0,0", precondition={background_enabled},
 				ui_hook_functor={ui_mcm_argb_input.init_mcm_argb_control},
@@ -129,29 +194,47 @@ function on_mcm_load()
 			{id="divider", type="line"},
 			{id="title_additional", type="title", text="ui_mcm_subtitles_title_additional"},
 			{id="enable_debug", type="check", val=1, def=false},
-			{id="debug_level", type="list", val=0, def="player", precondition={debugging_enabled},
+			{id="debug_level", type="list", val=2, def=1, precondition={debugging_enabled},
 				content={
-					{"player", "player"},
-					{"dev", "dev"},
-					{"all", "all"}
+					{1, "player"},
+					{2, "debug"},
+					{3, "info"},
+					{4, "dev"},
+					{5, "error"},
+					{6, "all"},
 				}
 			}
 		}
     }
-	return opts
 end
 
 function on_option_change()
-    pr("Loading AS Options:")
+    dbg("dev", "Loading AS Options:")
     local options = {}
     for k, _ in pairs(defaults) do
         options[k] = get_config(k)
     end
-    SendScriptCallback("as_on_option_change", options)
-    pr("%s", print_table(options))
+	setup_log(options["debug_level"], LOG_HEADER, options["enable_debug"])
+    dbg("debug", "Loading Options: \n%s", options)
+	SendScriptCallback("as_on_option_change", options)
+end
+
+function addon_info()
+	printf("--------Anomaly Subtitles--------")
+	printf("Version: %s", AS_VERSION)
+	printf("Author(s): %s", AS_AUTHORS)
+	printf("Last Updated: %s", AS_LAST_UPDATE)
+	printf("---------------------------------")
+end
+
+function as_setup()
+    if setup_init then return end
+    addon_info()
+	on_option_change()
+    setup_init = true
 end
 
 function on_game_start()
     RegisterScriptCallback("on_option_change", on_option_change)
-    RegisterScriptCallback("actor_on_first_update", on_option_change)
+    RegisterScriptCallback("actor_on_first_update", as_setup)
 end
