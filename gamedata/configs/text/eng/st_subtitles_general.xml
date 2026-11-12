@@ -15,6 +15,10 @@
 	<string id="ui_mcm_subtitles_enable_fight_subs">
         <text>Enable Fight Subtitles</text>
     </string>
+    	<string id="ui_mcm_subtitles_censor_type">
+        <text>Censor Type</text>
+    </string>
+
     
     <!-- Acessibility Options-->
     <!-- Headings -->
@@ -113,16 +117,38 @@
         <text>Right</text>
     </string>
 
+    <string id="ui_mcm_lst_none">
+        <text>None</text>
+    </string>
+    <string id="ui_mcm_lst_light">
+        <text>Swears Only</text>
+    </string>
+    <string id="ui_mcm_lst_medium">
+        <text>Slurs Only</text>
+    </string>
+    <string id="ui_mcm_lst_heavy">
+        <text>Swears + Slurs</text>
+    </string>
+
     <!-- Debugging Messages Level-->
-    <string id="ui_mcm_lst_player">
+    <string id="ui_mcm_subtitles_debug_level_lst_player">
         <text>Player</text>
     </string>
-     <string id="ui_mcm_lst_dev">
-        <text>Developer</text>
-    </string>
-     <string id="ui_mcm_lst_all">
-        <text>All</text>
-    </string>
+    <string id="ui_mcm_subtitles_debug_level_lst_debug">
+		<text>DEBUG</text>
+	</string>
+	<string id="ui_mcm_subtitles_debug_level_lst_info">
+		<text>INFO</text>
+	</string>
+	<string id="ui_mcm_subtitles_debug_level_lst_dev">
+		<text>DEV</text>
+	</string>
+	<string id="ui_mcm_subtitles_debug_level_lst_error">
+		<text>ERROR</text>
+	</string>
+	<string id="ui_mcm_subtitles_debug_level_lst_all">
+		<text>ALL</text>
+	</string>
 
     <!-- Additional Options-->
     <string id="ui_mcm_subtitles_title_additional">
