@@ -1,358 +1,167 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <string_table>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_actor_in_battle_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_actor_in_battle_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_attack_begin_1">
-		<text>Break's over, let's move out! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_attack_begin_2">
-		<text>Check your gear! Let's go! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_attack_begin_3">
-		<text>The band is building! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_attack_ready_1">
-		<text>Attention! One, three, sharpen! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_attack_ready_2">
-		<text>Attention! Spread out! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_attack_ready_3">
-		<text>Everybody spread out! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_begin_reply_1">
-		<text>I haven't cleaned up the blood since the last time, and here it is again! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_begin_reply_2">
-		<text>Fucking bastards! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_begin_reply_3">
-		<text>That's it, I'm getting angry. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_begin_reply_4">
-		<text>She's got the zelkies out again! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_begin_reply_5">
-		<text>What the hell are you guys doing? </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_end_fight_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_found_enemy_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_found_enemy_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_prepare_attack_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_see_counter_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_smart_captured_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_smart_captured_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_start_fight_1">
-		<text>Fire at will! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_start_fight_2">
-		<text>attack </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_start_fight_3">
-		<text>Let's go! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_again_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_again_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_counter_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_counter_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_signal_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_wait_signal_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_we_spotted_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_we_spotted_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_counter_attack_check_1">
-		<text>Group! Set the scene! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_counter_attack_check_2">
-		<text>Team, come in! Come in! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_counter_attack_check_3">
-		<text>What the hell is this? Answer me so you can get wormed! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_counter_attack_check_4">
-		<text>All right, let's see! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_counter_attack_counter_attack_begin_1">
-		<text>Attention, we've lost contact with the group. Check it out. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_counter_attack_counter_attack_begin_2">
-		<text>Let's go to the site and run it down. The group hasn't been in touch. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_counter_attack_counter_attack_begin_3">
-		<text>Group assembly. Task. Find out why there is no communication. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_begin_reply_1">
-		<text>Yes, sir! Roger that order! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_begin_reply_2">
-		<text>That's right! Let's move out! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_begin_reply_3">
-		<text>Got it! Sending a search party! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_actor_come_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_actor_come_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_actor_help_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_actor_help_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_end_defence_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_end_defence_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_bandit_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_bandit_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_csky_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_csky_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_dolg_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_dolg_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_freedom_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_freedom_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_military_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_military_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_mutant_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_mutant_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_stalker_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_stalker_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_zombied_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_request_help_vs_zombied_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_wait_help_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_wait_help_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_patrol_run_1">
-		<text>Go, Mars! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_patrol_sneak_1">
-		<text>Stop talking! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_patrol_walk_1">
-		<text>Step on it! Keep up! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_prepare_attack_1">
-		<text>Agon! </text>
+	<!--military_3-->
+	
+	<!--fight/attack-->
+
+	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_1">
+		<text>OPEN FIRE! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_2">
-		<text>BEAUTIFUL! </text>
+		<text>CRUSH 'EM! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_many_1">
-		<text>KICK THEM! </text>
+		<text>Shoot them!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_many_2">
-		<text>POTMOROSCOM! FIRE! </text>
+		<text>At the bastards.. FIRE! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_many_3">
-		<text>Valent Morozkov! </text>
+		<text>Take bastards down! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_many_4">
-		<text>Every single one of them! </text>
+		<text>Kill everyone! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_many_5">
-		<text>Let's tear them apart! </text>
+		<text>Shred them! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_many_6">
-		<text>Get the conduras out of here! </text>
+		<text>Take those suckers down! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_one_1">
-		<text>Hit it from the frost! </text>
+		<text>Shoot this bastard! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_one_2">
-		<text>Let's shoot him! </text>
+		<text>Let's shoot him down! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_one_3">
-		<text>VOLIVA! </text>
+		<text>Take him down! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_one_4">
-		<text>Let's tear it up! </text>
+		<text>Shred him! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_attack_one_5">
-		<text>YOU WON'T GET THROUGH </text>
+		<text>You will not pass, scum! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_1">
-		<text>Agon! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_10">
-		<text>Hit the beast! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_11">
-		<text>ON YOU! ON! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_12">
-		<text>Take that! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_13">
-		<text>HERE, TAKE IT! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_14">
-		<text>There you go! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_15">
-		<text>Take that, you bastard! </text>
+		<text>Fire! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_2">
-		<text>BEAUTIFUL! </text>
+		<text>Crush them! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_3">
-		<text>KICK THEM! </text>
+		<text>Shoot them! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_4">
-		<text>POTMOROSCOM! FIRE! </text>
+		<text>At the bastards.. FIRE! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_5">
-		<text>Valent Morozkov! </text>
+		<text>Take bastards down! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_6">
-		<text>Every single one of them! </text>
+		<text>Kill everyone! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_7">
-		<text>Let's tear them apart! </text>
+		<text>Shred them! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_8">
-		<text>Get the conduras out of here! </text>
+		<text>Take those suckers down!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_9">
-		<text>That's for you! Did you get it?! </text>
+		<text>Take this! Is this enough?!</text>
 	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_10">
+		<text>Hit one scum!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_11">
+		<text>Take this, here!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_12">
+		<text>Have more!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_13">
+		<text>Here! Take this!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_14">
+		<text>Вот тебе!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_attack_script_attack_15">
+		<text>Take this, scum!</text>
+	</string>
+	
+	<!--fight/backup-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_backup_backup_1">
-		<text>ON YOU! ON! </text>
+		<text>Take this! Take!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_backup_backup_2">
-		<text>Take that! </text>
+		<text>Take this! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_backup_backup_3">
-		<text>HERE, TAKE IT! </text>
+		<text>Here, take this! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_backup_backup_4">
-		<text>There you go! </text>
+		<text>Have more! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_backup_backup_5">
-		<text>Take that, you bastard! </text>
+		<text>Take this, scum! </text>
 	</string>
+	
+	<!--fight/cover_fire-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_1">
-		<text>Let me get him! </text>
+		<text>Come on, I hold him!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_2">
-		<text>Move, I got your back! </text>
+		<text>Move out, I will cover you! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_3">
-		<text>Covering! </text>
+		<text>COVERING FIRE! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_4">
-		<text>DIRJUEVA! </text>
+		<text>I hold him! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_5">
-		<text>All right! I got your back! </text>
+		<text>Good! I will keep your back! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_6">
-		<text>Come on! I'll nail him, he won't get out! </text>
+		<text>Move! I will pin him — he won't dare show his nose! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_7">
-		<text>I got him! Let's go! </text>
+		<text>I pinned him — move! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_death_anomaly_0">
-		<text>Silent_Subtitle</text>
-	</string>
+	
+	<!--fight/death-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_death_death_1">
-		<text>HA! HA! </text>
+		<text>.... </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_death_death_2">
-		<text>Whoo! </text>
+		<text>.... </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_death_death_3">
-		<text>Ah-ah-ah-ah-ah-ah-ah-ah-ah-ah-ah-ah! </text>
+		<text>... </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_death_death_4">
-		<text>GOT! </text>
+		<text>bastard.. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_death_death_5">
-		<text>Mum! </text>
+		<text>mommy.. </text>
 	</string>
+	
+	<!--fight/detour-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_detour_detour_1">
-		<text>I'm going, cover! </text>
+		<text>I go out! Cover me!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_detour_detour_2">
-		<text>Cover it up, I'm going to do that bastard! </text>
+		<text>Keep my back! I will shoot him down!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_detour_detour_3">
-		<text>Cover! Let's take him down! </text>
+		<text>Cover me! Let's kill 'em! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_detour_detour_4">
-		<text>Get him if he sticks his head out! </text>
+		<text>Shoot him if he shows up! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_detour_detour_5">
 		<text>Cover me! </text>
@@ -360,14 +169,17 @@
 	<string id="as_sub_characters_voice_human_military_3_fight_detour_detour_6">
 		<text>Cover me! Cover me! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_found_enemy_1">
-		<text>WARRIORS! </text>
+	
+	<!--fight/enemy-->
+	
+	<string id="as_sub_characters_voice_human_military_3_fight_enemy_enemy_1">
+		<text>Take Up Arms! </text> <!--Take Up Arms-->
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_enemy_2">
-		<text>BOYO'S GUN! </text>
+		<text>Fire at will! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_enemy_3">
-		<text>GBOYO! </text>
+		<text>Get ready! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_enemy_4">
 		<text>Attention! Enemy! </text>
@@ -375,628 +187,623 @@
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_enemy_5">
 		<text>Alert! </text>
 	</string>
+	
+	<!--fight/enemy_down-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_down_enemy_down_1">
-		<text>He's down! I got one! </text>
+		<text>Took one! Took one down! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_down_enemy_down_2">
-		<text>I awarded him! </text>
+		<text>I sniped him! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_down_enemy_down_3">
-		<text>Ahhhh, missed my present! </text>
+		<text>Ah-ha! Ate my "gift"! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_down_enemy_down_4">
-		<text>He's dead, you bastard! </text>
+		<text>Died, bastard! </text>
 	</string>
+	
+	<!--fight/enemy_hit-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_1">
-		<text>Slapped him! </text>
+		<text>I hit him! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_2">
-		<text>I got it! I got him! </text>
+		<text>Got it! I hit one bastard! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_3">
-		<text>That's him! </text>
+		<text>Serves him right! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_4">
-		<text>That's for you! Did you get it?! </text>
+		<text>Take this! Is that enough?! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_5">
-		<text>Hit the beast! </text>
+		<text>I hit that scum! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_1">
-		<text>ON YOU! ON! </text>
+	
+	<!--fight/fire-->
+	
+	<string id="as_sub_characters_voice_human_military_3_fight_fire_fire_1">
+		<text>Take that! Take! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_2">
+	<string id="as_sub_characters_voice_human_military_3_fight_fire_fire_2">
 		<text>Take that! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_3">
-		<text>HERE, TAKE IT! </text>
+	<string id="as_sub_characters_voice_human_military_3_fight_fire_fire_3">
+		<text>Take that all! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_4">
-		<text>There you go! </text>
+	<string id="as_sub_characters_voice_human_military_3_fight_fire_fire_4">
+		<text>Take this! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_cover_fire_cover_fire_5">
-		<text>Take that, you bastard! </text>
+	<string id="as_sub_characters_voice_human_military_3_fight_fire_fire_5">
+		<text>Take that, scum! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_1">
-		<text>I'm mine, what the hell? </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_2">
-		<text>Hey, you fucking sniper! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_3">
-		<text>What are you saying, I'm mine? </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_4">
-		<text>Fool, I'm mine! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_5">
-		<text>Don't hit your own! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_friendly_grenade_friendly_grenade_1">
-		<text>Silent_Subtitle</text>
-	</string>
+	
+	<!--fight/friend_hitted-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_friend_hitted_hit_friend_1">
-		<text>We have the 300th! </text>
+		<text>We have one 300th! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_friend_hitted_hit_friend_2">
-		<text>Commander Three Hundred! </text>
+		<text>Commander, we have 300th! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_friend_hitted_hit_friend_3">
-		<text>We got a man down! </text>
+		<text>We got wounded! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_friend_hitted_hit_friend_4">
-		<text>Yes, wounded! </text>
+		<text>We have wounded! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_friendly_grenade_friendly_grenade_1">
-		<text>GRANATE! </text>
+	
+	<!--fight/friendly_fire-->
+	
+	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_1">
+		<text>I am one of yours, what the hell!? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_2">
+		<text>Hear me, you goddamn sniper! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_3">
+		<text>What the hell, I am one of yours! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_4">
+		<text>Fool, I am your ally! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_friendly_fire_friendly_fire_5">
+		<text>Don't shoot your own! </text>
+	</string>
+	
+	<!--fight/grenade-->
+	
+	
+	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_1">
+		<text>Grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_2">
-		<text>Get down, grenade! </text>
+		<text>Get down, it's grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_3">
-		<text>Watch out, grenade! </text>
+		<text>Watch out, it's grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_ready_1">
-		<text>Eat it, grenade! </text>
+		<text>Here, eat my grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_ready_2">
-		<text>ON GRANATO! </text>
+		<text>Have one grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_ready_3">
-		<text>You can't dodge a grenade! </text>
+		<text>You can't dodge the grenade! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_ready_4">
-		<text>Catch the grenade, you bastard! </text>
+		<text>Catch the grenade, scum! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_ready_5">
-		<text>Catch the grenade, you bastard! </text>
+		<text>Catch the grenade, bastard! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_ready_6">
-		<text>Eat a pomegranate, sweetheart! </text>
+		<text>Eat the grenade, bro! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_grenade_grenade_ready_7">
-		<text>And a grenade for you, you bastard! </text>
+		<text>How about a grenade, bastard?! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_attack_attack_ready_1">
-		<text>Silent_Subtitle</text>
+	
+	<!--fight/hit-->
+	
+	<!--string id="as_sub_characters_voice_human_military_3_fight_hit_hit_1">
+		<text>ААХ! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_1">
-		<text>HA! </text>
+	<string id="as_sub_characters_voice_human_military_3_fight_hit_hit_2">
+		<text>ЫA! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_2">
-		<text>Yay! </text>
+	<string id="as_sub_characters_voice_human_military_3_fight_hit_hit_3">
+		<text>ГA! </text>
+	</string-->
+	<string id="as_sub_characters_voice_human_military_3_fight_hit_hit_4">
+		<text>Oh hell! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_3">
-		<text>HA! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_4">
-		<text>I'm yours! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_fight_enemy_hit_enemy_hit_5">
-		<text>Hey! </text>
+	<!--string id="as_sub_characters_voice_human_military_3_fight_hit_hit_5">
+		<text>Ааааааах! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_hit_hit_6">
-		<text>HA! </text>
-	</string>
+		<text>кха! </text>
+	</string-->
+	
+	<!--fight/post_combat_wait-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_post_combat_wait_relax_1">
-		<text>At ease! Dismissed! </text>
+		<text>Stand at ease. Fall out. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_post_combat_wait_relax_2">
-		<text>Stand down! </text>
+		<text>Stand down. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_post_combat_wait_relax_3">
-		<text>for the personnel to rest </text>
+		<text>All personnel at ease. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_post_combat_wait_wait_1">
-		<text>Stay awake, look around! </text>
+		<text>Don't sleep! Look around!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_post_combat_wait_wait_2">
-		<text>Don't relax! </text>
+		<text>Don't lose caution! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_post_combat_wait_wait_3">
-		<text>Hold sectors! </text>
+		<text>Keep sectors covered! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_post_combat_wait_wait_4">
-		<text>Stay where you are! </text>
+		<text>Hold at your positions! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_post_combat_wait_wait_5">
-		<text>There was no command to disperse! </text>
+		<text>There wasn't a command to fall out! </text>
 	</string>
+	
+	<!--fight/searching_enemy-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_enemy_lost_1">
-		<text>He's not going anywhere! </text>
+		<text>He won't get away from us! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_enemy_lost_2">
-		<text>He's gone! Where could he have moved to? </text>
+		<text>He vanished! Where could he go? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_enemy_lost_3">
-		<text>All right! That's the last thing we need! Has he gone? </text>
+		<text>Well, if that wasn't enough! There's no way he went away!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_enemy_lost_4">
-		<text>Obana! Ha! There was an enemy and there isn't! </text>
+		<text>Whoa! There was an enemy, there's not! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_enemy_lost_5">
-		<text>Where the hell have you been? </text>
+		<text>Where are you hiding, scum? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_enemy_lost_6">
-		<text>Shit! He might have got away while we were telerising. </text>
+		<text>Damn, maybe he managed to flee while we loitered! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_search_1">
-		<text>Drop your weapon and come out nicely! </text>
+		<text>Drop your weapon and show yourself! Let's do it the good way! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_search_2">
-		<text>You're not going anywhere! </text>
+		<text>You won't hide anywhere from us! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_search_3">
-		<text>Hey, you, come out kindly, or you'll pick up the bones! </text>
+		<text>Hey you, get out while I am kind, or nobody will ever find you! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_search_4">
-		<text>Are you hiding? That's all right, you'll be out of here in a flash. </text>
+		<text>Hiding? No problem, you will now fly out as if boiled! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_search_5">
-		<text>Fool? You better not get cocky. Come out with your hands up! </text>
+		<text>Idiot, don't make problems for yourself – show yourself, with your hands raised! </text>
 	</string>
+	<string id="as_sub_characters_voice_human_military_3_fight_searching_enemy_search_6">
+		<text>Fire at his position! Don't let him get away! </text>
+	</string>
+	
+	<!--fight/threat-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_close_1">
-		<text>I'll kill you! </text>
+		<text>I will kill you! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_close_2">
-		<text>You're dead! </text>
+		<text>You are done for! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_close_3">
-		<text>ALL, YOU'RE TROOP! </text>
+		<text>You are dead man! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_close_4">
-		<text>I'll shoot you! </text>
+		<text>I will shoot you down! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_close_5">
-		<text>You're not leaving! </text>
+		<text>You won't get away! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_close_6">
-		<text>YOU BLEEP! </text>
+		<text>It's your end! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_distant_1">
-		<text>I'm gonna send you to the afterlife, you know? </text>
+		<text>I will send you to heaven, you hear me?! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_distant_2">
-		<text>You know I'm going to cum soon! </text>
+		<text>Note it, I will kill you soon! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_distant_3">
-		<text>I'll shoot you, you bastard! I'll shoot you like a dog! </text>
+		<text>I will shoot you, bastard, shoot you like a dog! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_distant_4">
-		<text>I'll have you with a hole in your head! </text>
+		<text>You will soon have hole in your head! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_distant_5">
-		<text>You're not getting out of here, you bastard, you understand? Okay, I'm in! </text>
+		<text>You will not get away from here, scum, you got it?! You are done for! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_threat_threat_distant_6">
-		<text>I'm gonna get you, you hear me? </text>
+		<text>I will kill you, hear me?! </text>
 	</string>
+	
+	<!--fight/tolls-->
+	
 	<string id="as_sub_characters_voice_human_military_3_fight_tolls_tolls_1">
-		<text>We've got a dead one! </text>
+		<text>We have killed! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_tolls_tolls_2">
-		<text>We've got the 200th! </text>
+		<text>We got 200th! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_tolls_tolls_3">
-		<text>Got a 200! </text>
+		<text>Another 200th! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_fight_tolls_tolls_4">
-		<text>There are dead! </text>
+		<text>We are taking losses! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_help_combat_coming_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_help_combat_coming_1_pda">
-		<text>Silent_Subtitle</text>
-	</string>
+	
+	<!--help/wounded-->
+
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_kill_wounded_1">
-		<text>Who are you going up against? Why? </text>
+		<text>Do you even understand who you were trying to kill? Why? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_kill_wounded_2">
-		<text>Ahahaha! What am I supposed to do with you? </text>
+		<text>Ahaha, what should I do with you, leftover? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_kill_wounded_3">
-		<text>What? You've had enough? </text>
+		<text>What? Done running around? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_kill_wounded_4">
-		<text>Hey, you can't catch a bullet with your teeth, can you? </text>
+		<text>Listen, can you catch a bullet with your teeth? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_kill_wounded_5">
-		<text>Take it and sign it! </text>
+		<text>Take and sign for it! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_medkit_1">
-		<text>You're wasting your time, we don't leave our wounded behind. </text>
+		<text>What, already cursed us all? Wrong, we don't abandon our wounded. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_medkit_2">
-		<text>Quiet, quiet! What are you and God? We're gonna bust your balls! </text>
+		<text>Shh-shh, why so loud, we will fix you now. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_medkit_3">
-		<text>You got me, didn't you? Oh, well, they happen. Here, let me help you. </text>
+		<text>Catched one, yeah? No worries – could be worse, I will help you now. </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_alife_defence_actor_help_1">
-		<text>I can't! Brothers, I can't take it anymore! </text>
+	
+	<!--help/wounded_heavy-->
+	
+	<string id="as_sub_characters_voice_human_military_3_help_wounded_heavy_help_1">
+		<text>I can't take it... Brothers, I can't take it anymore.. </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_help_wounded_heavy_help_2">
-		<text>Ahhhhhhhhhhhhhh.... </text>
-	</string>
+	<!--string id="as_sub_characters_voice_human_military_3_help_wounded_heavy_help_2">
+		<text>Акх.. кхх. </text>
+	</string-->
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_heavy_help_3">
-		<text>Oh, mother! Oh, come on! </text>
+		<text>Oooh, mother... *breath*.. What a luck...  </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_heavy_help_4">
-		<text>Guys! Guys! </text>
+		<text>Fellas... *groan*... Fellaaaas! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_help_wounded_heavy_help_5">
-		<text>ahhhhhhhhhhhhhhhhhhhhhhhhh </text>
+	<!--string id="as_sub_characters_voice_human_military_3_help_wounded_heavy_help_5">
+		<text>А-ааах... ы-ааах. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_heavy_help_6">
-		<text>Yeah! Ah, ah </text>
-	</string>
+		<text>Ох-аааааа! кхх.. ха </text>
+	</string-->
+	
+	<!--help/wounded_thanx-->
+	
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_thanx_thanx_1">
-		<text>Thank you. </text>
+		<text>Thank you! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_thanx_thanx_2">
-		<text>Thanks, got it out. </text>
+		<text>Thank you, saved me! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_help_wounded_thanx_thanx_3">
-		<text>You've been a help, mate. Thank you. </text>
+		<text>You saved me, friend, many thanks! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_reactions_box_box_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_reactions_joke_reaction_joke_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_reactions_music_reaction_music_1">
-		<text>Silent_Subtitle</text>
-	</string>
+	
+	<!--reactions/story-->
+
 	<string id="as_sub_characters_voice_human_military_3_reactions_story_laughter_1">
-		<text>Ha ha ha! </text>
+		<text>*laughter* </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_story_laughter_2">
-		<text>Ha-ha-ha-ha-ha-ha-ha-ha-ha! Uhh! What the hell? </text>
+		<text>*laughter* That one was best!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_story_laughter_3">
-		<text>LAUGHTER </text>
+		<text>*laugh*</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_story_laughter_4">
-		<text>РЁВ­-x-x-x-x-x-x-x-x-x-x-x-x-x xxxxxxxxxxxx Oh, you're so full of it! </text>
+		<text>*long laughter* You are crazy! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_story_laughter_5">
-		<text>Heh-heh-heh-heh! </text>
+		<text>*laughter* </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_story_laughter_6">
-		<text>Ha! Ha! Ha! Ha! Ha. Gaaaayyyyyyyy4no, </text>
+		<text>*long laughter*</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_reactions_story_laughter_7">
-		<text>Hee hee hee hee... </text>
+		<text>*long laughter*</text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_breath_breath_1">
-		<text>xxxxxxxxxxxxxx </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_breath_breath_2">
-		<text>CALM MUSIC </text>
-	</string>
+	
+	<!--states/idle-->
+	
 	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_1">
-		<text>I'm sick of it. How am I sick of everything? </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_10">
-		<text>They'd love some buckwheat and shonka! Yeah, ahhh, I'd take that one for once. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_11">
-		<text>Ehhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh What a bunch of people equally shitty </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_12">
-		<text>Ehhh, when are they gonna get us out of here? </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_13">
-		<text>It's okay, I won't give them that easy. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_14">
-		<text>Here, pumped up our HQ, pumped up. No, we're nothing worse than stalkers, yeah. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_15">
-		<text>We'll make it! Where will we go? Fuck those things, not our hides! As long as the machine gun doesn't jam and there's enough ammunition! We'll get through this! </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_16">
-		<text>Missing_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_17">
-		<text>into a </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_18">
-		<text>Missing_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_19">
-		<text>Ppppppppppppppppppppppppp! </text>
+		<text>Sick of it... How sick of it am I...</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_2">
-		<text>Anomalies, motherfucker! That's the scariest one, for sure. Somehow in the ustalker. How she roasted him. And I scattered the other one in the trees. In chunks. God forbid. I'd rather get shot. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_20">
-		<text>It's an interesting film. It's a two-year contract, right? Seniority bonus, that's it. Only I don't remember about anyone who's had these two years to the point..... Yippee! You must be in trouble. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_21">
-		<text>The contract's a pain in the arse, that bastard. Ploughing like a young man from the last draft.... </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_22">
-		<text>A bar and a bar. It's coming from both sides. Stalkers are breaking in from the outside, but from the inside, they're the only ones worth creating. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_23">
-		<text>It's no use, is it? Well, wait. Well, we're kind of overlapping. And Stalker is still a complete zone. Where do so many idiots come from. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_24">
-		<text>Where are those sacrificial supplies stuck again? Don't worry, we're fed up, and we're on our third day without heat. </text>
+		<text>Anomalies... hell... That's the scariest for sure! ... How that stalker... how he was roasted! ... And the another one left on trees... torn by pieces ... No god, better to die by bullet! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_3">
-		<text>I'll pull it out, I'll hold on with my teeth, but I'll pull it in. The main thing is not to go off the rails, or the whole thing will fall apart. </text>
+		<text>I will make it! I will break my teeth but make it!... Most important to keep sane, or everything is lost. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_4">
-		<text>I wish I hadn't seen that corpse. How did that thing cut him up? What's going on in the zone? I wish I'd told someone. That's not allowed. </text>
+		<text>I shouldn't have seen that corpse... How that creature ate him! ... What's happening in the Zone! ... Need to tell someone – but it's forbidden! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_5">
-		<text>They say these things have started attacking patrols at night. The main thing is that they fight amongst themselves during the day, but at night they gather in packs and we're getting fucked. </text>
+		<text>They say, those spawns started to attack patrols at night. Notably – at day they shit each other, at night they merge at packs and kill ours! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_6">
-		<text>You have to watch out for sabotu all the time. And keep an eye on the others, too. Anomalies. You're evil. It's so mind-blowing. We've seen it before. </text>
+		<text>You should watch yourself all the time here ... Also should watch other ones ... Anomalies, these damn mutants — very easy to go crazy. Already seen it.</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_7">
-		<text>And I'm so feeling the kilos and I'm already there. </text>
+		<text>I feel, I lost five kilos here already</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_8">
-		<text>Game and normal, in this fucking zone is not from them rina. Pogan. Pogan. </text>
+		<text>No normal wild meat in this damn Zone. Bad... Very bad.</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_9">
-		<text>Eh, I wish I had a bowl of smoked meat right now. </text>
+		<text>Hmm... If only I could have some smoked meat now...</text>
 	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_10">
+		<text>If only I could eat some buckwheat with stew! Yeaahh! I would finish it in a second!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_11">
+		<text>Ehh, greenish boredom! Here, everything is ... equally damned!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_12">
+		<text>Eh... and when are they going to get us out of here?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_13">
+		<text>No... I won't give up so easily.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_14">
+		<text>Heh. Staff fooled us for a while: "There's nothing worse than stalkers" – Yeeaaaah!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_15">
+		<text>We will get through, of course! Fuck those monsters, they won't get our backs! If only rifle wouldn't jam and there was enough ammo. – We will get through! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_20">
+		<text>Interesting story, it seems! Contract is for two years, right? Pension is premial – that, those... But I don't remember anyone who made it to the ... Oh no, did I fuck up?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_21">
+		<text>That contract, scum, is getting on my nerves – we work like fresh conscripts!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_22">
+		<text>They go without stopping! From both sides! From outside – stalkers assault us, from the inside – ... these creatures are already enough!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_23">
+		<text>And it's all for nothing! We stand on borders! We seem to guard them! But Zone is full of stalkers anyway! And where do these idiots even come from?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_3_states_idle_idle_24">
+		<text>Where are those boars from supply service stuck again? Heh, they ate 5 minutes ago, I think, and we didn't have anything warm for three days!</text>
+	</string>
+	
+	<!--states/loot-->
+	
 	<string id="as_sub_characters_voice_human_military_3_states_loot_loot_bad_1">
-		<text>I wish I had something good to say. </text>
+		<text>If only there was something useful!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_loot_loot_bad_2">
-		<text>And this one's astroturf is as silent as a tank. </text>
+		<text>This one has as much trophies as empty tank!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_loot_loot_bad_3">
-		<text>Yeah, no win. </text>
+		<text>Hmm... No jackpot.</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_loot_loot_begin_1">
-		<text>Let's see about trophies. </text>
+		<text>Let's look what trophies are here. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_loot_loot_begin_2">
-		<text>I wonder what's behind that one? </text>
+		<text>Interesting, what this one hides in his pockets?</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_loot_loot_begin_3">
-		<text>Well, well, let's have a look. </text>
+		<text>Well-well, let's look.</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_loot_loot_good_1">
-		<text>Oooh, we could use that! </text>
+		<text>Oh! That will be of use! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_loot_loot_good_2">
-		<text>That's a useful thing! </text>
+		<text>Hmm, not bad, useful thing! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_loot_loot_good_3">
-		<text>There's a copter in here? </text>
+		<text>There's entire supply room! </text>
 	</string>
+	
+	<!--states/meet-->
+	
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_hello_1">
-		<text>Hey! </text>
+		<text>Hello!</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_hello_2">
 		<text>What do you want? </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_hello_3">
-		<text>Well, I'm listening. </text>
+		<text>Well? I am listening. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_hide_weapon_1">
-		<text>Put the gun down! </text>
+		<text>Weapon down. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_hide_weapon_2">
-		<text>Guns behind your back! </text>
+		<text>Put weapon on your back. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_hide_weapon_3">
-		<text>Hide your weapon! </text>
+		<text>Hide weapon. </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_stop_1">
-		<text>Silent_Subtitle</text>
-	</string>
+	<!--string id="as_sub_characters_voice_human_military_3_states_meet_meet_stop_1">
+		<text>Yeah, whoever's in the zone doesn't get re-set. </text>
+	</string-->
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_default_1">
-		<text>I don't have time to chat </text>
+		<text>I have no time to chat. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_default_2">
-		<text>I can't help you. </text>
+		<text>No way I can help. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_default_3">
-		<text>Leave me alone! </text>
+		<text>Leave me alone. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_fight_1">
-		<text>Let's go talk! </text>
+		<text>Let's talk later! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_fight_2">
-		<text>TALKERS! </text>
+		<text>No chitchat! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_fight_3">
-		<text>You got time to talk! </text>
+		<text>Found time to chat! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_talk_leader_1">
-		<text>You'd better go see the commander. </text>
+		<text>Better go to commander. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_talk_leader_2">
-		<text>With questions, to the commander! </text>
+		<text>Any questions – to commander. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_talk_leader_3">
-		<text>My job is to shoot, and if you want to talk, that's up to the commander. </text>
+		<text>My job is to shoot. If you want to talk – go to commander. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_weapon_1">
-		<text>You want to talk, hide the gun? </text>
+		<text>Want to talk – hide your weapon. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_weapon_2">
-		<text>The conversation will be like a barrel save. </text>
+		<text>There will be talk once you hide your gun.</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_weapon_3">
-		<text>Put the gun down, then we'll talk. </text>
+		<text>Put your weapon down, then we will talk. </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_wait_1">
-		<text>Silent_Subtitle</text>
-	</string>
+	<!--string id="as_sub_characters_voice_human_military_3_states_meet_meet_wait_1">
+		<text>Just say what you want to say! </text>
+	</string-->
+	
+	<!--states/panic_human-->
+	
 	<string id="as_sub_characters_voice_human_military_3_states_panic_human_panic_human_1">
-		<text>Hey, stalker, don't shoot! </text>
+		<text>Hey stalker, don't shoot! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_panic_human_panic_human_2">
 		<text>Don't shoot me! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_panic_human_panic_human_3">
-		<text>Man! Man! </text>
+		<text>Man! Don't shoot man! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_panic_human_panic_human_4">
-		<text>Sulker, stop it! </text>
+		<text>Stalker, stop it! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_panic_human_panic_human_5">
-		<text>What are you, a stalker? </text>
+		<text>What are you doing, stalker?! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_panic_human_panic_human_6">
-		<text>That's it! That's enough! </text>
+		<text>Please, stop it! </text>
 	</string>
+	
+	<!--states/panic_monster-->
+	
 	<string id="as_sub_characters_voice_human_military_3_states_panic_monster_panic_monster_1">
-		<text>Aaah!!!! kill it, kill it!!!! </text>
+		<text>*scream* Kill that thing, kill it! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_panic_monster_panic_monster_2">
-		<text>Get off! Get off! </text>
+		<text>Get away! Get away! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_panic_monster_panic_monster_3">
-		<text>Oh, you bastard! </text>
+		<text>*scream* goddamn beast! </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_panic_monster_panic_monster_4">
-		<text>Bastard! Bastard! </text>
+		<text>Shit! Scum! </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_sleep_sleep_1">
-		<text>Missing_Subtitle</text>
+	
+	<!--states/sleep-->
+	
+	<!--string id="as_sub_characters_voice_human_military_3_states_sleep_sleep_1">
+		<text>That's good stuff. I really am. It's a good one. Anything you want, I swear. </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_sleep_sleep_2">
-		<text>Rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr... Rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr...  Rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr... </text>
-	</string>
+		<text>They're hanging their ears. Herd. </text>
+	</string-->
 	<string id="as_sub_characters_voice_human_military_3_states_sleep_sleep_3">
-		<text>Well, why, why me, it's extremely found, yes, yes, she so every other day on the belt. </text>
+		<text>... why? ... why me? ... found a scapegoat, yeah? ... yeah? ... I will be fucked even without it tomorrow ... </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_sleep_sleep_4">
-		<text>Ugh! Ugh! That's right! </text>
+		<text>... mhm ... WILL BE DONE COMMANDER! ... </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_sleep_sleep_5">
-		<text>NEPPER Quiet NEPPER Mr. and I see You </text>
+	<!--string id="as_sub_characters_voice_human_military_3_states_sleep_sleep_5">
+		<text>lett that's all obsession </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_states_sleep_sleep_6">
-		<text>rrrrrrrrr Obviously you and me together now. he raaaam RRR rrrrr rrr xX rrrrr rr rrrrr rrrrr rr rrrrr rr rrrrr rr   rr rrrrrrr rrrrrrrrrrr rrrrrrrrrrr </text>
-	</string>
+		<text>Silent_Subtitle </text>
+	</string-->
 	<string id="as_sub_characters_voice_human_military_3_states_sleep_sleep_7">
-		<text>Don't! Don't! </text>
+		<text>... DON'T DO IT! ... DON'T DO IT! ... </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_trade_buy_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_trade_sell_1">
-		<text>Silent_Subtitle</text>
-	</string>
+
+	<!--talk/intros-->
+
 	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_joke_1">
-		<text>We had one guy in the platoon who'd take a piss, like this. </text>
+		<text>We had one in our platoon – he could really light it up! One example: </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_joke_2">
-		<text>Anyway, it's a civilised anecdote. </text>
+		<text>So, a civil joke: </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_joke_3">
-		<text>Anyway, listen up! </text>
+		<text>So, listen: </text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_joke_4">
-		<text>And this is what someone once told me </text>
+		<text>That's what I once was told: </text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_music_1">
-		<text>Nah, they're sbattling something. </text>
+	
+	<!--talk/jokes-->
+	
+	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_1">
+		<text>In military settlement, captain's wife comes to general: "Comrade general, I found a bra in my husband's pocket, but what do I do?" – "Give it to me, I will solve it myself". 
+		At evening general returns home, his wife finds bra, forgotten in pocket: "Honey, you are such a prankster, I was looking for this bra all day!"</text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_music_2">
-		<text>Eh, kind of boring..... I'm going to batsuit something. </text>
+	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_2">
+		<text>So, two conscripts decided to make fun of warrant:"Comrade warrant officer, what's heavier: kilogram of cotton or kilogram of iron?" – "Erm, of course ... kilogram of iron" – warrant says.
+		Conscript says:"Wrong! – they weigh equally!" – Warrant: "Let's look the difference if I strike you in head with kilo of cotton first, then with kilo of iron!"</text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_music_3">
-		<text>Shit something or something? </text>
+	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_3">
+		<text>General teaches the staff:"And remember: usually, after testing in battle, "well-protected rear" in reality turns out to be completely unprotected ass!"</text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_music_4">
-		<text>What would you like to play? Oh, here we go. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_music_5">
-		<text>Oh, people, check it out. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_music_6">
-		<text>Guys, a musical pause, like. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_reactions_joke_reaction_joke_1">
-		<text>in the general's military camp, the captain's wife comes in and says Comrade General I found a bra in my husband's pocket. How am I supposed to do that? Let me handle it. I'll handle it the general comes home in the evening and his wife finds his bra forgotten in his pocket Honey, you're such a joker, and I keep wondering where I left it </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_10">
-		<text>When a new colonel arrived at the unit, he went to the smoking room with the officers and told a joke. Everybody's laughing, but one for Tejas isn't. He says to him, "Lieutenant, everybody laughs, but you don't? So I'm not from your unit, Comrade Colonel. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_11">
-		<text>Solobom in the vestry complains. Tast, Warrant Officer! Why did they give me some bullshit? My trousers are down to my knees, my shirt's hanging out, And the sleeves are short, the tibs are coming off by themselves. I've been looking in the mirror. It was scary. And the warrant officer? It's all right, soldier. It's just the way it is. Remember, We must indoctrinate the enemy with what? That's right. Fear. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_12">
-		<text>A helicopter pilot came to the medical commission, well, they examined him, then began to question him, and he answered. Height 190, weight 102, spirometry, and what the hell is this, well you blow out how much, up to a litre 2, strangely little something, and the card says 4, yes CT, 4 only on holidays. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_joke_2">
-		<text>So, two privates decided to lead the praeporo. Comrade Warrant Officer, what's heavier? A kilo of cotton wool or a kilo of iron? Well, of course, a kilo of iron, says the ensign. But go right, the same way. I'm going to hit you over the head with a kilo of cotton wool first, and then a kilo of iron, and then we'll see. </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_joke_3">
-		<text>the general gets the staffers and remember very often after a combat test it turns out that a solid rear end is actually a defenceless arsehole </text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_intros_intro_joke_4">
-		<text>So they catch an old stalker and interrogate him. People say you have a machine gun. People bullshit. People say you have a machine gun. People bullshit. People say you have tanks. And what you don't have, you don't have. </text>
+	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_4">
+		<text>Catched one old stalker and interrogating him:"People say, you have an assault rifle" – stalker:"They are lying!" – soldier:"People say, you have a machine gun" – stalker:
+		"Of course they are lying!" – soldier:"People say, you have a battle tank" – stalker:"If I don't have something – I don't have it"</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_5">
-		<text>Somehow our satellites and American satellites collided in the sky. The Americans lie that their satellite wasn't a Spielan satellite, but ours is lying about our satellite being out of control. </text>
+		<text>Once, two satellites collided in skies: american and ours. Americans lie that their satellite wasn't spying. Ours lie that our satellite was uncontrollable.</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_6">
-		<text>Well, one day a general arrives at the cordon at the roadblock And they ask one of the conscripts Well, son, how was the service? Nothing, Comrade General, I'm getting used to it? Imagine a soldier! Because you're now protecting people from the zone How'd you get in here? By choice Well, I agree that people should be kept out of the zone The General smiles What a conscientious soldier Or else you'll go on I've told his insider a hundred times I have no business being in the zone The General smiles </text>
+		<text>So, once general arrives at Cordon checkpoint and asks one of conscripts:"How's your service, son?" – "It's okay, comrade general, getting used to id" – "Imagine soldier: now you are protecting people from Zone. How did you get here? By your own wish?" – "Well, I agree that we should protect people from Zone" – general smiles:"What an conscious soldier!" – soldier continues: "that's why I told military commisar thousand times:"There's nothing for me to do in Zone", but he... bitch"</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_7">
-		<text>One day the warrant officer passes a medical examination. An eye doctor for him. Close your left eye. What letters do you see? The warrant officer is silent. Him again. I said close your left eye. What letters? The warrant officer is silent. The Doctor doesn't get it. What are you, blind? No, Doctor. Not blind. I can see these very clearly. I just can't remember what they're called. </text>
+		<text>Once warrant was passing medical examination, eye doctor tells him:"Close your left eye, which letters do you see?" – warrant is silent. doctor repeats: "I say, close left eye, which letters?" 
+		– warrant is silent. Doctor is confused: "What are you, completely blind?!" – "No, doctor, I am not blind, I see these letters clearly, but I can't remember how are they called"</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_8">
-		<text>The commander of the roadblock is giving me an urgent drubbing in accordance with the guard regulations. Listen to me, Ivanov! You're standing guard at night! Suddenly you see something dark crawling towards you! Your actions! So this is... I'll take you home, Commander! </text>
+		<text>Checkpoint commander tortures conscript with guard duty rules:"Listen here, Ivanov:you stand on your post at night, suddenly you see: something dark crawls to you! Your actions?"
+		– conscript:"Well, I will help you get home, comrade commander"</text>
 	</string>
 	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_9">
-		<text>Says one day to the general-in-chief. I'm so lucky Private, you're so fucking smart. That's who I am, isn't it? I'm going to her! </text>
+		<text>General says to soldier:"I see, soldier, you are very smart?" – soldier:"Who? Me?". – general:"Who else? Me?"</text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_use_abuse_1">
-		<text>Silent_Subtitle</text>
+	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_10">
+		<text>New colonel arrived to military base: everything settled, then smoking time, he tells officers the joke: everyone laughs, but one lieutenant doesn't. 
+		Colonel asks:"Listen lieutenant, everyone find my joke funny and you don't?" – "Comrade colonel, that's because I am from other base"</text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_default_1">
-		<text>Silent_Subtitle</text>
+	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_11">
+		<text>First-year conscript complains in clothes supply room:"Comrade warrant officer, why I got such bullshit? Pants only covering my knees, shirt is loose and sleeves are too short, boots are falling off by themselves. I looked in mirror and got scared of myself!" Warrant says:"It's okay soldier, everything is as it should be, remember: we should always scare the enemies!"</text>
 	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_fight_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_talk_use_no_sleep_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_states_meet_meet_use_no_weapon_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_threat_back_off_backoff_1">
-		<text>Silent_Subtitle</text>
-	</string>
-	<string id="as_sub_characters_voice_human_military_3_threat_drop_weapon_dropweapon_1">
-		<text>Silent_Subtitle</text>
+	<string id="as_sub_characters_voice_human_military_3_talk_jokes_joke_12">
+		<text>Helicopter pilot arrived to medical examination, undressed, being examined, doctor asks him questions and pilot responds:"Height – 190. Weight – 102. Spyrometry – what the hell is that?" – "How much can you inhale?" – "Around 2 liters" – "Strange, kind of too little, and your card says that you can inhale four." – "Ah, I inhale 4 liters of vodka only during celebrations".</text>
 	</string>
 </string_table>

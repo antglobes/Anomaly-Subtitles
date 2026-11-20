@@ -142,3 +142,4 @@
 - v0.12.4 Precache sound file paths on load
 - v0.13.0 Extended Accessibility options, Ray cast optimisations, Background rooted to caption position, Subtitle hidden on init.
 - v0.13.1 Updated demonized dependancies
+- v0.13.2 (VodoXleb): English Translations for Military 1, 3
