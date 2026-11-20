@@ -144,3 +144,5 @@
 - v0.13.1 Updated demonized dependancies
 - v0.13.2 (VodoXleb): English Translations for Military 1, 3
 - v0.13.3 (VodoXleb): Russian Translations for Military 1, 3
+- v0.13.4 (VodoXleb): English Translation for Killer 1, 3 and Monolith 3
+- 
