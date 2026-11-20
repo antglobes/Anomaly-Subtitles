@@ -103,6 +103,7 @@
 - v0.11.2 (Fixed v0.11.3) CTD when attempting to get end digits for sound file
 - v0.11.4 (Fixed v0.11.4) Syntax Error for MCM Option Enable Fight Subs
 - v0.11.5 (Fixed v0.11.6) CTD when talking to npc's with `trader` faction (XenoTech Specifically)
+- v0.11.6 (Fixed v0.23.0) Subtitle sticking to screen when npc position offscreen and showing before validation
 
 ## Changelog
 
@@ -137,3 +138,7 @@
 - v0.12.0 Smooth Caption Fading
 - v0.12.1 Lerp Caption Position and Exception for obstruction ray cast
 - v0.12.2 Reprioritisment of obstruction ray cast conditions
+- v0.12.3 Externalise AG Utils
+- v0.12.4 Precache sound file paths on load
+- v0.13.0 Extended Accessibility options, Ray cast optimisations, Background rooted to caption position, Subtitle hidden on init.
+- v0.13.1 Updated demonized dependancies
