@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+	<!--military_1-->
+	
+	<!--fight/attack-->
+
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_1">
+		<text>ОГОНЬ! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_2">
+		<text>КРОШИ! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_many_1">
+		<text>Бей их!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_many_2">
+		<text>По отморозкам.. ОГОНЬ! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_many_3">
+		<text>Вали отморозков! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_many_4">
+		<text>Всех до единого! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_many_5">
+		<text>Порвём их! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_many_6">
+		<text>Вали гондурасов! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_one_1">
+		<text>Бей отморозка! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_one_2">
+		<text>Пристрелим его! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_one_3">
+		<text>Вали его! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_one_4">
+		<text>Порвём его! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_attack_one_5">
+		<text>Не пройдёшь, сволочь! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_1">
+		<text>Огонь! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_2">
+		<text>Кроши! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_3">
+		<text>Бей их! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_4">
+		<text>По отморозкам.. ОГОНЬ! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_5">
+		<text>Вали отморозков! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_6">
+		<text>Всех до единого! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_7">
+		<text>Порвём их! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_8">
+		<text>Вали гондурасов!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_9">
+		<text>Так тебе! Получил?!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_10">
+		<text>Влепил скотине!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_11">
+		<text>На тебе, на!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_12">
+		<text>Получай!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_13">
+		<text>На! Получи!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_14">
+		<text>Вот тебе!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_attack_script_attack_15">
+		<text>Получи, скотина!</text>
+	</string>
+	
+	<!--fight/backup-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_backup_backup_1">
+		<text>На тебе! На!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_backup_backup_2">
+		<text>Получай! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_backup_backup_3">
+		<text>На, получи! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_backup_backup_4">
+		<text>Вот тебе! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_backup_backup_5">
+		<text>Получи, скотина! </text>
+	</string>
+	
+	<!--fight/cover_fire-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_cover_fire_cover_fire_1">
+		<text>Давай, я его держу!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_cover_fire_cover_fire_2">
+		<text>Двигай, я прикрываю! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_cover_fire_cover_fire_3">
+		<text>ПРИКРЫВАЮ! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_cover_fire_cover_fire_4">
+		<text>Держу его! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_cover_fire_cover_fire_5">
+		<text>Добро! Я прикрою! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_cover_fire_cover_fire_6">
+		<text>Вперёд! Прижму — не высунется! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_cover_fire_cover_fire_7">
+		<text>Я прижал его — вперёд! </text>
+	</string>
+	
+	<!--fight/death-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_death_death_1">
+		<text>Хыа-ааа. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_death_death_2">
+		<text>Хаа.. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_death_death_3">
+		<text>Ыа-аа. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_death_death_4">
+		<text>Гад.. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_death_death_5">
+		<text>Мамаа.. </text>
+	</string>
+	
+	<!--fight/detour-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_detour_detour_1">
+		<text>Я пошёл! Прикрывай!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_detour_detour_2">
+		<text>Прикрой! Сейчас я этого гада сделаю!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_detour_detour_3">
+		<text>Прикрой! Завалим его! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_detour_detour_4">
+		<text>Вали его, если высунется! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_detour_detour_5">
+		<text>Прикрой меня! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_detour_detour_6">
+		<text>Прикрой меня, прикрой! </text>
+	</string>
+	
+	<!--fight/enemy-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_enemy_1">
+		<text>В ружьё! </text> <!--Take Up Arms-->
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_enemy_2">
+		<text>Оружие к бою! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_enemy_3">
+		<text>К БОЮ! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_enemy_4">
+		<text>Внимание! Противник! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_enemy_5">
+		<text>Тревога! </text>
+	</string>
+	
+	<!--fight/enemy_down-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_down_enemy_down_1">
+		<text>Свалил! Свалил одного! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_down_enemy_down_2">
+		<text>Я его прищучил! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_down_enemy_down_3">
+		<text>Ага! Скушал мой подарочек! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_down_enemy_down_4">
+		<text>Скопытился, гад! </text>
+	</string>
+	
+	<!--fight/enemy_hit-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_hit_enemy_hit_1">
+		<text>Залупил ему! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_hit_enemy_hit_2">
+		<text>Есть! Зацепил гада! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_hit_enemy_hit_3">
+		<text>Так ему! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_hit_enemy_hit_4">
+		<text>Так тебе! Получил?! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_enemy_hit_enemy_hit_5">
+		<text>Влепил скотине! </text>
+	</string>
+	
+	<!--fight/fire-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_fire_fire_1">
+		<text>На тебе! На! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_fire_fire_2">
+		<text>Получай! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_fire_fire_3">
+		<text>На! Получи! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_fire_fire_4">
+		<text>Вот тебе! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_fire_fire_5">
+		<text>Получи, скотина! </text>
+	</string>
+	
+	<!--fight/friend_hitted-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_friend_hitted_hit_friend_1">
+		<text>У нас трёхсотый! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_friend_hitted_hit_friend_2">
+		<text>Командир, трёхсотый! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_friend_hitted_hit_friend_3">
+		<text>У нас раненый! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_friend_hitted_hit_friend_4">
+		<text>Есть раненый! </text>
+	</string>
+	
+	<!--fight/friendly_fire-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_friendly_fire_friendly_fire_1">
+		<text>Я свой, какого чёрта!? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_friendly_fire_friendly_fire_2">
+		<text>Слышь ты, снайпер хренов! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_friendly_fire_friendly_fire_3">
+		<text>Ты что, я ж свой! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_friendly_fire_friendly_fire_4">
+		<text>Дурак, я свой! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_friendly_fire_friendly_fire_5">
+		<text>Не бей по своим! </text>
+	</string>
+	
+	<!--fight/grenade-->
+	
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_1">
+		<text>Граната! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_2">
+		<text>Ложись, граната! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_3">
+		<text>Берегись, граната! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_ready_1">
+		<text>На, жри гранату! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_ready_2">
+		<text>На гранату! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_ready_3">
+		<text>От гранаты не увернёшься! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_ready_4">
+		<text>Лови гранату, урод! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_ready_5">
+		<text>Лови гранату, гад! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_ready_6">
+		<text>Кушай гранату, родной! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_grenade_grenade_ready_7">
+		<text>А гранату тебе, гад?! </text>
+	</string>
+	
+	<!--fight/hit-->
+	
+	<!--string id="as_sub_characters_voice_human_military_1_fight_hit_hit_1">
+		<text>ААХ! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_hit_hit_2">
+		<text>ЫA! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_hit_hit_3">
+		<text>ГA! </text>
+	</string-->
+	<string id="as_sub_characters_voice_human_military_1_fight_hit_hit_4">
+		<text>Ёб твою! </text>
+	</string>
+	<!--string id="as_sub_characters_voice_human_military_1_fight_hit_hit_5">
+		<text>Ааааааах! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_hit_hit_6">
+		<text>кха! </text>
+	</string-->
+	
+	<!--fight/post_combat_wait-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_post_combat_wait_relax_1">
+		<text>Вольно. Разойтись. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_post_combat_wait_relax_2">
+		<text>Отбой. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_post_combat_wait_relax_3">
+		<text>Личному составу отдыхать. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_post_combat_wait_wait_1">
+		<text>Не спать! Осмотреться!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_post_combat_wait_wait_2">
+		<text>Не расслабляться! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_post_combat_wait_wait_3">
+		<text>Держать сектора! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_post_combat_wait_wait_4">
+		<text>Оставаться на местах! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_post_combat_wait_wait_5">
+		<text>Команды разойтись не было! </text>
+	</string>
+	
+	<!--fight/searching_enemy-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_enemy_lost_1">
+		<text>Да никуда он не денется! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_enemy_lost_2">
+		<text>Нету его! Куда же он двинуть мог? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_enemy_lost_3">
+		<text>Так, этого ещё не хватало! Неужели ушёл?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_enemy_lost_4">
+		<text>Обана! Был противник и нету! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_enemy_lost_5">
+		<text>Где ж ты, скотина такая, залёг? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_enemy_lost_6">
+		<text>Чёрт, он может уйти успел, пока мы телились! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_search_1">
+		<text>Бросай оружие и выходи! По-хорошему! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_search_2">
+		<text>Никуда ты от нас не денешься! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_search_3">
+		<text>Эй ты, выходи по-доброму, а то костей не соберёшь! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_search_4">
+		<text>Прячешься? Ничего, сейчас вылетишь как ошпаренный! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_search_5">
+		<text>Дурила, ты лучше не нарывайся – выходи сам, с поднятыми руками! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_searching_enemy_search_6">
+		<text>Огонь по его позиции! Не дать ему уйти! </text>
+	</string>
+	
+	<!--fight/threat-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_close_1">
+		<text>Убью! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_close_2">
+		<text>Тебе конец! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_close_3">
+		<text>Всё, ты труп! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_close_4">
+		<text>Пристрелю! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_close_5">
+		<text>Не уйдёшь! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_close_6">
+		<text>Ты приплыл! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_distant_1">
+		<text>Я тебя щас на тот свет отправлю, сечёшь?! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_distant_2">
+		<text>Ты учти, я тебя скоро кончу! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_distant_3">
+		<text>Пристрелю тебя, гад, как собаку пристрелю! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_distant_4">
+		<text>Ты у меня с дыркой в голове валяться будешь! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_distant_5">
+		<text>Не уйдёшь отсюда, скотина, ты понял?! Всё, приплыл! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_threat_threat_distant_6">
+		<text>Я тебя уделаю, слышишь! </text>
+	</string>
+	
+	<!--fight/tolls-->
+	
+	<string id="as_sub_characters_voice_human_military_1_fight_tolls_tolls_1">
+		<text>У нас убитый! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_tolls_tolls_2">
+		<text>У нас двухсотый! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_tolls_tolls_3">
+		<text>Есть двухсотый! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_fight_tolls_tolls_4">
+		<text>Есть убитые! </text>
+	</string>
+	
+	<!--help/wounded-->
+
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_kill_wounded_1">
+		<text>Ну вот против кого ты попёр? Зачем? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_kill_wounded_2">
+		<text>Ахаха, что же мне с тобой, неликвид, делать? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_kill_wounded_3">
+		<text>Что? Допрыгался? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_kill_wounded_4">
+		<text>Слышь ты, а пулю зубами поймать слабо? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_kill_wounded_5">
+		<text>Получи и распишись! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_medkit_1">
+		<text>Что уж, извёлся весь тут? Это ты зря, мы своих раненых не бросаем. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_medkit_2">
+		<text>Тихо-тихо, чего ты, ей-богу, сейчас будем тебя латать. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_medkit_3">
+		<text>Зацепило, да? Ничего – и хуже бывает, сейчас помогу. </text>
+	</string>
+	
+	<!--help/wounded_heavy-->
+	
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_heavy_help_1">
+		<text>Не могу... Братишки, не могу больше.. </text>
+	</string>
+	<!--string id="as_sub_characters_voice_human_military_1_help_wounded_heavy_help_2">
+		<text>Акх.. кхх. </text>
+	</string-->
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_heavy_help_3">
+		<text>Ооох, мать... *вздох*.. Ну надо же...  </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_heavy_help_4">
+		<text>Ребята... *стон*... Ребяяяята! </text>
+	</string>
+	<!--string id="as_sub_characters_voice_human_military_1_help_wounded_heavy_help_5">
+		<text>А-ааах... ы-ааах. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_heavy_help_6">
+		<text>Ох-аааааа! кхх.. ха </text>
+	</string-->
+	
+	<!--help/wounded_thanx-->
+	
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_thanx_thanx_1">
+		<text>Спасибо! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_thanx_thanx_2">
+		<text>Спасибо, вытащил! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_help_wounded_thanx_thanx_3">
+		<text>Выручил, друг, спасибо тебе! </text>
+	</string>
+	
+	<!--reactions/story-->
+
+	<string id="as_sub_characters_voice_human_military_1_reactions_story_laughter_1">
+		<text>*смех* </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_reactions_story_laughter_2">
+		<text>*смех* Ну ты да!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_reactions_story_laughter_3">
+		<text>*смех*</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_reactions_story_laughter_4">
+		<text>*длинный смех* Ну ты вообще! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_reactions_story_laughter_5">
+		<text>*смех* </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_reactions_story_laughter_6">
+		<text>*длинный смех*</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_reactions_story_laughter_7">
+		<text>*длинный смех*</text>
+	</string>
+	
+	<!--states/idle-->
+	
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_1">
+		<text>Достало... Как меня всё достало...</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_2">
+		<text>Аномалии... мать... Вот это самое страшное, точно! ... Как того сталкера... как его зажарило! ... А другого по деревьям раскидало... кусками ... Не дай бог, лучше на пулю нарваться! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_3">
+		<text>Вытяну! Зубами удержусь, а вытяну!... Главное с катушек не слететь, а то всё коту под хвост. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_4">
+		<text>Лучше б я тот труп не видел... Как его тварь разделала! ... Что в Зоне творится! ... Рассказать бы кому – так не положено! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_5">
+		<text>Говорят, эти твари по ночам стали на патрули нападать. Главное – днём между собой срутся, а ночью собираются в стаи и нас кончают! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_6">
+		<text>За собой тут следить всё время надо ... И за другими тоже присматривать ... Аномалии, твари эти поганые – крышу рвёт только так. Видали уже.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_7">
+		<text>Я так чувствую, с пяток килограммов, я уже тут – того.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_8">
+		<text>Дичи нормальной в этой долбаной Зоне нет нихрена. Погано... Погано.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_9">
+		<text>Эх... Мяска бы копчёного сейчас...</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_10">
+		<text>Навернуть бы сейчас гречки с тушёнкой! Даа! Это я бы на раз!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_11">
+		<text>Эх, скукотища зелёная! Какое тут всё ... одинаково хреновое!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_12">
+		<text>Эх... и когда же нас отсюда заберут-то?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_13">
+		<text>Ничего... Я им так просто не дамся.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_14">
+		<text>Воот. Накачивали нас штабные, накачивали: "Нет там ничего хуже сталкеров" – Ага!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_15">
+		<text>Прорвёмся, куда мы денемся! Хрен этим тварям, а не наши шкуры! Лишь бы автомат не клинил, да патронов хватило. – А так прорвёмся! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_20">
+		<text>А интересное кино получается! Контракт на два года – так? Выслуга премиальная – то, сё... Только не помню я никого, кто эти два года до упора ... Епт, неужто вляпался?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_21">
+		<text>Контракт этот, сволочь, задрал уже – пашешь, как молодой из последнего призыва!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_22">
+		<text>Прут и прут! С двух сторон прут! Снаружи сталкеры ломятся, а изнутри – ... твари эти одни чего стоят!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_23">
+		<text>Так ведь и без толку всё! Ну стоим! Ну, вроде как, перекрываем! А сталкеров всё равно полная Зона! И откуда только такая куча идиотов берётся?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_idle_idle_24">
+		<text>Где опять эти жиртресты из снабжения застряли? Хех, сами, небось, сытые, а мы – третий день без горячего!</text>
+	</string>
+	
+	<!--states/loot-->
+	
+	<string id="as_sub_characters_voice_human_military_1_states_loot_loot_bad_1">
+		<text>Хоть бы что-то толковое!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_loot_loot_bad_2">
+		<text>А этого с трофеями – глухо, как в танке!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_loot_loot_bad_3">
+		<text>Мдаа... Без выигрыша.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_loot_loot_begin_1">
+		<text>Щас глянем насчёт трофеев. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_loot_loot_begin_2">
+		<text>Интересно, что у этого за пазухой.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_loot_loot_begin_3">
+		<text>Так-так, сейчас глянем.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_loot_loot_good_1">
+		<text>О! Это нам пригодится! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_loot_loot_good_2">
+		<text>А ничего, полезная штука! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_loot_loot_good_3">
+		<text>Да тут прям каптёрка! </text>
+	</string>
+	
+	<!--states/meet-->
+	
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_hello_1">
+		<text>Здаров!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_hello_2">
+		<text>Чего тебе? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_hello_3">
+		<text>Ну? Я слушаю. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_hide_weapon_1">
+		<text>Оружие отпусти. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_hide_weapon_2">
+		<text>Оружие – за спину. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_hide_weapon_3">
+		<text>Спрячь оружие. </text>
+	</string>
+	<!--string id="as_sub_characters_voice_human_military_1_states_meet_meet_stop_1">
+		<text>Yeah, whoever's in the zone doesn't get re-set. </text>
+	</string-->
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_default_1">
+		<text>У меня нет времени болтать. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_default_2">
+		<text>Ничем помочь не могу. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_default_3">
+		<text>Оставь меня в покое. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_fight_1">
+		<text>После поговорим! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_fight_2">
+		<text>Разговорчики! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_fight_3">
+		<text>Нашёл время болтать! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_talk_leader_1">
+		<text>Сходил бы ты лучше к командиру. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_talk_leader_2">
+		<text>С вопросами – к командиру. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_talk_leader_3">
+		<text>Моё дело – стрелять. А насчёт поговорить – это к командиру. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_weapon_1">
+		<text>Хочешь говорить – спрячь оружие. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_weapon_2">
+		<text>Разговор будет, как ствол уберёшь. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_meet_meet_use_no_weapon_3">
+		<text>Оружие опусти – тогда поговорим. </text>
+	</string>
+	<!--string id="as_sub_characters_voice_human_military_1_states_meet_meet_wait_1">
+		<text>Just say what you want to say! </text>
+	</string-->
+	
+	<!--states/panic_human-->
+	
+	<string id="as_sub_characters_voice_human_military_1_states_panic_human_panic_human_1">
+		<text>Эй сталкер, не стреляй! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_panic_human_panic_human_2">
+		<text>Не стреляй в меня! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_panic_human_panic_human_3">
+		<text>Мужик! Мужик! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_panic_human_panic_human_4">
+		<text>Сталкер, перестань! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_panic_human_panic_human_5">
+		<text>Ты чего, сталкер?! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_panic_human_panic_human_6">
+		<text>Всё, хватит! </text>
+	</string>
+	
+	<!--states/panic_monster-->
+	
+	<string id="as_sub_characters_voice_human_military_1_states_panic_monster_panic_monster_1">
+		<text>*крик* Убейте это, убейте! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_panic_monster_panic_monster_2">
+		<text>Отвали! Отвали! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_panic_monster_panic_monster_3">
+		<text>*крик* Тварь поганая! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_panic_monster_panic_monster_4">
+		<text>Дрянь! Скотина! </text>
+	</string>
+	
+	<!--states/sleep-->
+	
+	<!--string id="as_sub_characters_voice_human_military_1_states_sleep_sleep_1">
+		<text>That's good stuff. I really am. It's a good one. Anything you want, I swear. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_sleep_sleep_2">
+		<text>They're hanging their ears. Herd. </text>
+	</string-->
+	<string id="as_sub_characters_voice_human_military_1_states_sleep_sleep_3">
+		<text>... а чё? ... а чё я то? ... крайнего нашли, да? ... да? ... я и так, через день – на ремень ... </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_sleep_sleep_4">
+		<text>... м-м ... ТАК ТОЧНО! ... </text>
+	</string>
+	<!--string id="as_sub_characters_voice_human_military_1_states_sleep_sleep_5">
+		<text>lett that's all obsession </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_states_sleep_sleep_6">
+		<text>Silent_Subtitle </text>
+	</string-->
+	<string id="as_sub_characters_voice_human_military_1_states_sleep_sleep_7">
+		<text>... НЕ НАДО! ... НЕ НАДО! ... </text>
+	</string>
+
+	<!--talk/intros-->
+
+	<string id="as_sub_characters_voice_human_military_1_talk_intros_intro_joke_1">
+		<text>У нас во взводе один был – так тот как отмочит! Вот например: </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_intros_intro_joke_2">
+		<text>Короче, анекдот цивильный: </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_intros_intro_joke_3">
+		<text>Короче, слушайте: </text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_intros_intro_joke_4">
+		<text>А вот что мне как-то рассказали: </text>
+	</string>
+	
+	<!--talk/jokes-->
+	
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_1">
+		<text>В военном городке к генералу приходит жена капитана, и говорит: "Товарищ генерал, я нашла в кармане у мужа лифчик, но как мне быть?" – "Давайте мне, я сам разберусь". Вечером генерал возвращается домой, забытый в кармане лифчик находит жена: "Дорогой, ты такой шутник, а я всё думаю, где я его оставила!"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_2">
+		<text>Значит, двое рядовых решили подколоть прапора:"Товарищ прапорщик, а вот что тяжелее: килограмм ваты, или килограмм железа?" – "Ну, конечно ... килограмм железа" – говорит прапорщик. "А вот и неправильно – одинаково!" – "А я вот щас дам тебе по голове сначала килограммом ваты, а потом килограммом железа – а там посмотрим!"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_3">
+		<text>Генерал поучает штабных:"И запомните: очень часто, после проверки боем, оказывается, что "надёжный тыл" на самом деле является беззащитной жопой!"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_4">
+		<text>Поймали, значит, старого сталкера, и допрашивают:"Люди говорят, у вас автомат есть" – "Брешут люди!" – "Люди говорят, у вас пулемёт есть" – "Брешут люди!" – "Люди говорят, у вас танк есть" – "А вот чего нет – того нет!"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_5">
+		<text>В небе столкнулись как-то наш и американский спутники. Американцы врут, что их спутник был не шпионским. А наши врут, что наш спутник был неуправляемым.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_6">
+		<text>Ну, прибывает как-то на Кордон к блокпосту генерал, и спрашивает у одного из срочников: "Ну, сынок, как служба?" – "Ничего, товарищ генерал, привыкаю" – "Представь солдат: ты теперь защищаешь людей от Зоны. Как сюда попал? По собственному желанию?" – "Ну, я согласен, что людей надо от Зоны беречь" – генерал улыбается:"Какой сознательный солдат попался!" – а тот и дальше: "Я и военкому сто раз говорил:"Нечего мне в Зоне делать", а он... сука"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_7">
+		<text>Проходит как-то прапор медкомиссию, врач-глазник ему:"Левый глаз закрой, какие буквы видишь?" – прапор молчит. Ему опять: "Левый глаз, говорю, закрой, какие буквы?" – прапор молчит. Доктор не врубается: "Ты что, вообще слепой?!" – "Нет, доктор, не слепой, эти самые вижу чётко, только не помню, как называются"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_8">
+		<text>Дрючит, короче, командир блокпоста срочника по уставу караульной службы:"Слушай сюда, Иванов:стоишь ты, значит, на посту ночью, вдруг видишь: к тебе что-то тёмное подползает! Твои действия?" – "Так это, вас, товарищ командир, домой отнесу"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_9">
+		<text>Говорит как-то генерал рядовому:"Я так вижу, рядовой, ты что-то охрененно умный?" – тот такой:"Кто? Я?". – "Ну дак не я же!"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_10">
+		<text>Приехал, значит новый полкан на часть: то да сё, перекур, он с офицерами в курилку – ну и там, анекдот рассказал:все сме-ются, а один летёха – нет. Он ему и говорит:"Слышь лейтенант, всем смешно, а тебе – нет?" – "Так я не из вашей части, товарищ полковник"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_11">
+		<text>Салабон в вещёвке жалуется:"Товарищ прапорщик, а чё мне фигню какую-то выдали? Штаны до колен, рубаха болтается, а рукава короткие, берцы – вон, сами слетают. Я тут в зеркало посмотрелся – страшно стало!" А прапор ему:"Всё путём солдат, всё как надо, запомни:мы должны внушать врагу что? – правильно, страх"</text>
+	</string>
+	<string id="as_sub_characters_voice_human_military_1_talk_jokes_joke_12">
+		<text>Пришёл вертолётчик на медкомиссию, ну раздели его, рассматривают, потом начали расспрашивать, а он, значит, отвечает:"Рост – 190. Вес – 102. Спирометрия – а это что за фигня?" – "Ну выдуваешь ты сколько?" – "Да литра два" – "Странно, маловато что-то, да и в карточке написано – четыре." – "Так это, четыре только по праздникам".</text>
+	</string>
+</string_table>
