@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+    <!-- talk -->
+	<!-- There is nothing in this audio file -->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_use_no_sleep_1">
+		<text>Missing_Subtitle </text>
+	</string>
+	<!-- Slightly changed phrase, but not really sure about it-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_1">
+		<text>Anyway, here's what! </text> // contracted statement 
+	</string>
+	<!-- Slight correction in the end -->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_2">
+		<text>Hey, guys. Here's what else I've heard. </text> // slight grammatical edit
+	</string>
+	<!-- Slight correction -->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_3">
+		<text>Hey, guys. Here's an anecdote! </text> // slight grammatical edit
+	</string>
+	<!-- slight correction-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_4">
+		<text>Well, in short! </text>
+	</string>
+	<!-- Again not sure, but thing this will be better -->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_5">
+		<text>Quiet! Quiet! So here's what! </text> // slight grammatical edit
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_music_1">
+		<text>And now for the soul! </text>
+	</string>
+	<!-- Word "Sha" basically mean here "Now", midlle word "something", last word means "play"-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_music_2">
+		<text>Now I will play something! </text>
+	</string>
+	<!-- Changed "come on" to "Well"-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_music_3">
+		<text>Well; well, well, let me get play something! </text> // slight grammatical edit
+	</string>
+	<!-- So here only ploblem in uderstanding is because of the word "Labush" most of the time it means a wide-profile musician
+	Here I think meaning is "how to play"-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_music_4">
+		<text>Let's see now if my hands remember how to play or not. </text> // slight grammatical edit
+	</string>
+	<!-- So here what I will do, I will translate these jokes in the in the best of my abilities and not explain it here, otherwise what will be point of them -->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_1">
+		<text>One mate asks another mate: "Listen, why did you go to the zone?". "I've escaped from the cops and decided to hide here.". "Duh, what did the police get you for?". "For nothing, I got pulled over, as usual. And everything's wrong with me; numbers dirty, no medkit, ran a red light. Yes, on oncoming traffic. Yeah, backwards! drunk! And with five guns in the boot. So what's up?" </text> // slight grammatical edits, i assume 'wrong with me' part is him listing his violations
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_jokes_joke_10">
+		<text>There's these real boys driving a BMW around the Zone. So like, they stopped to take a piss, but just when they startedвЂ”bangвЂ”out of the darkness, a Bloodsucker comes out and screams: "I'll suck you!" The guys looked at one another calmly and said: "Thank you bro, but do it in our circle." </text> // slight grammatical edits, i assume bros are thanking each other for bloodsucker head and ask it to get in their circle
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_jokes_joke_11">
+		<text>Three stalkers meet at the Garbage. One of them has his eye out; the other one has a scarred face, the third have no toes on his feet at all. So they started asking how they got all that beauty from. The first one shows his eye and says "I didn't share the loot with the gyus, had to shoot them." Everyone's just kind of nodding respectfully, okay? The second one's pointing at his face. "I got into fight with a pack of pseudodogs", everyone's like: 'like respect, good job'. They're looking at the third one, who's kind of lost himself and saying nothing. "Hey, mate what happened to your leg?", one's asking. "Well, when I was working at the camp. I wore lead underwear so I wouldn't become impotent from radiation.". "You put them on, so what?". "Well, the elastic got busted." </text> // grammatical edits to make it flow better 
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_2">
+		<text>One day a brother comes into a bar on Skadovsk and says to Beard: "Hey, bro, give me some booze!" Beard said to him: "A glass of beer or a shot of vodka?". "Damn, a glass of vodka, of course!" </text> // grammatical edits and additions for flow
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_3">
+		<text>A Stalker returned to the Zone, visited home and complains: "You hear me, I sold an artefact and bought a real car, and after a week it was stolen." Second said to him: "Heck, bad luck. did you go to the police?". "I did. Said it wasn't them.: </text> // slight grammatical edits
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_4">
+		<text>The mother sends a letter to the real guy in prison. It's like: "Son, as soon as you've gone to prison everythings gone to hell in the household. Spring has already come, we need to dig up the garden there, potatoes and other things to plant. I can't do shit on my own, and no fucking bitch can help me." Well, the guy was like writing to her: "Like, mother, it's for the better, you'd better not touch the garden at all. Survive without it or you're gonna dig up something that's gonna not only increase my sentence, but you'll go to prison too." Mother writes a week later, "Damn Son, after your letter the cops ran to us, dug up the whole garden, only they didn't find shit. They were so angry, saying so many slurs." And the kid replies to her: "Well, Mother, I helped how I can, but you can plant potatoes by yourself." </text> // grammatical edits to better flow
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_intros_intro_joke_5">
+		<text>Anyway, two brothers are sitting around talking. One of them says: "Hey, bro, we've been hanging out since we were kids. I'll get you a tattoo for the memory." The other one was like: "Oh, that's a good one. Let's make it like a tank on the spine, but it's gotta be good, got it?". "You're really offending me, you'll like it, I promise you!" After five minutes, the tattoer's like: "Opa! Awesome, it's done!" And the other one: "Huh, I don't get it, why so fast?" tattoer: "I mean, there is only four letters." </text> // grammatical edits
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_jokes_joke_6">
+		<text>These people are asking: "What? Where? When?" The showman is like: "And now the question will be asked by a real guy, Vovan." Vovan appears on the screen, his face like this: "Honourable experts, two months ago, my mate Kalyan borrowed from me five thousand and didn't pay it back, this bitch! A onth ago, Kalyan borrowed three thousand from me and hasn't paid back, this bitch. A week ago, he only borrowed fifty and that fucking bitch didn't pay back too. So the fucking question is, who the fuck is in the black box?" </text> // grammatical edits
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_jokes_joke_7">
+		<text>There's these two usual Stalker-Losers standing at the Garbage. One like asks the other: "Hey, I don't get it. We gave them money, Yes. Why'd these boys run away somewhere and aren't dancing?". "Fuck, you blockhead,  I already told you a hundred times! Gopak and gop-stop, are definitely not the same thing! </text> // slight grammatical edits,
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_jokes_joke_8">
+		<text>The guys caught one Stalker alive, and they telling him: "Oh, like, nice, so we'll have someone to clean up our toilet." And he's, like, a big shot, not afraid, and he says: "Gang, I'm not some bitch or moron for you, Give me something cleaner." Well, the boys talked amongst themselves, and they said: "No problem, man. Go there and get the Goner's stuff from the anomaly." He thought and thought about it, and he said: "So guysвЂ”where's this toilet?" </text>  // grammatical edits
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_talk_jokes_joke_9">
+		<text>Two bloodsuckers are talking with each other, one to the other like: "How do you like to hunt Stalkers." "Well, I notice the Stalker, then I make a big circle around him. Then five minutes of small circles, and only after five more minutes I attack." The first one's like: "Duh, I don't get it. What's the point, mate? Why are you doing these circles? You could immediately have some meat instead." And the other one's like: "No, brother! I didn't get it at first, you can attack immediately, no problem, but then you'd have to eat it with shit." </text> // grammatical edits
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_use_abuse_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_use_no_default_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_use_no_fight_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_use_no_sleep_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_talk_use_no_weapon_1">
+		<text>Silent_Subtitle </text>
+	</string>
+
+    <!-- states -->
+	<!-- You havev these subtitles of "meet_meet_wait1-8" duplicated down the file, I will not delete any of them, just copy my changes and comments on other too
+	First word is hard to explain because of the so many meaning it has, but in this context it's more like "So"
+	Here middle of the qoute in literal will be something like "speak faster" but more fitting will be something like "speak up" 
+	In the end of the quote he's just saying "What do you want"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_1">
+		<text>So, speak up, what do you want? </text>
+	</string>
+	<!-- Easy line, banndit say "Well, I'm listening" -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_2">
+		<text>Well, I'm listening. </text>
+	</string>
+	<!--So here is "Well what are you staring/looking at, what do you want?" Dont really know what better "looking" or "staring"
+	but I think if take harshnes of the voice "staring" is more fitting here-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_3">
+		<text>Well, what are you staring at, what do you want? </text>
+	</string>
+	<!-- The line bandit is saying "What did you want to talk about" because word that uses bandit with literal translation will look like "rub"
+	but meaning of it is "talk"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_4">
+		<text>Well, what did you want to talk about? </text>
+	</string>
+	<!-- It's literal transation "What? you've lost your tongue in the ass?" or something similar
+	meaning of it, I think is pretty obvious "Have you lost your ability to speak?" 
+	So translation that I leave here will be something like that-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_5">
+		<text>Do you have your tongue stuck in your ass? </text>
+	</string>
+	<!-- So part of the line that isn't slurs is just something like "What are you?"
+	And first slur is "Baklan" in this context it will be something like "moron"
+	Last word I think can be translated with  transliteration, will add in the end "one" on my ear it fitting here, you can delete it if it's not fitting-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_6">
+		<text>What are you, moron, a defective one? </text>
+	</string>
+	<!--  -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_7">
+		<text>Hey, maybe you're a moron? </text>
+	</string>
+	<!-- "Yohaniy bobai" this is one of the variation of the words like "Your ...(ane word here, most of the time mother)" and like any other it's means something like "damn it"
+	"Otmorosheniy" or with literal will be something like "Frozen/iced/frosbitten" there is 2 meaning "mentally retarded" or ""mentally unstable' looking in the contxt there will be first meaning
+	So I will be translating it like this:-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_8">
+		<text>Damn it, I can't stand dumb ones! </text> // capitalized 'damn', added apostrophe in 'can't'
+	</string>
+	<!-- I think there is no need for these sybtitles, these breath, atleast in the original game, used only in scripted scenes, don't think there is one like these here
+	And even if they used, it will be a spam by them, because the do not group, each breath of the stalker will be separate subtitle, so I leave them as Silent_subtitle-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_breath_breath_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!-- I think there is no need for these sybtitles, these breath, atleast in the original game, used only in scripted scenes, don't think there is one like these here
+	And even if they used, it will be a spam by them, because the do not group, each breath of the stalker will be separate subtitle, so I leave them as Silent_subtitle-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_breath_breath_2">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!-- I think "Holy shit" don't fit here, it's too emotional phrase for my taste, and translation after this is strange,
+	bandit saying something like "My guts will soon get into a knot from hunger" only thing Idon't really know what "bebech" is, Yandex said it's boyar, that obiviosly not it,
+	but based on the context I made assumtion that is something to do with organs in your stomach-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_1">
+		<text>Damn, my guts're gonna knot from hunger. </text> // capitalized 'damn', shortened whole 'will soon get into a knot from hunger.' to 'guts're gonna knot from hunger' to reinforce rough bandit tone
+	</string>
+	<!-- I don't really know what this line about, only guess that by "stomping" bandit means "not changing location/don't move much"
+	I really don't even know how phrase this line, not even talking about explaning, so I will leave it as is-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_2">
+		<text>Fucking hell, you can't go on like this without stomping on something. </text>
+	</string>
+	<!-- So here word "Zabodyashit" is just "cook drugs", but it has second meaning and it's used in this line "cook food", because bandit saying that he want to eat
+	And the end phrase is not "I'm fucked" it's used here to accent how much bandit wants to eat
+	and last thing I note bandit here saying is using a word that have literal translation "guzzle", don't know if it fits here, so I leave it for you-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_3">
+		<text>Fuck, what to cook, I want to eat so much! </text>
+	</string>
+	<!-- First part is about that he doesn't have money,
+	second part has meaning of "I wish I could catch a loser... " and last is about what that "loser" will have "...with the loot or better yet, with money"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_4">
+		<text>Shit, my pockets are really empty, I wish I could catch a loser with loot or better yetвЂ”with money. </text> // changed 'pocket is really empty,' 'pockets are really empty' to reinforce down-on-luck tone, removed 'the' before 'loot' to better flow, replaced ',' after 'yet' with 'вЂ”' for more emphasis
+	</string>
+	<!-- So first there is not "bullet" , here it "ampule" I think it obvious what ampule will have
+	"shesha" I think in there is a prostitute, so bandit saying he wants to sleep with someone-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_5">
+		<text>Shit, I'd like to crush a ampoule for two, or go to a prostitute. </text> // corrected 'ampule' to 'ampoule'
+	</string>
+	<!-- Only change here is bandit saying "... and snack soulful", snack here is something to bite when you drink
+	And for just comment we sometime use "Yes" as "And", this line is great example-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_6">
+		<text>Now I'd like some vodka with a soulful snack. </text> // removed 'and' for proper emphasis, added 'a' before 'soulful'
+	</string>
+	<!-- so here is strange word that used to describe guys he wants to shoot, I can translate it as "Crooked faced", and will ad "so" before "boring" to amplify it -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_7">
+		<text>I'd like to shoot some crooked faces, it's so boring. </text> // changed 'faced' to 'faces' 
+	</string>
+	<!-- "Zakalibalo" here is just "geting tired of something/someone" and "steaming here" is used like "be here"
+	And I wiil ad "good" before "heating" because bandit saying "there is no good heating", and changed last sentence -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_8">
+		<text>I'm tired of been here, no good heating for youвЂ”nothing. </text> // replaced ',' with 'вЂ”' before 'nothing' for emphasis
+	</string>
+	<!-- for "Yohaniy babai" see meet_wait_7 "Zamanalo" is similar as "Zakalibalo" see idle_8
+	So here is bandit saying that he is tired of running around hungry, and wants to eat something, so I will change line like this:-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_9">
+		<text>Damn it, I'm tired of running around starvingвЂ”I'm hungry! </text> // replaced ',' after 'starving' with 'вЂ”' for emphasis
+	</string>
+	<!-- So here is hard for me to translate in not literal way, so I will try to explain this line and do some translation as some placeholder
+	So first is retorical question "What with bosses" in the meaning "Is they having a hard time"
+	then "There is nothing wrong for them. They are fine" saying that "They are fine, there is no hardships for them"
+	and after this everything is okay-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_10">
+		<text>How're the bosses? Nothing's wrong for themвЂ”they're fine! Sitting with their mobile phones, calling the shots! </text> // changed 'what with' to 'how're the', 'There is' removed and 'nothing' changed to 'Nothing's', 'вЂ”' replacing ',' before they're to better tone
+	</string>
+	<!-- Not "you", but "I"  and after this there is talk that bandit doesn't like these showoffs-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_11">
+		<text>I really had enough of all of this and these showoffs! They're like stalkers, all cool. </text> // thinking this statement is talking about his comrades, removed ',' after 'this', removed 'like' after 'these', replacing '!' after 'showoffs', replaced 'we're' to 'They're', and second 'we're' with 'all for emphasis.
+	</string>
+	<!-- In the first part retorical question "Why am I came here" and I'm changed "that's all" to "and all that"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_12">
+		<text>Why did I come here? I'd just keep bouncing around the neighbourhood and all that. </text> // changed 'am I came here?' to 'did I come here?' for better past-tone. 
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_13">
+		<text>Fuck Nature! My clothes don't have time to dry, my feet are always wet. </text> // insulting nature i guess, so 'Nature, fuck,' changed to 'Fuck nature!'.
+	</string>
+	<!-- "Manal" not to be confused with "Zamanal" in this case it will mean "fuck this" or something like that -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_14">
+		<text>Fuck this Zone, I want to go to the City. </text> // capitalized 'Zone' and 'City'
+	</string>
+	<!-- So here is the line about that in the city there is police that contantly makes raids, and in the zone there is wimps chasing -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_15">
+		<text>There's really no fucking life anywhere. In the city; nonstop police raids, here, wimps chasing everywhere. </text> changed ',' after 'city' to ';', replaced 'there are' to 'nonstop', added ',' after 'here' to better reinforce tone
+	</string>
+	<!-- So here is the talk that "Well, gun is really cool", but second part talkst about "but how the boss gave it, he can also take it away" -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_16">
+		<text>Well, my gun is really cool, but the Boss gave it, he can also take it. </text> // added 'my' after 'well', removed 'how', capitalized 'Boss', removed 'away', to better reinforce tone
+	</string>
+	<!-- So here first phrase is not a question, phrase is about bandit wanting a woman, last part is about "woman assets in the right places" -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_17">
+		<text>Eh, a woman! I'd love any of them, as long she has everything in the right places. </text> added 'a' before 'woman', 'loved' to 'love', 'have' to 'has'
+	</string>
+	<!-- So here in the end it's hard to hear what exactly he is saying, but from what I heard he saying something like "While I was banking, my life has been exchanged"
+	I thing banking is used here as "commanded" and in this context "commanded my life"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_18">
+		<text>Vata-ta-ra-tadam! While I was banking, my life has been exchanged. </text>
+	</string>
+	<!-- In the end there is said something "You didn't wish" and said it's like addresed to a woman -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_19">
+		<text>Wha-pa-pa-pa-pa-na-taram-na-taram-na-taram You didn't wish, as usual. </text> // added '.' to end sentence
+	</string>
+	<!-- "Hop-stop" is the type of the streat robbery, mostly small, and here It's again reference to the song, now Aleksander Rosenbaum - Gop-Stop
+	Only diffirence is in the third line "cry" been replaced by "make excuses"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_20">
+		<text>Gop-stop, we walked around the corner. Gop-stop, you took a lot on yourself. Now it`s too late to make excuses, look at these stars; na na na na na na na na na na na na fana turb turb turb... </text> // added ';' after 'stars,'added '...' to end sentence
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_21">
+		<text>Uhh! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_22">
+		<text>Cough, cough, cough. </text>
+	</string>
+	<!--I don't know why it's here, I think here is need to be idle 22 "Aghhhhhhhhhhhhhhhhhh!", maybe voice lines changed in game from original Anomaly?
+	I will change it if it will cause problems will be needing revert-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_23">
+		<text>Aghhhhhhhhhhhhhhhhhh! </text>
+	</string>
+	<!-- for some reason 24 was missing, added it here-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_24">
+		<text>Cough, cough, cough. </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_25">
+		<text>Silent_Subtitle </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_26">
+		<text>Ahem. </text>
+	</string>
+	<!-- First part is question about "Well, why we even come here?"
+	Second is bandit answering his own question, making parody been answered by one of the gang members "Boss like knows better"
+	And the last is about "Better if he fucking asked the gang, or asked me"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_27">
+		<text>Well, why'd we even come here? Boss knows better. Better if he fucking asked the gang or asked me! </text> // replaced 'why' with 'why'd', removed 'like' to reinforce tone
+	</string>
+	<!-- Hardest line by far just from the amount of the jargons there used, so I will just translate it-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_28">
+		<text>Gotta press harder on that pussy faggot so he doesn't say something stupid. Can't hide with so many people around. </text> // replaced 'will need to' with 'gotta' 'pus' with 'pussy', removed ',' after 'faggot', 'unnecessary' to 'stupid.', replaced 'because there so many people, you can't really hide, if you need too.' to 'Can't hide with so many people around', to reinforce colloquial bandit tone
+	</string>
+	<!-- Slight correction, but overall not bad, most notible deleted "concreate" beacuse bandit used word thanslating as "specific" but here is no fit for it, "real" is already covers it meaning-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_idle_idle_29">
+		<text>Gonna pass some more time. One day I'll buy myself a real gun; make my own brigade, and I'll be the Boss in charge. </text> // replaced 'Nothing, nothing,' to 'gonna', ',' after 'time' with '.', 'I will' to 'One day I'll,' to better reinforce tone. Removed 'and there I will' to reinforce tone. Replaced ',' after 'gun' with ';' for listing. Replaced 'I will become a boss and will be in charge.' with ' and I'll be the Boss in charge.' to better tone.
+	</string>
+	<!-- here is not "it's" but "he's" becouse bandit is looting corpse not crate and here is used word in before the last that can be translated like "all/generally" -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_loot_loot_bad_1">
+		<text>Fuck, well, he's all empty. </text>
+	</string>
+	<!-- So word that used here is basically means "dead" and in this context bandit saying to him that "you dead guy was stupid", don't know really what word use to immitate it
+	will leave it as "goner"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_loot_loot_bad_2">
+		<text>No, this Goner was really stupid in life! No reserveвЂ”no shit! </text> // replaced 'you' with this', 'were' with 'was', replaced ',' with '!', capitalized 'goner' ',' after 'reserve' with 'вЂ”' for emphasis. 
+	</string>
+	<!-- So here used word "Bosota" that means "empty wallet" generally used to describe beggars or minors and the last word is just word to immitate spit-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_loot_loot_bad_3">
+		<text>Damn only beggars, real beggars. Ugh! </text>
+	</string>
+	<!-- slight correction of the first part -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_loot_loot_begin_1">
+		<text>Opa, Opa! What have we got here? </text>
+	</string>
+	<!-- So here changed second half, because there is again word "Shmur" like in the loot_bad_2 and here it's plural, and they are no longer have use of their stuff -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_loot_loot_begin_2">
+		<text>Let's have a look. Corpses don't need all of this. </text> // replaced ',' with '.' to make seperate clause, replaced 'for goner all of this is no longer needed' to 'Corpses don't need all of this.' for more succinct, rough bandit tone
+	</string>
+	<!-- Here is again "Shmur", not "he" and in the not "isn't he" but "Yes", that basically same, one just shorter, and bandit is saying short variant-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_loot_loot_begin_3">
+		<text>Goner's a kind man, Goner's going to share with me, yeah? </text> // decapitalized 'yeah'
+	</string>
+	<!-- So here in the second part using word that can be translated as "situation/layout" bandit saying that loot body have is pretty good "There is not bad situation (with loot)" -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_loot_loot_good_1">
+		<text>Opanki! Not a bad situation! </text> // removed 'this is' and added 'a' before 'bad' for succinct, rough bandit tone
+	</string>
+	<!-- First two words is refering to body having many items
+	"hammer" in our language we use hammer because it can sound like "Well done", "attaboy",
+	And in the end he saying something like"Respect to you"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_loot_loot_good_2">
+		<text>Great, great! Well done Goner, respect to you! </text> // replaced ',' with '!', capitalized 'well', 'goner', removed ',' before 'goner', to better flow
+	</string>
+	<!-- Here phrase that translated to "not weak" have different meaning in this context it will be "not bad"
+	And second part of the line is about "Thrifty was father"and here for some reason he's "frugal"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_loot_loot_good_3">
+		<text>Oh, not bad, your father must've been a hoarder! </text> // replaced 'thrifty' with hoarder to better convey good loot (i dont think thrifty makes sense in this context unless hoarding), replaced 'thrifty was father!' with 'your father must've been a hoarder!' to better tone
+	</string>
+	<!-- Same as meet_wait_1 -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hello_1">
+		<text>So, speak up, what do you want? </text>
+	</string>
+	<!-- Same as meet_wait_2 -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hello_2">
+		<text>Well, I'm listening. </text>
+	</string>
+	<!-- There is no mean, there again these filler-words "like" and "Well" I will not ad "like" I think it will change meaning of the phrase to the player
+	But will change "I mean" to "Well"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hello_3">
+		<text>Well, hello! </text>
+	</string>
+	<!-- Missed "Eh"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hello_4">
+		<text>What's new, eh? </text>
+	</string>
+	<!-- same as meet_wait_3-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hello_5">
+		<text>Well, what are you staring at, what do you want? </text>
+	</string>
+	<!-- So here is first "Che" will be "What" and second will have closer mesaning to "Why"
+	And second part is just bandit complain that player running arond/flicking around
+	Note here that he uses word like Petruha in the original stalker, but I don't think translation that was there fits here-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hello_6">
+		<text>What? Why are you spazzing around? </text> // replaced 'flicking' with 'spazzing'
+	</string>
+	<!-- Same as meet_wait_4 -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hello_7">
+		<text>Well, what did you want to talk about? </text>
+	</string>
+	<!-- So here is "Don't shine your gun" that been somewhere in the bandit1_fight file have meaning of "Don't walk around with your gun",
+	and last part of the line is "No need for that" it more harsher because of the use of "Nehren" but I can't come up with better so will be "no need for that" -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hide_weapon_1">
+		<text>Don't walk around with your gun, no need for that! </text>
+	</string>
+	<!-- Well correction in the first sentence bandit saying "Put your weapon away"
+	And in the second part he's sayig just "quickly"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hide_weapon_2">
+		<text>Put your weapon away, quickly. </text>
+	</string>
+	<!-- frst part is about "think you are cool, huh" and second part is just like hide_weapon_2 -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hide_weapon_3">
+		<text>Think you're cool, huh? Put your weapon away! </text> // capitalized 'think'
+	</string>
+	<!-- in the first part he is saying "Hey you" and name of the mutant "Rodent"
+	And second part has missing word that can be trnslated as "steam" but it's real meaning is "Tiring me"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hide_weapon_4">
+		<text>Hey you, Rodent, you're tiring me waving that gun around. </text> // corrected 'vaving' to 'waving'
+	</string>
+	<!-- Can't understand what word bandit using, something like "Ohlyalne" but I don't know words like that will put word from translation of "baklan"
+	And second part is as in hiide_weapon_2 and 3 but here it's somewhat harsher because of the word "Nahren" and for that reason I will add here "fucking"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_hide_weapon_5">
+		<text>What are you, a moron? Put your fucking gun away. </text> // added 'a' before moron, capitalized 'put'
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_stop_1">
+		<text>You're a stranger!</text> // replaced 'mytserious' with 'a stranger!'
+	</string>
+	<!-- "bazaar" we sometime use to describe talk "The are talking/bazaaring" so here it's has this meaning
+	"Margala Nemazole" literal translation is funny sadly I don't know one for "Mazole", but meaning of it all this phrase is "Get out of my sight"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_stop_2">
+		<text>You hear me, you're a mistake of nature. No talk, get out of my sight. Do you understand or not?  </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_stop_3">
+		<text>When the prosecutor shows up, I'll get you to be quiet with him. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_stop_4">
+		<text>YOU'RE A REAL PRICK! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_stop_5">
+		<text>Nah, first time I've ever seen one of these fucked up. </text>
+	</string>
+	<!-- When we uses line like "Woman give/girl give" sometimes it can mean sleep/sex with you -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_stop_6">
+		<text>I wish girls would give like you talking here, Moron. </text> // removed 'you' after 'give', replaced 'your' with 'you' to better flow
+	</string>
+	<!-- Here bandit saying he doesn't want to talk -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_default_1">
+		<text>Hey, go talk with the others, I'll pass! </text>
+	</string>
+	<!-- here is two words one was already encountered "rub" that means talk and second "Koresh" that will mean "bro/brother/friend"
+	And general meaning is: bandit doesn't have time for talking-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_default_2">
+		<text>Bro, I don't have time for talk. </text>
+	</string>
+	<!-- Here used word "Leave me alone" by the harsh word "Otvali"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_default_3">
+		<text>Leave me alone! </text>
+	</string>
+	<!-- "Are you gone nuts" will be more fitting here-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_fight_1">
+		<text>Have you gone nuts?! </text> // replaced 'Are' with 'Have' to better flow
+	</string>
+	<!-- some corrections -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_fight_2">
+		<text>Go shoot, we'll talk after! </text>
+	</string>
+	<!-- so here bandit saying "Why you opened your glove", last word is means "mouth"
+	And in the second part again "rub" that means "talk"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_fight_3">
+		<text>Why'd you open your mouth?! We'll talk later! </text> // replaced 'why' with 'why'd' for emphasis, 'opened' with 'open'
+	</string>
+	<!-- Slight correction in the end -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_talk_leader_1">
+		<text>Go to boss with all these questions. </text> // rearranged statement for better flow
+	</string>
+	<!-- So here first phrase that saying bandit has literal translation of "Go ride on the boss ears"
+	I think something like "Go talk boss ears off" will be the closes, but I don't really know many english idioms
+	Word that used in the last phrase can be translated as "Non-goverment/not public/ not official"
+	I don't really know how really say meaning of them, so I will just put here for now "not mine"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_talk_leader_2">
+		<text>Go talk the Boss's ears offвЂ”not mine! </text> // grammatical corrections, added emdash for emphasis
+	</string>
+	<!-- So there is lost meaning of the phrase, because "what do you need" was written separately meaning here "If you need to talk about something, here is boss"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_talk_leader_3">
+		<text>If you need to talk about something, the Boss's there. </text> // grammatical corrections
+	</string>
+	<!-- Slight correction in the midlle changed "what's the big deal" to "There will be no talk"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_weapon_1">
+		<text>Think you can talk with a gun in your paws? Put it away. </text> // redone initial sentence for better flow
+	</string>
+	<!-- Correction of the translation + changed some wording -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_weapon_2">
+		<text>Put the gun away, then we'll talk. </text>
+	</string>
+	<!-- Some correction -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_use_no_weapon_3">
+		<text>Either put the gun away or get out. </text> // removed latter most bit to better flow
+	</string>
+	<!-- Copied drom the translaation in the start of the file down to the 8 voiceline-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_1">
+		<text>So, speak up, what do you want? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_2">
+		<text>Well, I'm listening. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_3">
+		<text>Well, what are you staring at, what do you want? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_4">
+		<text>Well, what did you want to talk about? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_5">
+		<text>Do you have your tongue stuck in your ass? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_6">
+		<text>What are you, moron, a defective one? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_7">
+		<text>Hey, maybe you're a moron? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_8">
+		<text>damn it, I cant stand dumb ones! </text>
+	</string>
+	<!-- Corrected "Trying" to "Testing" -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_9">
+		<text>Are you testing my patience? </text>
+	</string>
+	<!-- Slight correction in the end, don't know about the rest of the line, Bandit saying "You confused Rams"
+	Rams is a card game, and most of the times this phrase used when you either bluffing or cheating-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_10">
+		<text>You're out of line or something, speak up already! </text>
+	</string>
+	<!-- Changed end of the line, and start -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_11">
+		<text>Listen, you're really starting to get on my nerves. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_12">
+		<text>Listen, I'm nervous. Why're you making fishy faces here? </text> // added contraction to better flow
+	</string>
+	<!-- Slight correction changed "what" to "something" because word that translated here to what, had other meaning"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_meet_meet_wait_13">
+		<text>So do you want something? Or not? Then fuck off! </text> // slight grammatical correction
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_human_panic_human_1">
+		<text>Don't shoot, man! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_human_panic_human_2">
+		<text>No! Don't shoot! </text>
+	</string>
+	<!-- I don't think here "that's it" is fitting, but I can't think the altarnative or explanetion, and other than that here bandit saying "I don't have a gun"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_human_panic_human_3">
+		<text>That's itвЂ”that's it! I don't have a gun, that's it! </text> // edits for better emphasis
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_human_panic_human_4">
+		<text>Don't shoot! I don't have a gun! </text>
+	</string>
+	<!-- word "Ne zamai" can be translated in three meaning to english "don't come closer to me/don't touch me/leave me alone"
+	I will go here with second meaning-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_human_panic_human_5">
+		<text>Ah-ah-ah, don't touch me, don't touch me! </text>
+	</string>
+	<!-- So meaning of what bandit saying is something like "I didn't do anything/It's not me/I have nothing to do with this"
+	As I written somewhere up "clean" here have meaning like "really" or maybe even "honestly" in this context-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_human_panic_human_6">
+		<text>I got nothing to do with this, honestly, don't do it, man! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_human_panic_human_7">
+		<text>Don't kill, man! Just don't kill! </text>
+	</string>
+	<!-- Here bandit using word "Korech" that I have explained in the meet_use_no_default_2
+	And after that he saying "don't shoot me" by using different word for "shoot"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_human_panic_human_8">
+		<text>Bro, don't shoot me! </text>
+	</string>
+	<!-- First word in the line means "leave me alone" second is harder to explain it can me as some kind of monster and can mean bad person too
+	Here I will translate it as "beast"-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_monster_panic_monster_1">
+		<text>Leave me alone, Beast! </text> // capitalization 
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_monster_panic_monster_2">
+		<text>BASTARD! </text>
+	</string>
+	<!-- So first of all bandit saying "Get it away from me" and in second added word that I can translate only like "catface"
+	Meaning here will be something like "ugly face/monster/thing" I will use "thing" here-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_monster_panic_monster_3">
+		<text>Get it away from me! Get that thing away from me! </text> // slight grammatical correction
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_panic_monster_panic_monster_4">
+		<text>AAAH! </text>
+	</string>
+	<!-- I don't know how to subtitle snore -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_1">
+		<text>Missing_Subtitle </text>
+	</string>
+	<!-- Same problem here -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_2">
+		<text>Missing_Subtitle</text>
+	</string>
+	<!-- unintelligible -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_3">
+		<text>Missing_Subtitle </text>
+	</string>
+	<!-- Hard to understand, And there gap in the midlle of the line -->
+	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_4">
+		<text>Why's a pretty girl like you all alone?...... otherwise, I can't.. </text> // assumed meaning that he's dreaming of a woman, rearranged/contracted line to better flow
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_5">
+		<text>Missing_Subtitle</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_6">
+		<text>Missing_Subtitle </text>
+	</string>
+	<!-- Again hard to understand but will try to correct it-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_7">
+		<text>Trick? You're gonna trick me? I'm gonna kill you, you understand? Tri- I'll kill you, kill! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_states_sleep_sleep_8">
+		<text>I didn't take it, Tatar! I didn't! I didn't take it, Tatar! </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_trade_buy_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_states_trade_sell_1">
+		<text>Silent_Subtitle </text>
+	</string>
+
+    <!-- reactions -->
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_box_box_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!-- Here i swapped "dumb" and "only", because I think it's better, no real translation reason for me
+	And in the end "it's like what" don't really fit because meaning of the line that bandit says is: "What is it about?"
+	I changed it to "What is it even about" adding "even" was because bandint used "Tipo" for it equivalent in English will be "like"
+	but here it used more like meaningless,  filler-word so I used "even" as such, you of couse can find better word
+	And for the "confused" in my personal opinion for the bandit there will be better simplier "didn't get it" because I don't think bandits really use much words like "confused"-->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_joke_reaction_joke_1">
+		<text>Guys, am I the only dumbass, or did nobody else get it? What was it even about?</text> // changed 'only one dumb here' to 'only dumbass here' to better reflect rough bandit tone, 'is everyone else didn't get it' to 'did nobody else get it' to better flow / 'nobody' for more informal tone, replaced ',' after 'get it' to '?' to better tone 
+	</string>
+	<!-- so here "mould", as you probably undersood is in the meaning of "guy who told a old joke", nor really need a change, just comment here 
+	and not leaving first phrase, will add here "well", again like the filler-word, because bandit uses one "Nu" -->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_joke_reaction_joke_2">
+		<text>Well, you're a geezer! You could have told me about Stirlitz!</text> // 'mould' to 'geezer' to better reflect 'old joker'. replaced ',' after geezer with '!' to better flow
+	</string>
+	<!-- "Ha-ha. That's hilarious, I am rolling on the floor."
+	I saved on the first line of the comment original translation I think it's not bad, it's just too long,
+	because bandit keps his comment short in this line, so to shorten it i will use not "that hillarious" but short "funny"
+	and of the line has meaning of "I just can't stop laughing" but in sarcastic way, I leave it as "I just can't" maybe you will find something better-->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_joke_reaction_joke_3">
+		<text>Ha-ha. Funny. A real knee-slapper.</text> // 'I just can't' to 'that's a real knee-slapper' to reinforce sarcasm 
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_music_reaction_music_1">
+		<text>Mn, really gets to the soul...</text> // replaced 'ugh' with 'mn' to reinforce contemplative tone, added 'the' before 'soul' for emphasis, ellipsis after 'soul' to further reinforce contemplative tone 
+	</string>
+	<!-- So here is missing a few words, first "Kich" meaning "jail/prison" and I don't know from where comes quote about death
+	but in the source bandit says word with the meaning of "become rooster" and "rooster" in the bandit jargon means "gay" or something like "low-class"
+	And to be clear "passive gay" means who is bean fucked, for your knowlage only. So I changed it like this "you'd have been fucked long ago"-->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_music_reaction_music_2">
+		<text>Yeah, Cupcake. If you played like that in prison, you'd be fucked long ago.</text> // removed 'the' before 'prison' and replaced 'have been' with 'be' to reinforce bandit colloquial tone
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_music_reaction_music_3">
+		<text>That oughtta make waterfalls..</text>  // idk what 'forestfall' means. if it's to evoke sadness, then i replaced the whole statement to reflect that
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_music_reaction_music_4">
+		<text>We didn't have any shit to play on when we were in juvie.</text> // im assumming he meant he was in prison as a kid, replaced with us-central slang for juvenile-detention called 'juvie.' open to edits on this to make it less us-centric
+	</string>
+	<!-- Yes, here bandit sings about lavander, reference to Sofia Rotaru - Lavander
+	But in any case I think there is no need for the other translation-->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_music_reaction_music_5">
+		<text>Lavender!... Mountain lavender!</text> 
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_music_reaction_music_6">
+		<text>No, no, no! That's not it, not an inch! No, you're kidding!</text> // replaced ',' after last 'no' in trio for emphasis and edited capitalized subsequent 'that' to make seperate clause, replaced ',' after inch with '!' to reinforce tone, capitalized 'no' subsequently for seperate clause. contracted 'you' and 'are' to reinforce bandit colloquial tone. 
+	</string>
+	<!--Having a hard time understanding where goes where, because bandit talks so fast
+	but here what I noticed there is not "I didn't relise", bandit says "I clearly didn't get it" implying that he's for sure didn't understand here
+	I deleted "like" because again "tipo" filler-word don't think "like" fits here as one
+	and lastly bandit not just talks about music that have been played, but about music in general that like this so I changed "Fuck that music" to "Fuck music like this"-->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_music_reaction_music_7">
+		<text>No, no - well.. guys, wait. I clearly didn't get it, that was a song? Fuck that music!</text> // replaced ',' after second 'no' to '-', replaced ',' after 'well' with ellipsis, replaced ',' after wait with '.' to better convey pause. replaced 'music' with song' in first instance to better differentiate dislike this particular song. replaced 'it' with 'that' before 'song' to better convey that the songs not still occuring in conversation 
+	</string>
+	<!-- Only what I will change here is "How good you joked" change it to ", "good one" because of the simplicity and what bandit says is "Well, you gave"
+	With the meaning of "You joked good", and I didn't add "Well" because I don't think it fits here like filer-word
+	And here "pal" is not bad, because used here ""demon" was not ment in the bad way, more like friendly nickname-->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_story_laughter_1">
+		<text>Gha-ga-ga-ga-gaaa-ha-ha-haha-ha! good one Knuckles, really, I swear!</text> // removed ',' before 'pal' to better flow, replaced 'pal' with 'knuckles' to better convey rough-and-tumble, positive nickname
+	</string>
+	<!-- outside of the filler-words that can be added here, I will note that in the end here said is "Well, you really" not just "really"-->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_story_laughter_2">
+		<text>Ha ha ha! No, you're a pure comedian, really!</text>
+	</string>
+	<!-- Don't really understand what hecker is doing here, but here is again like in the laighter_1 friendly nickname
+	I will use here "demon", but I think you can find something better
+	other that it I will change wotrding here to be more on line with what is actually been side, like messing "Mla"
+	In the end it will be "demon, heck, reall demon" in the first phrase I deleted "you" because there is no addressing word
+	and "really a" to "real" for simplicity-->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_story_laughter_3">
+		<text>Gha-gag-agha-gA-gah, bad boy, heck - a real bad-boy!</text> // changed 'demon' to 'bad-boy' to reinforce rough-and-tumble tone
+	</string>
+	<!-- There is used word "РўР°С‰СѓСЃСЊ" that can be described as "enjoing something very much", here in this context I think translation is not bad -->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_story_laughter_4">
+		<text>I'm laughing my ass off, guys! Haaaa-hahahahaha-haaa-haa!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_story_laughter_5">
+		<text>Ha-ha-ha-ha-ha-ha-ha!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_story_laughter_6">
+		<text>AAHAHAHAHAHAHAHAHAHAHAHAHAHA HAHAHAHAHAHAH</text>
+	</string>
+	<!-- Accuracy Check Needed. I don't know how to translate laughter any other way:) -->
+	<string id="as_sub_characters_voice_human_bandit_1_reactions_story_laughter_7">
+		<text>Gha-hahahahah-haaa!</text>
+	</string>
+
+    <!-- help -->
+    	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_help_combat_coming_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_1_help_combat_coming_1_pda">
+		<text>Silent_Subtitle</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_kill_wounded_1">
+		<text>EAT THIS!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_kill_wounded_2">
+		<text>Now-now, I'm gonna fix you!</text> // grammatical edits
+	</string>
+	<!-- Everything is okay translated here, but "frayer", I stated meaning of it in previous file,
+So if word I used here won't fit you can change it	-->
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_kill_wounded_3">
+		<text>Catch this lead, Loser!</text> // grammatical edits, changed 'deadly' to lead', sounds kinda generic rough tone i know
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_kill_wounded_4">
+		<text>Ha-ha! Take a pill, Punk!</text> // grammatical edits
+	</string>
+	<!-- There is not said that "You are gonna be all right", rather "soon everything will be fine" -->
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_medkit_1">
+		<text>Hang in there, Mate, soon everything will be fine!</text> // grammatical edits
+	</string>
+	<!-- In the ending of the line there three ways to translate what bandit saing "to expose yourself like this" 
+	or "to get under fire like this", or "to get shot like this" I here will go with the first -->
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_medkit_2">
+		<text>You're a real Loser, Bro, to bare yourself like this !</text> // grammatical edits
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_medkit_3">
+		<text>Stay down, stay down, I'm gonna fix you now.</text> 
+	</string>
+	<!-- Meaning of this line is "I been wounded, boys" so "hole" has come up from the word that bandit used to refer to his injury 
+	I will change it translation to "I've been shot, boys"-->
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_1">
+		<text>I've been shot, boys!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_2">
+		<text>Shit, I caught a bullet!</text> // idk what 'maslina' means, bullet?
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_3">
+		<text>Mate, help!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_4">
+		<text>Guys, help me out!</text>
+	</string>
+	<!-- Too many "Ah", reduced their quantity -->
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_5">
+		<text>Ah-ah-ah!</text>
+	</string>
+	<!-- There bandit is not saying "oh my god", it more like "damn it" -->
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_6">
+		<text>Ay, daaamn!</text>
+	</string>
+	<!-- No need for correction -->
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_heavy_help_7">
+		<text>Ooohhhh, fuuuck..!</text> // reinforced wounded drawl
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_thanx_thanx_1">
+		<text>Oooh, that's a real guy! Thanks, Bro!</text> // grammatical edits
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_thanx_thanx_2">
+		<text>Oh, this is a real man! High five!</text> // going under assumption 'real topic' means something like 'real man'. 
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_help_wounded_thanx_thanx_3">
+		<text>Uh-oh, yeah, thanks, Bro!</text> // grammatical edits
+	</string>
+    <!-- fight -->
+    	<!--There is everything mostly right, only I can say that bandits use more harsh word that beat, more like Fuck them, boys,
+	And "guys" for me looking strange here because bandits use word that more like boy in literal translation,
+	I will bot change this one, you can do it, if you see what I suggest here more fitting or find something better to write here-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_1">
+		<text>Fuck them boys!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_11">
+		<text>I'm gonna rip your arse for fascist signs!</text>
+	</string>
+	<!--Here it more like rooster or cock-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_2">
+		<text>Kill the cocks!</text>
+	</string>
+	<!--Only thing to note there is that bsandits use word "bulls"
+	Meaning of it in jargon one or more people that behave provocatively and are looking for fight-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_3">
+		<text>Take out the bastards!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_4">
+		<text>YOU'RE ALL DEAD!</text>
+	</string>
+	<!--So here again jargon thing, "Uroem" here does not mean bury like in attack 6,
+	it can have meaning: to hurt or to kill someone, and "Nahren" there I think would mean something like Fucking-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_5">
+		<text>We'll fucking kill you!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_6">
+		<text>We'll bury you, bitches!</text>
+	</string>
+	<!--Everything is hard with word "Active", it means ethier someone that working with police or snitches
+	So if you know or can find word that is better in this context maybe there is a room for a change,
+	but other than I only change "Beat" to "Kill"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_7">
+		<text>Kill the bastards!</text>
+	</string>
+	<!--There is no "Fuck" in the start, bandit is screaming "Ala", that doesn't mean anything, just some sort of battle cry-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_8">
+		<text>ALA! KILL THE ASSHOLES!</text>
+	</string>
+	<!--Meaning of this quote is close to the attack 4, but here it mean something like "you got yourself into bad situation" but harsher
+	So in the end i decided to leave it like this:-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_9">
+		<text>YOU'RE FUCKED BASTARDS!</text>
+	</string>
+	<!--I don't really know much about english grammar but i will change some wording here,
+	because bandit say it fast, and there is too many unnecessary words
+	Before it was (You're going to die now, you bastard, you understand?)-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_10">
+		<text>You're going to die now, bastard, got it?</text>
+	</string>
+	<!-- Silent -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_many_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!-- Silent -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_attack_one_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_1">
+		<text>Fuck 'em boys!</text>
+	</string>
+	<!--There is more like "Take this" not "Catch this"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_10">
+		<text>Take this bitch!</text>
+	</string>
+	<!--I think from script attack 10 is better here, but i have a doubt there is really need to translate second "Take",
+	don't know if it fits here-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_11">
+		<text>TAKE THIS, TAKE!</text>
+	</string>
+	<!-- "HAVAI" is harsh word of eating, something like "Eating like a pig",
+	So I will translate it as "EAT THIS"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_12">
+		<text>EAT THIS BITCH!</text>
+	</string>
+	<!-- And there unlike script attack 10 and 11, "Catch" is more fitting that "Take"
+	And "That" is unnecessary here-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_13">
+		<text>Catch, fag!</text>
+	</string>
+	<!--Here is used word "Goat" don't know if it unsult in english,
+	but in our language we use it as it, even if it's not that insulting,
+	so I will change not change it here, leave the decision to you-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_14">
+		<text>Take this, bastard!</text>
+	</string>
+	<!--So this quote can mean "What a bitch" or "That bitch" I will go with the second here-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_15">
+		<text>That bitch!</text>
+	</string>
+	<!--After this there is quotes that are same as in attack 3-9, so i will transit change from there-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_2">
+		<text>Take out the cocks!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_3">
+		<text>Take out the bastards!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_4">
+		<text>YOU'RE ALL DEAD!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_5">
+		<text>We'll fucking kill you!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_6">
+		<text>We'll bury you, bitches!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_7">
+		<text>Kill the bastards!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_8">
+		<text>ALA! KILL THE ASSHOLES!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_attack_script_attack_9">
+		<text>YOU'RE FUCKED BASTARDS!</text>
+	</string>
+	<!--Same as script attack 10-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_1">
+		<text>Take this, bitch!</text>
+	</string>
+	<!--Same as script attack 11-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_2">
+		<text>TAKE THIS, TAKE!</text>
+	</string>
+	<!--Same as script attack 12-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_3">
+		<text>EAT THIS BITCH!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_4">
+		<text>Catch this, faggot!</text>
+	</string>
+	<!--Same as script attack 14-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_5">
+		<text>Take that, bastard!</text>
+	</string>
+	<!--Same as script attack 15-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_backup_backup_6">
+		<text>That bitch!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_1">
+		<text>TAKE THAT, BITCH!</text>
+	</string>
+	<!--Same as script attack 11-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_2">
+		<text>TAKE THIS, TAKE!</text>
+	</string>
+	<!--Same as script attack 12-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_3">
+		<text>EAT THIS, BITCH!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_4">
+		<text>Catch this, faggot!</text>
+	</string>
+	<!--Same as script attack 14-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_5">
+		<text>Take that, bastard!</text>
+	</string>
+	<!--Same as script attack 15-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_6">
+		<text>That bitch!</text>
+	</string>
+	<!-- Silent -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_death_anomaly_0">
+		<text>Silent_Subtitle</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_1">
+		<text>Ahhh, heeeeeeck!</text>
+	</string>
+	<!--Here is after cry of pain bandit starting to say "your", most likely he wants to say "your Mother", 
+	We use it and its variations like you use something like "damn it", so i tink "damn" will be more fiting here-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_2">
+		<text>Ahhh, damn... cough-cough-cough!</text>
+	</string>
+	<!-- Here bandit starting to say "boy" but stutters, and saying it again, but now fully
+	Maybe he is trying to say boys, like call out his friends, but based on how he saying it,
+	I think quote doesn't need to be plural-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_3">
+		<text>B-boy!</text>
+	</string>
+	<!--Because here is already been subtitles for coughing, i will add here "Ugh" -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_4">
+		<text>Fuck... uuuuggh!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_5">
+		<text>Shiiii....t</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_6">
+		<text>AAAAAH!!!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_death_death_7">
+		<text>OI, oi... ugh!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_1">
+		<text>Come in, come in from the side!</text>
+	</string>
+	<!-- "Kandohai" is means "move" and "Veselee" translates in english language to "More cheerfully"
+	In this context it's used like, "faster", and there is no "Boys" in the quote -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_10">
+		<text>MOVE FASTER!</text>
+	</string>
+	<!--In this context "Davai" used more like "Come on" -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_2">
+		<text>Come on, Come on!</text>
+	</string>
+	<!-- In here I think "Let's take him warm" is more fitting that "Get him warm"
+	because there used word that translates like "Take"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_3">
+		<text>Let's take him warm!</text>
+	</string>
+	<!--"Мандраж" that used here is closer in meaning to "afraid", that "nervous" in this context-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_4">
+		<text>Don't be afraid, guys! Go around!</text>
+	</string>
+	<!-- Here is hard to say is it correct Interpretation or not
+	because here in literal translation bandit saying "Now we will them..."
+	I think there is will be fitting "Now we'll show them..." even if there is no "show" in the quote-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_5">
+		<text>Now we'll show them...</text>
+	</string>
+	<!--Here context meaning is more of "Kill! Kill him" -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_6">
+		<text>Kill! Kill him!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_7">
+		<text>Come on, CHEEKI-BREEKI, and to the crowns!</text>
+	</string>
+	<!-- Here is most problematic last word, before it bandit saying "Fast, Go around, around that..."
+	Last word can be translated like some insult to someone non-local -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_8">
+		<text>Faster, go around, around that scum!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_detour_detour_9">
+		<text>Well, let's go, boys!</text>
+	</string>
+	<!-- There is used word that is name of the county "Honduras", but it really is "Pidoras" with meaning here of "Faggot" or "Gay"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_1">
+		<text>Faggots!</text>
+	</string>
+	<!--"Frayer", is word that I was unable to find similar in meaning, closest I managed to find it is "whale"
+	But I will try to explain it meaning: A fashionably dressed man not from the criminal world possible target for robbery
+	Maybe you will have better luck that me but for now I will use translation from enemy 1-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_10">
+		<text>Faggots incoming!</text>
+	</string>
+	<!--"Atas" it means that there is danger or to be on attention, here is first-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_2">
+		<text>Boys, watch out!</text>
+	</string>
+	<!-- Basically "Light up your guns", "Volina" just means "Gun"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_3">
+		<text>Light up your guns!</text>
+	</string>
+	<!--Like in previous nothing hard here just a call to take out your weapons-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_4">
+		<text>Boys, get your weapons out!</text>
+	</string>
+	<!--"Atanda" just like "Atas" in the enemy 2-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_5">
+		<text>Watch out!</text>
+	</string>
+	<!-- Again different word same meaning like in the enemy 5 and 2 -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_6">
+		<text>Lookout!</text>
+	</string>
+	<!--Literal translation of first part will be something like "We've been painted", but the context is "We've been spotted"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_7">
+		<text>We've been spotted! Lookout!</text>
+	</string>
+	<!-- Here is word "Chushpan" has closest meaning to the word like "wimp" -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_8">
+		<text>Wimps!</text>
+	</string>
+	<!-- First word can be just changed into "hush" because it's here to get attention and get everyone to be quiet
+	After that there is something "Hey, rumpus is starting" because second word has meaning:
+	"Raise a fuss" or something like that-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_9">
+		<text>Hey, rumpus is starting!</text>
+	</string>
+	<!-- literal will be something like "Ha. look who is rolling his wheels to us",
+	so it can be Interpretated like below-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_11">
+		<text>Ha, look who is coming to us!</text>
+	</string>
+	<!--"Leaver", I can unly describe this word as: Not a reliable person
+	Don't know how much it fits here. Last word can be as you spotting someone coming out from somewhere
+	where you didn't see him before-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_12">
+		<text>Opa! Leaver spotted!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_13">
+		<text>Hush gang!</text>
+	</string>
+	<!--"Arharovtsy" it has meaning , but it won't fit here, so I will use other "Rowdy"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_14">
+		<text>Rowdies, hush!</text>
+	</string>
+	<!--Exactly like enemy 6-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_15">
+		<text>Lookout!</text>
+	</string>
+	<!-- Meaning of "Atas" can be looked in the enemy 2 -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_enemy_16">
+		<text>Watch out!</text>
+	</string>
+	<!-- silent -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_down_enemy_down_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!-- silent -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_hit_enemy_hit_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!-- silent -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_cover_fire_cover_fire_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!-- Don't see problems here-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_1">
+		<text>What are you, a chump?</text>
+	</string>
+	<!-- Everything is okay here -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_2">
+		<text>I'll rip your head off, bitch!</text>
+	</string>
+	<!-- "Hana" is used here to say that you're in the bad situation -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_3">
+		<text>You're screwed, bastard!</text>
+	</string>
+	<!-- Hard to say what exactly is meant here. Maybe something like
+	"I will fuck you"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_4">
+		<text>I'll fuck you, understood?!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_fire_friendly_fire_5">
+		<text>You're fucking nuts, Yes?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_1">
+		<text>Bitch, I'm gonna to really put you in the coffin right now!</text>
+	</string>
+	<!-- First part can be referenced from attack 5, second part I don't really know what it mean like at all
+	but maybe it's something like "bastard" or "faggot"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_2">
+		<text>I'll fucking kill you, faggot!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_3">
+		<text>No, I don't get it.</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_4">
+		<text>What are you? What are you? You're want, like, kill me or something?</text>
+	</string>
+	<!--Here is second word means "been bitten by the rooster or chiken"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friend_hitted_hit_friend_1">
+		<text>Brother was bitten!</text>
+	</string>
+	<!-- Easy translatable-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friend_hitted_hit_friend_2">
+		<text>Boys, we have wounded!</text>
+	</string>
+	<!-- First word can be referenced in enemy 6-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_1">
+		<text>Lookout, guys!</text>
+	</string>
+	<!-- Just grenade -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_grenade_2">
+		<text>GRENADE!</text>
+	</string>
+	<!-- Like grenade 2, but with guys -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_friendly_grenade_friendly_grenade_3">
+		<text>GRENADE, GUYS!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_1">
+		<text>Eat lemon, bastard!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_2">
+		<text>Ah, here is grenade for you!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_3">
+		<text>Eat an apple, bitch!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_4">
+		<text>EAT THE GRENADE, MOTHERFUCKER!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_5">
+		<text>HAVE AN APPLE BITCH!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_6">
+		<text>I'll grenade you, bastard!</text>
+	</string>
+	<!-- "Pendosina" in Russia is used to insult someoen from America or any english native speaker,
+	so I don't really know how to translate it and will leave it as "faggot" -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_7">
+		<text>Lemon for you, faggot!</text>
+	</string>
+	 <!-- "this" is not been in the original quote -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_1">
+		<text>Catch, bitch!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_grenade_grenade_ready_2">
+		<text>CATCH, MOTHERFUCKER!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_enemy_hit_enemy_hit_1">
+		<text>Ah, fu-!</text>
+	</string>
+	<!--No need in correction -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_hit_hit_2">
+		<text>Arrrgh!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_hit_hit_3">
+		<text>Damn it!</text>
+	</string>
+	<!--So in the source there is no "freak", there is "Sandvich",
+	and I think there is like with the "Your Mother" have more meaning like "damn you"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_hit_hit_4">
+		<text>Ouch, damn you?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_hit_hit_5">
+		<text>Aye!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_hit_hit_6">
+		<text>Ouch!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_hit_hit_7">
+		<text>Ouch!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_relax_1">
+		<text>Well, get out the vodka, let's remember the freshly dead!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_relax_2">
+		<text>What are we wait? We're done making noise!</text>
+	</string>
+	<!-- Very good translation here, no need for correction -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_relax_3">
+		<text>Stop staring, the action's gone!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_1">
+		<text>Hey, hey! It's early to hide guns, guys!</text>
+	</string>
+	<!-- Slight correction in the start of the line -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_2">
+		<text>Well let's wait for more losers?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_3">
+		<text>Hide, hide, guys!</text>
+	</string>
+	<!-- Again problem with the word "Frayer", here I will use word from wait 3 -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_4">
+		<text>Don't stare, the losers can come out now!</text>
+	</string>
+	<!-- Corrected, previous was not bad, but I think this will be better -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_5">
+		<text>Keep your eyes open!</text>
+	</string>
+	<!--There was not about hearing, but about seeing -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_6">
+		<text>Quiet! Did anyone spotted anything?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_7">
+		<text>What's up?</text>
+	</string>
+	<!--Slight correction of word "Baba" to "Babai", monster from slavic folklore
+	And the last word means "Roaming"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_post_combat_wait_wait_8">
+		<text>Quiet! Babai's roaming!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_1">
+		<text>Well, where did you hide?</text>
+	</string>
+	<!--In the end slightly changed -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_2">
+		<text>Quiet, boys! Move on tiptoes!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_3">
+		<text>Hide-don't hide! We'll find you anyway!</text>
+	</string>
+	<!-- Changed "dead" to "corpse"-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_4">
+		<text>Bull, you're corpse, you understand?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_5">
+		<text>You're screwed! Get out, bastard!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_6">
+		<text>Don't let him go away!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_enemy_lost_7">
+		<text>You won't last long! Get out, you goat!</text>
+	</string>
+	<!-- No need for coorection -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_1">
+		<text>Go out, go out!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_10">
+		<text>Op, we'll make you bleed.</text>
+	</string>
+	<!--Changed the start of the line, bandit saying about hearing him
+	And there is no "mate" there is again "Frayer", i will use "loser" here again-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_11">
+		<text>Do you hear, loser, you're going to quack!</text>
+	</string>
+	<!--Changed "chop" to the "be cutting" more fitting -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_12">
+		<text>Don't be afraid! We won't be cutting you!</text>
+	</string>
+	<!--Again "Frayer" it's like a stepping stone for me, I think i will not change it here
+	Will just doo slight change in the "cut" part-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_13">
+		<text>Hey, pal, don't get too hopeful, we'll catch you and will be cutting you for a long time!</text>
+	</string>
+	<!--Mostly alright but been lost part that mean "to search"
+	And atleast in the files of the Anomaly there is no 14 line only 15-->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_15">
+		<text>Come on, let's search who's here?</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_2">
+		<text>Come out, we'll find you anyway!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_3">
+		<text>Come out nicely!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_4">
+		<text>Hey, cocksucker, need to talk! Come out!</text>
+	</string>
+	<!--Was lost part with finding -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_5">
+		<text>We'll find you and cut to furs!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_6">
+		<text>Loser, come out, don't worry, we won't hurt you!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_7">
+		<text>Listen, we're not gonna hurt you! For real, I'm responsible for what I say!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_8">
+		<text>No, are you a man or not? Come out!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_searching_enemy_search_9">
+		<text>SHOW YOURSELF, FAGGOT!</text>
+	</string>
+	<!-- Silent -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_threat_threat_close_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!-- Silent -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_threat_threat_distant_1">
+		<text>Silent_Subtitle</text>
+	</string>
+	<!-- Slight change -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_1">
+		<text>They are killing us!</text>
+	</string>
+	<!-- Referenced from enemy 6 -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_2">
+		<text>LOOKOUT!</text>
+	</string>
+	<!-- No need for correction here -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_3">
+		<text>Watch out, guys!</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_4">
+		<text>Guys are being killed!</text>
+	</string>
+	<!-- Slight change -->
+	<string id="as_sub_characters_voice_human_bandit_1_fight_tolls_tolls_5">
+		<text>Fuck, ours is been killed for real!</text>
+	</string>
+</string_table>
