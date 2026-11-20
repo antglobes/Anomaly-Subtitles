@@ -1,30 +1,52 @@
--- Imports
-split = ag_strings.split
-table_slice = ag_tables.table_slice
-table_extend = ag_tables.table_extend
-contains = ag_tables.contains
-get_unknown_object = ag_game_objects.get_unknown_object
-dist_to_pos = ag_game_objects.dist_to_pos
-gts = ag_strings.get_translation
-print_table = ag_tables.print_table
+-- Library Imports
+ag_utils.import(this, {ag_strings, ag_tables, ag_game_objects, ag_npc, ag_position, ag_colours})
+gts = get_translation
 
--- Utilities
-get_end_digits = subtitles_utils.get_end_digits
+-- Script Imports
+get_config = subtitles_mcm.get_config
+
+-- Utils
 in_snd_dir = subtitles_utils.in_snd_dir
 path_to_xml = subtitles_utils.path_to_xml
-get_npc_name = subtitles_utils.get_npc_name
-set_debug_level =  subtitles_utils.set_debug_level
-filter_debug_msg = subtitles_utils.filter_debug_msg
+get_npc_faction = subtitles_utils.get_npc_faction
+
+-- Constants
+CENSOR_SYMBOL = "*"
+LOG_HEADER = "[AS|Main]"
+MAX_CAPTION_OPACITY = 255
+
+-- MCM
+CAPTION_HEAR_DIST = subtitles_mcm.defaults["hear_dist"]
+ENABLE_SUBS = subtitles_mcm.defaults["enable_subs"]
+ENABLE_FIGHT_SUBS = subtitles_mcm.defaults["enable_fight_subs"]
+CENSOR_TYPE = subtitles_mcm.defaults["censor_type"]
+BACKGROUND_CLR = str2argb(subtitles_mcm.defaults["background_colour"], true)
+SUBTITLE_CLR = str2argb(subtitles_mcm.defaults["subtitle_colour"], true)
+SUBTITLE_WND_SIZE = {w=subtitles_mcm.defaults["subtitle_width"], h=subtitles_mcm.defaults["subtitle_height"]}
+WORDS_PER_SECOND = subtitles_mcm.defaults["words_per_second"]
+FADE_TIME = subtitles_mcm.defaults["fade_time"]
+USE_SND_LEN = subtitles_mcm.defaults["use_snd_length"]
+
+
+-- Globals
+file_cache = {}
+recent_npc_deaths = {}
+HUD = nil
+QUEUED_SUBTITLES = {}
+ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
+
+-- Locals
+local dbg_pr = nil
 
 -- Tables
 log_file_cache = {
-    normal = 0,
-    cache = 0,
-    split = 0,
-    norm_walkback = 0,
-    fight = 0,
-    fight_walkback = 0,
-    invalid = 0,
+    normal = {},
+    cached = {},
+    split = {},
+    norm_walkback = {},
+    fight = {},
+    fight_walkback = {},
+    invalid = {},
 }
 priority_tbl = {
     [1] = { -- Indicates npc is on high alert, fighting, hurt or in distress
@@ -58,53 +80,66 @@ exclude_subs = {
     "No",
     "translation"
 }
+censor_terms = {
+    [1] = {}, -- none
+    [2] = {
+        "fuck", "bastards", "fucking", "bastard", "bitch", "bitches",
+        "assholes", "fucked", "cock", "cocks", "shit", "motherfucker",
+        "cocksucker", "ass", "moron", "pussy", "prick", "piss", "dick",
+        "dicks", "pissing", "arse", "arsehole", "bollocks", "bullshit",
+        "fucker", "dickhead", "pissed", "lardass", "fucker", "bollocks"
+    }, -- swears
+    [3] = {"fag", "faggot", "faggots", "spazzing", "dyke", "retard", "retarded", "jews", "nigdot"}, -- slurs
+}
+censor_terms[4] = table_extend(censor_terms[2], censor_terms[3]) -- both
 
--- Constants
-WORDS_PER_SECOND = 3 -- avg words per mintue in russian = 184. 184/60 = 3.067. so ~3 words a mintue
+-- DEBUGGING
+function setup_log(level, header, enabled)
+    if not dbg_pr then
+        dbg_pr = ag_logging.new({
+            level=level,
+            header=header,
+            enabled=enabled
+        })
+    else
+        dbg_pr:SetLevel(level)
+        dbg_pr:Enable(enabled)
+    end
+end
 
--- MCM
-MIN_CAPTION_OPACITY = 0
-MAX_CAPTION_OPACITY = 255
-FADE_TIME = 2
-MAX_HEAR_DIST = 35
-ENABLE_SUBS = true
-ENABLE_FIGHT_SUBS = true
-
--- Variables
-file_cache = {}
-clr_cache = {}
-recent_npc_deaths = {}
-HUD = nil
-QUEUED_SUBTITLES = {}
-local dbg_lvl = "player"
-ini_script_sound = ini_file_ex("misc\\sound\\script_sound.ltx")
-
--- Debugging
-function pr(str, ...)
-    if not filter_debug_msg(dbg_lvl) then return end
-    subtitles_utils.dbg_pr("[AS|Main]: %s", str, ...)
+function dbg(level, fmt, ...)
+    if not dbg_pr then
+        setup_log(get_config("debug_level"), LOG_HEADER, get_config("enable_debug"))    
+    end
+    dbg_pr:Log(level, fmt, ...)
 end
 
 -- Main Funcs
 function on_phrase_callback(sound_name, npc)
     if not ENABLE_SUBS then return end
-    --local name = get_npc_name(npc)
-    --pr("%s is playing: %s", name, sound_name)
+    -- dbg("dev", "on phrase callback: name:%s, sound:%s", get_npc_name(npc), sound_name)    
     local parsed_file = parse_sound_file(sound_name)
     subtitle_them(parsed_file, npc)
 end
 
 function parse_sound_file(file)
-    if is_not_empty(file_cache) and contains(file_cache, file, true) and in_snd_dir(file_cache[file]) then
+    if 
+        is_not_empty(file_cache) 
+        and contains(file_cache, file, true) 
+        and in_snd_dir(file_cache[file])
+    then
         local cached_filename = file_cache[file]
-        -- pr("Using %s cached file for %s\n", file, cached_filename)
+        -- dbg("dev", "Using %s cached file for %s\n", file, cached_filename)
+        if not contains(log_file_cache.cached, cached_filename) then
+            log_file_cache.cached[#log_file_cache.cached + 1] = cached_filename    
+        end
         return cached_filename
     end
 
     if in_snd_dir(file) then
-        -- pr("Path exists in sounds dir: %s\n", file and true or false)
+        -- dbg("dev", "Path exists in sounds dir: %s\n", file and true or false)
         file_cache[file] = file
-        log_file_cache.normal = log_file_cache.normal + 1
+        log_file_cache.normal[#log_file_cache.normal + 1] = file
         return file
 
     elseif not in_snd_dir(file) then
@@ -118,8 +153,8 @@ function parse_sound_file(file)
         for i=1, end_digit:len() do
             local new_file = filename_prefix .. end_digit:sub(i, i)
             if in_snd_dir(new_file) then
-                -- pr("After Spliting: %s, found: %s\n", file, new_file)
-                log_file_cache.split = log_file_cache.split + 1
+                -- dbg("dev", "After Spliting: %s, found: %s\n", file, new_file)
+                log_file_cache["split"][#log_file_cache["split"] + 1] = file
                 file_cache[file] = new_file
                 return new_file
             end
@@ -132,15 +167,15 @@ function parse_sound_file(file)
             local end_digit_num = tonumber(end_digit)
 
             if end_digit_num > 0 then
-                -- pr("Walking back end digit on soundname from %s to 1\n", end_digit_num)
+                -- dbg("dev", "Walking back end digit on soundname from %s to 1\n", end_digit_num)
                 for l=1, end_digit_num do
                     local prefix = file:gsub("%d+$", "")
                     local new_file = prefix .. tostring(end_digit_num + 1 - l)
-                    -- pr("Trying path: %s", new_file)
+                    -- dbg("dev", "Trying path: %s", new_file)
                     if in_snd_dir(new_file) then
-                        -- pr("Walked back end digit on soundname and found: %s\n", new_file)
+                        -- dbg("dev", "Walked back end digit on soundname and found: %s\n", new_file)
                         file_cache[file] = new_file
-                        log_file_cache.norm_walkback = log_file_cache.norm_walkback + 1
+                        log_file_cache.norm_walkback[#log_file_cache.norm_walkback + 1] = file
                         return new_file
                     end
                 end
@@ -153,7 +188,7 @@ function parse_sound_file(file)
         
         local start, fin = file:find("fight")
         if start then
-            -- pr("Parsing weird fight string: %s", file)
+            -- dbg("dev", "Parsing weird fight string: %s", file)
             local prefix = file:sub(0, start - 1)
             local fight_str = file:sub(start, file:len())
             
@@ -171,22 +206,22 @@ function parse_sound_file(file)
                     local end_digit = end_digits[#end_digits + 1 - j]
                     local fight_file = prefix .. fight_tkn .. end_digit
 
-                    -- pr("Trying path: %s", fight_file)
+                    -- dbg("dev", "Trying path: %s", fight_file)
                     if in_snd_dir(fight_file) then
-                        -- pr("Found Weird Fight String: %s\n", fight_file)
-                        log_file_cache.fight = log_file_cache.fight + 1
+                        -- dbg("dev", "Found Weird Fight String: %s\n", fight_file)
+                        log_file_cache.fight[#log_file_cache.fight + 1] = fight_file
                         file_cache[file] = fight_file
                         return fight_file
                     else
                         local end_digit_num = tonumber(end_digit)
                         if end_digit_num > 0 then
-                            -- pr("Walking back end digit from %s to 1", end_digit_num)
+                            -- dbg("dev", "Walking back end digit from %s to 1", end_digit_num)
                             for l=1, end_digit_num do
                                 fight_file = prefix .. fight_tkn .. tostring(end_digit_num + 1 - l)
                                 if in_snd_dir(fight_file) then
-                                    -- pr("Walked back end digit and found: %s\n", fight_file)
+                                    -- dbg("dev", "Walked back end digit and found: %s\n", fight_file)
                                     file_cache[file] = fight_file
-                                    log_file_cache.fight_walkback = log_file_cache.fight_walkback + 1
+                                    log_file_cache.fight_walkback[#log_file_cache.fight_walkback + 1] = file
                                     return fight_file
                                 end
                             end
@@ -196,80 +231,93 @@ function parse_sound_file(file)
                 end
             end
         end
-        -- pr("Invalid path: %s\n", file)
-        log_file_cache.invalid = log_file_cache.invalid + 1
+        -- dbg("dev", "Invalid path: %s\n", file)
+        log_file_cache.invalid[#log_file_cache.invalid + 1] = file
     end
 end
 
 function subtitle_them(path, npc)
     if not path or not npc then return end
     if not db.actor then return end
-    
+    if db.actor:position():distance_to(npc:position()) > (CAPTION_HEAR_DIST * 2) then return end
     local npc_id = npc:id()
     if npc_id == AC_ID then return end
+    dbg("dev", "subtitling: %s with %s", npc_id, path)
     --local name = get_npc_name(npc)
     local xml_id = path_to_xml(path)
     local xml_text = gts(xml_id)
+    local tokens = xml_to_tokens(xml_text)
+
     local snd = sound_object(path)
-    local length = snd:length()
+    local word_count = count_words(tokens)
+    local length = USE_SND_LEN and snd:length() or math.max(word_count * 100, sec_to_ms(word_count / WORDS_PER_SECOND))
+    local fade_time_ms = sec_to_ms(FADE_TIME)
 
     local subtitle_info = {
+        path = path,
+        id = strformat("%s_%s", npc_id, xml_id),
+        npc_id = npc_id,
         xml_id = xml_id,
         xml_text = xml_text,
+        tokens = tokens,
+        tokens_added = 0,
+
         length = length,
-        path = path,
-        npc_id = npc_id,
-        tokens = xml_to_tokens(xml_text),
         sound_duration = length + time_global(),
-        show_time = length + (FADE_TIME * 1000) + time_global(),
-        id = strformat("%s_%s", npc_id, xml_id),
+        show_time = length + fade_time_ms + time_global(),
         caption_tmr = 0,
         fade_tmr = 0,
-        caption_opacity = MAX_CAPTION_OPACITY,
-        tokens_added = 0,
-        decreases = calc_decreases(MAX_CAPTION_OPACITY)
+        check_material_tmr = 0,
+        alpha_update_tmr = 0,
+
+        caption_opacity = SUBTITLE_CLR.a,
+        bg_opacity = BACKGROUND_CLR.a,
+        caption_size = SUBTITLE_WND_SIZE,
+
+        npc_pos = npc:bone_position("bip01_head"),
+        npc_faction = get_npc_faction(npc) or "default",
     }
+    subtitle_info.fade_tmr = subtitle_info.show_time - fade_time_ms
     subtitle_info.token_size = #subtitle_info.tokens
-    subtitle_info.decreases_num = #subtitle_info.decreases
-    
-    if not validate_subtitle(subtitle_info) then return end
+    -- dbg("dev", "checking if info for %s is valid: %s", npc_id, subtitle_info)
+    if not validate_subtitle(subtitle_info) then
+        if not contains(log_file_cache.invalid, path) then
+            log_file_cache.invalid[#log_file_cache.invalid + 1] = subtitle_info.path    
+        end
+        return 
+    end
     queue_subtitle(subtitle_info, npc)
 end
 
 function validate_subtitle(info)
-    set_debug_level("all")
     if info.xml_text == info.xml_id then
-        pr("No xml text found for %s", info.xml_id)    
+        dbg("all", "No xml text found for %s", info.xml_id)
         return false
     end
 
     if contains(exclude_subs, info.xml_text) then 
-        pr("Invalid subtitle: %s", info.xml_id)
+        dbg("all", "Invalid subtitle: %s", info.xml_id)
         return false
     end
-
-    if not ENABLE_FIGHT_SUBS and info.xml_id:find("fight") then
-        return false
-    end
-    
 
     return true
 end
 
 function queue_subtitle(info)
-    set_debug_level("dev")
     local id = info.npc_id
     if not contains(QUEUED_SUBTITLES, id, true) then
         QUEUED_SUBTITLES[id] = {}
-        pr("init subs: %s", id)
+        dbg("dev", "init subs: %s", id)
     end
-    pr("queuing subs for: %s", id)
+    dbg("dev","queuing subs for: %s", id)
     QUEUED_SUBTITLES[id][#QUEUED_SUBTITLES[id] + 1] = info
 end
 
 function xml_to_tokens(xml_text, sep)
+    -- dbg("all", "Convering xml to tokens: %s", xml_text)
     local words = get_word_tokens(xml_text, sep)
     local sub_tokens = get_sub_tokens(words)
+    -- dbg("all", "tokens: %s", sub_tokens)
     return sub_tokens
 end
 
@@ -289,23 +337,46 @@ function get_word_tokens(text, sep)
             words[#words + 1] = tkn
         end
     end
+    
+    apply_censor(words)
     return words
+end
+
+function apply_censor(words)
+    local terms_to_censor = censor_terms[CENSOR_TYPE]
+    -- dbg("all","applying censor %s, for %s", CENSOR_TYPE, words)
+    if is_not_empty(terms_to_censor) then
+        for idx, wrd in pairs(words) do
+            local word = lowercase(wrd)
+            for _, term in pairs(terms_to_censor) do
+                if word:find(term) then
+                    words[idx] = string.rep(CENSOR_SYMBOL, #wrd)
+                    break
+                end
+            end
+        end
+    end
 end
 
 function get_sub_tokens(words)
     local tokens = {}
-    --pr("words: %s", print_table(words))
+    
+    -- dbg("all","get sub tokens for words: %s", words)
     if #words % WORDS_PER_SECOND == 0 then
         --pr("is divisble by %s", WORDS_PER_SECOND)
         local j = 1
         for i=1, #words / WORDS_PER_SECOND do
-           tokens[#tokens + 1] = string.format("%s %s %s", words[j], words[j + 1], words[j + 2])
-           j = j + WORDS_PER_SECOND
+            local tkn_str = ""
+            for k=0, WORDS_PER_SECOND - 1 do
+                tkn_str = string.format("%s %s", tkn_str, words[j + k])
+            end
+            tokens[#tokens + 1] = trim(tkn_str) --string.format("%s %s %s", words[j], words[j + 1], words[j + 2])
+            j = j + WORDS_PER_SECOND
         end
         --pr("tokens: %s", print_table(tokens))
         return tokens
-    elseif #words > WORDS_PER_SECOND then
-        -- pr("word count: %s", #words)
+    else
+        -- dbg("dev", "word count: %s", #words)
         local new_word_count = #words
         for i=1, new_word_count do
             new_word_count = new_word_count - 1
@@ -313,33 +384,27 @@ function get_sub_tokens(words)
                 break
             end
         end
-        -- pr("new word count: %s", new_word_count)
-        -- pr("getting main tokens")
+        print(new_word_count)
+        -- dbg("dev", "new word count: %s", new_word_count)
+        -- dbg("dev", "getting main tokens")
         tokens = get_sub_tokens(table_slice(words, 1, new_word_count))
-        -- pr("getting the remainder")
+        -- dbg("dev", "getting the remainder")
         tokens[#tokens + 1] = table.concat(table_slice(words, new_word_count + 1, #words), " ")
         tokens[#tokens] = tokens[#tokens]:gsub("%s$", "")
-        -- pr("tokens: %s", print_table(tokens))
+        -- dbg("dev", "tokens: %s", print_table(tokens))
         return tokens
-    else
-        return words
     end
+    return words
 end
 
-function calc_decreases(opacity)
-    -- pr("calc decreases")
-    local decreases = {}
-    for i=1, FADE_TIME * 1000 do
-        if opacity <= 0 then break end
-        local norm_opacity = opacity / 255
-        local ms_opacity = norm_opacity * 1000
-        local decreased_opacity = ms_opacity - i
-        local new_opacity = (decreased_opacity / 1000) * 255
-        -- pr("Original Opacity: %s, Norm opacity: %s, Ms Opacity: %s, Decreased Opacity: %s, New_opacity: %s\n", opacity, norm_opacity, ms_opacity, decreased_opacity, new_opacity)
-        decreases[i] = new_opacity
-        opacity = new_opacity
+function count_words(tkns)
+    local count = 0
+    for idx, tkn in pairs(tkns) do
+        for _ in tkn:gmatch("%S+") do
+            count = count + 1
+        end
     end
-    return decreases
+    return count
 end
 
 -- NPC Deaths
@@ -371,18 +436,29 @@ function npc_on_death_callback(npc, killer)
 end
 
 function print_file_count()
-    set_debug_level("all")
-    pr("printing file cache count, total: %s\n %s", size_table(log_file_cache), print_table(log_file_cache))
+    dbg("all", "Dumping log file cache")
+    for typ, files in pairs(log_file_cache) do
+        dbg("all", "File Validation Type: %s, Total: %s, Filenames: %s", typ, size_table(files), files)
+    end
 end
 
 function on_option_change(options)
+    setup_log(options["debug_level"], LOG_HEADER, options["enable_debug"])
     -- FADE_TIME           = options["fade_time"]
-    MAX_HEAR_DIST       = options["hear_dist"]
+    CAPTION_HEAR_DIST       = options["hear_dist"]
     -- WORDS_PER_SECOND    = options["words_per_second"]
     -- MIN_CAPTION_OPACITY = options["min_caption_opacity"]
     -- MAX_CAPTION_OPACITY = options["max_caption_opacity"]
     ENABLE_SUBS         = options["enable_subs"]
     ENABLE_FIGHT_SUBS   = options["enable_fight_subs"]
+    CENSOR_TYPE         = options["censor_type"]
+    BACKGROUND_CLR      = str2argb(options["background_colour"], true)
+    SUBTITLE_CLR        = str2argb(options["subtitle_colour"], true)
+    SUBTITLE_WND_SIZE   = {w=options["subtitle_width"], h=options["subtitle_height"]}
+    WORDS_PER_SECOND    = options["words_per_second"]
+    FADE_TIME           = options["fade_time"]
+    USE_SND_LEN         = options["use_snd_length"]
+    dbg("debug", "Received options: %s", options)
 end
 
 function on_game_start()
@@ -393,3 +469,7 @@ function on_game_start()
     RegisterScriptCallback("as_on_option_change", on_option_change)
 end
 
+--[[
+TODO
+If being shot at or an explosion goes off, reduce max hear dist linearly clamped
+--]]

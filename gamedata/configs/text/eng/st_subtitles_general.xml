@@ -15,8 +15,38 @@
 	<string id="ui_mcm_subtitles_enable_fight_subs">
         <text>Enable Fight Subtitles</text>
     </string>
-    	<string id="ui_mcm_subtitles_censor_type">
+    <string id="ui_mcm_subtitles_censor_type">
         <text>Censor Type</text>
+    </string>
+    <string id="ui_mcm_subtitles_caption_offset">
+        <text>Caption Offset</text>
+    </string>
+    <string id="ui_mcm_subtitles_subtitle_width">
+        <text>Maximum Subtitle Width</text>
+    </string>
+    <string id="ui_mcm_subtitles_subtitle_height">
+        <text>Maximum Subtitle Height</text>
+    </string>
+    <string id="ui_mcm_subtitles_words_per_second">
+        <text>Words Per Second</text>
+    </string>
+    <string id="ui_mcm_subtitles_use_snd_length">
+        <text>Use Subtitle Sound Length</text>
+    </string>
+    <string id="ui_mcm_subtitles_reduce_hear_dist">
+        <text>Bush Reduces Hear Dist</text>
+    </string>
+    <string id="ui_mcm_subtitles_obstruct_check">
+        <text>Show if Sight Blocked</text>
+    </string>
+    <string id="ui_mcm_subtitles_fade_time">
+        <text>Fade Time</text>
+    </string>
+    <string id="ui_mcm_subtitles_exclude_materials">
+        <text>Exclude Materials</text>
+    </string>
+    <string id="ui_mcm_subtitles_additional_alpha_type">
+        <text>Additional Alpha (Opacity) Calculation</text>
     </string>
 
     
@@ -131,22 +161,22 @@
     </string>
 
     <!-- Debugging Messages Level-->
-    <string id="ui_mcm_subtitles_debug_level_lst_player">
+    <string id="subtitles_debug_level_lst_player">
         <text>Player</text>
     </string>
-    <string id="ui_mcm_subtitles_debug_level_lst_debug">
+    <string id="subtitles_debug_level_lst_debug">
 		<text>DEBUG</text>
 	</string>
-	<string id="ui_mcm_subtitles_debug_level_lst_info">
+	<string id="subtitles_debug_level_lst_info">
 		<text>INFO</text>
 	</string>
-	<string id="ui_mcm_subtitles_debug_level_lst_dev">
+	<string id="subtitles_debug_level_lst_dev">
 		<text>DEV</text>
 	</string>
-	<string id="ui_mcm_subtitles_debug_level_lst_error">
+	<string id="subtitles_debug_level_lst_error">
 		<text>ERROR</text>
 	</string>
-	<string id="ui_mcm_subtitles_debug_level_lst_all">
+	<string id="subtitles_debug_level_lst_all">
 		<text>ALL</text>
 	</string>
 
@@ -183,5 +213,195 @@
     </string>
     <string id="ui_mcm_enable_news_manager_desc">
         <text>Toggles Acessibility Options, hit apply then re-enter</text>
+    </string>
+
+    <!-- List Check -->
+    <!-- Exlude Materials -->
+    <string id="ui_mcm_multicheck_default">
+        <text>Default</text>
+    </string>
+    <string id="ui_mcm_multicheck_default_object">
+        <text>Default_object</text>
+    </string>
+    <string id="ui_mcm_multicheck_creatures_actor">
+        <text>Creatures\Actor</text>
+    </string>
+    <string id="ui_mcm_multicheck_creatures_hoof">
+        <text>Creatures\Hoof</text>
+    </string>
+    <string id="ui_mcm_multicheck_creatures_human">
+        <text>Creatures\Human</text>
+    </string>
+    <string id="ui_mcm_multicheck_creatures_human_head">
+        <text>Creatures\Human_head</text>
+    </string>
+    <string id="ui_mcm_multicheck_creatures_large">
+        <text>Creatures\Large</text>
+    </string>
+    <string id="ui_mcm_multicheck_creatures_medium">
+        <text>Creatures\Medium</text>
+    </string>
+    <string id="ui_mcm_multicheck_creatures_phantom">
+        <text>Creatures\Phantom</text>
+    </string>
+    <string id="ui_mcm_multicheck_creatures_small">
+        <text>Creatures\Small</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_asphalt">
+        <text>Materials\Asphalt</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_bricks">
+        <text>Materials\Bricks</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_bush">
+        <text>Materials\Bush</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_bush_sux">
+        <text>Materials\Bush_sux</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_cloth">
+        <text>Materials\Cloth</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_concrete">
+        <text>Materials\Concrete</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_death">
+        <text>Materials\Death</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_dirt">
+        <text>Materials\Dirt</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_earth">
+        <text>Materials\Earth</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_earth_death">
+        <text>Materials\Earth_death</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_earth_slide">
+        <text>Materials\Earth_slide</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_fake">
+        <text>Materials\Fake</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_fake_ladders">
+        <text>Materials\Fake_ladders</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_flooring_tile">
+        <text>Materials\Flooring_tile</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_glass">
+        <text>Materials\Glass</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_grass">
+        <text>Materials\Grass</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_gravel">
+        <text>Materials\Gravel</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_metal">
+        <text>Materials\Metal</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_metal_pipe">
+        <text>Materials\Metal_pipe</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_metal_plate">
+        <text>Materials\Metal_plate</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_sand">
+        <text>Materials\Sand</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_setka_rabica">
+        <text>Materials\Setka_rabica</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_shifer">
+        <text>Materials\Shifer</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_stucco">
+        <text>Materials\Stucco</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_tin">
+        <text>Materials\Tin</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_tree_trunk">
+        <text>Materials\Tree_trunk</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_water">
+        <text>Materials\Water</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_water_radiation">
+        <text>Materials\Water_radiation</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_wood">
+        <text>Materials\Wood</text>
+    </string>
+    <string id="ui_mcm_multicheck_materials_wooden_board">
+        <text>Materials\Wooden_board</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_barrel">
+        <text>Objects\Barrel</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_bottle">
+        <text>Objects\Bottle</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_bullet">
+        <text>Objects\Bullet</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_car_cabine">
+        <text>Objects\Car_cabine</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_car_wheel">
+        <text>Objects\Car_wheel</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_clothes">
+        <text>Objects\Clothes</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_concrete_box">
+        <text>Objects\Concrete_box</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_dead_body">
+        <text>Objects\Dead_body</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_fuel_can">
+        <text>Objects\Fuel_can</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_glass">
+        <text>Objects\Glass</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_knife">
+        <text>Objects\Knife</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_large_furniture">
+        <text>Objects\Large_furniture</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_large_metal_trash">
+        <text>Objects\Large_metal_trash</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_large_weapon">
+        <text>Objects\Large_weapon</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_metal_box">
+        <text>Objects\Metal_box</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_monster_body">
+        <text>Objects\Monster_body</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_small_box">
+        <text>Objects\Small_box</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_small_metal_trash">
+        <text>Objects\Small_metal_trash</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_small_weapon">
+        <text>Objects\Small_weapon</text>
+    </string>
+    <string id="ui_mcm_multicheck_objects_tin_can">
+        <text>Objects\Tin_can</text>
+    </string>
+    <!--Additional Alpha -->
+    <string id="subtitles_additional_alpha_type_lst_dist_based_alpha">
+        <text>Distance Based (Meters)</text>
+    </string>
+    <string id="subtitles_additional_alpha_type_lst_snd_based_alpha">
+        <text>Sound Occulsion Based</text>
     </string>
 </string_table>

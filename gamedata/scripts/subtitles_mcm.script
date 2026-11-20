@@ -22,8 +22,20 @@ defaults = {
 	subtitle_alignment = "center",
 	enable_fight_subs = true,
 	censor_type = 0,
-	caption_offset = 0.1,
+	caption_offset = 0.3,
+	subtitle_width = 250,
+	subtitle_height = 50,
+	words_per_second = 3, -- avg words per mintue in russian = 184. 184/60 = 3.067. so ~3 words a second, worldest fastest speaker 655 wpm 655/60 = 10.91 so ~11 wps https://en.wikipedia.org/wiki/Steve_Woodmore
+	fade_time = 2,
+	use_snd_length = true,
+	reduce_hear_dist = true,
+	obstruct_check = true,
+	exclude_materials = subtitles_utils.exclude_materials, -- added materials_*.ltx
+	additional_alpha_type = 1,
 }
+
+-- Library Imports
+ag_utils.import(this, {ag_strings})
 
 -- Constants
 LOG_HEADER = "[AS|MCM]"
@@ -125,6 +137,9 @@ function on_mcm_load()
 			{id="enable_faction_clr", type="check", val=1, def=false},
 			{id="enable_background", type="check", val=1, def=false},
 			{id="enable_fight_subs", type="check", val=1, def=true},
+			{id="use_snd_length", type="check", val=1, def=true},
+			{id="reduce_hear_dist", type="check", val=1, def=true},
+			{id="obstruct_check", type="check", val=1, def=true},
 			{id="censor_type", type="list", val=2, def=1,
 				content={
 					{1,"none"},
@@ -134,7 +149,24 @@ function on_mcm_load()
 				}
 			},
 			{id="hear_dist", type = "track", val = 2, min=1,max=35,step=1, def = 25},
-			{id="caption_offset", type="track", val=2, min=0, max=1, step=0.1, def=0.1},
+			{id="caption_offset", type="track", val=2, min=0, max=1, step=0.1, def=0.3},
+			{id="subtitle_width", type="track", val=2, min=1, max=device().width, step=1, def=250},
+			{id="subtitle_height", type="track", val=2, min=1, max=device().height, step=1, def=50},
+			{id="words_per_second", type="track", val=2, min=1, max=11, step=1, def=3},
+			{id="fade_time", type="track", val=2, min=1, max=10, step=1, def=2},
+			{id="exclude_materials", type="input", val=0, def=tbl2str(defaults.exclude_materials),
+				ui_hook_functor={ui_mcm_as_list_check.init_control},
+				order={tbl=subtitles_utils.exclude_materials_order, priority="lower"},
+				margin=10,
+				padding=5
+			},
+			{id="additional_alpha_type", type="radio_h", val=2, def=1,
+				content={
+					{1, "none"},
+					{2, "snd_based_alpha"},
+					{3, "dist_based_alpha"},
+				},
+			},
 			
 			{id="divider", type="line"},
 			{id="title_accessibility", type="title", text="ui_mcm_subtitles_title_accessibility"},

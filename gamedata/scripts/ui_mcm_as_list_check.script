@@ -1,0 +1,254 @@
+-- Library Imports
+ag_utils.import(this, {ag_tables, ag_strings, ag_maths})
+gts = get_translation
+
+-- Script Imports
+get_config = subtitles_mcm.get_config
+
+
+-- Constants
+LOG_HEADER = "[AS|List Check]"
+LIST_ITEM_MCM_PREFIX = "ui_mcm_multicheck_%s"
+
+-- Globals
+
+-- Locals
+local UIMCM, UIMM
+local xml = CScriptXmlInit()
+local wnds = {}
+local dbg_pr = nil
+
+-- DEBUGGING
+function setup_log(level, header, enabled)
+    if not dbg_pr then
+        dbg_pr = ag_logging.new({
+            level=level,
+            header=header,
+            enabled=enabled
+        })
+    else
+        dbg_pr:SetLevel(level)
+        dbg_pr:Enable(enabled)
+    end
+end
+
+function dbg(level, fmt, ...)
+    if not dbg_pr then
+        setup_log(get_config("debug_level"), LOG_HEADER, get_config("enable_debug"))    
+    end
+    dbg_pr:Log(level, fmt, ...)
+end
+
+-- Main
+function init_control(anchor, handlers, opts, flags)
+	xml = CScriptXmlInit()
+	xml:ParseFile("ui_as_mcm_list_check.xml")
+	if not (anchor and opts and flags) then return end
+	local opt_tbl 		= dup_table(opts)
+	local flag_tbl 		= dup_table(flags)
+
+	flag_tbl.ctrl_id 	= ui_mcm.cc(flag_tbl.path, flag_tbl.opt)
+	if handlers and handlers.ctrl then
+		handlers.ctrl:Show(false)
+	end
+
+	wnds[flag_tbl.ctrl_id] = UIListCheck(anchor, handlers, opt_tbl, flag_tbl)
+end
+
+class "UIListCheck" (CUIScriptWnd)
+function UIListCheck:__init(anchor, handlers, opts, flags) super()
+    self:SetAutoDelete(true)
+
+	local id 	    = "list_check_"
+	local opt 		= opts and opts.id or ""
+	self.base_id 	= id .. opt .. "_"
+	self.anchor     = anchor or self
+	self.opts       = opts or {}
+	self.flags      = flags or {}
+	self.path 		= flags.path or ""
+	self.opt 		= flags.opt or opts.id or ""
+	self.opt_id 	= ui_mcm.cc(self.path, self.opt)
+	self.ctrl 		= {}
+	self.text 		= {}
+    self.tmr        = 0
+
+	self:InitControls()
+    RegisterScriptCallback("mcm_option_restore_default", self)
+end
+
+function UIListCheck:InitControls()
+    dbg("dev", "init controls")
+    self.value_tbl_order = self:BuildOrderFunc(self.opts.order)
+    self.order_to_value = invert_table(self.opts.order.tbl)
+	self.init_value = mcm_get_value(self.path, self.opt, self.opts, self.flags)
+	self.def_value_tbl = self:StringToTable(self.init_value)
+    -- dbg("dev", "value tbl order: %s", self.value_tbl_order)
+    -- dbg("dev", "order_to_value: %s", self.order_to_value)
+    -- dbg("dev", "init value: '%s'", self.init_value)
+    -- dbg("dev", "def value tbl: %s", self.def_value_tbl)
+	self.value_tbl = {}
+	copy_table(self.value_tbl, self.def_value_tbl)
+	self.ele_num = size_table(self.value_tbl)
+    self.checkbox_vals = {}
+
+	self.anchor_size = {
+		w = self.anchor:GetWidth(),
+		h = self.anchor:GetHeight()
+	}
+    self.margin = self.opts.margin and math.min(self.opts.margin, self.anchor_size.w) or 10
+	self.padding = self.opts.padding and math.min(self.opts.padding, self.margin) or self.margin
+
+    local mcm_pos = {x=282, y=0}
+	self.total_width  = self.anchor_size.w - (self.margin * 2) - self.padding - mcm_pos.x
+	self.total_height = self.anchor_size.h
+
+    self.dialog = xml:InitStatic("dialog", self.anchor)
+    self.dialog:SetWndSize(vector2():set(self.total_width, self.total_height))
+    self.dialog:SetWndPos(vector2():set(self.margin + mcm_pos.x, self.margin + mcm_pos.y))
+
+    local list_width = (self.total_width / 2) - (self.padding / 2)
+    local list_height = (self.total_height - 4)
+    local list_pos = {x=0, y=self.total_height - list_height }
+    self.list = xml:InitComboBox("dialog:list", self.dialog)
+    self.list:SetWndSize(vector2():set(list_width, list_height))
+    self.list:SetWndPos(vector2():set(list_pos.x, list_pos.y))
+
+    self:Register(self.list, "list")
+    self:AddCallback("list", ui_events.LIST_ITEM_SELECT, self.OnList, self)
+
+    local check_width = self.total_width - list_width - 15
+    local check_height = self.total_height
+    local check_pos = {x=list_pos.x + list_width + (self.padding / 2), y=0}
+
+    self.checkbox = xml:InitCheck("dialog:checkbox", self.dialog)
+    self.checkbox:SetWndSize(vector2():set(check_width, check_height))
+    self.checkbox:SetWndPos(vector2():set(check_pos.x, check_pos.y))
+
+    self:Register(self.checkbox, "checkbox")
+    self:AddCallback("checkbox", ui_events.BUTTON_CLICKED, self.OnCheck, self)
+
+    local idx = 1
+    for id, val in spairs(self.value_tbl, self.value_tbl_order) do
+        self:SetupControl(idx, id, val)
+        idx = idx + 1
+    end
+    self.list:SetCurrentIdx(1)
+    self:LoadListCheck(1)
+end
+
+function UIListCheck:SetupControl(idx, id, val)
+    -- dbg("dev", "setup control idx:%s, id:%s, value:%s", idx, id, val)
+    self.checkbox_vals[idx] = self.value_tbl[id]
+    -- dbg("dev", "set check val for %s to %s", idx, self.checkbox_vals[idx])
+    local itm = self:GetIDString(id)
+    -- dbg("dev", "adding %s at %s for list", itm, idx)
+    self.list:AddItem(itm, idx)
+end
+
+function UIListCheck:LoadListCheck(idx)
+    local id = self:IndexToID(idx)
+    local curr_idx = self.list:CurrentID()
+    -- dbg("dev", "loading list track for expected idx:%s, actual idx: %s", idx, curr_idx)
+    if curr_idx ~= idx then
+        -- dbg("dev", "changing list idx from %s to %s for: %s", curr_idx, idx, id)
+        self.list:SetCurrentIdx(idx)
+        self.list:SetText(self:GetIDString(id))
+    end
+
+    if self.checkbox:GetCheck() ~= self.checkbox_vals[idx] then
+        self.checkbox:SetCheck(self.checkbox_vals[idx])
+        -- dbg("dev", "setting %s to %s", idx, self.checkbox_vals[idx])
+    end
+end
+
+-- UI Callbacks
+function UIListCheck:OnList()
+    -- dbg("dev", "on list")
+    self:LoadListCheck(self.list:CurrentID())
+end
+
+function UIListCheck:OnCheck()
+    -- dbg("dev", "on check")
+    local checked = self.checkbox:GetCheck()
+    local curr_idx = clamp(self.list:CurrentID(), 1, self.ele_num)
+    -- dbg("dev", "is %s checked: %s", curr_idx, checked)
+    local id = self:IndexToID(curr_idx)
+    self.value_tbl[id] = checked
+    local value_tbl_str = self:TableToString(self.value_tbl)
+    mcm_cache_value(self.path, self.opt, value_tbl_str, self.opts)
+    self.checkbox_vals[curr_idx] = checked
+end
+
+function UIListCheck:mcm_option_restore_default()
+    if cmp_tbl(self.value_tbl, self.def_value_tbl) then return end
+    -- dbg("dev", "restoring default from %s", self.value_tbl)
+    empty_table(self.value_tbl)
+	copy_table(self.value_tbl, self.def_value_tbl)
+    -- dbg("dev", "to: %s", self.value_tbl)
+    self:LoadListTrack(1)
+end
+
+-- Helpers
+function UIListCheck:GetIDString(id)
+    return gts(strformat(LIST_ITEM_MCM_PREFIX, slashes_to_underscores(id)))
+end
+
+function UIListCheck:IndexToID(idx)
+    return self.order_to_value[idx]
+end
+
+function UIListCheck:BuildOrderFunc(order)
+    if order.priority == "lower" then
+        return function(t, a, b)
+            return order.tbl[a] < order.tbl[b]    
+        end
+    end
+    return function(t, a, b)
+        return order.tbl[a] > order.tbl[b]
+    end
+end
+
+function UIListCheck:StringToTable(str)
+	return str2tbl(str)
+end
+
+function UIListCheck:TableToString(tbl)
+    return tbl2str(tbl, self.value_tbl_order)
+end
+
+
+---@author catspaw
+function mcm_cache_value(path, opt, value, v)
+	UIMCM = UIMM.mcm_dlg
+	if (not UIMCM) or ui_mcm.is_gathering() then return end
+	UIMCM:CacheValue(path, opt, value, v)
+end
+
+---@author catspaw
+function mcm_get_value(path, opt, v, flags)
+	UIMCM = UIMM.mcm_dlg
+	if (not UIMCM) or ui_mcm.is_gathering() then return end
+	return UIMCM:GetValue(path, opt, v, flags)
+end
+
+-- Callbacks
+RegisterScriptCallback("main_menu_on_init", function(m) UIMM = m end)
+
+base_mcm_update = ui_mcm.UI_MCM.Update
+function ui_mcm.UI_MCM.Update(self)
+    base_mcm_update(self)
+    for id, wnd in pairs(wnds) do
+        if wnd then
+            wnd:Update()
+        end
+    end
+end
+
+function on_option_change(options)
+    setup_log(options["misc"]["debug_level"], LOG_HEADER, options["misc"]["enable_debug"])
+    dbg("debug", "Received options")
+end
+
+function on_game_start()
+    RegisterScriptCallback("hfg_on_option_change", on_option_change)
+end

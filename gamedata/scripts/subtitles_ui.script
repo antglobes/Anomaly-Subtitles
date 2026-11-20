@@ -1,45 +1,71 @@
--- Imports
-contains = ag_tables.contains
-print_table = ag_tables.print_table
-get_unknown_object = ag_game_objects.get_unknown_object
-dist_to_pos = ag_game_objects.dist_to_pos
+-- Library Imports
+ag_utils.import(this, {ag_tables, ag_game_objects, ag_position, ag_maths, ag_colours, ag_npc})
+
+-- Script Imports
 geo_ray = demonized_geometry_ray.geometry_ray
-get_direction = ag_game_objects.get_direction
+mcm2font = subtitles_mcm.mcm2font
+mcm2align = subtitles_mcm.mcm2align
+get_config = subtitles_mcm.get_config
 
 -- Utils
 get_npc_faction = subtitles_utils.get_npc_faction
-set_debug_level =  subtitles_utils.set_debug_level
-filter_debug_msg = subtitles_utils.filter_debug_msg
-str2ARGB = subtitles_utils.str2ARGB
+material_sound_peneration_factors = subtitles_utils.material_sound_peneration_factors
+ADDITIONAL_ALPHA_TYPES = subtitles_utils.ADDITIONAL_ALPHA_TYPES
+
+-- Constants
+MIN_ALPHA = 0
+MAX_ALPHA = 255
+FADE_TIME = 2
+LOG_HEADER = "[AS|UI]"
+CROUCH_COEF = ini_sys:r_float_ex("actor", "crouch_coef") 
+RUN_COEF = ini_sys:r_float_ex("actor", "run_coef")
+SPRINT_COEF = ini_sys:r_float_ex("actor", "sprint_coef")
 
 -- MCM
-MIN_CAPTION_OPACITY = 0
-MAX_CAPTION_OPACITY = 255
-FADE_TIME = 2
-MAX_CAPTION_HEAR_DIST = 35
-COLOUR_BLIND_TYPE = "normal"
-ENABLE_FACTION_CLR = false
-ENABLE_BACKGROUND = true
-BACKGROUND_CLR = "80,0,0,0" 
-SUBTITLE_CLR = "255,255,255,255"
-SUBTITLE_FONT = "letterica18"
-SUBTITLE_ALIGNMENT = "center"
+CAPTION_HEAR_DIST = subtitles_mcm.defaults["hear_dist"]
+COLOUR_BLIND_TYPE = subtitles_mcm.defaults["colour_blind_type"]
+ENABLE_FACTION_CLR = subtitles_mcm.defaults["enable_faction_clr"]
+ENABLE_BACKGROUND = subtitles_mcm.defaults["enable_background"]
+BACKGROUND_CLR = str2argb(subtitles_mcm.defaults["background_colour"], true)
+SUBTITLE_CLR = str2argb(subtitles_mcm.defaults["subtitle_colour"], true)
+SUBTITLE_FONT = mcm2font(subtitles_mcm.defaults["subtitle_font"])
+SUBTITLE_ALIGNMENT = mcm2align(subtitles_mcm.defaults["subtitle_alignment"])
+CAPTION_OFFSET = subtitles_mcm.defaults["caption_offset"]
+SUBTITLE_WND_SIZE = {w=subtitles_mcm.defaults["subtitle_width"], h=subtitles_mcm.defaults["subtitle_height"]}
+ENABLE_SUBS = subtitles_mcm.defaults["enable_subs"]
+WORDS_PER_SECOND = subtitles_mcm.defaults["words_per_second"]
+ENABLE_FIGHT_SUBS = subtitles_mcm.defaults["enable_fight_subs"]
+REDUCE_HEAR_DIST = subtitles_mcm.defaults["reduce_hear_dist"]
+OBSTRUCT_CHECK   = subtitles_mcm.defaults["obstruct_check"]
+EXCLUDE_MATERIALS = subtitles_mcm.defaults["exclude_materials"]
+ADD_ALPHA_TYPE = subtitles_mcm.defaults["additional_alpha_type"]
 
--- Variables
+-- Globals
 HUD = nil
-clr_cache = {}
 DESPAWNED_NPCS = {}
-local dbg_lvl = "player"
 
--- Tables
-include_materials = {
-    "materials\\fake",
-}
+-- Locals
+local dbg_pr = nil
 
--- Debugging
-function pr(str, ...)
-    if not filter_debug_msg(dbg_lvl) then return end
-    subtitles_utils.dbg_pr("[AS|UI]: %s", str, ...)
+-- DEBUGGING
+function setup_log(level, header, enabled)
+    if not dbg_pr then
+        dbg_pr = ag_logging.new({
+            level=level,
+            header=header,
+            enabled=enabled
+        })
+    else
+        dbg_pr:SetLevel(level)
+        dbg_pr:Enable(enabled)
+    end
+end
+
+function dbg(level, fmt, ...)
+    if not dbg_pr then
+        setup_log(get_config("debug_level"), LOG_HEADER, get_config("enable_debug"))    
+    end
+    dbg_pr:Log(level, fmt, ...)
 end
 
 class "UICaption"
@@ -47,24 +73,23 @@ function UICaption:__init(parent, npc_id)
     self.parent = parent
     self.npc_id = npc_id
 
-    self.active_info = {}
-    self.hearing_distance = MAX_CAPTION_HEAR_DIST
+    self.active_info =  {}
 
     self.bg = self.parent.xml:InitStatic("background", self.parent)
     self.caption = self.parent.xml:InitTextWnd("caption", self.parent)
-    
-    self.max_cap_w = self.caption:GetWidth()
-    self.max_cap_h = self.caption:GetHeight()
-    self.max_bg_w =  self.bg:GetWidth()
-    self.max_bg_h =  self.bg:GetHeight()
 
-    self.last_position = db.actor:position()
+    self.bg:Show(false)
+    self.caption:Show(false)
+    
+    self.last_npc_pos = nil
+    self.last_actor_pos = nil
     self.last_material = nil
-    self.last_position_npc = vector():set(0, 0, 0)
 
     self.scale = 1
-    
+    self.init_fade = false
+    self.options_tmr = 0
     self:ApplyScreenRatio(self.caption)
+    self:ApplyScreenRatio(self.bg)
 end
 
 function UICaption:__finalize()
@@ -74,158 +99,250 @@ end
 
 function UICaption:Update(show_caption)
     local tg = time_global()
-    set_debug_level("all")
 
     local pos = self:GetScreenPosition()
-    -- pr("Show caption: %s, valid screen pos?: %s", show_caption, self:ScreenPosValid(pos))
-    if show_caption and self:ScreenPosValid(pos) then
-        if is_empty(self.active_info) and is_not_empty(subtitles.QUEUED_SUBTITLES[self.npc_id]) then              
-            self.active_info = table.remove(subtitles.QUEUED_SUBTITLES[self.npc_id], 1)
-            pr("init active info with %s", print_table(self.active_info))
-            self:AddTokensToCaption(tg)
-
-        elseif is_not_empty(self.active_info) then
-            
-            -- Stage 1: Add/Update Caption until Sound Duration Reached
-            if tg <= self.active_info["show_time"] and tg <= self.active_info["sound_duration"] 
-                and tg >= self.active_info["caption_tmr"] and is_not_empty(self.active_info["tokens"]) then
-                self:AddTokensToCaption(tg)
-            end
-
-            -- Stage 2: Once Sound Duration Reached Fade Caption until Show Time Reached
-            if tg < self.active_info["show_time"] and tg >= self.active_info["sound_duration"]
-                and tg >= self.active_info["fade_tmr"] then
-                self:FadeCaption(tg)
-            end
-
-            -- Stage 3: Both Show Time and Sound Duration has been reached, Move to Next
-            if tg >= self.active_info["show_time"] and tg >= self.active_info["sound_duration"] then
-                pr("hiding caption for %s at %s", self.npc_id, self.active_info["show_time"])
-                self.active_info = {}
-                self.bg:Show(false)
-                self.caption:Show(false)
-                self.caption:SetText("")
-                self.bg:SetWndSize(vector2():set(self.max_bg_w, self.max_bg_h))
-                return
-            end
-        end
-
-        if self:Validate(self.active_info) then
-            self.bg:Show(true)
-            self.caption:Show(true)
-            self:SetCaptionClr()    
-            self:SetCaptionVec(pos)       
-        else
-            self.bg:Show(false)
-            self.caption:Show(false)
-        end
+    if 
+        show_caption 
+        and self:ScreenPosValid(pos) 
+        and self:Validate(self.active_info) 
+    then
+        self.bg:Show(true)
+        self.caption:Show(true)    
+        self:SetCaptionVec(pos)
+        self:UpdateOptions() 
+        self:UpdateCaptionAlpha() 
     else
         self.bg:Show(false)
         self.caption:Show(false)
     end
+
+    -- dbg("dev","Show caption: %s, valid screen pos?: %s", show_caption, self:ScreenPosValid(pos))
+     --and self:ScreenPosValid(pos) then
+    if is_empty(self.active_info) and is_not_empty(subtitles.QUEUED_SUBTITLES[self.npc_id]) then              
+        self.active_info = table.remove(subtitles.QUEUED_SUBTITLES[self.npc_id], 1)
+        dbg("all","init active info with %s", self.active_info)
+        self:SetCaptionClr()
+        self:AddTokensToCaption(tg)
+
+    elseif is_not_empty(self.active_info) then
+        
+        -- Stage 1: Add/Update Caption until Sound Duration Reached
+        if tg <= self.active_info["show_time"] and tg <= self.active_info["sound_duration"] 
+            and tg >= self.active_info["caption_tmr"] and is_not_empty(self.active_info["tokens"]) then
+            self:AddTokensToCaption(tg)
+        end
+
+        -- Stage 2: Once Sound Duration Reached Fade Caption until Show Time Reached
+        if tg < self.active_info["show_time"] and tg >= self.active_info["sound_duration"]
+            and tg >= self.active_info["fade_tmr"] then
+            self:FadeCaption()
+        end
+
+        -- Stage 3: Both Show Time and Sound Duration has been reached, Move to Next
+        if tg >= self.active_info["show_time"] and tg >= self.active_info["sound_duration"] then
+            dbg("all","hiding caption for %s at %s", self.npc_id, self.active_info["show_time"])
+            self.active_info = {}
+            self.bg:Show(false)
+            self.caption:Show(false)
+            self.caption:SetText("")
+            self.bg:SetWndSize(vector2():set(self.max_bg_w, self.max_bg_h))
+            self.init_fade = false
+            return
+        end
+    end
 end
 
-function UICaption:AddTokensToCaption(tg)
+function UICaption:UpdateOptions() -- UpdateBackgroundAlpha
+    if not ENABLE_BACKGROUND and BACKGROUND_CLR.a == MIN_ALPHA then return end
+    if time_global() < self.options_tmr then return end
+    local bg_clr = self.bg:GetTextureColor()
+    local bg_argb = float2argb(bg_clr, true)
+    if 
+        time_global() < self.active_info["sound_duration"] 
+        and BACKGROUND_CLR.a ~= bg_argb.a 
+    then
+        self:SetCaptionClr()
+    end
+    self:UpdateCaptionWndSize()
+    self.options_tmr = time_global() + 200
+end
+
+function UICaption:UpdateCaptionWndSize()
+    if 
+        self.active_info["caption_size"].w == SUBTITLE_WND_SIZE.w
+        or self.active_info["caption_size"].h == SUBTITLE_WND_SIZE.h
+    then
+        return
+    end
+    local new_size = vector2():set(
+        clamp(SUBTITLE_WND_SIZE.w, 1, device().width),
+        clamp(SUBTITLE_WND_SIZE.h, 1, device().height)
+    )
+    self.caption:SetWndSize(new_size)
+    self.bg:SetWndSize(new_size)
+    self.active_info["caption_size"] = {w=new_size.x, h=new_size.y}
+end
+
+function UICaption:UpdateCaptionAlpha()
+    if ADD_ALPHA_TYPE == ADDITIONAL_ALPHA_TYPES.none then return end
+    if time_global() < self.active_info["alpha_update_tmr"] then return end
+    local max_cap_alpha = ENABLE_FACTION_CLR and self.active_info["faction_clr"] and self.active_info["faction_clr"].a or SUBTITLE_CLR.a 
+    local max_bg_alpha = ENABLE_BACKGROUND and BACKGROUND_CLR.a or MIN_ALPHA
+    dbg("dev", "max alpha|cap:%s, bg: %s", max_cap_alpha, max_bg_alpha)
+    if ADD_ALPHA_TYPE == ADDITIONAL_ALPHA_TYPES.dist_based_alpha then
+        self:UpdateCaptionDistAlpha(max_cap_alpha, max_bg_alpha)
+    elseif 
+        OBSTRUCT_CHECK 
+        and ADD_ALPHA_TYPE == ADDITIONAL_ALPHA_TYPES.snd_pen_alpha 
+    then
+        self:UpdateCaptionSndAlpha(max_cap_alpha, max_bg_alpha)
+    end
+    self.active_info["alpha_update_tmr"] = time_global() + 200
+end
+
+function UICaption:UpdateCaptionDistAlpha(max_cap_alpha, max_bg_alpha) -- mcm option dist based alpha or 
+    if time_global() >= self.active_info["sound_duration"] then return end
+    local npc = get_unknown_object({id=self.npc_id}, "game")
+    if not npc then return end
+    local dist = db.actor:position():distance_to(npc:position()) -- magnitude based on zoom factor or fov
+    local norm_dist = clamp(normalize(dist, 0, CAPTION_HEAR_DIST), 0, 1)
+    dbg("dev", "dist: %s, norm dist: %s", dist, norm_dist)
+    local targ_cap_alpha = lerp(max_cap_alpha, MIN_ALPHA, norm_dist)
+    local targ_bg_alpha = lerp(max_bg_alpha, MIN_ALPHA, norm_dist)
+    dbg("dev", "updating caption dist alpha| bg: %s, cap: %s", targ_bg_alpha, targ_cap_alpha)
+    self.active_info["caption_opacity"] = targ_cap_alpha
+    self.active_info["bg_opacity"] = targ_bg_alpha
+    self:SetCaptionClr()
+end
+
+function UICaption:UpdateCaptionSndAlpha(max_cap_alpha, max_bg_alpha)
+    if time_global() >= self.active_info["sound_duration"] then return end
+    local targ_cap_alpha = SUBTITLE_CLR.a
+    local targ_bg_alpha = BACKGROUND_CLR.a
+    if self.last_material then
+        local snd_pen_fac = material_sound_peneration_factors[self.last_material] or 0
+        targ_cap_alpha = round(max_cap_alpha * snd_pen_fac)
+        targ_bg_alpha = round(max_bg_alpha * snd_pen_fac)
+    end
+    dbg("dev", "updating caption snd alpha| bg: %s, cap: %s", targ_bg_alpha, targ_cap_alpha)
+    self.active_info["caption_opacity"] = targ_cap_alpha
+    self.active_info["bg_opacity"] = targ_bg_alpha
+    self:SetCaptionClr()
+end
+
+
+function UICaption:AddTokensToCaption(tg) --add get text size to engine
     if is_empty(self.active_info) then return end
     if is_empty(self.active_info["tokens"]) then return end
     local sub_tkn = table.remove(self.active_info["tokens"], 1)
-    local subtitle = ""
-    if self.active_info["tokens_added"] < 9 then
-        subtitle = strformat("%s %s", self.caption:GetText(), sub_tkn)
-    else
+    local subtitle = strformat("%s %s", self.caption:GetText(), sub_tkn)
+    local sub_text_size = self.caption:GetTextSize()
+    if  
+        self.active_info["tokens_added"] < 1
+        or round(sub_text_size.x) > SUBTITLE_WND_SIZE.w
+        -- and round(sub_text_size.y) <= SUBTITLE_WND_SIZE.h
+    then
         subtitle = sub_tkn
-        self.active_info["tokens_added"] = 0
     end
+    -- dbg("dev", "subtitle text size: %s", sub_text_size)
+    -- dbg("dev", "mcm subtitle wnd size: %s", SUBTITLE_WND_SIZE)
     self.caption:SetText(subtitle)
-    self.active_info["caption_tmr"] = tg + (self.active_info["length"] / self.active_info["token_size"])
+    -- dbg("dev", "for %s setting subtitle to: %s", self.npc_id, subtitle)
+    self.active_info["caption_tmr"] = tg + ((self.active_info["length"] / self.active_info["token_size"]))
     self.active_info["tokens_added"] = self.active_info["tokens_added"] + 1
-
     -- font
-    local font = mcm2font(SUBTITLE_FONT)
-    self.caption:SetFont(font)
+    self.caption:SetFont(SUBTITLE_FONT)
 
     -- alignment
-    local alignment = mcm2align(SUBTITLE_ALIGNMENT)
-    self.caption:SetTextAlignment(alignment)
+    self.caption:SetTextAlignment(SUBTITLE_ALIGNMENT)
 
-    --pr("Updating tokens to caption: subtitle %s, token: %s, tmr: %s", subtitle, sub_tkn, self.active_info["caption_tmr"])
+    --dbg("dev","Updating tokens to caption: subtitle %s, token: %s, tmr: %s", subtitle, sub_tkn, self.active_info["caption_tmr"])
     local bg_height = self.bg:GetHeight()
     local bg_size = vector2():set(self.bg:GetWidth(),(bg_height + 3))
     self.bg:SetWndSize(bg_size)
 end
 
 function UICaption:FadeCaption(tg)
-    set_debug_level("all")
-    if is_empty(self.active_info["decreases"]) then return end
-    local new_opacity = table.remove(self.active_info["decreases"], 1)
-    new_opacity = math.floor(new_opacity)
+    if is_empty(self.active_info) then return end
+    local elapsed_time = time_global() + math.min(50, device().time_delta)
+    if not self.init_fade then
+        self.active_info["fade_start_time"] = time_global()
+        self.active_info["fade_end_time"] = self.active_info["show_time"]
+        self.init_fade = true
+    end
+
+    local time_factor = clamp(normalize(elapsed_time, self.active_info["fade_start_time"], self.active_info["fade_end_time"]), 0, 1)
 
     local bg_clr = self.bg:GetTextureColor()
-    local argb = float2argb(bg_clr, true)
-    local bg_opacity = clamp(new_opacity, 0, argb[1])
-    self.bg:SetTextureColor(change_alpha(bg_clr, bg_opacity))
+    local bg_argb = float2argb(bg_clr, true)
+    local new_bg_alpha = clamp(round(lerp(bg_argb.a, MIN_ALPHA, time_factor)), MIN_ALPHA, MAX_ALPHA)
+    self.bg:SetTextureColor(change_alpha(bg_clr, new_bg_alpha))
+    self.active_info["bg_opacity"] = new_bg_alpha
+    -- dbg("all", "bg alpha| old: %s, new:%s", bg_argb.a, new_bg_alpha)
 
     local cap_clr = self.caption:GetTextColor()
-    local cap_opacity = clamp(new_opacity, MIN_CAPTION_OPACITY, MAX_CAPTION_OPACITY)
-    pr("fading caption from %s to %s", self.active_info["caption_opacity"], cap_opacity)
-    self.caption:SetTextColor(change_alpha(cap_clr, cap_opacity))
+    local cap_argb = float2argb(cap_clr, true)
+    local new_cap_alpha = clamp(round(lerp(cap_argb.a, MIN_ALPHA, time_factor)), MIN_ALPHA, MAX_ALPHA)
+    -- dbg("all", "cap alpha| old: %s, new: %s", cap_argb.a, new_cap_alpha)
+    self.caption:SetTextColor(change_alpha(cap_clr, new_cap_alpha))
+    self.active_info["caption_opacity"] = new_cap_alpha
 
-    self.active_info["caption_opacity"] = cap_opacity
-    self.active_info["fade_tmr"] = tg + (FADE_TIME / self.active_info["decreases_num"])
+    if new_cap_alpha == MIN_ALPHA and new_bg_alpha == MIN_ALPHA then
+        self.active_info["show_time"] = elapsed_time
+    end
 end
 
 function UICaption:SetCaptionClr()
-    set_debug_level("all")
-    pr("Setting Caption Colour")
-    local argb = GetARGB(self.active_info["caption_opacity"], 255, 255, 255)
+    -- dbg("all","Setting Caption Colour")
+    local cap_argb = get_colourblind_clr(SUBTITLE_CLR, COLOUR_BLIND_TYPE, true)
     if ENABLE_FACTION_CLR then
-        --pr("using faction clr")
-        local npc = get_unknown_object({id=self.npc_id}, "game")
-        argb = get_faction_clr(npc, self.active_info["caption_opacity"], COLOUR_BLIND_TYPE)
-    else
-        --pr("Using MCM set clr")
-        argb = str2ARGB(SUBTITLE_CLR, true)
-        argb[1] = self.active_info["caption_opacity"]
-        argb = tbl2argb(argb)
+        -- dbg("dev", "npc faction: %s", self.active_info["npc_faction"])
+        cap_argb = get_faction_clr(self.active_info["npc_faction"], COLOUR_BLIND_TYPE, true)
+        if not contains(self.active_info, "faction_clr", true) then self.active_info["faction_clr"] = cap_argb end
     end
-    pr("Caption clr: %s", print_table(float2argb(argb, true)))
-    self.caption:SetTextColor(argb)
+    cap_argb.a = self.active_info["caption_opacity"]
+    -- dbg("all","Caption clr: %s", cap_argb)
+    self.caption:SetTextColor(tbl2argb(cap_argb))
     
-    local opacity = 0
-    local clr_tbl = {0, 0, 0, 0}
+    local bg_argb = {a=0, r=0, g=0, b=0}
     if ENABLE_BACKGROUND then
-        --pr("using MCM set background")
-        clr_tbl = str2ARGB(BACKGROUND_CLR, true)
-        opacity = self.active_info["caption_opacity"]
+        --dbg("dev","using MCM set background")
+        bg_argb = get_colourblind_clr(BACKGROUND_CLR, COLOUR_BLIND_TYPE, true)
+        bg_argb.a = self.active_info["bg_opacity"]
     end
-    local bg_argb_tbl = {clr_tbl[2], clr_tbl[3], clr_tbl[4]}
-    local bg_argb = get_colourblind_clr(bg_argb_tbl, opacity, COLOUR_BLIND_TYPE)
-    pr("Bg clr: %s", print_table(float2argb(bg_argb, true)))
-    self.bg:SetTextureColor(bg_argb)
+    -- dbg("all","Bg clr: %s", bg_argb, true)
+    self.bg:SetTextureColor(tbl2argb(bg_argb))
 end
 
-function UICaption:SetCaptionVec(pos)
-    self:SetCaptionPos(pos)
-    self:SetCaptionScale()
-    --if not demonized_geometry_ray.vec_similar(curr_pos, pos, 0.01) then
-    -- (self.active_info["show_time"] - self.active_info["sound_duration"]) - FADE_TIME * 1000
+function UICaption:SetCaptionVec(new_pos)
+    --  dbg("dev", "attempting to set caption vec to: %s", new_pos)
+    -- Coeff based on npc movement speed
+    -- local npc = get_unknown_object({id=self.npc_id}, "game")
+    -- local actor_look_pos = vector():mad(device().cam_pos, device().cam_dir, level.get_target_dist())
+    -- local ui_al_pos = game.world2ui(actor_look_pos, false, false)
+    -- local dist = vec2_distance_to(ui_al_pos, new_pos)
+    -- -- steps is based on distance, further from center the higher the movement speed
+    -- local step = 11.5 --* (1 + (dist / (device().width / 2)))
+    -- -- dbg("dev", "steps: %s, dist: %s", step, dist)
+    -- local old_pos = self.caption:GetWndPos()
+    -- local smoothed_pos = vector():set(
+    --     ema("caption_pos_x", new_pos.x, old_pos.x, step, math.min(50, device().time_delta)),
+    --     ema("caption_pos_y", new_pos.y, old_pos.y, step, math.min(50, device().time_delta)),
+    --     ema("caption_pos_z", new_pos.z, old_pos.z, step, math.min(50, device().time_delta))
+    -- )
+    -- dbg("dev", "old pos: %s", old_pos)
+    -- dbg("dev", "setting caption vec: %s\n", smoothed_pos)
+    self.caption:SetWndPos(new_pos)
+    self.bg:SetWndPos(new_pos)
 end
 
-function UICaption:SetCaptionPos(pos)
-    local curr_pos = self.caption:GetWndPos()
-    for i=0, 1, 0.02  do
-        local pos_x = warfare.lerp(curr_pos.x, pos.x, i / device().time_delta)
-        self.caption:SetWndPos(vector2():set(pos_x, pos.y))
-    end
-end
-
-function UICaption:SetCaptionScale()
+function UICaption:SetCaptionScale() -- min 3.5m
     local npc = get_unknown_object({id=self.npc_id}, "game")
     local npc_pos = npc:bone_position("bip01_head") or npc:position():add(0, 1.7, 0)
     local actor_pos = db.actor:bone_position("bip01_head") or db.actor:position()
     if
-        ( self.last_position and not demonized_geometry_ray.vec_similar(actor_pos, self.last_position, 1))
-        or (self.last_position_npc and not demonized_geometry_ray.vec_similar(npc:position(), self.last_position_npc, 1))
+        ( self.last_position and not vec_similar(actor_pos, self.last_position, 1))
+        or (self.last_position_npc and not vec_similar(npc:position(), self.last_position_npc, 1)) -- if look_pos is more than 1m from npc look_pos
     then
         local pos = self.caption:GetWndPos()
         local dist = dist_to_pos(db.actor, npc_pos)
@@ -237,101 +354,113 @@ function UICaption:SetCaptionScale()
         self.bg:SetWndSize(vector2():set(self.max_bg_w, self.max_bg_h * scale))
         self.scale = scale
 
-        local add_y = warfare.lerp(0, self.hearing_distance, scale)
-        -- pr("scale %s, dist: %s", scale, dist)
+        local add_y = warfare.lerp(0, CAPTION_HEAR_DIST, scale)
+        -- dbg("dev","scale %s, dist: %s", scale, dist)
         self.bg:SetWndPos(vector2():set(pos.x, pos.y - add_y))
         self.caption:SetWndPos(vector2():set(pos.x, pos.y - add_y))
     end
 end
 
 function UICaption:Validate(data)
-    set_debug_level("all")
     if not data then
-        pr("no data")
+        dbg("debug","no data")
         return false
     end
 
+    if not ENABLE_FIGHT_SUBS and data.xml_id:find("fight") then
+        return false
+    end
+
+
     local npc = get_unknown_object({id=data.npc_id}, "game")
     if not npc then
-        -- pr("no npc")
+        -- dbg("dev","no npc")
         return false
     end
     
     if not npc:alive() and not contains(subtitles.recent_npc_deaths, npc:id(), true) then
-        -- pr("object dead")
+        -- dbg("dev","object dead")
         return false
     end
 
-    local dist = distance_between(npc, db.actor)
-    if round(dist) > self.hearing_distance then
-        -- pr("object out of range: %s", dist)
+    local actor_pos = db.actor:bone_position("bip01_head")
+    local npc_pos = npc:bone_position("bip01_head")
+
+    local dist = actor_pos:distance_to(npc_pos)
+    if dist > CAPTION_HEAR_DIST then
+        -- dbg("dev","object out of range: %s", dist)
         return false
     end
-    
-    local actor_pos = db.actor:bone_position("bip01_head") or db.actor:position()
+
+    if not self:ScreenPosValid(game.world2ui(npc_pos, false, true)) then
+        dbg("dev", "not valid screen pos")
+        return false
+    end
+
     if 
-        not demonized_geometry_ray.vec_similar(actor_pos, self.last_position, 1) 
-        or not demonized_geometry_ray.vec_similar(npc:position(), self.last_position_npc, 1)
+        OBSTRUCT_CHECK 
+        and time_global() >= self.active_info["check_material_tmr"] 
     then
+        dbg("dev", "running obstruct check")
         local ray = geo_ray({
             ray_range = dist,
-            visualize = subtitles_mcm.get_config("enable_debug") and dbg_lvl == "all",
+            -- visualize = get_config("enable_debug") and get_config("debug_level") > 4,
             flags = 1 + 2 + 4,
         })
+        ray.ray:set_ignore_object(db.actor)
+        ray.ray:set_ignore_object(npc)
 
-        local npc_pos = npc:bone_position("bip01_head") or npc:position():add(0, 1.7, 0)
-        local dir_between = get_direction(npc_pos, actor_pos)
-        local result = ray:get(npc_pos, dir_between).result
+        -- local neck_pos = db.actor:bone_position("bip01_neck")
+        local dir_between = vec_sub(npc_pos, actor_pos):normalize()
+        local result = ray:get(actor_pos, dir_between).result
 
-        self.last_position = actor_pos
-        self.last_position_npc = npc_pos
+        self.last_npc_pos = npc_pos
+        self.last_actor_pos = actor_pos
         self.last_material = result.material_name
+        self.active_info["check_material_tmr"] = time_global() + 200
+
+        dbg("dev", "hit material: %s", self.last_material)
+        dbg("dev", "hit obj: %s", result.object)
+        if result.object and IsNpc(result.object) then
+            return false
+        end
     end
 
     if 
         self.last_material and
         (
-            (self.last_material == "materials\\bush" and dist > self.hearing_distance / 2) 
-            or not contains(include_materials, self.last_material)
+            ( REDUCE_HEAR_DIST and (self.last_material == "materials\\bush" and dist > (CAPTION_HEAR_DIST / 2)))
+            or (not EXCLUDE_MATERIALS[self.last_material] and ADD_ALPHA_TYPE ~= ADDITIONAL_ALPHA_TYPES.snd_pen_alpha) -- false will block caption
         )
     then 
-        -- pr("Ray cast between actor and %s has hit %s", subtitles_utils.get_npc_name(npc), self.last_material)
+        dbg("dev","Ray cast between actor and %s has hit %s", get_npc_name(npc), self.last_material)
         return false
     end
 
-    -- pr("valid npc")
+    -- dbg("dev","valid npc")
     return true
 end
 
 -- From GhenTuong start
-local caption_offset = vector():set(0.0,0.1,0.0)
-local caption_height = 100
+local caption_height = 50
 
 function UICaption:GetScreenPosition()
+    local caption_offset = vector():set(0.0, CAPTION_OFFSET,0.0)
     local npc = get_unknown_object({id=self.npc_id}, "game")
     if not npc then
         return 
     end
 
-    local hed = npc:bone_position("bip01_neck")
-	local pos = vector():add(hed,caption_offset)
-   	local vec_pos = game.world2ui(pos,false,true)
+    local head_pos = npc:bone_position("bip01_head")
+	local offset_head_pos = vec_add(head_pos,caption_offset)
+    local ui_oh_pos = game.world2ui(offset_head_pos,false,false)
 
-	local vec_hed = game.world2ui(hed,false,true)
-	if (self:ScreenPosValid(vec_pos) and (vec_hed.y - vec_pos.y < caption_height)) then
-		local vec = game.world2ui(hed,false,false)
-		if not (self:ScreenPosValid(vec)) then
-			-- pr("not getting screen pos")
-            return
-		end
-        local screen_pos = vector2():set(vec.x,vec.y - caption_height)
-		-- pr("getting screen pos: %s", vec_to_str(screen_pos))
-        return screen_pos
-	else
-        local screen_pos = game.world2ui(pos,false,false)
-        -- pr("getting screen pos: %s", vec_to_str(screen_pos))
-		return screen_pos
+	if (self:ScreenPosValid(ui_oh_pos)) then -- and (vec_hed.y - vec_pos.y < caption_height)) then
+        -- local vec = game.world2ui(head_pos, false, false)
+        -- if not self:ScreenPosValid(vec) then return end
+        return ui_oh_pos
 	end
+    return game.world2ui(offset_head_pos, false, false)
 end
 
 function UICaption:ScreenPosValid(vec)
@@ -341,6 +470,18 @@ end
 function UICaption:ApplyScreenRatio(ele)
 	local r = (1024/768)/(device().width/device().height)
 	ele:SetWndSize(vector2():set(ele:GetWidth() * r,ele:GetHeight()))
+end
+
+function UICaption:CanObstructCheck(npc_pos, actor_pos) -- rework to check when pos changed
+    return  
+        OBSTRUCT_CHECK 
+        and time_global() >= self.active_info["check_material_tmr"]
+        and (
+            not self.last_npc_pos
+            or not self.last_actor_pos
+            or not vec_similar(self.last_npc_pos, npc_pos, 1)
+            or not vec_similar(self.last_actor_pos, actor_pos, 1)
+        )
 end
 
 function hud_active()
@@ -367,8 +508,8 @@ end
 
 class "HUDSubtitles" (CUIScriptWnd)
 function HUDSubtitles:__init() super()
-    set_debug_level("dev")
-    pr("init hud subtitles")
+    
+    dbg("dev","init hud subtitles")
     self.xml = CScriptXmlInit()
     self.xml:ParseFile("ui_marker_hud_subtitles.xml")
     self.ratio = (1024 / 768) / (device().width / device().height)
@@ -383,20 +524,19 @@ end
 
 function HUDSubtitles:Update()
     CUIScriptWnd.Update(self)
-    set_debug_level("dev")
-    local show_caption = main_hud_shown() 
+    local show_caption = main_hud_shown() and ENABLE_SUBS
     local tg = time_global()
 
     for id, _ in pairs(subtitles.QUEUED_SUBTITLES) do
         if not contains(self.subtitles, id, true) then
-            pr("adding new caption for: %s", id)
+            dbg("dev","adding new caption for: %s", id)
             self.subtitles[id] = UICaption(self, id)
         end
     end
 
     for id, caption in pairs(self.subtitles) do
         if contains(DESPAWNED_NPCS, id, true) then
-            pr("removing despawned npc: %s", id)
+            dbg("all","removing despawned npc: %s", id)
             self.subtitles[id] = nil
             DESPAWNED_NPCS[id] = nil
         else
@@ -405,106 +545,30 @@ function HUDSubtitles:Update()
     end
 end
 
--- Utils
-function change_alpha(clr, a)
-    if not clr and a ~= nil then return end
-
-    if not clr_cache[clr .. "_" .. a] then
-        local b = bit.band(clr, 255)
-        local g = bit.band(bit.rshift(clr, 8), 255)
-        local r = bit.band(bit.rshift(clr, 16), 255)
-        clr_cache[clr .. "_" .. a] = GetARGB(a, r, g, b)
-    end
-
-    return clr_cache[clr .. "_" .. a]
-end
-
-function float2argb(clr, as_table)
-    local argb = {
-        [1] = bit.band(bit.rshift(clr, 24), 255),
-        [2] = bit.band(bit.rshift(clr, 16), 255),
-        [3] = bit.band(bit.rshift(clr, 8), 255),
-        [4] = bit.band(clr, 255)
-    }
-    if as_table then
-        return argb
-    end
-    return tbl2argb(argb)
-end
-
-function tbl2argb(colour)
-    return GetARGB(colour[1], colour[2], colour[3], colour[4])
-end
-
-function get_faction_clr(npc, opacity, colourblind_type, as_table)
-    local faction = get_npc_faction(npc) or "default"
-    --pr("Gettting Color for %s: %s", subtitles_utils.get_npc_name(npc), faction)
-    local clr_tbl = ag_colours.faction_to_colour[faction]
-    colourblind_type = not colourblind_type and "normal" or colourblind_type
-    return get_colourblind_clr(clr_tbl, opacity, colourblind_type, as_table)
-end
-
-function get_colourblind_clr(clr_tbl, opacity, colourblind_type, as_table)
-    local r, g, b = ag_colours.get_colourblind_rgb(colourblind_type, clr_tbl[1], clr_tbl[2], clr_tbl[3])
-    -- pr("For cb type: %s,  from: %s getting cb safe clr %s", colourblind_type, print_table(clr_tbl), print_table{r, g, b})
-    if as_table then
-        return {opacity, r, g, b}
-    end
-    return GetARGB(opacity, r, g, b)
-end
-
 function get_angular_dist(dist)
     return 2 * math.atan(1.8 / (2 * dist))
-end
-
-function mcm2font(key)
-    local fonts = {
-        di           = GetFontDI(),
-        small        = GetFontSmall(),
-        medium       = GetFontMedium(),
-        letterica16  = GetFontLetterica16Russian(),
-        letterica18  = GetFontLetterica18Russian(),
-        letterica25  = GetFontLetterica25(),
-        graffiti19   = GetFontGraffiti19Russian(),
-        graffiti22   = GetFontGraffiti22Russian(),
-        graffiti32   = GetFontGraffiti32Russian(),
-        graffiti50   = GetFontGraffiti50Russian(),
-    }
-    return fonts[key]
-end
-
-function mcm2align(key)
-    local alignments = {
-        left = 0,
-        center = 2,
-        right = 1
-    }
-    return alignments[key]
 end
 
 -- Callbacks
 
 function on_first_update()
-    set_debug_level("all")
-    pr("adding hud")
+    dbg("dev", "adding hud")
 	hud_active()
 end
 
 function on_net_destroy()
-    set_debug_level("all")
-    pr("removing hud")
+    dbg("dev","removing hud")
 	hud_remove()
 end
 
 function on_GUI_show()
-    set_debug_level("all")
-    pr("hide/showing hud")
+    dbg("dev","hide/showing hud")
 	hud_update()
 end
 
 function collect_despawned_npcs(npc)
-    set_debug_level("all")
-    pr("despawning: %s", npc:id())
+    
+    dbg("dev","despawning: %s", npc:id())
     local id = npc:id()
     if not contains(DESPAWNED_NPCS, id, true) then
         DESPAWNED_NPCS[id] = true
@@ -512,17 +576,29 @@ function collect_despawned_npcs(npc)
 end 
 
 function on_option_change(options)
+    setup_log(options["debug_level"], LOG_HEADER, options["enable_debug"])
     -- FADE_TIME           = options["fade_time"]
-    MAX_CAPTION_HEAR_DIST          = options["hear_dist"]
-    -- MIN_CAPTION_OPACITY = options["min_caption_opacity"]
-    -- MAX_CAPTION_OPACITY = options["max_caption_opacity"]
+    CAPTION_HEAR_DIST          = options["hear_dist"]
+    -- MIN_ALPHA = options["min_alpha"]
+    -- MAX_ALPHA = options["max_alpha"]
     COLOUR_BLIND_TYPE      = options["colour_blind_type"]
     ENABLE_FACTION_CLR     = options["enable_faction_clr"]
     ENABLE_BACKGROUND      = options["enable_background"]
-    BACKGROUND_CLR         = options["background_colour"]
-    SUBTITLE_CLR           = options["subtitle_colour"]
-    SUBTITLE_FONT          = options["subtitle_font"] 
-    SUBTITLE_ALIGNMENT     = options["subtitle_alignment"]
+    BACKGROUND_CLR         = str2argb(options["background_colour"], true)
+    SUBTITLE_CLR           = str2argb(options["subtitle_colour"], true)
+    SUBTITLE_FONT          = mcm2font(options["subtitle_font"])
+    SUBTITLE_ALIGNMENT     = mcm2align(options["subtitle_alignment"])
+    CAPTION_OFFSET         = options["caption_offset"]
+    SUBTITLE_WND_SIZE      = {w=options["subtitle_width"], h=options["subtitle_height"]}
+    ENABLE_SUBS            = options["enable_subs"]
+    WORDS_PER_SECOND       = options["words_per_second"]
+    ENABLE_FIGHT_SUBS      = options["enable_fight_subs"]
+    REDUCE_HEAR_DIST       = options["reduce_hear_dist"]
+    OBSTRUCT_CHECK         = options["obstruct_check"]
+    EXCLUDE_MATERIALS      = str2tbl(options["exclude_materials"])
+    ADD_ALPHA_TYPE        = options["additional_alpha_type"]
+    dbg("debug", "Received options: %s", options)
+
 end
 
 

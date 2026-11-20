@@ -1,5 +1,5 @@
 -- Library Imports
-ag_utils.import(this, {ag_strings, ag_tables, ag_npc})
+ag_utils.import(this, {ag_strings, ag_tables, ag_npc, ag_game_objects})
 
 -- Script Imports
 get_config = subtitles_mcm.get_config
@@ -10,6 +10,88 @@ SND_FILES = {}
 
 -- Locals
 local dbg_pr = nil
+
+-- Tables
+include_materials = {
+    [ [[materials\fake]] ] = true,
+    [ [[materials\death]] ] = true,
+    [ [[materials\cloth]] ] = true,
+    [ [[materials\glass]] ] = true,
+    [ [[materials\grass]] ] = true,
+    [ [[materials\water]] ] = true,
+    [ [[materials\water_radiation]] ] = true,
+    [ [[objects\bottle]] ] = true,
+    [ [[objects\clothes]] ] = true,
+    [ [[objects\glass]] ] = true,
+    [ [[creatures\phantom]] ] = true,
+}
+material_sound_peneration_factors = {
+	[ [[default]] ] = 0.05,
+	[ [[default_object]] ] = 0,
+	[ [[creatures\actor]] ] = 0,
+	[ [[creatures\hoof]] ] = 0,
+	[ [[creatures\human]] ] = 0,
+	[ [[creatures\human_head]] ] = 0,
+	[ [[creatures\large]] ] = 0,
+	[ [[creatures\medium]] ] = 0,
+	[ [[creatures\phantom]] ] = 1,
+	[ [[creatures\small]] ] = 0,
+	[ [[materials\asphalt]] ] = 0,
+	[ [[materials\bricks]] ] = 0.45,
+	[ [[materials\bush]] ] = 0.9,
+	[ [[materials\bush_sux]] ] = 0.95,
+	[ [[materials\cloth]] ] = 0.8,
+	[ [[materials\concrete]] ] = 0.6,
+	[ [[materials\death]] ] = 1,
+	[ [[materials\dirt]] ] = 0,
+	[ [[materials\earth]] ] = 0,
+	[ [[materials\earth_death]] ] = 0,
+	[ [[materials\earth_slide]] ] = 0,
+	[ [[materials\fake]] ] = 1,
+	[ [[materials\fake_ladders]] ] = 1,
+	[ [[materials\flooring_tile]] ] = 0,
+	[ [[materials\glass]] ] = 0.5,
+	[ [[materials\grass]] ] = 0,
+	[ [[materials\gravel]] ] = 0,
+	[ [[materials\metal]] ] = 0,
+	[ [[materials\metal_pipe]] ] = 0,
+	[ [[materials\metal_plate]] ] = 0,
+	[ [[materials\sand]] ] = 0,
+	[ [[materials\setka_rabica]] ] = 1,
+	[ [[materials\shifer]] ] = 0.3,
+	[ [[materials\stucco]] ] = 0.75,
+	[ [[materials\tin]] ] = 0.3,
+	[ [[materials\tree_trunk]] ] = 0.3,
+	[ [[materials\water]] ] = 0.5,
+	[ [[materials\water_radiation]] ] = 1,
+	[ [[materials\wood]] ] = 0.3,
+	[ [[materials\wooden_board]] ] = 0.3,
+	[ [[objects\barrel]] ] = 0,
+	[ [[objects\bottle]] ] = 0,
+	[ [[objects\bullet]] ] = 0,
+	[ [[objects\car_cabine]] ] = 0,
+	[ [[objects\car_wheel]] ] = 0,
+	[ [[objects\clothes]] ] = 0,
+	[ [[objects\concrete_box]] ] = 0,
+	[ [[objects\dead_body]] ] = 0,
+	[ [[objects\fuel_can]] ] = 0,
+	[ [[objects\glass]] ] = 0.3,
+	[ [[objects\knife]] ] = 0,
+	[ [[objects\large_furniture]] ] = 0,
+	[ [[objects\large_metal_trash]] ] = 0,
+	[ [[objects\large_weapon]] ] = 0,
+	[ [[objects\metal_box]] ] = 0,
+	[ [[objects\monster_body]] ] = 0,
+	[ [[objects\small_box]] ] = 0,
+	[ [[objects\small_metal_trash]] ] = 0,
+	[ [[objects\small_weapon]] ] = 0,
+	[ [[objects\tin_can]] ] = 0,
+}
+ADDITIONAL_ALPHA_TYPES = {
+    none = 1,
+    snd_based_alpha = 2,
+    dist_based_alpha = 3,
+}
 
 -- DEBUGGING
 function setup_log(level, header, enabled)
@@ -95,11 +177,20 @@ function collect_folders(root, path, tmp)
     return tmp
 end
 
-exclude_factions = {
-    "zombied",
-    "trader",
-    "nil"
-}
+function collect_exclude_materials()
+    local tmp = {}
+    local tmp_order = {}
+    local ini_materials = ini_file_ex("materials\\materials.ltx")
+    for _, sect in pairs(ini_materials:get_sections()) do
+        tmp[sect] = contains(include_materials, sect, true) and include_materials[sect] or false
+        tmp_order[#tmp_order + 1] = sect
+    end
+    for _, sect in pairs(object_materials) do
+        tmp[sect] = contains(include_materials, sect, true) and include_materials[sect] or false
+        tmp_order[#tmp_order + 1] = sect
+    end
+    return tmp, invert_table(tmp_order)
+end
 
 function get_npc_faction(npc)
     local comm = get_community(npc)
@@ -113,6 +204,13 @@ end
 
 function on_game_start()
     RegisterScriptCallback("on_game_load", collect_sound_files)
-    RegisterScriptCallback("actor_on_first_update", setup)
     RegisterScriptCallback("as_on_option_change", on_option_change)
 end
+
+exclude_factions = {
+    "zombied",
+    "trader",
+    "nil"
+}
+
+exclude_materials, exclude_materials_order = collect_exclude_materials()
