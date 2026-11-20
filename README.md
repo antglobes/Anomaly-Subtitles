@@ -147,3 +147,4 @@
 - v0.13.4 (VodoXleb): English Translation for Killer 1, 3 and Monolith 3
 - v0.13.5 Merge bandit_1 sub-folders files into one file
 - v0.13.6 Merge bandit_2 sub-folders files into one file
+- v0.13.7 Merge bandit_3 sub-folders files into one file

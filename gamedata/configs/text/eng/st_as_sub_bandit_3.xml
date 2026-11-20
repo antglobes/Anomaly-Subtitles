@@ -1,0 +1,1016 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table> 
+    <!-- Threat -->
+    <!--All Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_threat_back_off_backoff_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_threat_drop_weapon_dropweapon_1">
+		<text>Silent_Subtitle </text>
+	</string>
+
+    <!-- Talk -->
+    	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_1">
+		<text>In short, like, why. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_2">
+		<text>Yeah, bros, what else did I hear? </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_3">
+		<text>What's up, guys, like an anecdote! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_4">
+		<text>Anyway! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_5">
+		<text>Quiet! Quiet! That's it! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_music_1">
+		<text>And now, for the soul! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_music_2">
+		<text>Shech from the pool! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_music_3">
+		<text>Come on, come on, come on, come on, let me get some of that bass? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_music_4">
+		<text>Now let's see if the labouche's hands are clear or not? </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_1">
+		<text>A kid comes up to the dealer Like, you want a grenade for a fiver? Chumleya, you're a dick, come on! Here you go! But for the ring, it's a hony dweeb! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_jokes_joke_10">
+		<text>I'm driving a Beech on the zone, real guys, so they stopped to take a piss bang, a bloodsucker comes out of the dark and screams I'll suck it, guys, we looked at it calmly. Thank you, bro, but we're just being casual </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_jokes_joke_11">
+		<text>Meet, in short, three stalkers at the dump, one has an eye out in reality, the other face all so specifically in the scar, and the third has no toe at all. You know, like, they started asking, "Who's got this beauty? The first one shows his eye and says, I'm the one who clipped the guys, I had to shoot back. It's all kind of respectful, I guess, okay. The other one's poking his face, I'm the one who insists, I'm all in the dosobahs. It's all so respectful, normal, respectful. They look at the third one, and he's kind of confused, so he doesn't say anything. Hey, mate, what happened to your leg, I ask you? Yes, he says, he ploughed for the boys in the camp, so he put on lead pants so that he wouldn't become impotent from radiation. So I put it on, so what? It's a rubber band burst. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_2">
+		<text>A fairy came to Bodian when he was still a teenager. What a mouthful. I'm either a moznite dyke for life, and generally wacky. And a memory as clever as Umbatana's in kind. Either you're gonna be the right kid for the job. So I'm like, I'm asking him, what's up, and I'm like, what's up, what's up, and I can't remember what's up. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_3">
+		<text>so it's like a stalker crossing in the zone and actually pointing or reading like he can read to the right is like an anomaly forward monsters left taverns and chicks, so he fell forward, wondering if he'd be killed I'll have to ask the Boogers what kind of horrors are these new sensations, new sensations, new pubs and girls </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_4">
+		<text>Two stalkers are walking on a tour through the forest. Old to young here suddenly and gutturally. It's like, go slowly to that tree over there. Well, the young one did. I got up to ask what's next. And the other one's quietly asking. Is everything okay in there or what? It's kind of cool. Aaaaaaaaaaah! Awesome! I knew they were talking about that anomaly. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_intros_intro_joke_5">
+		<text>So two tachyderms kissed in the zone specifically. From one encounter to the next. Anyway, we've got some fights going on here, Mahalov's showdown. And the checker's sitting on his stash, smiling. Oh, awesome! The glade's going to be covered, no shame and brother Nov is clean to the hazza. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_jokes_joke_6">
+		<text>drive up to the bar, specifically two stalkers, one rasfaltsovannya on this yota, all prypantakh na tsirla, the other one on a shitty non-Verosfygazhaya, well cool, goes out in the dough and sees the other one, five minutes can not slam the door. Well, you stand next to me, look at me and say, "Why are you worried, why are you scared, who? It's always quiet here, I don't even close my sharpening machine. And the man said, "I didn't close the door for you either, so yesterday a borer took a shit on the seat. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_jokes_joke_7">
+		<text>So the controller decided to specifically blind dog us shake on your hind legs. And the zombie is sitting next to him, and he's just messing around. It's like, knock it off, you're not gonna make it anyway. And close the controller, you fucking stalker, too I don't think he listened much. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_jokes_joke_8">
+		<text>Three stalkers are walking along and, like, they're trying to figure out who's the coolest. The first one says, "I'm a tough guy, I've killed three bandits. And the other one, no bro, I'm way cooler, I've killed ten men. And the third one, the tonuvas are suckers, I've put a hundred of them down. And then, you hear, they see a tired-looking kid walking by, in a leather jacket so shabby, and she's whistling something, like Vladimir Central. Stalkers - oops, fell out on treason, and in the bushes hiding. Well, the kid didn't notice them, just kept walking. And they're sitting there, like, one day. Hey, guys, what's this bzlo? Second - no, well, really bzlo, what's the big deal? And the third - why are you staring at me? I'm hating you! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_jokes_joke_9">
+		<text>Two guys meet in the zone, one says to the other, "Nice hat, rat, or we'll hit you in the head for the rat, the bitch answered for the rat </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_use_abuse_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_use_no_default_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_use_no_fight_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_use_no_sleep_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_talk_use_no_weapon_1">
+		<text>Silent_Subtitle </text>
+	</string>
+
+    <!-- States -->
+    	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_breath_breath_1">
+		<text>xxxxxxxxxxxxxx </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_breath_breath_2">
+		<text>Missing_Subtitle</text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_1">
+		<text>Holy shit, I'm not starving my bebohi into knots. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_10">
+		<text>They're fine, they're fine, they're fine, they're fine, they're sitting there with their mobiles, are in command. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_11">
+		<text>You've had enough of everything, and you've had enough of these ponces, we're like stalkers, we're cool. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_12">
+		<text>What am I doing here? I'd just keep bouncing around the neighbourhood, that's all. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_13">
+		<text>Nature, fuck, my clothes don't have time to dry, my feet are always wet. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_14">
+		<text>There's anal I'm this zone, I want to go to the city. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_15">
+		<text>There's no fucking life, nowhere. In the city of Mentishmanayut, there are salabons racing here. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_16">
+		<text>Well, Valina, that's actually pretty cool. Only Bugor gave it, so he lives and takes it away can. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_17">
+		<text>I wish I had a woman! I'll take any of them. As long as everything you need is in place. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_18">
+		<text>Р вЂ™Р В°-РЎвЂљР В°-РЎвЂљР В°-РЎвЂљР В°-РЎвЂљР В°-Р С�, Р Т‘Р В°-Р Т‘Р В°-Р Т‘Р В°-Р Т‘Р В°-Р Т‘Р В°-Р С� As long as I'm a bank, life is reasonable </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_19">
+		<text>Wha-pa-pa-pa-pa-na-taram-na-taram-na-taram You didn't ask, as usual </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_2">
+		<text>No, fuck, no, you can't go on like this without stomping on something. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_20">
+		<text>Globe stop, we're coming up from behind the chapter. Glob stop, you mnu, she was taking herself. It's too late to make excuses now, look at those stars, na na na na fen turturm. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_21">
+		<text>Erm... </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_22">
+		<text>BORING!!! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_23">
+		<text>Hmmmwah </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_24">
+		<text>Khhhhhhhhhhhhhhhhhhhhhhhhhhh.... </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_25">
+		<text>Silent_Subtitle </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_26">
+		<text>Ahem! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_27">
+		<text>What the hell are we doing here? Bugru, you better ask the boys, you better ask the boys, there asked me. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_28">
+		<text>I'd better get a better shot of that pus faggot, so he doesn't say anything else. And whether there's people around or not, you can't really hide, if you are. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_29">
+		<text>Nothing, nothing, nothing, it will pass a little more time, I'll buy a real, concrete shaft, and then I'll make my own brigade. I'll do it with a drill, I'll be in charge. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_3">
+		<text>Here, what the fuck kind of junk food you're hungry for, for fuck's sake! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_4">
+		<text>Shit, about the pocket is a real gall, I wouldn't fucking get caught by a deer with the loot. Better with dough. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_5">
+		<text>I'd like to crush, half a kuna of two, or a kshesha of some kind. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_6">
+		<text>Now I'd like some vodka and some soul food. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_7">
+		<text>I'd like to shoot some mermen, it's boring. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_8">
+		<text>Zakaliban is already here, no heating for you, no shit. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_idle_idle_9">
+		<text>Yo-khan-baba, I'm already hungry for manal, ha-waiting. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_loot_loot_bad_1">
+		<text>Here, well, it's empty </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_loot_loot_bad_2">
+		<text>No, you were really stupid in life, no reserve, no shit! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_loot_loot_bad_3">
+		<text>That's some fuckin' badass, that's some badass, pooh! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_loot_loot_begin_1">
+		<text>Whoa, whoa, whoa, whoa. What do we have here? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_loot_loot_begin_2">
+		<text>Let's have a look, it's all over now. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_loot_loot_begin_3">
+		<text>He's a kind man, he's going to share with me, isn't he? </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_loot_loot_good_1">
+		<text>Aubankee, this is a good one! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_loot_loot_good_2">
+		<text>Greasy, greasy, hammer, jammer, respect! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_loot_loot_good_3">
+		<text>Oh, you're not weak, that was a very frugal father! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hello_1">
+		<text>All right, hurry up, what do you want? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hello_2">
+		<text>Like I'm listening. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hello_3">
+		<text>I mean, hello! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hello_4">
+		<text>What's new? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hello_5">
+		<text>What did you want to fight about? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hello_6">
+		<text>What are you looking at? What do you want? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hello_7">
+		<text>What's the big deal? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hide_weapon_1">
+		<text>Don't fucking shine a light on me! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hide_weapon_2">
+		<text>Stashed the shaft, quick. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hide_weapon_3">
+		<text>Pretty cool, huh? Put the shaft away. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_hide_weapon_4">
+		<text>What are you, a fucking gun? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_stop_1">
+		<text>You're mysterious! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_stop_2">
+		<text>You hear me, you're a mistake of nature. No bazaar, Margalla Nemazole. Do you understand?  </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_stop_3">
+		<text>When the prosecutor shows up, I'll get you to be quiet with him. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_stop_4">
+		<text>YOU'RE A REAL PRICK! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_stop_5">
+		<text>Nah, first time I've ever seen one of these fucked up. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_stop_6">
+		<text>I wish you'd give those girls what you're talking about, Deer. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_default_1">
+		<text>Listen, you go with the others, talk to them! I'm out! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_default_2">
+		<text>I don't want to be burned right now </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_default_3">
+		<text>Fuck off on the tour! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_fight_1">
+		<text>What the fuck is wrong with you? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_fight_2">
+		<text>Go ahead and shoot, then we'll talk! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_fight_3">
+		<text>What's up, what's up with the brew, we'll have a drink later? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_talk_leader_1">
+		<text>with all the questions to Valik Brigadny </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_talk_leader_2">
+		<text>Go booze your ears off! My nekazons! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_talk_leader_3">
+		<text>If you need a rubdown, bye-bye! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_weapon_1">
+		<text>With a gun in your paws, what's the deal? Put it away! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_weapon_2">
+		<text>Valinu for nika, then we'll go to the bazaar. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_weapon_3">
+		<text>or the gun, or you go </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_use_no_weapon_4">
+		<text>Shit, Tushkan, you're waving that gun around. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_1">
+		<text>All right, hurry up, what do you want? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_10">
+		<text>You're out of line or something, come on! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_11">
+		<text>Son, you're really starting to freak me out. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_12">
+		<text>Listen, I'm nervous. What are you doing here and making fishy faces? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_13">
+		<text>So do you want what? Or don't? Then fuck off! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_2">
+		<text>Like I'm listening! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_3">
+		<text>What are you looking at? What do you want? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_4">
+		<text>What did you want to fight about? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_5">
+		<text>What, did I lose my tongue up my arse? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_6">
+		<text>What are you, a defective bastard? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_7">
+		<text>Hey, maybe you're a moron </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_8">
+		<text>Yoha, no bobai, I can't stand ice cream. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_meet_meet_wait_9">
+		<text>Are you trying my patience? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_human_panic_human_1">
+		<text>Man don't shoot! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_human_panic_human_2">
+		<text>No! Don't shoot! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_human_panic_human_3">
+		<text>That's it, that's it, I'm out of shaft, that's it! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_human_panic_human_4">
+		<text>Don't shoot! I don't have a gun! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_human_panic_human_5">
+		<text>Ah-ah-ah, don't borrow me, don't borrow me! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_human_panic_human_6">
+		<text>I ain't got nothing to do with it, pure and simple, don't, man! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_human_panic_human_7">
+		<text>Don't kill, man! Just don't kill! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_human_panic_human_8">
+		<text>You smoke, don't piss in me! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_monster_panic_monster_1">
+		<text>Get off me, you bastard! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_monster_panic_monster_2">
+		<text>BASTARD! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_monster_panic_monster_3">
+		<text>Take it away, take it away from my forehead! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_panic_monster_panic_monster_4">
+		<text>EEEEEEEEEEEEE! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_1">
+		<text>Rrrrrrrrrrrrrrrrrr Rrrrrrrrrrrrrrrrrrrrrrrrrrrrrr РјвЂ“Т‘  </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_2">
+		<text>Missing_Subtitle</text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_3">
+		<text>Р“вЂ“ masse... Why are you closed, Р»вЂ№В¤Р»вЂ№в‚¬ICEys? Maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_4">
+		<text>What's a pretty girl like her not? What's up? No, you can't do it at night. </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_5">
+		<text>Missing_Subtitle</text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_6">
+		<text>That's great! That's great! That's great! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_7">
+		<text>Steal? You're gonna steam me? I'm gonna kill you, you understand? Steaming, you'll ruin me, I'll ruin you! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_states_sleep_sleep_8">
+		<text>Oh, no, I didn't take that wig, I didn't take that wig, I don't have a wig to blame. </text>
+	</string>
+	<!-- Silent -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_trade_buy_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!-- Silent -->
+	<string id="as_sub_characters_voice_human_bandit_3_states_trade_sell_1">
+		<text>Silent_Subtitle </text>
+	</string>
+
+    <!-- Reactions -->
+    	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_box_box_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_joke_reaction_joke_1">
+		<text>Guys, am I the only dumb one here or is everyone else confused, is this like what? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_joke_reaction_joke_2">
+		<text>You're a mould, you could have told me about Stirlitz </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_joke_reaction_joke_3">
+		<text>Ha-ha! That's hilarious! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_music_reaction_music_1">
+		<text>Eh, really takes my breath away. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_music_reaction_music_2">
+		<text>Yeah, Cupcake, if you played kishka like that, you'd have been singing for a long time. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_music_reaction_music_3">
+		<text>I'm a pure woodsman. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_music_reaction_music_4">
+		<text>We didn't have shit to play with when we were kids. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_music_reaction_music_5">
+		<text>LAVAMDA! VORNY LAVAMDA! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_music_reaction_music_6">
+		<text>No, no, no, no, no, that's not it, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_music_reaction_music_7">
+		<text>No, no, well, guys, wait, now I didn't realise, it was like music. Is that the kind of music I'm looking for? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_story_laughter_1">
+		<text>Ha-ha-ha-ha-ha-ha-ha-ha-ha! Fucking hell, man! On tour, and I'm in charge! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_story_laughter_2">
+		<text>Ha ha ha! No, you're a pure comic! Come on! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_story_laughter_3">
+		<text>Ha-ha-ha-ha-ha-ha-ha-ha-ha... Ha ha.. Ahhhh.. Worm! Fuck, on Totzgi! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_story_laughter_4">
+		<text>I'm in love, guys! Р ТђР В°-РЎвЂ¦Р В°-РЎвЂ¦Р В°-РЎвЂ¦Р В°-РЎвЂ¦Р В°-РЎвЂ¦Р В°-РЎвЂ¦Р В°-РЎвЂ¦Р В°! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_story_laughter_5">
+		<text>Heh-heh-heh-heh-heh! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_story_laughter_6">
+		<text>Wahhhhahahahahahahahahahahahahahahahahahahahaha </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_reactions_story_laughter_7">
+		<text>Ha-ha-ha-ha-ha-ha-ha! </text>
+	</string>
+
+    <!-- Fight -->
+    	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_1">
+		<text>Fucking guys! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_10">
+		<text>You're going to die now, you bastard, you understand? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_11">
+		<text>I'm gonna rip your arse for fascist signs! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_2">
+		<text>VOLLIPIT USHAR! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_3">
+		<text>Take it out! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_4">
+		<text>KRANTI TO YOU SEN! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_5">
+		<text>URUE FUCK! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_6">
+		<text>Let's get you covered in essence! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_7">
+		<text>LOOKING FORWARD! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_8">
+		<text>Hello, Valikhanov! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_9">
+		<text>OMBES TO YOU BASTARDS! </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_many_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_attack_one_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_1">
+		<text>Fucking guys! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_10">
+		<text>Ta-lu-di-zu-ka! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_11">
+		<text>ON YOU, ON YOU! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_12">
+		<text>NAHAVA, BITCH! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_13">
+		<text>LAVI, MOTHERFUCKER! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_14">
+		<text>OVER THE CROWD! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_15">
+		<text>Bitch! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_2">
+		<text>Get the cocksucker! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_3">
+		<text>Take it out! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_4">
+		<text>YOU'RE DEAD, ZEN! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_5">
+		<text>Let's get the fuck out of here! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_6">
+		<text>We'll bury you with dry land! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_7">
+		<text>LOOKING FORWARD! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_8">
+		<text>ALLEVALLIGANO! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_attack_script_attack_9">
+		<text>FUCK YOU BASTARDS! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_backup_backup_1">
+		<text>Ta-lu-dee-zu-ka! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_backup_backup_2">
+		<text>ON YOU, ON YOU! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_backup_backup_3">
+		<text>NAHAVA, BITCH! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_backup_backup_4">
+		<text>LAVI, MOTHERFUCKER! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_backup_backup_5">
+		<text>NOT A KAZLIDA! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_backup_backup_6">
+		<text>Bitch! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_cover_fire_cover_fire_1">
+		<text>Ta-lu-dee-zu-ka! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_cover_fire_cover_fire_2">
+		<text>ON YOU, ON YOU! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_cover_fire_cover_fire_3">
+		<text>NAHAVA, BITCH! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_cover_fire_cover_fire_4">
+		<text>LAVI, MOTHERFUCKER! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_cover_fire_cover_fire_5">
+		<text>NOT A KAZLIDA! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_cover_fire_cover_fire_6">
+		<text>Bitch! </text>
+	</string>
+	<!-- Silent -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_death_anomaly_0">
+		<text>Silent_Subtitle </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_death_death_1">
+		<text>AAAAAAMLE AAAAAAAAAAAA!!!! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_death_death_2">
+		<text>Ah, that's my paaaaaaaaaaaaaaaah, hee hee hee! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_death_death_3">
+		<text>POTENTIALS </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_death_death_4">
+		<text>MLANEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_death_death_5">
+		<text>Fuck... </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_death_death_6">
+		<text>Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_death_death_7">
+		<text>Ow, ow, ow, ow! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_1">
+		<text>Come in, come in from the side! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_10">
+		<text>KANDEH EM HUNG! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_2">
+		<text>Come on, come on! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_3">
+		<text>DILIRAMA WO TUABLINGAVA! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_4">
+		<text>Don't get monstrous, guys! Go round! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_5">
+		<text>Shamyr! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_6">
+		<text>Go, go, go! </text>
+	<!-- Accuracy Check Needed -->
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_7">
+		<text>Come on, chicky-bricky, in the ladies! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_8">
+		<text>Mayor, go round, go round that husk! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_detour_detour_9">
+		<text>Well, you blew it, boys! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_1">
+		<text>Genduras! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_10">
+		<text>Fry the Rapa was getting shafted! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_11">
+		<text>Look who's pumping wheels for us! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_12">
+		<text>Both of them! Liver's out! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_13">
+		<text>SHABRA TOA! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_14">
+		<text>Rhara in the US! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_15">
+		<text>SOUCHER! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_16">
+		<text>OTTA! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_2">
+		<text>Guys, again! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_3">
+		<text>SWEETYVALES! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_4">
+		<text>Guys, get your guns out! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_5">
+		<text>ATHANDA! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_6">
+		<text>Shoo! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_7">
+		<text>WE'VE BEEN SRIZED, MESS! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_8">
+		<text>CHUSHPAINS! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_enemy_9">
+		<text>SHAKIBESH WALK! </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_down_enemy_down_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_hit_enemy_hit_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_cover_fire_cover_fire_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_fire_friendly_fire_1">
+		<text>What are you, a cormorant? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_fire_friendly_fire_2">
+		<text>I'm tearing my head off, bitch! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_fire_friendly_fire_3">
+		<text>Hannah for you, you prick! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_fire_friendly_fire_4">
+		<text>I'll fuck you up! Puellus! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_fire_friendly_fire_5">
+		<text>You're fucking nuts, aren't you? </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_grenade_friendly_grenade_1">
+		<text>Bitch, I'm gonna put trees on your clothes! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_grenade_friendly_grenade_2">
+		<text>ELDEVA'S NAHTIK! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_grenade_friendly_grenade_3">
+		<text>I don't have any singing! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_grenade_friendly_grenade_4">
+		<text>What are you doing? You're gonna, like, kill me or something? </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friend_hitted_hit_friend_1">
+		<text>Bratona's got a bite! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friend_hitted_hit_friend_2">
+		<text>Guys, we're hit! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_grenade_friendly_grenade_1">
+		<text>Shocker, guys! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_grenade_friendly_grenade_2">
+		<text>Remnants! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_friendly_grenade_friendly_grenade_3">
+		<text>GRMNADA, PASAVA! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_grenade_grenade_ready_1">
+		<text>Eat your lemon, you bastard! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_grenade_grenade_ready_2">
+		<text>And you've got a grenade on you! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_grenade_grenade_ready_3">
+		<text>Eat an apple, bitch! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_grenade_grenade_ready_4">
+		<text>CAVEGRANATE, YOU BASTARD! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_grenade_grenade_ready_5">
+		<text>BUT A BITCH OF AN APPLE! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_grenade_grenade_ready_6">
+		<text>I'll grenade you, you bastard! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_grenade_grenade_ready_7">
+		<text>Lemonchike pintosina! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_grenade_grenade_ready_1">
+		<text>TALUCHIZUKA! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_grenade_grenade_ready_2">
+		<text>LAVI, MOTHERFUCKER! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_enemy_hit_enemy_hit_1">
+		<text>Ooh-ooh-ooh! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_hit_hit_2">
+		<text>Fucking hell! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_hit_hit_3">
+		<text>Ouch, you fucker! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_hit_hit_4">
+		<text>Aye-aye-aye! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_hit_hit_5">
+		<text>Ouch! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_hit_hit_6">
+		<text>Ouch! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_hit_hit_7">
+		<text>AAAAAAAH! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_post_combat_wait_relax_1">
+		<text>Well, get the vodka out, let's commemorate the stiffs in the fresh ones. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_post_combat_wait_relax_2">
+		<text>What are we doing? We're done talking! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_post_combat_wait_relax_3">
+		<text>Horev pokes, the hype man is gone! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_post_combat_wait_wait_1">
+		<text>Hey, it's early Valynych, guys! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_post_combat_wait_wait_2">
+		<text>Are we waiting for more, suckers? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_post_combat_wait_wait_3">
+		<text>Don't repent, don't repent, guys! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_post_combat_wait_wait_4">
+		<text>Don't poke it, they're coming to the rera! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_post_combat_wait_wait_5">
+		<text>Keep your eyes open! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_enemy_lost_1">
+		<text>Well, where did you close? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_enemy_lost_2">
+		<text>Quiet, boys! On the chicks! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_enemy_lost_3">
+		<text>Don't duck, don't duck, we'll get you anyway! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_enemy_lost_4">
+		<text>Bull, you're dead, you understand? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_enemy_lost_5">
+		<text>You're fucked! Get out, you bastard! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_enemy_lost_6">
+		<text>Don't let him go down! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_enemy_lost_7">
+		<text>You won't last long! Get out, you goat! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_1">
+		<text>Well, where did you close? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_10">
+		<text>Bull, you're dead, you understand? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_11">
+		<text>Don't duck, don't duck, we'll find you! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_12">
+		<text>Don't be afraid! We won't cut you! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_13">
+		<text>Hey, don't get too hot, we'll catch you, we'll cut you for a long time. </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_14">
+		<text>Quiet, boys! On the chicks! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_15">
+		<text>Come on, who's in here? </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_16">
+		<text>Hey, you're going to get creased! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_17">
+		<text>Oh, we'll make you some blood! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_18">
+		<text>Bliss, bliss! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_2">
+		<text>Come out, we'll find you anyway! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_3">
+		<text>Come out nicely! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_4">
+		<text>Hey, Boglam, you need a rubdown! Come out! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_5">
+		<text>We'll cut it up for Micha! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_6">
+		<text>Freyr, come out, don't worry, we won't hurt you! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_7">
+		<text>You hear me, we're not gonna hurt you! For real, I'm responsible for what I say! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_8">
+		<text>No, are you a man or not? Come out! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_searching_enemy_search_9">
+		<text>SHOW YOURSELF, FAGGOT! </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_threat_threat_close_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!--Silent-->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_threat_threat_distant_1">
+		<text>Silent_Subtitle </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_tolls_tolls_1">
+		<text>MOTHER JEBNAS! </text>
+	</string>
+	<!-- Accuracy Check Needed -->
+	<string id="as_sub_characters_voice_human_bandit_3_fight_tolls_tolls_2">
+		<text>SCHUHER! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_tolls_tolls_3">
+		<text>Atas, guys! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_tolls_tolls_4">
+		<text>The kid's getting shafted! </text>
+	</string>
+	<string id="as_sub_characters_voice_human_bandit_3_fight_tolls_tolls_5">
+		<text>Shit, they're really killing us! </text>
+	</string>
+</string_table>
