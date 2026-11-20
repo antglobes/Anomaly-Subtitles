@@ -148,3 +148,4 @@
 - v0.13.5 Merge bandit_1 sub-folders files into one file
 - v0.13.6 Merge bandit_2 sub-folders files into one file
 - v0.13.7 Merge bandit_3 sub-folders files into one file
+- v0.13.8 Merge bandit_4 sub-folders files into one file
